@@ -33,6 +33,7 @@ public class MedAccueil extends javax.swing.JFrame {
         jLabelPrenom = new javax.swing.JLabel();
         jButtonDeconnexion = new javax.swing.JButton();
         jButtonAccueil = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,7 +74,7 @@ public class MedAccueil extends javax.swing.JFrame {
                     .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Sa)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(209, Short.MAX_VALUE))))
         );
         JPanelEnTeteSaLayout.setVerticalGroup(
             JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,6 +91,13 @@ public class MedAccueil extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton1.setText("Consulter DM");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,13 +106,19 @@ public class MedAccueil extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(JPanelEnTeteSa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(310, 310, 310))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(JPanelEnTeteSa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(350, Short.MAX_VALUE))
+                .addGap(97, 97, 97)
+                .addComponent(jButton1)
+                .addContainerGap(164, Short.MAX_VALUE))
         );
 
         pack();
@@ -115,6 +129,10 @@ public class MedAccueil extends javax.swing.JFrame {
         id.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonAccueilActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,6 +172,7 @@ public class MedAccueil extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelEnTeteSa;
     private javax.swing.JLabel Sa;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JLabel jLabelNom;
