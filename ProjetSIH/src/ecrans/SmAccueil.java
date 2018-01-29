@@ -5,19 +5,17 @@
  */
 package ecrans;
 
-
 /**
  *
  * @author romel
  */
-public class SaAccueil extends javax.swing.JFrame {
+public class SmAccueil extends javax.swing.JFrame {
 
     /**
-     * Creates new form SaAccueil
+     * Creates new form SmAccueil
      */
-    public SaAccueil() {
+    public SmAccueil() {
         initComponents();
-
     }
 
     /**
@@ -29,23 +27,23 @@ public class SaAccueil extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JPanelEnTeteSa = new javax.swing.JPanel();
-        Sa = new javax.swing.JLabel();
+        JPanelEnTeteSm = new javax.swing.JPanel();
+        jLabelSm = new javax.swing.JLabel();
         jLabelNom = new javax.swing.JLabel();
         jLabelPrenom = new javax.swing.JLabel();
         jButtonDeconnexion = new javax.swing.JButton();
         jButtonAccueil = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jButtonConsulterDMA = new javax.swing.JButton();
-        jButtonCreeDMA = new javax.swing.JButton();
-        jButtonTransfereDMA = new javax.swing.JButton();
+        jButtonConsulterDM = new javax.swing.JButton();
+        jButtonCreeDM = new javax.swing.JButton();
+        jButtonTransfereDM = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        JPanelEnTeteSa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        JPanelEnTeteSm.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        Sa.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Sa.setText("Secrétaire Adminstrative");
+        jLabelSm.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelSm.setText("Secrétaire Médicale");
 
         jLabelNom.setText("Nom");
 
@@ -60,35 +58,35 @@ public class SaAccueil extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout JPanelEnTeteSaLayout = new javax.swing.GroupLayout(JPanelEnTeteSa);
-        JPanelEnTeteSa.setLayout(JPanelEnTeteSaLayout);
-        JPanelEnTeteSaLayout.setHorizontalGroup(
-            JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
+        javax.swing.GroupLayout JPanelEnTeteSmLayout = new javax.swing.GroupLayout(JPanelEnTeteSm);
+        JPanelEnTeteSm.setLayout(JPanelEnTeteSmLayout);
+        JPanelEnTeteSmLayout.setHorizontalGroup(
+            JPanelEnTeteSmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelEnTeteSmLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(93, 93, 93)
-                .addGroup(JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
+                .addGroup(JPanelEnTeteSmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanelEnTeteSmLayout.createSequentialGroup()
                         .addComponent(jLabelNom)
                         .addGap(143, 143, 143)
-                        .addComponent(Sa))
+                        .addComponent(jLabelSm))
                     .addComponent(jLabelPrenom))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
                 .addComponent(jButtonDeconnexion)
                 .addGap(8, 8, 8))
         );
-        JPanelEnTeteSaLayout.setVerticalGroup(
-            JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
-                .addGroup(JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
+        JPanelEnTeteSmLayout.setVerticalGroup(
+            JPanelEnTeteSmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanelEnTeteSmLayout.createSequentialGroup()
+                .addGroup(JPanelEnTeteSmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanelEnTeteSmLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabelNom))
-                    .addGroup(JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
+                    .addGroup(JPanelEnTeteSmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(JPanelEnTeteSmLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(Sa, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelSm, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabelPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -98,88 +96,82 @@ public class SaAccueil extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButtonConsulterDMA.setText("Consulter DMA");
-        jButtonConsulterDMA.addActionListener(new java.awt.event.ActionListener() {
+        jButtonConsulterDM.setText("Consulter DM");
+        jButtonConsulterDM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonConsulterDMAActionPerformed(evt);
+                jButtonConsulterDMActionPerformed(evt);
             }
         });
 
-        jButtonCreeDMA.setText("Crée DMA");
-        jButtonCreeDMA.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCreeDM.setText("Crée DM");
+        jButtonCreeDM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCreeDMAActionPerformed(evt);
+                jButtonCreeDMActionPerformed(evt);
             }
         });
 
-        jButtonTransfereDMA.setText("Transférer DMA");
+        jButtonTransfereDM.setText("Transférer DM");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(229, 229, 229)
+                .addGap(157, 157, 157)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCreeDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonTransfereDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonTransfereDM, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCreeDM, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonConsulterDMA, jButtonCreeDMA, jButtonTransfereDMA});
-
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jButtonConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(jButtonCreeDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(jButtonTransfereDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addGap(79, 79, 79)
+                .addComponent(jButtonConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jButtonCreeDM, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jButtonTransfereDM, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(118, Short.MAX_VALUE))
         );
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonConsulterDMA, jButtonCreeDMA, jButtonTransfereDMA});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(JPanelEnTeteSa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(JPanelEnTeteSm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(JPanelEnTeteSa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(JPanelEnTeteSm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 58, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulterDMAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonConsulterDMAActionPerformed
-
-    private void jButtonCreeDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreeDMAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonCreeDMAActionPerformed
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
         Identification id = new Identification();
         id.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonAccueilActionPerformed
+
+    private void jButtonConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulterDMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonConsulterDMActionPerformed
+
+    private void jButtonCreeDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreeDMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCreeDMActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,13 +190,13 @@ public class SaAccueil extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SaAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SmAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SaAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SmAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SaAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SmAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SaAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SmAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -220,17 +212,16 @@ public class SaAccueil extends javax.swing.JFrame {
         });
     }
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel JPanelEnTeteSa;
-    private javax.swing.JLabel Sa;
+    private javax.swing.JPanel JPanelEnTeteSm;
     private javax.swing.JButton jButtonAccueil;
-    private javax.swing.JButton jButtonConsulterDMA;
-    private javax.swing.JButton jButtonCreeDMA;
+    private javax.swing.JButton jButtonConsulterDM;
+    private javax.swing.JButton jButtonCreeDM;
     private javax.swing.JButton jButtonDeconnexion;
-    private javax.swing.JButton jButtonTransfereDMA;
+    private javax.swing.JButton jButtonTransfereDM;
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JLabel jLabelPrenom;
+    private javax.swing.JLabel jLabelSm;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

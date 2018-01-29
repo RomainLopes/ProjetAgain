@@ -8,9 +8,6 @@ public class SAdm extends PersHospitalier {
   public void creerDMA() {
   }
 
-  public void chercherDMA() {
-  }
-
   public void transfererDMA() {
   }
 
