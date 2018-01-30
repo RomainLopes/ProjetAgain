@@ -105,7 +105,7 @@ public class SaAccueil extends javax.swing.JFrame {
             }
         });
 
-        jButtonCreeDMA.setText("Crée DMA");
+        jButtonCreeDMA.setText("Créer DMA");
         jButtonCreeDMA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCreeDMAActionPerformed(evt);
