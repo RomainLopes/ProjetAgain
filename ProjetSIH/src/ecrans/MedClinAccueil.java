@@ -28,7 +28,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
     private void initComponents() {
 
         JPanelEnTeteMedTech = new javax.swing.JPanel();
-        Sa = new javax.swing.JLabel();
+        jLabelFonction = new javax.swing.JLabel();
         jLabelNom = new javax.swing.JLabel();
         jLabelPrenom = new javax.swing.JLabel();
         jButtonDeconnexion = new javax.swing.JButton();
@@ -44,8 +44,8 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
         JPanelEnTeteMedTech.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        Sa.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Sa.setText("Médecin clinique");
+        jLabelFonction.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelFonction.setText("Médecin clinique");
 
         jLabelNom.setText("Nom");
 
@@ -74,7 +74,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
                     .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
                         .addComponent(jLabelNom)
                         .addGap(104, 104, 104)
-                        .addComponent(Sa))
+                        .addComponent(jLabelFonction))
                     .addComponent(jLabelPrenom))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
                 .addComponent(jLabelService)
@@ -95,7 +95,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
                     .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(Sa, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelFonction, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabelPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -228,13 +228,13 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelEnTeteMedTech;
-    private javax.swing.JLabel Sa;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonConsulterDM;
     private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JButton jButtonDemanderResultats;
     private javax.swing.JButton jButtonLettreSortie;
     private javax.swing.JButton jButtonPrescrire;
+    private javax.swing.JLabel jLabelFonction;
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JLabel jLabelPrenom;
     private javax.swing.JLabel jLabelService;
