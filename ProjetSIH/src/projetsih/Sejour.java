@@ -5,18 +5,37 @@ import java.util.Date;
 
 public class Sejour {
 
-  public int numSejour;
+  private int numSejour; // définir le pattern comme il faut 
 
-  public Date date;
+  private Date date;
 
-  public PHSc pHRespo;
+  private PHSc pHRespo;
 
-  public String lettreSortie;
+  private String lettreSortie;
 
       /**
    * 
    * @element-type Prestation
    */
-  public Vector  myPrestation;
+  public Vector <Acte>  myPrestation;
+  
+  public Sejour (int numSejour, Date date, PHSc pHRespo){
+      this.date= date; 
+      lettreSortie= pHRespo.lettreDeSortie("");
+//récupéer le texte édité par le respo
+      this.numSejour= numSejour; 
+      this.pHRespo= pHRespo;
+     
+  }
 
+  public void ajouterPrestation(Prestation p){
+      myPrestation.add(p.getActe());
+  }
+  
+  public void formatSejour(){
+      String afficher="";
+      System.out.println("Séjour N°: " + " "+ numSejour);
+      System.out.println("Date: " + date);
+      System.out.println("Médecin responsable: " + pHRespo.getNom()+" "+ pHRespo.getPrenom());
+  }
 }

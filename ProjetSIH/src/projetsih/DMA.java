@@ -8,12 +8,24 @@ public class DMA {
    * 
    * @element-type Sejour
    */
-  public Vector  mySejour;
+  private Vector  mySejour;
 
   public void consulterDMA() {
+      
   }
 
   public void trierDMA() {
+      
   }
+  
+public void addSejour( Sejour newSejour){
+        getMySejour().add(newSejour);
+}
 
+    /**
+     * @return the mySejour
+     */
+    public Vector getMySejour() {
+        return mySejour;
+    }
 }

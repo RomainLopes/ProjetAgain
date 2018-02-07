@@ -4,16 +4,24 @@ import java.util.Date;
 
 public class Prestation {
 
-  public Service service;
+  private Service service;
 
-  public String nom;
+  private String nomPH;
 
-  public Date date;
+  private Date date;
 
-  public Acte acte;
+  private Acte acte;
+  
+  public Prestation(Service service, String nom, Date date, Acte acte ){
+      this.acte= acte;
+      this.date= date;
+      this.nomPH= nom; 
+      this.service= service;
+  }
 
   
-  public void lireService() {
+ /** ont été remplacé par les getters 
+  * public void lireService() {
   }
 
   public void lireNom() {
@@ -21,5 +29,33 @@ public class Prestation {
 
   public void lireActe() {
   }
+
+    /**
+     * @return the service
+     */
+    public Service getService() {
+        return service;
+    }
+
+    /**
+     * @return the nom
+     */
+    public String getNomph() {
+        return nomPH;
+    }
+
+    /**
+     * @return the date
+     */
+    public Date getDate() {
+        return date;
+    }
+
+    /**
+     * @return the acte
+     */
+    public Acte getActe() {
+        return acte;
+    }
 
 }

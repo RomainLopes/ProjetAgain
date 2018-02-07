@@ -33,6 +33,7 @@ public class Identification extends javax.swing.JFrame {
         jTextFieldMdp = new javax.swing.JTextField();
         jLabelIdentifiant = new javax.swing.JLabel();
         jLabelMdp = new javax.swing.JLabel();
+        jButtonValider = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +69,13 @@ public class Identification extends javax.swing.JFrame {
 
         jLabelMdp.setText("Mot de passe :");
 
+        jButtonValider.setText("Valider");
+        jButtonValider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonValiderActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,6 +93,10 @@ public class Identification extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jTextFieldMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(266, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(319, 319, 319)
+                .addComponent(jButtonValider)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,7 +110,9 @@ public class Identification extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelMdp))
-                .addGap(0, 223, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(jButtonValider)
+                .addGap(0, 147, Short.MAX_VALUE))
         );
 
         pack();
@@ -107,6 +121,10 @@ public class Identification extends javax.swing.JFrame {
     private void jTextFieldIdentifiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdentifiantActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldIdentifiantActionPerformed
+
+    private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonValiderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,6 +163,7 @@ public class Identification extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonValider;
     private javax.swing.JLabel jLabelIdentifiant;
     private javax.swing.JLabel jLabelMdp;
     private javax.swing.JLabel jLabelTitle;

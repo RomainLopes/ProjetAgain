@@ -4,9 +4,30 @@ import java.util.Vector;
 
 public class DM {
 
-  public Service service;
+    /**
+     * @return the service
+     */
+    public Service getService() {
+        return service;
+    }
 
-  public String resultats;
+    /**
+     * @return the resultats
+     */
+    public String getResultats() {
+        return resultats;
+    }
+
+    /**
+     * @return the observations
+     */
+    public Vector getObservations() {
+        return observations;
+    }
+
+  private Service service;
+
+  private String resultats;
 
       /**
    * 

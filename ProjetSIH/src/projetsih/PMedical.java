@@ -1,14 +1,21 @@
 package projetsih;
 
-import java.util.Enumeration;
+import java.util.Enumeration; 
+import projetsih.DM;
 
 public class PMedical extends PersHospitalier {
 
-  public Enumeration fonction;
+  public Enumeration fonction; // toutes les énum récupérer les infos dans la bdd
 
   public Enumeration service;
 
+    public PMedical(String nom, String prenom, String id, String mdp) {
+        super(nom, prenom, id, mdp);
+    }
+  
+    
   public void consulterDM() {
+     
   }
 
 }

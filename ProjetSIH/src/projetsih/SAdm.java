@@ -2,13 +2,18 @@ package projetsih;
 
 public class SAdm extends PersHospitalier {
 
-  public void consulterDMA() {
-  }
+    public SAdm(String nom, String prenom, String id, String mdp){
+    super(nom,prenom,id,mdp);
+    }
 
-  public void creerDMA() {
-  }
+    public void consulterDMA() {
+        
+    }
 
-  public void transfererDMA() {
-  }
+    public void creerDMA() {
+    }
+
+    public void transfererDMA() {
+    }
 
 }
