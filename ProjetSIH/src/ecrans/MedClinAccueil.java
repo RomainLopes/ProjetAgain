@@ -39,7 +39,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
         jButtonPrescrire = new javax.swing.JButton();
         jButtonDemanderResultats = new javax.swing.JButton();
         jButtonLettreSortie = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButtonConsulterDMA = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,10 +123,10 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
         jButtonLettreSortie.setText("Ecrire lettre de sortie");
 
-        jButton1.setText("Consulter DM");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonConsulterDMA.setText("Consulter DMA");
+        jButtonConsulterDMA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonConsulterDMAActionPerformed(evt);
             }
         });
 
@@ -146,7 +146,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButtonLettreSortie, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jButtonConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -160,9 +160,9 @@ public class MedClinAccueil extends javax.swing.JFrame {
                 .addComponent(jButtonDemanderResultats, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonLettreSortie, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jButtonConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -203,9 +203,9 @@ public class MedClinAccueil extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonDemanderResultatsActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulterDMAActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonConsulterDMAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,9 +244,9 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelEnTeteMedTech;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonConsulterDM;
+    private javax.swing.JButton jButtonConsulterDMA;
     private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JButton jButtonDemanderResultats;
     private javax.swing.JButton jButtonLettreSortie;
