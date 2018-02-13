@@ -5,6 +5,7 @@
  */
 package projetsih;
 
+import java.util.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -23,26 +24,17 @@ public static void main(String[] args) {
 			String passwd = "postgres";
 			
 			Connection conn = DriverManager.getConnection(url, user, passwd);
-			Statement state = conn.createStatement();
+			Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			
-			ResultSet result = state.executeQuery("SELECT * FROM patients");
-			ResultSetMetaData resultMeta = result.getMetaData();
-			
-			System.out.println("- Il y a " + resultMeta.getColumnCount() + " colonnes dans cette table");
-			for(int i = 1; i <= resultMeta.getColumnCount(); i++)
-				System.out.println("\t *" + resultMeta.getColumnName(i));
-			
-
-			System.out.println("Voici les noms et prénoms : ");
-			System.out.println("\n---------------------------------");
-			
-			while(result.next()){
-				System.out.print("\t" + result.getString("prof_nom") + "\t |");
-				System.out.print("\t" + result.getString("prof_prenom") + "\t |");
-				System.out.println("\n---------------------------------");
-				
-			}
-
+			ResultSet result = state.executeQuery("SELECT * FROM patients ");
+			ArrayList<String> listeprenom = new ArrayList<String>() ;
+                        System.out.println(" \t \n");
+                        while (result.next()){
+			listeprenom.add( result.getString("nomPatient"));
+                            System.out.println("NOM : " + result.getString("IPP") + " - PRENOM : " + result.getString("nomPatient"));
+                        }
+                        System.out.println(" passé ");
+                        System.out.println(listeprenom);
                         result.close();
                         state.close();
 			
