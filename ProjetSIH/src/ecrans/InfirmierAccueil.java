@@ -64,9 +64,9 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         jLabelFonction.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelFonction.setText("Infirmier");
 
-        jLabelNom.setText("Nom");
+        jLabelNom.setText("Pichet");
 
-        jLabelPrenom.setText("Prénom");
+        jLabelPrenom.setText("Jeanne");
 
         jButtonDeconnexion.setText("Déconnexion");
 
@@ -77,7 +77,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
             }
         });
 
-        jLabelService.setText("Service");
+        jLabelService.setText("Gériatrie");
 
         javax.swing.GroupLayout JPanelEnTeteMedTechLayout = new javax.swing.GroupLayout(JPanelEnTeteMedTech);
         JPanelEnTeteMedTech.setLayout(JPanelEnTeteMedTechLayout);
@@ -93,7 +93,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
                         .addGap(153, 153, 153)
                         .addComponent(jLabelFonction))
                     .addComponent(jLabelPrenom))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
                 .addComponent(jLabelService)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonDeconnexion)
@@ -136,17 +136,17 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
         jLabel2Nom.setText("Nom : ");
 
-        jLabel3NomPatient.setText("jLabel3");
+        jLabel3NomPatient.setText("Christie");
 
-        jLabel4PrenomPatient.setText("jLabel4");
+        jLabel4PrenomPatient.setText("Laurence");
 
         jLabel2Sexe.setText("Sexe :");
 
         jLabel2DateDeNaissance.setText("Date de Naissance : ");
 
-        jLabelSexePatient.setText("jLabel");
+        jLabelSexePatient.setText("Féminin");
 
-        jLabel2dateDeNAissancePatient.setText("Jlabel");
+        jLabel2dateDeNAissancePatient.setText("29/12/1938");
 
         jLabel1InfoPatients.setText("Informations du patient ");
 
@@ -177,8 +177,8 @@ public class InfirmierAccueil extends javax.swing.JFrame {
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addComponent(jLabel2DateDeNaissance)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel2dateDeNAissancePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(427, Short.MAX_VALUE))
+                                .addComponent(jLabel2dateDeNAissancePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(391, Short.MAX_VALUE))
         );
         jPanel3InfoPatientLayout.setVerticalGroup(
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

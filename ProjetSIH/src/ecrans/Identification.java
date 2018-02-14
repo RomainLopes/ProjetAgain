@@ -141,13 +141,13 @@ public class Identification extends javax.swing.JFrame {
         } else{
            if(rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())){ // récupérer new code
                
-               InfirmierAccueil accueilInf = new InfirmierAccueil();
+               RechercherPatient rechercher = new RechercherPatient();
 
-                accueilInf.setSize(this.getSize());
-                accueilInf.setLocationRelativeTo(this);
+                rechercher.setSize(this.getSize());
+                rechercher.setLocationRelativeTo(this);
 
                 this.dispose();
-                accueilInf.setVisible(true);
+                rechercher.setVisible(true);
            }
        }
         //rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());

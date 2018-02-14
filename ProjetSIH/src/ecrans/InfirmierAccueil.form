@@ -96,7 +96,7 @@
                       </Group>
                       <Component id="jLabelPrenom" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="210" max="32767" attributes="0"/>
+                  <EmptySpace pref="196" max="32767" attributes="0"/>
                   <Component id="jLabelService" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jButtonDeconnexion" min="-2" max="-2" attributes="0"/>
@@ -142,12 +142,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelNom">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nom"/>
+            <Property name="text" type="java.lang.String" value="Pichet"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPrenom">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
+            <Property name="text" type="java.lang.String" value="Jeanne"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonDeconnexion">
@@ -165,7 +165,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelService">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Service"/>
+            <Property name="text" type="java.lang.String" value="G&#xe9;riatrie"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -224,12 +224,12 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel2DateDeNaissance" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jLabel2dateDeNAissancePatient" min="-2" pref="43" max="-2" attributes="0"/>
+                                  <Component id="jLabel2dateDeNAissancePatient" min="-2" pref="69" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="427" max="32767" attributes="0"/>
+                  <EmptySpace pref="391" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -268,12 +268,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3NomPatient">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel3"/>
+            <Property name="text" type="java.lang.String" value="Christie"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4PrenomPatient">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel4"/>
+            <Property name="text" type="java.lang.String" value="Laurence"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2Sexe">
@@ -288,12 +288,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelSexePatient">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel"/>
+            <Property name="text" type="java.lang.String" value="F&#xe9;minin"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2dateDeNAissancePatient">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Jlabel"/>
+            <Property name="text" type="java.lang.String" value="29/12/1938"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1InfoPatients">
