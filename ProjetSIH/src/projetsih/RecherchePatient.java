@@ -14,6 +14,37 @@ import java.sql.*;
  */
 public class RecherchePatient {
 
+    public void Connex (String id, String mdp){
+        String QueryId = new String();
+        QueryId = "SELECT * FROM PersonnelMedical WHERE PersonnelMedical.id = '" + id + "'";
+        
+        Boolean test = new Boolean("false");
+        
+        try {
+        Class.forName("org.postgresql.Driver");
+			
+			String url = "jdbc:postgresql://localhost:5432/projetSIH";
+			String user = "postgres";
+			String passwd = "postgres";
+        Connection conn = DriverManager.getConnection(url, user, passwd);
+        Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        ResultSet result = state.executeQuery(QueryId);
+        
+        if (result.first()){
+            test = result.getString("id")== id && result.getString("mdp") == mdp;
+            
+            
+            
+           // A FINIIIIRRRR.
+        }
+        
+        } catch (Exception e) {
+			e.printStackTrace();
+		}
+        return informations;
+    }
+    
+    
     public String  recherchePatientPrenom (String prenom){
         String informations = new String("pas de patient à ce prénom");
         String Query = new String();
@@ -30,7 +61,7 @@ public class RecherchePatient {
         ResultSet result = state.executeQuery(Query);
         
         while (result.next()){
-                            informations = "NOM : " + result.getString("nompatient") + " - PRENOM : " + result.getString("penomPatient");
+                            informations = "NOM : " + result.getString("nompatient") + " - PRENOM : " + result.getString("penomPatient") + " - LOCALISATION : " + result.getString("localisation") + " - ADRESSE : " + result.getString("adresse") ;
                         }
         return informations;
         
@@ -56,7 +87,7 @@ public class RecherchePatient {
         ResultSet result = state.executeQuery(Query);
         
         while (result.next()){
-                            informations = "NOM : " + result.getString("nompatient") + " - PRENOM : " + result.getString("penomPatient");
+                            informations = "NOM : " + result.getString("nompatient") + " - PRENOM : " + result.getString("penomPatient") + " - LOCALISATION : " + result.getString("localisation") + " - ADRESSE : " + result.getString("adresse") ;
                         }
         return informations;
         
