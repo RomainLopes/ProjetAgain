@@ -9,8 +9,6 @@ package projetsih;
  *
  * @author vodou
  */
-class Service { // énum dans la bd 
-    private String type;
-    private String nom; // en ennum ca fait genre ('non', 'type')
+class Fonction { // recopier ici l'ennum de la bd
     
 }

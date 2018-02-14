@@ -2,7 +2,7 @@ package projetsih;
 
 public class Observation {
 
-  public int nomActe;
+  public Acte nomActe;
 
   public Service service;
 

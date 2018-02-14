@@ -6,6 +6,10 @@
 package ecrans;
 import projetsih.RecherchePatient;
 
+import java.awt.Dimension;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author romel
@@ -17,6 +21,12 @@ public class Identification extends javax.swing.JFrame {
      */
     public Identification() {
         initComponents();
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        //this.setPreferredSize(new Dimension(639, 473));
+        //this.setResizable(false);
+
+        pack();
+        setVisible(true);
     }
 
     /**
@@ -125,7 +135,22 @@ public class Identification extends javax.swing.JFrame {
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
        RecherchePatient rp = new RecherchePatient();    
-        rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
+       
+       if (jTextFieldIdentifiant.getText()==null&& jTextFieldMdp.getText() == null) {
+            JOptionPane.showMessageDialog(null, "Identifiant et/ou Mot de passe incorrect");
+        } else{
+           /*if(rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())==1){ // récupérer new code
+               
+               InfirmierAccueil accueilInf = new InfirmierAccueil();
+
+                accueilInf.setSize(this.getSize());
+                accueilInf.setLocationRelativeTo(this);
+
+                this.dispose();
+                accueilInf.setVisible(true);
+           }*/
+       }
+        //rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
     /**
@@ -174,3 +199,13 @@ public class Identification extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldMdp;
     // End of variables declaration//GEN-END:variables
 }
+
+ /*if(jTextFieldIdentifiant.getText()=="" && jTextFieldMdp.getText() == ""){// bien prendre les bonnes valeurs  pour la sadmin
+                 MedAnestAccueil accueilAnest = new MedAnestAccueil();
+
+                accueilAnest.setSize(this.getSize());
+                accueilAnest.setLocationRelativeTo(this);
+
+                this.dispose();
+                accueilAnest.setVisible(true);
+            }*/
