@@ -5,6 +5,13 @@
  */
 package ecrans;
 
+import java.awt.GridLayout;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+
 /**
  *
  * @author romel
@@ -16,6 +23,17 @@ public class InfirmierAccueil extends javax.swing.JFrame {
      */
     public InfirmierAccueil() {
         initComponents();
+        // JPanel panEvent = new JPanel(); //Panel où on place tous les événements
+        JScrollPane scroll = new JScrollPane(jScrollPane1ListeOperations, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scroll.setBounds(0, 0, 930, 610);
+
+  
+        jScrollPane1ListeOperations.setLayout(new GridLayout(50, 1));
+        for (int i = 0; i < 50; i++) {
+           
+            jScrollPane1ListeOperations.setToolTipText("25/01/2017    Pose de cathéter");
+        
+        }
     }
 
     /**
