@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package ecrans;
+import projetsih.RecherchePatient;
 
 /**
  *
@@ -123,7 +124,8 @@ public class Identification extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldIdentifiantActionPerformed
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
-        // TODO add your handling code here:
+       RecherchePatient rp = new RecherchePatient();    
+        rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
     /**

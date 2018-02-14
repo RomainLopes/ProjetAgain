@@ -5,8 +5,12 @@
  */
 package projetsih;
 
+import ecrans.InfirmierAccueil;
+import ecrans.RechercherPatient;
+import ecrans.essaiEncore;
 import java.util.*;
 import java.sql.*;
+
 
 /**
  *
@@ -14,13 +18,22 @@ import java.sql.*;
  */
 public class RecherchePatient {
 
-    public void Connex (String id, String mdp){
+    public void connex (String id, String mdp){
         String QueryId = new String();
-        QueryId = "SELECT * FROM PersonnelMedical WHERE PersonnelMedical.id = '" + id + "'";
+        QueryId = "SELECT * FROM PersonnelMedical WHERE PersonnelMedical.id = 'nommed'"; //WHERE PersonnelMedical.id = 'in0003'
+
+        
+        System.out.println(QueryId);
+        
         
         Boolean test = new Boolean("false");
         
         try {
+            
+            
+            System.out.println("av connexion");
+           
+            
         Class.forName("org.postgresql.Driver");
 			
 			String url = "jdbc:postgresql://localhost:5432/projetSIH";
@@ -30,18 +43,34 @@ public class RecherchePatient {
         Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         ResultSet result = state.executeQuery(QueryId);
         
-        if (result.first()){
-            test = result.getString("id")== id && result.getString("mdp") == mdp;
-            
-            
-            
-           // A FINIIIIRRRR.
+        
+        System.out.println("apres connexion");
+        
+        
+         while ( result.next()){
+             System.out.println("result.next  ok");
+            while ( (result.getString("id") != id) && (result.getString("mdp") != mdp)){
+                System.out.println(result.getString("id")  + result.getString("mdp") );
+             System.out.println("roulement id mdp");
+             if (result.next()){
+             }
+             else {
+                    essaiEncore ecran = new essaiEncore();
+                 ecran.setVisible(true);
+                 //this.dispose();
+             }
+          }
+        }
+            System.out.println("pas à ce nom");
+        if (result.next() && result.getString("fonction") == "Gériatrie" ){
+            RechercherPatient ecran = new RechercherPatient();
+            ecran.setVisible(true);
+                //this.dispose();
         }
         
         } catch (Exception e) {
 			e.printStackTrace();
 		}
-        return informations;
     }
     
     
@@ -60,10 +89,12 @@ public class RecherchePatient {
         Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         ResultSet result = state.executeQuery(Query);
         
-        while (result.next()){
+        while(result.next()){
                             informations = "NOM : " + result.getString("nompatient") + " - PRENOM : " + result.getString("penomPatient") + " - LOCALISATION : " + result.getString("localisation") + " - ADRESSE : " + result.getString("adresse") ;
                         }
+
         return informations;
+        
         
         } catch (Exception e) {
 			e.printStackTrace();
