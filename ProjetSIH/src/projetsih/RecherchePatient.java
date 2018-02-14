@@ -18,21 +18,21 @@ import java.sql.*;
  */
 public class RecherchePatient {
 
-    public void connex (String id, String mdp){
+    public boolean connex (String id, String mdp){
         String QueryId = new String();
-        QueryId = "SELECT * FROM PersonnelMedical WHERE PersonnelMedical.id = 'nommed'"; //WHERE PersonnelMedical.id = 'in0003'
+        QueryId = "SELECT * FROM personnelmedical WHERE personnelmedical.id = '" + id + "'"; //WHERE personnelmedical.id = 'Pichet '
 
-        
+        /*
         System.out.println(QueryId);
-        
+        */
         
         Boolean test = new Boolean("false");
         
         try {
             
-            
+            /*
             System.out.println("av connexion");
-           
+           */
             
         Class.forName("org.postgresql.Driver");
 			
@@ -43,34 +43,38 @@ public class RecherchePatient {
         Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         ResultSet result = state.executeQuery(QueryId);
         
-        
+        /*
         System.out.println("apres connexion");
-        
-        
+        /*
+        if (result.next()){
+            System.out.println("y a au moins un résultat");
+        } 
+       */
          while ( result.next()){
+             /*
              System.out.println("result.next  ok");
+             */
             while ( (result.getString("id") != id) && (result.getString("mdp") != mdp)){
+                /*
                 System.out.println(result.getString("id")  + result.getString("mdp") );
              System.out.println("roulement id mdp");
-             if (result.next()){
-             }
-             else {
-                    essaiEncore ecran = new essaiEncore();
-                 ecran.setVisible(true);
-                 //this.dispose();
-             }
+                */
+             return true;
+             
           }
         }
+         /*
             System.out.println("pas à ce nom");
-        if (result.next() && result.getString("fonction") == "Gériatrie" ){
+        if (result.first() && result.getString("fonction") == "Gériatrie" ){
             RechercherPatient ecran = new RechercherPatient();
             ecran.setVisible(true);
                 //this.dispose();
         }
-        
+        */
         } catch (Exception e) {
 			e.printStackTrace();
 		}
+        return false;
     }
     
     

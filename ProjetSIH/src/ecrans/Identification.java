@@ -139,7 +139,7 @@ public class Identification extends javax.swing.JFrame {
        if (jTextFieldIdentifiant.getText()==null&& jTextFieldMdp.getText() == null) {
             JOptionPane.showMessageDialog(null, "Identifiant et/ou Mot de passe incorrect");
         } else{
-           /*if(rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())==1){ // récupérer new code
+           if(rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())){ // récupérer new code
                
                InfirmierAccueil accueilInf = new InfirmierAccueil();
 
@@ -148,7 +148,7 @@ public class Identification extends javax.swing.JFrame {
 
                 this.dispose();
                 accueilInf.setVisible(true);
-           }*/
+           }
        }
         //rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
     }//GEN-LAST:event_jButtonValiderActionPerformed
