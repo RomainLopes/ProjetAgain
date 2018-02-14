@@ -8,6 +8,7 @@ package ecrans;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -24,18 +25,13 @@ public class InfirmierAccueil extends javax.swing.JFrame {
      */
     public InfirmierAccueil() {
         initComponents();
-        // JPanel panEvent = new JPanel(); //Panel où on place tous les événements
-        JScrollPane scroll = new JScrollPane(jScrollPane1ListeOperations, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scroll.setBounds(0, 0, 930, 610);
 
-  
-        jScrollPane1ListeOperations.setLayout(new GridLayout(50, 1));
-        for (int i = 0; i < 50; i++) {
-           
-            jScrollPane1ListeOperations.add(new JButton("25/01/2017    Pose de cathéter"));
-            //jScrollPane1ListeOperations.add(new JTextField("25/01/2017    Pose de cathéter"));
-        
-        }
+        jPanelOperations.setLayout(new GridLayout(50, 1));
+
+        jPanelOperations.add(new JLabel("25/01/2017    Pose de cathéter"));
+        jPanel1Observations.setLayout(new GridLayout(50, 1));
+        jPanel1Observations.add(new JLabel("L'opération s'est bien déroulée."));
+
     }
 
     /**
@@ -230,6 +226,11 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         });
 
         consulterObservation.setText("Consulter Observations");
+        consulterObservation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consulterObservationActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -316,10 +317,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         jPanelOperations.setLayout(jPanelOperationsLayout);
         jPanelOperationsLayout.setHorizontalGroup(
             jPanelOperationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOperationsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1ListeOperations, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1ListeOperations, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
             .addGroup(jPanelOperationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelOperationsLayout.createSequentialGroup()
                     .addContainerGap()
@@ -396,6 +394,13 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ajouterPrescription1ActionPerformed
 
+    private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
+        // TODO add your handling code here:
+         jPanel1Observations.setLayout(new GridLayout(50, 1));
+        jPanel1Observations.add(new JLabel("L'opération s'est bien déroulée. Cependant, le patiant présente des signes d'infection de la peau."));
+
+    }//GEN-LAST:event_consulterObservationActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -410,16 +415,24 @@ public class InfirmierAccueil extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InfirmierAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InfirmierAccueil.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InfirmierAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InfirmierAccueil.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InfirmierAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InfirmierAccueil.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InfirmierAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InfirmierAccueil.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
