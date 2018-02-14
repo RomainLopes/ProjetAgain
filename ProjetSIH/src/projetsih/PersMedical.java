@@ -8,11 +8,11 @@ public class PersMedical extends Personnes {
   private String mdp;
   private Fonction fonction;
 
-  private Services service;
+  private Service service;
   
   
   
-  public PersMedical(String nom, String prenom, String id, String mdp, Services service, Fonction fonction){
+  public PersMedical(String nom, String prenom, String id, String mdp, Service service, Fonction fonction){
       super(nom,prenom);
       this.id= id;
       this.mdp=mdp;
@@ -58,7 +58,7 @@ public class PersMedical extends Personnes {
     /**
      * @return the service
      */
-    public Services getService() {
+    public Service getService() {
         return service;
     }
 }
