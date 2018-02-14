@@ -7,6 +7,7 @@ package ecrans;
 import projetsih.RecherchePatient;
 
 import java.awt.Dimension;
+import javax.swing.DefaultListModel;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JOptionPane;
 
@@ -141,6 +142,11 @@ public class Identification extends javax.swing.JFrame {
         } else{
            if(rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())){ // récupérer new code
                
+                       DefaultListModel modele = new DefaultListModel();
+        for (String i: rp.douille()){
+            modele.addElement(i);
+        }
+        
                RechercherPatient rechercher = new RechercherPatient();
 
                 rechercher.setSize(this.getSize());
@@ -148,6 +154,7 @@ public class Identification extends javax.swing.JFrame {
 
                 this.dispose();
                 rechercher.setVisible(true);
+                rechercher.getJListpatients().setModel(modele);
            }
        }
         //rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());

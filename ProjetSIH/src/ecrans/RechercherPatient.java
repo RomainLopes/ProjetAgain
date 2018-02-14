@@ -19,7 +19,14 @@ public class RechercherPatient extends javax.swing.JFrame {
      * Creates new form RechercherPatient
      */
     public RechercherPatient() {
+        RecherchePatient rp = new RecherchePatient(); 
         initComponents();
+        DefaultListModel modele = new DefaultListModel();
+        for (String i: rp.douille()){
+            modele.addElement(i);
+        }
+        jListpatients.setModel(modele);
+        jListpatients.setVisible(true);
     }
 
     /**
@@ -215,11 +222,11 @@ public class RechercherPatient extends javax.swing.JFrame {
          //rp.recherchePatientPrenom (jTextFieldPrenom.getText() );
          // rp.douille();
   
-        DefaultListModel modele = new DefaultListModel();
+        /*DefaultListModel modele = new DefaultListModel();
         for (String i: rp.douille()){
             modele.addElement(i);
         }
-        jListpatients.setModel(modele);
+        jListpatients.setModel(modele);*/
        
           InfirmierAccueil rechercher = new InfirmierAccueil();
 
