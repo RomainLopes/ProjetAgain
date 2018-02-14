@@ -77,6 +77,44 @@ public class RecherchePatient {
         return false;
     }
     
+    public ArrayList<String> douille(){
+        try {
+			Class.forName("org.postgresql.Driver");
+			
+			String url = "jdbc:postgresql://localhost:5432/projetSIH";
+			String user = "postgres";
+			String passwd = "postgres";
+			
+			Connection conn = DriverManager.getConnection(url, user, passwd);
+			Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			
+			ResultSet result = state.executeQuery("SELECT * FROM patients ");
+                        
+                        ArrayList<String> l1 = new ArrayList<String>() ;
+                        
+                        
+                        System.out.println(" \t \n");
+                        while (result.next()){
+			l1.add( result.getString("nompatient") +"   -   " + result.getString("prenompatient") + "   -   " + result.getString("datedenaissance"));
+
+                        }
+                        /*
+                        System.out.println(" passé ");
+                        System.out.println(listeprenom);
+                        
+*/                      
+                        result.close();
+                        state.close();
+                        return (l1);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+                        ArrayList<String> l1 = new ArrayList<String>() ;
+                        return (l1);
+		}		
+	
+        }
+    
     
     public String  recherchePatientPrenom (String prenom){
         String informations = new String("pas de patient à ce prénom");
