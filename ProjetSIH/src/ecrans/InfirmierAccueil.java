@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
 /**
@@ -31,7 +32,8 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         jScrollPane1ListeOperations.setLayout(new GridLayout(50, 1));
         for (int i = 0; i < 50; i++) {
            
-            jScrollPane1ListeOperations.setToolTipText("25/01/2017    Pose de cathéter");
+            jScrollPane1ListeOperations.add(new JButton("25/01/2017    Pose de cathéter"));
+            //jScrollPane1ListeOperations.add(new JTextField("25/01/2017    Pose de cathéter"));
         
         }
     }
