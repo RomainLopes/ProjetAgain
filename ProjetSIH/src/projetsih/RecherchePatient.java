@@ -20,19 +20,17 @@ public class RecherchePatient {
 
     public boolean connex (String id, String mdp){
         String QueryId = new String();
-        QueryId = "SELECT * FROM personnelmedical WHERE personnelmedical.id = '" + id + "'"; //WHERE personnelmedical.id = 'Pichet '
+        QueryId = "SELECT * FROM personnelmedical "; // WHERE personnelmedical.id = '" + id + "'
 
-        /*
-        System.out.println(QueryId);
-        */
         
-        Boolean test = new Boolean("false");
+        System.out.println(QueryId);
+        
         
         try {
             
-            /*
+            
             System.out.println("av connexion");
-           */
+           
             
         Class.forName("org.postgresql.Driver");
 			
@@ -43,22 +41,22 @@ public class RecherchePatient {
         Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         ResultSet result = state.executeQuery(QueryId);
         
-        /*
+        
         System.out.println("apres connexion");
-        /*
+        
         if (result.next()){
             System.out.println("y a au moins un résultat");
         } 
-       */
+       
          while ( result.next()){
-             /*
-             System.out.println("result.next  ok");
-             */
-            while ( (result.getString("id") != id) && (result.getString("mdp") != mdp)){
-                /*
+             
+             System.out.println(result.getString("id")+result.getString("mdp"));
+             
+            while ( (result.getString("id") == id) && (result.getString("mdp") == mdp)){
+                
                 System.out.println(result.getString("id")  + result.getString("mdp") );
              System.out.println("roulement id mdp");
-                */
+                
              return true;
              
           }
@@ -91,7 +89,6 @@ public class RecherchePatient {
 			ResultSet result = state.executeQuery("SELECT * FROM patients ");
                         
                         ArrayList<String> l1 = new ArrayList<String>() ;
-                        
                         
                         System.out.println(" \t \n");
                         while (result.next()){

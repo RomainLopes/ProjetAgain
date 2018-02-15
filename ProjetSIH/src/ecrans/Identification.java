@@ -135,20 +135,22 @@ public class Identification extends javax.swing.JFrame {
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
        RecherchePatient rp = new RecherchePatient();    
-       
-       if (jTextFieldIdentifiant.getText()==null&& jTextFieldMdp.getText() == null) {
-            JOptionPane.showMessageDialog(null, "Identifiant et/ou Mot de passe incorrect");
+        
+       if (jTextFieldIdentifiant.getText().equals("") | jTextFieldMdp.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe non renseigné");
+
         } else{
            if(rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())){ // récupérer new code
                
-               
-               RechercherPatient rechercher = new RechercherPatient();
+                RechercherPatient rechercher = new RechercherPatient();
 
                 rechercher.setSize(this.getSize());
                 rechercher.setLocationRelativeTo(this);
-
                 this.dispose();
                 rechercher.setVisible(true);
+           }
+           else {
+               JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe incorrect");
            }
        }
         //rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
