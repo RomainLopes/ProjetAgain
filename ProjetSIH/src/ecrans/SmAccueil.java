@@ -33,6 +33,7 @@ public class SmAccueil extends javax.swing.JFrame {
         jLabelPrenom = new javax.swing.JLabel();
         jButtonDeconnexion = new javax.swing.JButton();
         jButtonAccueil = new javax.swing.JButton();
+        jLabelService = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButtonConsulterDM = new javax.swing.JButton();
         jButtonCreeDM = new javax.swing.JButton();
@@ -58,6 +59,8 @@ public class SmAccueil extends javax.swing.JFrame {
             }
         });
 
+        jLabelService.setText("Service");
+
         javax.swing.GroupLayout JPanelEnTeteSmLayout = new javax.swing.GroupLayout(JPanelEnTeteSm);
         JPanelEnTeteSm.setLayout(JPanelEnTeteSmLayout);
         JPanelEnTeteSmLayout.setHorizontalGroup(
@@ -71,8 +74,11 @@ public class SmAccueil extends javax.swing.JFrame {
                         .addComponent(jLabelNom)
                         .addGap(143, 143, 143)
                         .addComponent(jLabelSm))
-                    .addComponent(jLabelPrenom))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
+                    .addGroup(JPanelEnTeteSmLayout.createSequentialGroup()
+                        .addComponent(jLabelPrenom)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelService)))
+                .addGap(18, 18, 18)
                 .addComponent(jButtonDeconnexion)
                 .addGap(8, 8, 8))
         );
@@ -88,7 +94,11 @@ public class SmAccueil extends javax.swing.JFrame {
                             .addContainerGap()
                             .addComponent(jLabelSm, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(JPanelEnTeteSmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelPrenom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelEnTeteSmLayout.createSequentialGroup()
+                                    .addComponent(jLabelService)
+                                    .addGap(19, 19, 19))))
                         .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -103,7 +113,7 @@ public class SmAccueil extends javax.swing.JFrame {
             }
         });
 
-        jButtonCreeDM.setText("Crée DM");
+        jButtonCreeDM.setText("Créer DM");
         jButtonCreeDM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCreeDMActionPerformed(evt);
@@ -122,7 +132,7 @@ public class SmAccueil extends javax.swing.JFrame {
                     .addComponent(jButtonTransfereDM, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonCreeDM, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(204, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,6 +231,7 @@ public class SmAccueil extends javax.swing.JFrame {
     private javax.swing.JButton jButtonTransfereDM;
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JLabel jLabelPrenom;
+    private javax.swing.JLabel jLabelService;
     private javax.swing.JLabel jLabelSm;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
