@@ -6,7 +6,6 @@
 package projetsih;
 
 public class BDDsingleton {
-
 	/**
 	 * Le singleton
 	 */
@@ -21,7 +20,7 @@ public class BDDsingleton {
 	 */
 	private BDDsingleton(){
 		this.name = "Mon singleton";
-		System.out.println("\t\tCREATION DE L'INSTANCE ! ! !");
+		System.out.println("\n\t\tCREATION DE L'INSTANCE ! ! !");
 	}
 	
 	/**
@@ -29,11 +28,12 @@ public class BDDsingleton {
 	 * @return SdzSingleton
 	 */
 	public static BDDsingleton getInstance(){
-		if(single == null)
-		synchronized(BDDsingleton.class){
+		if(single == null){
+			synchronized(BDDsingleton.class){
 				if(single == null)
 					single = new BDDsingleton();
 			}
+		}
 		
 		return single;
 	}

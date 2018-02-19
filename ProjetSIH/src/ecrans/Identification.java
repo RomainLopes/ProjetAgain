@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package ecrans;
-import projetsih.RecherchePatient;
 
+import projetsih.RecherchePatient;
+import projetsih.RecherchePatient.*;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JOptionPane;
 
@@ -141,9 +143,13 @@ public class Identification extends javax.swing.JFrame {
 
         } else{
            if(rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())){ // récupérer new code
-               
+               System.out.println(" avant ");
+               ArrayList<String> nPS = new ArrayList<String>();
+               nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
+                for (int i = 1; i <= nPS.size(); i++){
+                    System.out.println( nPS.get(i) + " \t \n");
+                }
                 RechercherPatient rechercher = new RechercherPatient();
-
                 rechercher.setSize(this.getSize());
                 rechercher.setLocationRelativeTo(this);
                 this.dispose();
