@@ -8,4 +8,5 @@ public class PSoignant extends PMedical {
         super(nom, prenom, id, mdp);
     }
 
+    
 }

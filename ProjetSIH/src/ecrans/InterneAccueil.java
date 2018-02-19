@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author romel
@@ -16,6 +18,11 @@ public class InterneAccueil extends javax.swing.JFrame {
      */
     public InterneAccueil() {
         initComponents();
+    }
+    
+    public void ecrirJLabel(String a){
+        JLabel test= new JLabel();
+        test.setText(a);
     }
 
     /**
