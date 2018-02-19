@@ -5,6 +5,7 @@
  */
 package projetsih;
 
+import projetsih.BDDconnection.*;
 import ecrans.InfirmierAccueil;
 import ecrans.RechercherPatient;
 import ecrans.essaiEncore;
@@ -20,60 +21,65 @@ public class RecherchePatient {
 
     public boolean connex (String id, String mdp){
         String QueryId = new String();
-        QueryId = "SELECT * FROM personnelmedical "; // WHERE personnelmedical.id = '" + id + "'
-
-        
-        System.out.println(QueryId);
-        
-        
-        try {
-            
-            
-            System.out.println("av connexion");
-           
-            
-        Class.forName("org.postgresql.Driver");
-			
-			String url = "jdbc:postgresql://localhost:5432/projetSIH";
-			String user = "postgres";
-			String passwd = "postgres";
-        Connection conn = DriverManager.getConnection(url, user, passwd);
+        QueryId = "SELECT * FROM personnelmedical WHERE personnelmedical.id = '" + id + "'"; // WHERE personnelmedical.id = '" + id + "'
+        /*
+        System.out.println(QueryId);    
+        */
+        try {   
+ 
+        Connection conn = BDDconnection.getInstance();
         Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         ResultSet result = state.executeQuery(QueryId);
         
-        
-        System.out.println("apres connexion");
-        
-        if (result.next()){
-            System.out.println("y a au moins un résultat");
+            if (result.next()){
+                /*
+                System.out.println("y a au moins un résultat");
+                System.out.println("id et mdp du résulat : " + result.getString("id")+result.getString("mdp"));
+                */
+            
+                if( (result.getString("id").equals(id) )&& (result.getString("mdp").equals(mdp))){
+                    /*
+                    System.out.println(result.getString("id")  + result.getString("mdp") );
+                    System.out.println("roulement id mdp");
+                    */
+                    return true;
+                }
+            }
+            else {
+                /*
+                System.out.println("il n'y a pas de résultat");
+                */
+                return false;     
+            }
+  
         } 
-       
-         while ( result.next()){
-             
-             System.out.println(result.getString("id")+result.getString("mdp"));
-             
-            while ( (result.getString("id") == id) && (result.getString("mdp") == mdp)){
-                
-                System.out.println(result.getString("id")  + result.getString("mdp") );
-             System.out.println("roulement id mdp");
-                
-             return true;
-             
-          }
-        }
-         /*
-            System.out.println("pas à ce nom");
-        if (result.first() && result.getString("fonction") == "Gériatrie" ){
-            RechercherPatient ecran = new RechercherPatient();
-            ecran.setVisible(true);
-                //this.dispose();
-        }
-        */
-        } catch (Exception e) {
-			e.printStackTrace();
-		}
+        catch (Exception e) {
+            e.printStackTrace();
+	}
         return false;
     }
+    
+    public ArrayList<String> enTete(String id, String mdp){
+        ArrayList<String> nomPrenonService = new ArrayList<String>();
+        String QueryId = new String();
+        QueryId = "SELECT nommed,prenommed,service FROM personnelmedical WHERE personnelmedical.id = '" + id + "'";
+        try {   
+ 
+            Connection conn = BDDconnection.getInstance();
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet result = state.executeQuery(QueryId);
+        
+            nomPrenonService.add(result.getString("nommed")) ;
+            nomPrenonService.add(result.getString("prenommed")) ;
+            nomPrenonService.add(result.getString("service")) ;
+            return nomPrenonService;
+        }  
+        catch (Exception e) {
+            e.printStackTrace();
+	}
+        return nomPrenonService;
+        }
+    
     
     public ArrayList<String> douille(){
         try {

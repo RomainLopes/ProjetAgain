@@ -13,30 +13,19 @@ public class BDDconnection{
 	/**
 	 * URL de connection
 	 */
-	private String url = "jdbc:postgresql://localhost:5432/Ecole";
+        private static String url = "jdbc:postgresql://localhost:5432/projetSIH";
 	/**
 	 * Nom du user
 	 */
-	private String user = "postgres";
+	private static String user = "postgres";
 	/**
 	 * Mot de passe du user
 	 */
-	private String passwd = "postgres";
+	private static String passwd = "postgres";
 	/**
 	 * Objet Connection
 	 */
 	private static Connection connect;
-	
-	/**
-	 * Constructeur privé
-	 */
-	private BDDconnection(){
-		try {
-			connect = DriverManager.getConnection(url, user, passwd);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
 	
 	/**
 	 * Méthode qui va nous retourner notre instance
@@ -45,8 +34,12 @@ public class BDDconnection{
 	 */
 	public static Connection getInstance(){
 		if(connect == null){
-			new BDDconnection();
-		}
+			try {
+				connect = DriverManager.getConnection(url, user, passwd);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
 		return connect;	
 	}	
 }
