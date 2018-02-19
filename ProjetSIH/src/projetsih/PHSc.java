@@ -1,9 +1,11 @@
 package projetsih;
 
-public class PHSc extends PersMedical {
+public class PHSc extends PMedical {
 
-    public PHSc(String nom, String prenom, String id, String mdp, Service service, Fonction fonction) {
-        super(nom, prenom, id, mdp, service, fonction);
+
+    public PHSc(String nom, String prenom, String id, String mdp, Service service) {
+        super(nom, prenom, id, mdp, service,Fonction.Practicien_Hospitalier );
+        
     }
 
   public void prescrire() {

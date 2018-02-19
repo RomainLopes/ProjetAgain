@@ -9,6 +9,11 @@ package projetsih;
  *
  * @author vodou
  */
-class Fonction { // recopier ici l'ennum de la bd
+public enum Fonction {
+    Infirmier,
+    Interne,
+    Practicien_Hospitalier,
+    Secrétaire_Medicale,
+    Secrétaire_Administrative;
     
 }

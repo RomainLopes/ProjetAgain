@@ -9,8 +9,23 @@ package projetsih;
  *
  * @author vodou
  */
-class Service { // énum dans la bd 
-    private String type;
-    private String nom; // en ennum ca fait genre ('non', 'type')
+public enum Service { // jepense que c'est mieux de les définir ici
+    Cardiologie("Cardiologie","Clinique"),
+    Urologie("Urologie","Clinique"),
+    Gériatrie("Gériatrie","Clinique"),
+    Neurochirurgie("Neurochirurgie","Clinique"),
+    Pneumologie("Pneumologie","Clinique"),
+    Radiologie("Radiologie","Médico-technique"),
+    Hématologie("Hématologie","Médico-technique"),
+    Anapathologie("Anapathologie","Médico-technique"),
+    Anesthésie("Anesthésie","Médico-technique"),
+    Urgence("Urgence","Urgence")
+    ;
     
+    private String nom;
+    private String type;
+    Service(String name, String type){
+        this.nom =nom;
+        this.type=type;
+    }
 }

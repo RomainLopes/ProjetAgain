@@ -1,23 +1,64 @@
 package projetsih;
 
-import java.util.Enumeration; 
-import projetsih.DM;
+import java.util.Enumeration;
 
-// a supprimer
+public class PersMedical extends Personnes {
 
-public class PMedical extends Personnes {
+  private String id;
+  private String mdp;
+  private Fonction fonction;
 
-  public Enumeration fonction; // toutes les énum récupérer les infos dans la bdd
-
-  public Enumeration service;
-
-    public PMedical(String nom, String prenom, String id, String mdp) {
-        super(nom, prenom);
-    }
+  private Service service;
   
-    
-  public void consulterDM() {
-     
+  
+  
+  public PersMedical(String nom, String prenom, String id, String mdp, Service service, Fonction fonction){
+      super(nom,prenom);
+      this.id= id;
+      this.mdp=mdp;
+      this.service= service;
+      this.fonction= fonction;
   }
+  
+  public void modifierMDP(String ancien, String nouveau) {
+        if (this.getMdp().equals(ancien)) {
+            setMdp(nouveau);
+        }
 
+}
+
+    /**
+     * @return the mdp
+     */
+    public String getMdp() {
+        return mdp;
+    }
+
+    /**
+     * @param mdp the mdp to set
+     */
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @return the fonction
+     */
+    public Fonction getFonction() {
+        return fonction;
+    }
+
+    /**
+     * @return the service
+     */
+    public Service getService() {
+        return service;
+    }
 }
