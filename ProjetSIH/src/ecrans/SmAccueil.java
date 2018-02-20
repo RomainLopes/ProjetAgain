@@ -51,6 +51,11 @@ public class SmAccueil extends javax.swing.JFrame {
         jLabelPrenom.setText("Prénom");
 
         jButtonDeconnexion.setText("Déconnexion");
+        jButtonDeconnexion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeconnexionActionPerformed(evt);
+            }
+        });
 
         jButtonAccueil.setText("Accueil");
         jButtonAccueil.addActionListener(new java.awt.event.ActionListener() {
@@ -170,18 +175,35 @@ public class SmAccueil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-        Identification id = new Identification();
-        id.setVisible(true);
-        this.dispose();
+     
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void jButtonConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulterDMActionPerformed
         // TODO add your handling code here:
+        RechercherPatient rechercher = new RechercherPatient();
+                    rechercher.setSize(this.getSize());
+                    rechercher.setLocationRelativeTo(this);
+                    this.dispose();
+                    rechercher.setVisible(true);
     }//GEN-LAST:event_jButtonConsulterDMActionPerformed
 
     private void jButtonCreeDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreeDMActionPerformed
         // TODO add your handling code here:
+        /*CreerDM rechercher = new CreerDM();
+                    rechercher.setSize(this.getSize());
+                    rechercher.setLocationRelativeTo(this);
+                    this.dispose();
+                    rechercher.setVisible(true);*/
     }//GEN-LAST:event_jButtonCreeDMActionPerformed
+
+    private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
+        // TODO add your handling code here:
+        Identification iden = new Identification();
+                    iden.setSize(this.getSize());
+                    iden.setLocationRelativeTo(this);
+                    this.dispose();
+                    iden.setVisible(true);
+    }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
     /**
      * @param args the command line arguments

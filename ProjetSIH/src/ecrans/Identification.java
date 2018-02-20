@@ -11,6 +11,8 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JOptionPane;
+import projetsih.Fonction;
+import projetsih.SMed;
 
 /**
  *
@@ -136,29 +138,48 @@ public class Identification extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldIdentifiantActionPerformed
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
-       RecherchePatient rp = new RecherchePatient();    
-        
-       if (jTextFieldIdentifiant.getText().equals("") | jTextFieldMdp.getText().equals("")) {
+        RecherchePatient rp = new RecherchePatient();
+
+        if (jTextFieldIdentifiant.getText().equals("") | jTextFieldMdp.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe non renseigné");
 
-        } else{
-           if(rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())){ // récupérer new code
-               System.out.println(" avant ");
-               ArrayList<String> nPS = new ArrayList<String>();
-               nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-                for (int i = 1; i <= nPS.size(); i++){
-                    System.out.println( nPS.get(i) + " \t \n");
+        } else {
+            if (rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())) {
+                System.out.println(" avant ");
+                ArrayList<String> nPS = new ArrayList<String>();
+                nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
+                for (int i = 1; i <= nPS.size(); i++) {
+                    System.out.println(nPS.get(i) + " \t \n");
                 }
-                RechercherPatient rechercher = new RechercherPatient();
-                rechercher.setSize(this.getSize());
-                rechercher.setLocationRelativeTo(this);
-                this.dispose();
-                rechercher.setVisible(true);
-           }
-           else {
-               JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe incorrect");
-           }
-       }
+                boolean x = true;
+                if (x == true/* fonction == Fonction.Secretaire_Médicale*/) {
+
+                    //SMed smed= new SMed(nPS.get(0), nPS.get(1), nPS.get(2));
+                    SmAccueil smed = new SmAccueil();
+                    smed.setSize(this.getSize());
+                    smed.setLocationRelativeTo(this);
+                    this.dispose();
+                    smed.setVisible(true);
+                } else if (x == true/* fonction == Fonction.Secretaire_admin*/) {
+
+                    SaAccueil sadm = new SaAccueil();
+                    sadm.setSize(this.getSize());
+                    sadm.setLocationRelativeTo(this);
+                    this.dispose();
+                    sadm.setVisible(true);
+                } else { // personnel soignant
+
+                    RechercherPatient rechercher = new RechercherPatient();
+                    rechercher.setSize(this.getSize());
+                    rechercher.setLocationRelativeTo(this);
+                    this.dispose();
+                    rechercher.setVisible(true);
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe incorrect");
+            }
+        }
         //rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
@@ -209,7 +230,7 @@ public class Identification extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 }
 
- /*if(jTextFieldIdentifiant.getText()=="" && jTextFieldMdp.getText() == ""){// bien prendre les bonnes valeurs  pour la sadmin
+/*if(jTextFieldIdentifiant.getText()=="" && jTextFieldMdp.getText() == ""){// bien prendre les bonnes valeurs  pour la sadmin
                  MedAnestAccueil accueilAnest = new MedAnestAccueil();
 
                 accueilAnest.setSize(this.getSize());

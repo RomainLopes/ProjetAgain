@@ -5,7 +5,6 @@
  */
 package ecrans;
 
-
 /**
  *
  * @author romel
@@ -52,6 +51,11 @@ public class SaAccueil extends javax.swing.JFrame {
         jLabelPrenom.setText("Prénom");
 
         jButtonDeconnexion.setText("Déconnexion");
+        jButtonDeconnexion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeconnexionActionPerformed(evt);
+            }
+        });
 
         jButtonAccueil.setText("Accueil");
         jButtonAccueil.addActionListener(new java.awt.event.ActionListener() {
@@ -169,17 +173,38 @@ public class SaAccueil extends javax.swing.JFrame {
 
     private void jButtonConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulterDMAActionPerformed
         // TODO add your handling code here:
+        RechercherPatient rechercher = new RechercherPatient();
+        rechercher.setSize(this.getSize());
+        rechercher.setLocationRelativeTo(this);
+        this.dispose();
+        rechercher.setVisible(true);
     }//GEN-LAST:event_jButtonConsulterDMAActionPerformed
 
     private void jButtonCreeDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreeDMAActionPerformed
         // TODO add your handling code here:
+        /*CreerDMA dma = new CreerDMA();
+        dma.setSize(this.getSize());
+        dma.setLocationRelativeTo(this);
+        this.dispose();
+        dma.setVisible(true);*/
     }//GEN-LAST:event_jButtonCreeDMAActionPerformed
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
         Identification id = new Identification();
-        id.setVisible(true);
+        id.setSize(this.getSize());
+        id.setLocationRelativeTo(this);
         this.dispose();
+        id.setVisible(true);
     }//GEN-LAST:event_jButtonAccueilActionPerformed
+
+    private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
+        // TODO add your handling code here:
+        Identification iden = new Identification();
+        iden.setSize(this.getSize());
+        iden.setLocationRelativeTo(this);
+        this.dispose();
+        iden.setVisible(true);
+    }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
     /**
      * @param args the command line arguments

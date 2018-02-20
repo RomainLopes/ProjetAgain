@@ -136,6 +136,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="D&#xe9;connexion"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeconnexionActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAccueil">
           <Properties>
@@ -241,6 +244,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Consulter Observations"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consulterObservationActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

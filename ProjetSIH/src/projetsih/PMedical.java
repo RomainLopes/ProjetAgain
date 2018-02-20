@@ -2,7 +2,7 @@ package projetsih;
 
 import java.util.Enumeration;
 
-public class PersMedical extends Personnes {
+public class PMedical extends Personnes {
 
   private String id;
   private String mdp;
@@ -12,10 +12,15 @@ public class PersMedical extends Personnes {
   
   
   
-  public PersMedical(String nom, String prenom, String id, String mdp, Service service, Fonction fonction){
+  public PMedical(String nom, String prenom, String id, String mdp, Service service, Fonction fonction){
       super(nom,prenom);
       this.id= id;
       this.mdp=mdp;
+      this.service = service;
+      this.fonction= fonction;
+  }
+  public PMedical(String nom, String prenom, Service service, Fonction fonction){
+      super(nom,prenom);
       this.service= service;
       this.fonction= fonction;
   }

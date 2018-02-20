@@ -70,6 +70,11 @@ public class InterneAccueil extends javax.swing.JFrame {
         jLabelPrenom.setText("Prénom");
 
         jButtonDeconnexion.setText("Déconnexion");
+        jButtonDeconnexion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeconnexionActionPerformed(evt);
+            }
+        });
 
         jButtonAccueil.setText("Accueil");
         jButtonAccueil.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +137,11 @@ public class InterneAccueil extends javax.swing.JFrame {
         });
 
         consulterObservation.setText("Consulter Observations");
+        consulterObservation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consulterObservationActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -286,9 +296,11 @@ public class InterneAccueil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-        Identification id = new Identification();
-        id.setVisible(true);
-        this.dispose();
+        RechercherPatient rechercher = new RechercherPatient();
+                    rechercher.setSize(this.getSize());
+                    rechercher.setLocationRelativeTo(this);
+                    this.dispose();
+                    rechercher.setVisible(true);
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
@@ -298,6 +310,19 @@ public class InterneAccueil extends javax.swing.JFrame {
     private void jTextField4SexeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4SexeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4SexeActionPerformed
+
+    private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
+        // TODO add your handling code here:
+        Identification iden = new Identification();
+                    iden.setSize(this.getSize());
+                    iden.setLocationRelativeTo(this);
+                    this.dispose();
+                    iden.setVisible(true);
+    }//GEN-LAST:event_jButtonDeconnexionActionPerformed
+
+    private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_consulterObservationActionPerformed
 
     /**
      * @param args the command line arguments

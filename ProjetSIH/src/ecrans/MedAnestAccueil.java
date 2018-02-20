@@ -43,7 +43,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         jLabel1InfoPatients = new javax.swing.JLabel();
         ConsulterDMA = new javax.swing.JButton();
         ServiceCorrespondance = new javax.swing.JButton();
-        ConsulterDMA1 = new javax.swing.JButton();
+        ConsulterDM = new javax.swing.JButton();
         jTextField1Nom = new javax.swing.JTextField();
         jTextField2Prenom = new javax.swing.JTextField();
         jTextField3Sexe = new javax.swing.JTextField();
@@ -77,6 +77,11 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         jLabelPrenom.setText("Prénom");
 
         jButtonDeconnexion.setText("Déconnexion");
+        jButtonDeconnexion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeconnexionActionPerformed(evt);
+            }
+        });
 
         jButtonAccueil.setText("Accueil");
         jButtonAccueil.addActionListener(new java.awt.event.ActionListener() {
@@ -155,10 +160,10 @@ public class MedAnestAccueil extends javax.swing.JFrame {
             }
         });
 
-        ConsulterDMA1.setText("Consulter DM");
-        ConsulterDMA1.addActionListener(new java.awt.event.ActionListener() {
+        ConsulterDM.setText("Consulter DM");
+        ConsulterDM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsulterDMA1ActionPerformed(evt);
+                ConsulterDMActionPerformed(evt);
             }
         });
 
@@ -204,7 +209,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                         .addGap(59, 59, 59)
                         .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
-                        .addComponent(ConsulterDMA1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(ServiceCorrespondance, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(107, Short.MAX_VALUE))
@@ -230,7 +235,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ServiceCorrespondance, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConsulterDMA1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -480,6 +485,12 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
     private void ConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMAActionPerformed
         // TODO add your handling code here:
+        
+         ConsulterDMA sadm = new ConsulterDMA();
+                    sadm.setSize(this.getSize());
+                    sadm.setLocationRelativeTo(this);
+                    this.dispose();
+                    sadm.setVisible(true);
     }//GEN-LAST:event_ConsulterDMAActionPerformed
 
     private void ServiceCorrespondanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServiceCorrespondanceActionPerformed
@@ -494,9 +505,14 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ajouterPrescriptionActionPerformed
 
-    private void ConsulterDMA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMA1ActionPerformed
+    private void ConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ConsulterDMA1ActionPerformed
+        ConsulterDM dm = new ConsulterDM();
+                    dm.setSize(this.getSize());
+                    dm.setLocationRelativeTo(this);
+                    this.dispose();
+                    dm.setVisible(true);
+    }//GEN-LAST:event_ConsulterDMActionPerformed
 
     private void ajouterPrescription2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescription2ActionPerformed
         // TODO add your handling code here:
@@ -509,6 +525,15 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     private void jTextField4DDNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4DDNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4DDNActionPerformed
+
+    private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
+        // TODO add your handling code here:
+        Identification iden = new Identification();
+                    iden.setSize(this.getSize());
+                    iden.setLocationRelativeTo(this);
+                    this.dispose();
+                    iden.setVisible(true);
+    }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -546,8 +571,8 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ConsulterDM;
     private javax.swing.JButton ConsulterDMA;
-    private javax.swing.JButton ConsulterDMA1;
     private javax.swing.JPanel JPanelEnTeteMedTech;
     private javax.swing.JLabel Observations;
     private javax.swing.JLabel Prescriptio;

@@ -23,7 +23,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     /**
      * Creates new form InfirmierAccueil
      */
-    public InfirmierAccueil() {
+    public InfirmierAccueil(String d) {
         initComponents();
 
         jPanelOperations.setLayout(new GridLayout(50, 1));
@@ -33,7 +33,9 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         jPanel1Observations.add(new JLabel("L'opération s'est bien déroulée."));
 
     }
-
+public InfirmierAccueil() {
+        initComponents();}
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,6 +87,11 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         jLabelPrenom.setText("Jeanne");
 
         jButtonDeconnexion.setText("Déconnexion");
+        jButtonDeconnexion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeconnexionActionPerformed(evt);
+            }
+        });
 
         jButtonAccueil.setText("Accueil");
         jButtonAccueil.addActionListener(new java.awt.event.ActionListener() {
@@ -381,9 +388,11 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-        Identification id = new Identification();
-        id.setVisible(true);
-        this.dispose();
+      RechercherPatient rechercher = new RechercherPatient();
+                    rechercher.setSize(this.getSize());
+                    rechercher.setLocationRelativeTo(this);
+                    this.dispose();
+                    rechercher.setVisible(true);
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
@@ -396,10 +405,24 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
         // TODO add your handling code here:
-         jPanel1Observations.setLayout(new GridLayout(50, 1));
+        /*InfirmierAccueil g= new InfirmierAccueil("f");
+        g.setSize(this.getSize());
+                    g.setLocationRelativeTo(this);
+                    this.dispose();
+                    g.setVisible(true);*/
+        jPanel1Observations.setLayout(new GridLayout(50, 1));
         jPanel1Observations.add(new JLabel("L'opération s'est bien déroulée. Cependant, le patiant présente des signes d'infection de la peau."));
 
     }//GEN-LAST:event_consulterObservationActionPerformed
+
+    private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
+        // TODO add your handling code here:
+        Identification iden = new Identification();
+                    iden.setSize(this.getSize());
+                    iden.setLocationRelativeTo(this);
+                    this.dispose();
+                    iden.setVisible(true);
+    }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
     /**
      * @param args the command line arguments

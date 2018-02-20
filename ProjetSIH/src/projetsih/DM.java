@@ -8,18 +8,11 @@ public class DM {
 
     private String resultats;// ici il faut redéf le type pour pouvoir y associer un nom car un résultat dépend de l'acte fait 
     private Vector<Observation> observations;
+    
+    /*public DM(Patient p){
+        
+    }*/
 
-    public Service getService() {
-        return service;
-    }
-
-    public String getResultats() {
-        return resultats;
-    }
-
-    public Vector getObservations() {
-        return observations;
-    }
 // ici il faut voir comment sont gérées les bd pour voir comment récupéer les infos avec le DM pour la tracabilité 
     public String consulterDM(Patient p, Service s) { // ici ce sont les medtech
         String afficher = "";
@@ -35,4 +28,15 @@ public class DM {
     public void trierDM() {
     }
 
+    public Service getService() {
+        return service;
+    }
+
+    public String getResultats() {
+        return resultats;
+    }
+
+    public Vector getObservations() {
+        return observations;
+    }
 }

@@ -19,8 +19,22 @@ public enum Service { // jepense que c'est mieux de les définir ici
     Hématologie("Hématologie","Médico-technique"),
     Anapathologie("Anapathologie","Médico-technique"),
     Anesthésie("Anesthésie","Médico-technique"),
-    Urgence("Urgence","Urgence")
+    Urgence("Urgence","Clinique")
     ;
+
+    /**
+     * @return the nom
+     */
+    public String getNom() {
+        return nom;
+    }
+
+    /**
+     * @return the type
+     */
+    public String getType() {
+        return type;
+    }
     
     private String nom;
     private String type;

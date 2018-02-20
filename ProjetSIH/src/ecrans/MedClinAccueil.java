@@ -74,6 +74,11 @@ public class MedClinAccueil extends javax.swing.JFrame {
         jLabelPrenom.setText("Prénom");
 
         jButtonDeconnexion.setText("Déconnexion");
+        jButtonDeconnexion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeconnexionActionPerformed(evt);
+            }
+        });
 
         jButtonAccueil.setText("Accueil");
         jButtonAccueil.addActionListener(new java.awt.event.ActionListener() {
@@ -449,6 +454,15 @@ public class MedClinAccueil extends javax.swing.JFrame {
     private void ajouterPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescriptionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ajouterPrescriptionActionPerformed
+
+    private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
+        // TODO add your handling code here:
+        Identification iden = new Identification();
+                    iden.setSize(this.getSize());
+                    iden.setLocationRelativeTo(this);
+                    this.dispose();
+                    iden.setVisible(true);
+    }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,8 +5,10 @@
  */
 package ecrans;
 
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import projetsih.RecherchePatient;
 
 /**
@@ -19,10 +21,10 @@ public class RechercherPatient extends javax.swing.JFrame {
      * Creates new form RechercherPatient
      */
     public RechercherPatient() {
-        RecherchePatient rp = new RecherchePatient(); 
+        RecherchePatient rp = new RecherchePatient();
         initComponents();
         DefaultListModel modele = new DefaultListModel();
-        for (String i: rp.douille()){
+        for (String i : rp.douille()) {
             modele.addElement(i);
         }
         jListpatients.setModel(modele);
@@ -67,6 +69,11 @@ public class RechercherPatient extends javax.swing.JFrame {
         jLabelPrenom.setText("Prénom");
 
         jButtonDeconnexion.setText("Déconnexion");
+        jButtonDeconnexion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeconnexionActionPerformed(evt);
+            }
+        });
 
         jButtonAccueil.setText("Accueil");
         jButtonAccueil.addActionListener(new java.awt.event.ActionListener() {
@@ -219,30 +226,108 @@ public class RechercherPatient extends javax.swing.JFrame {
 
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
         // TODO add your handling code here:
-         RecherchePatient rp = new RecherchePatient(); 
-         
-         //rp.recherchePatientPrenom (jTextFieldPrenom.getText() );
-         // rp.douille();
-  
+        RecherchePatient rp = new RecherchePatient();
+
+        //rp.recherchePatientPrenom (jTextFieldPrenom.getText() );
+        //rp.douille();
         /*DefaultListModel modele = new DefaultListModel();
         for (String i: rp.douille()){
             modele.addElement(i);
         }
         jListpatients.setModel(modele);*/
-       
-          InfirmierAccueil rechercher = new InfirmierAccueil();
+        if (jTextFieldNom.getText().equals("") | jTextFieldPrenom.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Nom et/ou prénom non renseigné");
 
-                rechercher.setSize(this.getSize());
-                rechercher.setLocationRelativeTo(this);
+        } else {
+            if (rp.recherchePatientPrenom(jTextFieldPrenom.getText()) == "" && rp.recherchePatientNom(jTextFieldNom.getText()) == "") {
+                System.out.println(" avant ");
+                ArrayList<String> nPS = new ArrayList<String>();
+                /*nPS = rp.douille(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
+                for (int i = 1; i <= nPS.size(); i++) {
+                    System.out.println(nPS.get(i) + " \t \n");
+                }*/
+                boolean x = true;
+                if (x == true/* fonction == Fonction.Secretaire_Médicale*/) {
 
-                this.dispose();
-                rechercher.setVisible(true);
-        
+                    //SMed smed= new SMed(nPS.get(0), nPS.get(1), nPS.get(2));
+                    JOptionPane.showMessageDialog(null, "Dossier médical existant");
+
+                } 
+
+               else if (x == true/* fonction == Fonction.Secretaire_admin*/) {
+
+                    ConsulterDMA sadm = new ConsulterDMA();
+                    sadm.setSize(this.getSize());
+                    sadm.setLocationRelativeTo(this);
+                    this.dispose();
+                    sadm.setVisible(true);
+
+                } else if (x == true/* fonction == Fonction.Interne*/) {
+
+                    InterneAccueil inte = new InterneAccueil();
+                    inte.setSize(this.getSize());
+                    inte.setLocationRelativeTo(this);
+                    this.dispose();
+                    inte.setVisible(true);
+
+                } else if (x == true/* fonction == Fonction.Infirmier*/) {
+
+                    InfirmierAccueil inte = new InfirmierAccueil();
+                    inte.setSize(this.getSize());
+                    inte.setLocationRelativeTo(this);
+                    this.dispose();
+                    inte.setVisible(true);
+                } else { // pH
+                    if (x == true/* pH.service.getType()=="Clinique"*/) {
+
+                        MedClinAccueil inte = new MedClinAccueil();
+                        inte.setSize(this.getSize());
+                        inte.setLocationRelativeTo(this);
+                        this.dispose();
+                        inte.setVisible(true);
+                    } else if (x == true/* pH.service.getNom()=="Radiologie"*/) {
+
+                        MedRadioAccueil inte = new MedRadioAccueil();
+                        inte.setSize(this.getSize());
+                        inte.setLocationRelativeTo(this);
+                        this.dispose();
+                        inte.setVisible(true);
+                    } else if (x == true/* pH.service.getNom()=="Anesthésie"*/) {
+
+                        MedAnestAccueil inte = new MedAnestAccueil();
+                        inte.setSize(this.getSize());
+                        inte.setLocationRelativeTo(this);
+                        this.dispose();
+                        inte.setVisible(true);
+                    } else if (x == true/* pH.service.getType()=="Médico-technique"*/) {
+
+                        MedTechAccueil inte = new MedTechAccueil();
+                        inte.setSize(this.getSize());
+                        inte.setLocationRelativeTo(this);
+                        this.dispose();
+                        inte.setVisible(true);
+                    }
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Patient non existant");
+            }
+        }
+
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 
     private void jTextFieldPrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrenomActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPrenomActionPerformed
+
+    private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
+        // TODO add your handling code here:
+        Identification iden = new Identification();
+        iden.setSize(this.getSize());
+        iden.setLocationRelativeTo(this);
+        this.dispose();
+        iden.setVisible(true);
+    }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
     /**
      * @param args the command line arguments

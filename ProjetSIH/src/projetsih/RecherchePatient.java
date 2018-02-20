@@ -18,7 +18,7 @@ import java.sql.*;
  * @author romel
  */
 public class RecherchePatient {
-
+// permet la connexion des employés
     public boolean connex (String id, String mdp){
         String QueryId = new String();
         QueryId = "SELECT * FROM personnelmedical WHERE personnelmedical.id = '" + id + "'"; // WHERE personnelmedical.id = '" + id + "'
@@ -58,7 +58,7 @@ public class RecherchePatient {
 	}
         return false;
     }
-    
+    // liste des infos de l'employé concerné
     public ArrayList<String> enTete(String id, String mdp){
         ArrayList<String> nomPrenonService = new ArrayList<String>();
         String QueryId = new String();
@@ -80,7 +80,7 @@ public class RecherchePatient {
         return nomPrenonService;
         }
     
-    
+    // liste des patients
     public ArrayList<String> douille(){
         try {
 			Class.forName("org.postgresql.Driver");
