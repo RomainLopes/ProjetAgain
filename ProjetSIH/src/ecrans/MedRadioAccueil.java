@@ -52,7 +52,6 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         Observations = new javax.swing.JLabel();
         ajouterObservation = new javax.swing.JButton();
         consulterObservation = new javax.swing.JButton();
-        jScrollPane1ListeObservations = new javax.swing.JScrollPane();
         jPanel7Resultat = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         Prescriptio2 = new javax.swing.JLabel();
@@ -270,10 +269,8 @@ public class MedRadioAccueil extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ajouterObservation, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                     .addComponent(consulterObservation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
-
-        jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jPanel7Resultat.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -325,9 +322,9 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         );
         jPanel7ResultatLayout.setVerticalGroup(
             jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7ResultatLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(jScrollPane3ListeResultats)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7ResultatLayout.createSequentialGroup()
+                .addContainerGap(83, Short.MAX_VALUE)
+                .addComponent(jScrollPane3ListeResultats, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel7ResultatLayout.createSequentialGroup()
@@ -341,12 +338,8 @@ public class MedRadioAccueil extends javax.swing.JFrame {
             jPanel1ObservationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1ObservationsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1ObservationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1ObservationsLayout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 20, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1ListeObservations, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
             .addGroup(jPanel1ObservationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1ObservationsLayout.createSequentialGroup()
                     .addContainerGap()
@@ -358,9 +351,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
             .addGroup(jPanel1ObservationsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1ListeObservations, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(352, 352, 352))
             .addGroup(jPanel1ObservationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1ObservationsLayout.createSequentialGroup()
                     .addContainerGap()
@@ -584,7 +575,6 @@ public class MedRadioAccueil extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7Resultat;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JScrollPane jScrollPane1ListeObservations;
     private javax.swing.JScrollPane jScrollPane1ListeObservations1;
     private javax.swing.JScrollPane jScrollPane3ListeResultats;
     private javax.swing.JTextField jTextField1Nom;

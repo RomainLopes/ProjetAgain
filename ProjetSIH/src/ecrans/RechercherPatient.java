@@ -55,9 +55,11 @@ public class RechercherPatient extends javax.swing.JFrame {
         jLabel3Prenom = new javax.swing.JLabel();
         jButtonRechercher = new javax.swing.JButton();
         jTextFieldNom = new javax.swing.JTextField();
-        jTextFieldPrenom = new javax.swing.JTextField();
+        jTextFieldDateNaissance = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListpatients = new javax.swing.JList<>();
+        jLabel3DateNaissance = new javax.swing.JLabel();
+        jTextFieldPrenom1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,9 +141,9 @@ public class RechercherPatient extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldPrenom.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldDateNaissance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPrenomActionPerformed(evt);
+                jTextFieldDateNaissanceActionPerformed(evt);
             }
         });
 
@@ -151,6 +153,14 @@ public class RechercherPatient extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jListpatients);
+
+        jLabel3DateNaissance.setText("Date de naissance : ");
+
+        jTextFieldPrenom1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPrenom1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1RecherchePatientLayout = new javax.swing.GroupLayout(jPanel1RecherchePatient);
         jPanel1RecherchePatient.setLayout(jPanel1RecherchePatientLayout);
@@ -171,8 +181,10 @@ public class RechercherPatient extends javax.swing.JFrame {
                         .addGap(76, 76, 76)
                         .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldNom, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                            .addComponent(jTextFieldPrenom))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                            .addComponent(jTextFieldDateNaissance)
+                            .addComponent(jTextFieldPrenom1)))
+                    .addComponent(jLabel3DateNaissance))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75))
         );
@@ -190,7 +202,11 @@ public class RechercherPatient extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextFieldPrenom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3DateNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldDateNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1RecherchePatientLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -244,7 +260,7 @@ public class RechercherPatient extends javax.swing.JFrame {
         } else {
             if (
         */
-        rp.recherchePatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
+        rp.recherchePatientNomPrenom(jTextFieldNom.getText(), jTextFieldDateNaissance.getText());
                 System.out.println(" avant ");
                 ArrayList<String> nPS = new ArrayList<String>();
                 /*nPS = rp.douille(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
@@ -321,9 +337,9 @@ public class RechercherPatient extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 
-    private void jTextFieldPrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrenomActionPerformed
+    private void jTextFieldDateNaissanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDateNaissanceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPrenomActionPerformed
+    }//GEN-LAST:event_jTextFieldDateNaissanceActionPerformed
 
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
         // TODO add your handling code here:
@@ -333,6 +349,10 @@ public class RechercherPatient extends javax.swing.JFrame {
         this.dispose();
         iden.setVisible(true);
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
+
+    private void jTextFieldPrenom1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrenom1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPrenom1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -376,6 +396,7 @@ public class RechercherPatient extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRechercher;
     private javax.swing.JLabel jLabel1RecherchePatient;
     private javax.swing.JLabel jLabel2Nom;
+    private javax.swing.JLabel jLabel3DateNaissance;
     private javax.swing.JLabel jLabel3Prenom;
     private javax.swing.JLabel jLabelFonction;
     private javax.swing.JLabel jLabelNom;
@@ -384,7 +405,8 @@ public class RechercherPatient extends javax.swing.JFrame {
     private javax.swing.JList<String> jListpatients;
     private javax.swing.JPanel jPanel1RecherchePatient;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextFieldDateNaissance;
     private javax.swing.JTextField jTextFieldNom;
-    private javax.swing.JTextField jTextFieldPrenom;
+    private javax.swing.JTextField jTextFieldPrenom1;
     // End of variables declaration//GEN-END:variables
 }
