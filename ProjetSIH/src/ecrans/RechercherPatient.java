@@ -47,10 +47,8 @@ public class RechercherPatient extends javax.swing.JFrame {
         jLabel3Prenom = new javax.swing.JLabel();
         jButtonRechercher = new javax.swing.JButton();
         jTextFieldNom = new javax.swing.JTextField();
-        jTextFieldDateNaissance = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListpatients = new javax.swing.JList<>();
-        jLabel3DateNaissance = new javax.swing.JLabel();
         jTextFieldPrenom = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -133,20 +131,12 @@ public class RechercherPatient extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldDateNaissance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDateNaissanceActionPerformed(evt);
-            }
-        });
-
         jListpatients.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jListpatients);
-
-        jLabel3DateNaissance.setText("Date de naissance : ");
 
         jTextFieldPrenom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,9 +163,7 @@ public class RechercherPatient extends javax.swing.JFrame {
                         .addGap(76, 76, 76)
                         .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldNom, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                            .addComponent(jTextFieldDateNaissance)
-                            .addComponent(jTextFieldPrenom)))
-                    .addComponent(jLabel3DateNaissance))
+                            .addComponent(jTextFieldPrenom))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75))
@@ -194,11 +182,7 @@ public class RechercherPatient extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3DateNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldDateNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1RecherchePatientLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -238,35 +222,31 @@ public class RechercherPatient extends javax.swing.JFrame {
         // TODO add your handling code here:
         RecherchePatient rp = new RecherchePatient();
 
-        //rp.recherchePatientPrenom (jTextFieldPrenom.getText() );
-        //rp.douille();
-        /*DefaultListModel modele = new DefaultListModel();
-        for (String i: rp.douille()){
-            modele.addElement(i);
-        }
-        jListpatients.setModel(modele);*/
- /*
-        if (jTextFieldNom.getText().equals("") | jTextFieldPrenom.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Nom et/ou prénom non renseigné");
-
-        } else {
-            if (
-         */
         ArrayList<String> resultatRecherche = new ArrayList<String>();
+        ArrayList<String> resultatAffiche = new ArrayList<String>();
         /*
         System.out.println(" avant recheche");
          */
         resultatRecherche = rp.recherchePatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
+        for (int i = 0; i < resultatRecherche.size(); i += 2) {
+            resultatAffiche.add(resultatRecherche.get(i));
+        }
         /*
         System.out.println(" après recherche ");
          */
         DefaultListModel modele = new DefaultListModel();
-        for (String i : resultatRecherche) {
+        for (String i : resultatAffiche) {
             modele.addElement(i);
         }
         jListpatients.setModel(modele);
 
-//ArrayList<String> nPS = new ArrayList<String>();
+        ArrayList<String> infoPatient = new ArrayList<String>();
+        infoPatient = rp.enTetePatient(resultatRecherche.get(1));
+
+        for (int i = 0; i < infoPatient.size(); i++) {
+            System.out.println(infoPatient.get(i) + " \t \n");
+        }
+        //ArrayList<String> nPS = new ArrayList<String>();
         /*nPS = rp.douille(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
                 for (int i = 1; i <= nPS.size(); i++) {
                     System.out.println(nPS.get(i) + " \t \n");
@@ -333,10 +313,6 @@ public class RechercherPatient extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 
-    private void jTextFieldDateNaissanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDateNaissanceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldDateNaissanceActionPerformed
-
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
         // TODO add your handling code here:
         Identification iden = new Identification();
@@ -392,7 +368,6 @@ public class RechercherPatient extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRechercher;
     private javax.swing.JLabel jLabel1RecherchePatient;
     private javax.swing.JLabel jLabel2Nom;
-    private javax.swing.JLabel jLabel3DateNaissance;
     private javax.swing.JLabel jLabel3Prenom;
     private javax.swing.JLabel jLabelFonction;
     private javax.swing.JLabel jLabelNom;
@@ -401,7 +376,6 @@ public class RechercherPatient extends javax.swing.JFrame {
     private javax.swing.JList<String> jListpatients;
     private javax.swing.JPanel jPanel1RecherchePatient;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextFieldDateNaissance;
     private javax.swing.JTextField jTextFieldNom;
     private javax.swing.JTextField jTextFieldPrenom;
     // End of variables declaration//GEN-END:variables

@@ -78,45 +78,30 @@ public class RecherchePatient {
         }
         return nomPrenonService;
     }
-
-    // liste des patients
-    public ArrayList<String> douille() {
+    
+    //liste des infos du patient concerné
+    public ArrayList<String> enTetePatient(String ipp) {
+        ArrayList<String> listeInfo = new ArrayList<String>();
+        String QueryId = new String();
+        QueryId = "SELECT nompatient,prenompatient,datedenaissance FROM patients WHERE patients.ipp = '{" + ipp + "}'";
         try {
-            Class.forName("org.postgresql.Driver");
 
-            String url = "jdbc:postgresql://localhost:5432/projetSIH";
-            String user = "postgres";
-            String passwd = "postgres";
-
-            Connection conn = DriverManager.getConnection(url, user, passwd);
+            Connection conn = BDDconnection.getInstance();
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-
-            ResultSet result = state.executeQuery("SELECT * FROM patients ");
-
-            ArrayList<String> l1 = new ArrayList<String>();
-
-            System.out.println(" \t \n");
+            ResultSet result = state.executeQuery(QueryId);
             while (result.next()) {
-                l1.add(result.getString("nompatient") + "   -   " + result.getString("prenompatient") + "   -   " + result.getString("datedenaissance"));
-
+                listeInfo.add(result.getString("nompatient"));
+                listeInfo.add(result.getString("prenompatient"));
+                listeInfo.add(result.getString("datedenaissance"));
+                return listeInfo;
             }
-            /*
-                        System.out.println(" passé ");
-                        System.out.println(listeprenom);
-                        
-             */
-            result.close();
-            state.close();
-            return (l1);
-
         } catch (Exception e) {
             e.printStackTrace();
-            ArrayList<String> l1 = new ArrayList<String>();
-            return (l1);
         }
-
+        return listeInfo;
     }
 
+    // liste des patients
     public ArrayList<String> recherchePatientNomPrenom(String nom, String prenom) {
         ArrayList<String> resultatRecherche = new ArrayList<String>();
         resultatRecherche.add("patient inexistant");
@@ -124,12 +109,12 @@ public class RecherchePatient {
 
         if (nom.equals("")) {
             Query = "SELECT * FROM patients WHERE patients.prenompatient = '" + prenom + "'";
-            System.out.println("nom null");
+            //System.out.println("nom null");
         } else if (prenom.equals("")) {
-            System.out.println("prenom null");
+            //System.out.println("prenom null");
             Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'";
         } else {
-            System.out.println("rien de null");
+            //System.out.println("rien de null");
             Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'" + " AND patients.prenompatient = '" + prenom + "'";
         }
 
@@ -145,40 +130,18 @@ public class RecherchePatient {
                 result.beforeFirst();
                 while (result.next()) {
                     resultatRecherche.add(i, result.getString("nompatient") + "   " + result.getString("prenompatient") + "    " + result.getString("datedenaissance"));
-                    i++;
+                    resultatRecherche.add(i+1, result.getString("ipp"));
+                    i=i+2;
                 }
+                result.close();
+                state.close();
                 return resultatRecherche;
+
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return resultatRecherche;
-    }
-
-    public String recherchePatientNom(String nom) {
-        String informations = new String("pas de patient à ce nom");
-        String Query = new String();
-        Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'";
-
-        try {
-            Class.forName("org.postgresql.Driver");
-
-            String url = "jdbc:postgresql://localhost:5432/projetSIH";
-            String user = "postgres";
-            String passwd = "postgres";
-            Connection conn = DriverManager.getConnection(url, user, passwd);
-            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet result = state.executeQuery(Query);
-
-            while (result.next()) {
-                informations = "NOM : " + result.getString("nompatient") + " - PRENOM : " + result.getString("penomPatient") + " - LOCALISATION : " + result.getString("localisation") + " - ADRESSE : " + result.getString("adresse");
-            }
-            return informations;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return informations;
     }
 
     public static void main(String[] args) {
