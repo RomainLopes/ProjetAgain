@@ -23,14 +23,6 @@ public class RechercherPatient extends javax.swing.JFrame {
     public RechercherPatient() {
         RecherchePatient rp = new RecherchePatient();
         initComponents();
-        DefaultListModel modele = new DefaultListModel();
-        for (String i : rp.douille()) {
-            modele.addElement(i);
-        }
-        /*
-        jListpatients.setModel(modele);
-        jListpatients.setVisible(true);
-         */
     }
 
     /**
