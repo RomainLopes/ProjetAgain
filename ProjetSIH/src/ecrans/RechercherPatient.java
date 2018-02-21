@@ -27,8 +27,10 @@ public class RechercherPatient extends javax.swing.JFrame {
         for (String i : rp.douille()) {
             modele.addElement(i);
         }
+        /*
         jListpatients.setModel(modele);
         jListpatients.setVisible(true);
+        */
     }
 
     /**
@@ -235,11 +237,14 @@ public class RechercherPatient extends javax.swing.JFrame {
             modele.addElement(i);
         }
         jListpatients.setModel(modele);*/
+        /*
         if (jTextFieldNom.getText().equals("") | jTextFieldPrenom.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Nom et/ou prénom non renseigné");
 
         } else {
-            if (rp.recherchePatientPrenom(jTextFieldPrenom.getText()) == "" && rp.recherchePatientNom(jTextFieldNom.getText()) == "") {
+            if (
+        */
+        rp.recherchePatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
                 System.out.println(" avant ");
                 ArrayList<String> nPS = new ArrayList<String>();
                 /*nPS = rp.douille(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
@@ -309,10 +314,10 @@ public class RechercherPatient extends javax.swing.JFrame {
                     }
                 }
 
-            } else {
+             
                 JOptionPane.showMessageDialog(null, "Patient non existant");
-            }
-        }
+            
+        
 
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 

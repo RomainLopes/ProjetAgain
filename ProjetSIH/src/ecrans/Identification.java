@@ -145,12 +145,10 @@ public class Identification extends javax.swing.JFrame {
 
         } else {
             if (rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())) {
-                System.out.println(" avant ");
+               
                 ArrayList<String> nPS = new ArrayList<String>();
                 nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-                for (int i = 1; i <= nPS.size(); i++) {
-                    System.out.println(nPS.get(i) + " \t \n");
-                }
+                // nPS est une liste de string renvoyant en indice 0 le prénom, en indice 1 le nom et en indice 3 le service du personnel se connectant
                 boolean x = true;
                 if (x == true/* fonction == Fonction.Secretaire_Médicale*/) {
 
