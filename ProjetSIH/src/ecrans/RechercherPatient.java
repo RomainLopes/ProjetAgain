@@ -30,7 +30,7 @@ public class RechercherPatient extends javax.swing.JFrame {
         /*
         jListpatients.setModel(modele);
         jListpatients.setVisible(true);
-        */
+         */
     }
 
     /**
@@ -59,7 +59,7 @@ public class RechercherPatient extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jListpatients = new javax.swing.JList<>();
         jLabel3DateNaissance = new javax.swing.JLabel();
-        jTextFieldPrenom1 = new javax.swing.JTextField();
+        jTextFieldPrenom = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -156,9 +156,9 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         jLabel3DateNaissance.setText("Date de naissance : ");
 
-        jTextFieldPrenom1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldPrenom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPrenom1ActionPerformed(evt);
+                jTextFieldPrenomActionPerformed(evt);
             }
         });
 
@@ -182,7 +182,7 @@ public class RechercherPatient extends javax.swing.JFrame {
                         .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldNom, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
                             .addComponent(jTextFieldDateNaissance)
-                            .addComponent(jTextFieldPrenom1)))
+                            .addComponent(jTextFieldPrenom)))
                     .addComponent(jLabel3DateNaissance))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,7 +202,7 @@ public class RechercherPatient extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldPrenom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3DateNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -253,88 +253,92 @@ public class RechercherPatient extends javax.swing.JFrame {
             modele.addElement(i);
         }
         jListpatients.setModel(modele);*/
-        /*
+ /*
         if (jTextFieldNom.getText().equals("") | jTextFieldPrenom.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Nom et/ou prénom non renseigné");
 
         } else {
             if (
-        */
-        rp.recherchePatientNomPrenom(jTextFieldNom.getText(), jTextFieldDateNaissance.getText());
-                System.out.println(" avant ");
-                ArrayList<String> nPS = new ArrayList<String>();
-                /*nPS = rp.douille(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
+         */
+        ArrayList<String> resultatRecherche = new ArrayList<String>();
+        /*
+        System.out.println(" avant recheche");
+         */
+        resultatRecherche = rp.recherchePatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
+        /*
+        System.out.println(" après recherche ");
+         */
+        DefaultListModel modele = new DefaultListModel();
+        for (String i : resultatRecherche) {
+            modele.addElement(i);
+        }
+        jListpatients.setModel(modele);
+
+//ArrayList<String> nPS = new ArrayList<String>();
+        /*nPS = rp.douille(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
                 for (int i = 1; i <= nPS.size(); i++) {
                     System.out.println(nPS.get(i) + " \t \n");
                 }*/
-                boolean x = true;
-                if (x == true/* fonction == Fonction.Secretaire_Médicale*/) {
+        boolean x = false;
+        if (x == true/* fonction == Fonction.Secretaire_Médicale*/) {
 
-                    //SMed smed= new SMed(nPS.get(0), nPS.get(1), nPS.get(2));
-                    JOptionPane.showMessageDialog(null, "Dossier médical existant");
+            //SMed smed= new SMed(nPS.get(0), nPS.get(1), nPS.get(2));
+            JOptionPane.showMessageDialog(null, "Dossier médical existant");
 
-                } 
+        } else if (x == true/* fonction == Fonction.Secretaire_admin*/) {
 
-               else if (x == true/* fonction == Fonction.Secretaire_admin*/) {
+            ConsulterDMA sadm = new ConsulterDMA();
+            sadm.setSize(this.getSize());
+            sadm.setLocationRelativeTo(this);
+            this.dispose();
+            sadm.setVisible(true);
 
-                    ConsulterDMA sadm = new ConsulterDMA();
-                    sadm.setSize(this.getSize());
-                    sadm.setLocationRelativeTo(this);
-                    this.dispose();
-                    sadm.setVisible(true);
+        } else if (x == true/* fonction == Fonction.Interne*/) {
 
-                } else if (x == true/* fonction == Fonction.Interne*/) {
+            InterneAccueil inte = new InterneAccueil();
+            inte.setSize(this.getSize());
+            inte.setLocationRelativeTo(this);
+            this.dispose();
+            inte.setVisible(true);
 
-                    InterneAccueil inte = new InterneAccueil();
-                    inte.setSize(this.getSize());
-                    inte.setLocationRelativeTo(this);
-                    this.dispose();
-                    inte.setVisible(true);
+        } else if (x == true/* fonction == Fonction.Infirmier*/) {
 
-                } else if (x == true/* fonction == Fonction.Infirmier*/) {
+            InfirmierAccueil inte = new InfirmierAccueil();
+            inte.setSize(this.getSize());
+            inte.setLocationRelativeTo(this);
+            this.dispose();
+            inte.setVisible(true);
+        } else { // pH
+            if (x == true/* pH.service.getType()=="Clinique"*/) {
 
-                    InfirmierAccueil inte = new InfirmierAccueil();
-                    inte.setSize(this.getSize());
-                    inte.setLocationRelativeTo(this);
-                    this.dispose();
-                    inte.setVisible(true);
-                } else { // pH
-                    if (x == true/* pH.service.getType()=="Clinique"*/) {
+                MedClinAccueil inte = new MedClinAccueil();
+                inte.setSize(this.getSize());
+                inte.setLocationRelativeTo(this);
+                this.dispose();
+                inte.setVisible(true);
+            } else if (x == true/* pH.service.getNom()=="Radiologie"*/) {
 
-                        MedClinAccueil inte = new MedClinAccueil();
-                        inte.setSize(this.getSize());
-                        inte.setLocationRelativeTo(this);
-                        this.dispose();
-                        inte.setVisible(true);
-                    } else if (x == true/* pH.service.getNom()=="Radiologie"*/) {
+                MedRadioAccueil inte = new MedRadioAccueil();
+                inte.setSize(this.getSize());
+                inte.setLocationRelativeTo(this);
+                this.dispose();
+                inte.setVisible(true);
+            } else if (x == true/* pH.service.getNom()=="Anesthésie"*/) {
 
-                        MedRadioAccueil inte = new MedRadioAccueil();
-                        inte.setSize(this.getSize());
-                        inte.setLocationRelativeTo(this);
-                        this.dispose();
-                        inte.setVisible(true);
-                    } else if (x == true/* pH.service.getNom()=="Anesthésie"*/) {
+                MedAnestAccueil inte = new MedAnestAccueil();
+                inte.setSize(this.getSize());
+                inte.setLocationRelativeTo(this);
+                this.dispose();
+                inte.setVisible(true);
+            } else if (x == true/* pH.service.getType()=="Médico-technique"*/) {
 
-                        MedAnestAccueil inte = new MedAnestAccueil();
-                        inte.setSize(this.getSize());
-                        inte.setLocationRelativeTo(this);
-                        this.dispose();
-                        inte.setVisible(true);
-                    } else if (x == true/* pH.service.getType()=="Médico-technique"*/) {
-
-                        MedTechAccueil inte = new MedTechAccueil();
-                        inte.setSize(this.getSize());
-                        inte.setLocationRelativeTo(this);
-                        this.dispose();
-                        inte.setVisible(true);
-                    }
-                }
-
-             
-                JOptionPane.showMessageDialog(null, "Patient non existant");
-            
-        
-
+                MedTechAccueil inte = new MedTechAccueil();
+                inte.setSize(this.getSize());
+                inte.setLocationRelativeTo(this);
+                this.dispose();
+                inte.setVisible(true);
+            }
+        }
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 
     private void jTextFieldDateNaissanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDateNaissanceActionPerformed
@@ -350,9 +354,9 @@ public class RechercherPatient extends javax.swing.JFrame {
         iden.setVisible(true);
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
-    private void jTextFieldPrenom1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrenom1ActionPerformed
+    private void jTextFieldPrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrenomActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPrenom1ActionPerformed
+    }//GEN-LAST:event_jTextFieldPrenomActionPerformed
 
     /**
      * @param args the command line arguments
@@ -407,6 +411,6 @@ public class RechercherPatient extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextFieldDateNaissance;
     private javax.swing.JTextField jTextFieldNom;
-    private javax.swing.JTextField jTextFieldPrenom1;
+    private javax.swing.JTextField jTextFieldPrenom;
     // End of variables declaration//GEN-END:variables
 }
