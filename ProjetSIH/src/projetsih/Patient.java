@@ -16,15 +16,17 @@ public class Patient extends Personnes {
   private DPI dpi;
   private String localisation;
   private Date dateNaissance;
+  private String sexe;
  
   
-   public Patient(String nom, String prenom, int ipp, String localisation, DPI dpi, String adresse, Date date){
+   public Patient(String nom, String prenom, int ipp, String localisation, DPI dpi, String adresse, Date date,String sexe){
        super(nom, prenom);
        this.ipp=ipp;
        this.localisation=localisation;
        this.dpi=dpi;
        this.adresse= adresse;
        this.dateNaissance=date;
+       this.sexe= sexe;
    }
 
 
@@ -110,5 +112,19 @@ public class Patient extends Personnes {
      */
     public void setDateNaissance(Date dateNaissance) {
         this.dateNaissance = dateNaissance;
+    }
+
+    /**
+     * @return the sexe
+     */
+    public String getSexe() {
+        return sexe;
+    }
+
+    /**
+     * @param sexe the sexe to set
+     */
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
     }
 }

@@ -6,6 +6,8 @@
 package ecrans;
 
 import javax.swing.JLabel;
+import projetsih.PMedical;
+import projetsih.Patient;
 
 /**
  *
@@ -16,6 +18,8 @@ public class InterneAccueil extends javax.swing.JFrame {
     /**
      * Creates new form InterneAccueil
      */
+     private Patient p;
+    private PMedical employe;
     public InterneAccueil() {
         initComponents();
     }

@@ -73,7 +73,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jTextField4Prenom" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField1Nom" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldNomPat" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -102,7 +102,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2Nom" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jLabel2Sexe" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="jTextField1Nom" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldNomPat" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextField4Sexe" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -142,7 +142,7 @@
             <Property name="text" type="java.lang.String" value="Dossier m&#xe9;dical du patient "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1Nom">
+        <Component class="javax.swing.JTextField" name="jTextFieldNomPat">
           <Properties>
             <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>

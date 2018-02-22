@@ -5,11 +5,16 @@
  */
 package ecrans;
 
+import projetsih.PMedical;
+import projetsih.Patient;
+
 /**
  *
  * @author romel
  */
 public class SmAccueil extends javax.swing.JFrame {
+    private Patient p;
+    private PMedical employe;
 
     /**
      * Creates new form SmAccueil
@@ -257,4 +262,18 @@ public class SmAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelSm;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the p
+     */
+    public Patient getP() {
+        return p;
+    }
+
+    /**
+     * @return the employe
+     */
+    public PMedical getEmploye() {
+        return employe;
+    }
 }

@@ -11,7 +11,9 @@ public class PMedical extends Personnes {
   private Service service;
   
   
-  
+  public PMedical(){
+      
+  }
   public PMedical(String nom, String prenom, String id, String mdp, Service service, Fonction fonction){
       super(nom,prenom);
       this.id= id;

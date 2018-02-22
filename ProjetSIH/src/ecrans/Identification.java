@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JOptionPane;
 import projetsih.Fonction;
+import projetsih.PMedical;
+import projetsih.Patient;
 import projetsih.SMed;
 
 /**
@@ -19,6 +21,8 @@ import projetsih.SMed;
  * @author romel
  */
 public class Identification extends javax.swing.JFrame {
+    private Patient p;
+    private PMedical employe;
 
     /**
      * Creates new form Connexion
@@ -148,7 +152,7 @@ public class Identification extends javax.swing.JFrame {
                
                 ArrayList<String> nPS = new ArrayList<String>();
                 nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-                // nPS est une liste de string renvoyant en indice 0 le prénom, en indice 1 le nom et en indice 3 le service du personnel se connectant
+                // nPS est une liste de string renvoyant en indice 0 le nom, en indice 1 le prénom et en indice 2 le service du personnel se connectant
                 boolean x = true;
                 if (x == true/* fonction == Fonction.Secretaire_Médicale*/) {
 

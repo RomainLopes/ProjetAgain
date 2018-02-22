@@ -7,8 +7,11 @@ package ecrans;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import projetsih.PMedical;
+import projetsih.Patient;
 import projetsih.RecherchePatient;
 
 /**
@@ -20,6 +23,9 @@ public class RechercherPatient extends javax.swing.JFrame {
     /**
      * Creates new form RechercherPatient
      */
+     private Patient p;
+    private PMedical employe;
+    private JFrame fenetrePrecedente;
     public RechercherPatient() {
         RecherchePatient rp = new RecherchePatient();
         initComponents();

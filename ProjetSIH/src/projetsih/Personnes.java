@@ -5,6 +5,9 @@ public class Personnes {
     /**
      * @return the nom
      */
+    public Personnes(){
+        
+    }
     public String getNom() {
         return nom;
     }

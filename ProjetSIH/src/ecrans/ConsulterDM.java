@@ -5,17 +5,30 @@
  */
 package ecrans;
 
+import projetsih.PMedical;
+import projetsih.Patient;
+
 /**
  *
  * @author lisad
  */
 public class ConsulterDM extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ConsulterDM
-     */
+    private Patient p;
+    private PMedical employe;
+    private SmAccueil fenetrePrecedente;
+
     public ConsulterDM() {
         initComponents();
+    }
+
+    public ConsulterDM(SmAccueil fenetre) {
+        initComponents();
+        this.fenetrePrecedente = fenetre;
+        jTextFieldNomPat.setText(((SmAccueil) fenetrePrecedente).getP().getNom());
+        jTextField4Prenom.setText(((SmAccueil) fenetrePrecedente).getP().getPrenom());
+        jTextField4Sexe.setText(((SmAccueil) fenetrePrecedente).getP().getSexe());
+        jTextField4DDN1.setText(((SmAccueil) fenetrePrecedente).getP().getDateNaissance().toString());
     }
 
     /**
@@ -33,7 +46,7 @@ public class ConsulterDM extends javax.swing.JFrame {
         jLabel2Sexe = new javax.swing.JLabel();
         jLabel2DateDeNaissance = new javax.swing.JLabel();
         jLabel1InfoPatients = new javax.swing.JLabel();
-        jTextField1Nom = new javax.swing.JTextField();
+        jTextFieldNomPat = new javax.swing.JTextField();
         jTextField4Sexe = new javax.swing.JTextField();
         jTextField4DDN1 = new javax.swing.JTextField();
         jTextField4Prenom = new javax.swing.JTextField();
@@ -69,7 +82,7 @@ public class ConsulterDM extends javax.swing.JFrame {
 
         jLabel1InfoPatients.setText("Dossier médical du patient ");
 
-        jTextField1Nom.setText("jTextField1");
+        jTextFieldNomPat.setText("jTextField1");
 
         jTextField4Sexe.setText("jTextField1");
         jTextField4Sexe.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +110,7 @@ public class ConsulterDM extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField4Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1Nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldNomPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(60, 60, 60)
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
@@ -118,7 +131,7 @@ public class ConsulterDM extends javax.swing.JFrame {
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1Nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNomPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -410,9 +423,9 @@ public class ConsulterDM extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1ListeOperations;
     private javax.swing.JScrollPane jScrollPane2ListePrescription;
     private javax.swing.JScrollPane jScrollPane3ListeResultats;
-    private javax.swing.JTextField jTextField1Nom;
     private javax.swing.JTextField jTextField4DDN1;
     private javax.swing.JTextField jTextField4Prenom;
     private javax.swing.JTextField jTextField4Sexe;
+    private javax.swing.JTextField jTextFieldNomPat;
     // End of variables declaration//GEN-END:variables
 }

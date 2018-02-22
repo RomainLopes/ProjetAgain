@@ -16,4 +16,13 @@ public enum Fonction {
     Secrétaire_Medicale,
     Secrétaire_Administrative;
     
+    private String name;
+    
+   /* public String toString(){
+        String j="";
+        return j;
+    }*/
+
 }
+
+

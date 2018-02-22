@@ -5,11 +5,17 @@
  */
 package ecrans;
 
+import projetsih.PMedical;
+import projetsih.Patient;
+
 /**
  *
  * @author lisad
  */
 public class ConsulterDMA extends javax.swing.JFrame {
+    
+        private Patient p; 
+    private PMedical employe;
 
     /**
      * Creates new form DossierMedicoAdministratif

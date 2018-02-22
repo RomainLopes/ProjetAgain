@@ -5,17 +5,23 @@
  */
 package ecrans;
 
+import projetsih.PMedical;
+import projetsih.Patient;
+
 /**
  *
  * @author lisad
  */
 public class DossierMedical extends javax.swing.JFrame {
+        private Patient p; 
+    private PMedical employe;
 
     /**
      * Creates new form DossierMedical
      */
     public DossierMedical() {
         initComponents();
+      
     }
 
     /**

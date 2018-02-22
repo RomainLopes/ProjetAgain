@@ -5,6 +5,9 @@
  */
 package ecrans;
 
+import projetsih.PMedical;
+import projetsih.Patient;
+
 /**
  *
  * @author romel
@@ -14,6 +17,8 @@ public class MedRadioAccueil extends javax.swing.JFrame {
     /**
      * Creates new form MedRadioAccueil
      */
+     private Patient p;
+    private PMedical employe;
     public MedRadioAccueil() {
         initComponents();
     }
