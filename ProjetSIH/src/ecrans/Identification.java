@@ -155,28 +155,29 @@ public class Identification extends javax.swing.JFrame {
 
                 ArrayList<String> nPS = new ArrayList<String>();
                 nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-                // nPS est une liste de string renvoyant en indice 0 le nom, en indice 1 le prénom et en indice 2 le service du personnel se connectant
-                boolean x = true;
-                if (x == true/* fonction == Fonction.Secretaire_Médicale*/) {
+                // nPS est une liste de string renvoyant en indice 0 le nom, en indice 1 le prénom et 
+                // en indice 2 le service, en 3 la fonction du personnel se connectant
+                boolean x = false;
+                if (x == true && nPS.get(3) == "Secretaire_Médicale" ) {
 
-                    employe = new SMed(nPS.get(0), nPS.get(1), nPS.get(2));
+                    //employe = new SMed(nPS.get(0), nPS.get(1), nPS.get(2),nPS.get(2) );
                     SmAccueil smed = new SmAccueil(this);
                     smed.setSize(this.getSize());
                     smed.setLocationRelativeTo(this);
                     this.dispose();
                     smed.setVisible(true);
-                } else if (x == true/* fonction == Fonction.Secretaire_admin*/) {
+                } else if (x == true && nPS.get(3) == "Secretaire_Admin" ) {
 
-                    sa = new SAdm(nPS.get(0), nPS.get(1));
+                    //sa = new SAdm(nPS.get(0), nPS.get(1));
                     SaAccueil sadm = new SaAccueil(this);
                     sadm.setSize(this.getSize());
                     sadm.setLocationRelativeTo(this);
                     this.dispose();
                     sadm.setVisible(true);
-                } else { // personnel soignant
+                } else {
                     Fonction fonction=  Fonction.Interne; // remplacer fonction par nPS.get(3)
 
-                    employe = new PMedical( nPS.get(0), nPS.get(1), nPS.get(2), fonction);
+                    //employe = new PMedical( nPS.get(0), nPS.get(1), nPS.get(2), nPS.get(3));
                     RechercherPatient rechercher = new RechercherPatient(this);
                     rechercher.setSize(this.getSize());
                     rechercher.setLocationRelativeTo(this);

@@ -61,7 +61,7 @@ public class RecherchePatient {
     public ArrayList<String> enTete(String id, String mdp) {
         ArrayList<String> nomPrenonService = new ArrayList<String>();
         String QueryId = new String();
-        QueryId = "SELECT nommed,prenommed,service FROM personnelmedical WHERE personnelmedical.id = '" + id + "'";
+        QueryId = "SELECT nommed,prenommed,service,fonction FROM personnelmedical WHERE personnelmedical.id = '" + id + "'";
         try {
 
             Connection conn = BDDconnection.getInstance();
@@ -71,6 +71,7 @@ public class RecherchePatient {
                 nomPrenonService.add(result.getString("nommed"));
                 nomPrenonService.add(result.getString("prenommed"));
                 nomPrenonService.add(result.getString("service"));
+                nomPrenonService.add(result.getString("fonction"));
                 return nomPrenonService;
             }
         } catch (Exception e) {
