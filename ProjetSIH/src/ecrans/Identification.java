@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import projetsih.Fonction;
 import projetsih.PMedical;
 import projetsih.Patient;
+import projetsih.SAdm;
 import projetsih.SMed;
 
 /**
@@ -21,8 +22,10 @@ import projetsih.SMed;
  * @author romel
  */
 public class Identification extends javax.swing.JFrame {
+
     private Patient p;
     private PMedical employe;
+    private SAdm sa;
 
     /**
      * Creates new form Connexion
@@ -149,29 +152,32 @@ public class Identification extends javax.swing.JFrame {
 
         } else {
             if (rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())) {
-               
+
                 ArrayList<String> nPS = new ArrayList<String>();
                 nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
                 // nPS est une liste de string renvoyant en indice 0 le nom, en indice 1 le prénom et en indice 2 le service du personnel se connectant
                 boolean x = true;
                 if (x == true/* fonction == Fonction.Secretaire_Médicale*/) {
 
-                    //SMed smed= new SMed(nPS.get(0), nPS.get(1), nPS.get(2));
-                    SmAccueil smed = new SmAccueil();
+                    employe = new SMed(nPS.get(0), nPS.get(1), nPS.get(2));
+                    SmAccueil smed = new SmAccueil(this);
                     smed.setSize(this.getSize());
                     smed.setLocationRelativeTo(this);
                     this.dispose();
                     smed.setVisible(true);
                 } else if (x == true/* fonction == Fonction.Secretaire_admin*/) {
 
-                    SaAccueil sadm = new SaAccueil();
+                    sa = new SAdm(nPS.get(0), nPS.get(1));
+                    SaAccueil sadm = new SaAccueil(this);
                     sadm.setSize(this.getSize());
                     sadm.setLocationRelativeTo(this);
                     this.dispose();
                     sadm.setVisible(true);
                 } else { // personnel soignant
+                    Fonction fonction=  Fonction.Interne; // remplacer fonction par nPS.get(3)
 
-                    RechercherPatient rechercher = new RechercherPatient();
+                    employe = new PMedical( nPS.get(0), nPS.get(1), nPS.get(2), fonction);
+                    RechercherPatient rechercher = new RechercherPatient(this);
                     rechercher.setSize(this.getSize());
                     rechercher.setLocationRelativeTo(this);
                     this.dispose();
@@ -230,6 +236,14 @@ public class Identification extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldIdentifiant;
     private javax.swing.JTextField jTextFieldMdp;
     // End of variables declaration//GEN-END:variables
+
+    public PMedical getEmploye() {
+        return this.employe;
+    }
+
+    public SAdm getSa() {
+        return this.sa;
+    }
 }
 
 /*if(jTextFieldIdentifiant.getText()=="" && jTextFieldMdp.getText() == ""){// bien prendre les bonnes valeurs  pour la sadmin

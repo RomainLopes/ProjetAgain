@@ -77,11 +77,11 @@
                   <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabelNom1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelNomPmed" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
                           <Component id="jLabelFonction" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jLabelPrenom" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPrenomPmed" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="435" max="32767" attributes="0"/>
                   <Component id="jLabelService" min="-2" max="-2" attributes="0"/>
@@ -98,7 +98,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelNom1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelNomPmed" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelService" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -108,7 +108,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabelFonction" min="-2" pref="22" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabelPrenom" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="jLabelPrenomPmed" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jButtonDeconnexion" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
                       </Group>
@@ -126,12 +126,12 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelNom1">
+        <Component class="javax.swing.JLabel" name="jLabelNomPmed">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nom"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelPrenom">
+        <Component class="javax.swing.JLabel" name="jLabelPrenomPmed">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
           </Properties>
@@ -182,20 +182,20 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField4Prenom" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField1Nom" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldPrenomPat" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextField1NomPat" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel2Sexe" min="-2" pref="43" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField4Sexe" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldSexePat" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel2DateDeNaissance" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jTextField4DDN1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldDDNPat" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -212,15 +212,15 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2Nom" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jLabel2Sexe" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="jTextField1Nom" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField4Sexe" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextField1NomPat" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldSexePat" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1Prenom" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2DateDeNaissance" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="jTextField4DDN1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField4Prenom" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldDDNPat" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldPrenomPat" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -252,25 +252,25 @@
             <Property name="text" type="java.lang.String" value="Informations du patient "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1Nom">
+        <Component class="javax.swing.JTextField" name="jTextField1NomPat">
           <Properties>
             <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4Sexe">
+        <Component class="javax.swing.JTextField" name="jTextFieldSexePat">
           <Properties>
             <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField4SexeActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldSexePatActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4DDN1">
+        <Component class="javax.swing.JTextField" name="jTextFieldDDNPat">
           <Properties>
             <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4Prenom">
+        <Component class="javax.swing.JTextField" name="jTextFieldPrenomPat">
           <Properties>
             <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>
@@ -321,9 +321,9 @@
                   <Component id="listech" min="-2" pref="41" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1Nosejour" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel3Date" alignment="1" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="jLabel1Nosejour" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jLabel2Type" alignment="1" min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>

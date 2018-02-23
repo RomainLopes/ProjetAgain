@@ -19,6 +19,25 @@ public class MedClinAccueil extends javax.swing.JFrame {
      */
      private Patient p;
     private PMedical employe;
+    private RechercherPatient fenetrePrecedente;
+    
+    public MedClinAccueil(RechercherPatient fenetre) {
+        initComponents();
+        
+        this.fenetrePrecedente = fenetre;
+        this.employe = fenetrePrecedente.getEmploye();
+        this.p=fenetrePrecedente.getP();
+        
+        jLabelPrenom.setText(employe.getPrenom());
+        jLabelNom.setText(employe.getNom());
+        jLabelService.setText(employe.getService().toString());
+
+        jTextField1Nom.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
+        jTextField2Prenom.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
+        jTextField3Sexe.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
+        jTextField4DDN.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());
+    }
+    
     public MedClinAccueil() {
         initComponents();
     }
@@ -439,9 +458,11 @@ public class MedClinAccueil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-        Identification id = new Identification();
-        id.setVisible(true);
-        this.dispose();
+      RechercherPatient rechercher = new RechercherPatient();
+                    rechercher.setSize(this.getSize());
+                    rechercher.setLocationRelativeTo(this);
+                    this.dispose();
+                    rechercher.setVisible(true);
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void ConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMAActionPerformed

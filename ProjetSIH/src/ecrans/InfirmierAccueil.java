@@ -31,7 +31,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     /**
      * Creates new form InfirmierAccueil
      */
-    public InfirmierAccueil(String d) {
+    public InfirmierAccueil() {
         initComponents();
 
         jPanelOperations.setLayout(new GridLayout(50, 1));
@@ -39,15 +39,32 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         jPanelOperations.add(new JLabel("25/01/2017    Pose de cathéter"));
         jPanel1Observations.setLayout(new GridLayout(50, 1));
         jPanel1Observations.add(new JLabel("L'opération s'est bien déroulée."));
+           /*  jPanel1Observations.setVisible(false);
+        jLabelPrenomInf.setText(employe.getPrenom());
+        jLabelNomInf.setText(employe.getNom());*/
+ 
+      
 
     }
 
-    public InfirmierAccueil() {
+    public InfirmierAccueil(RechercherPatient fenetre) {
         initComponents();
-        PMedical employe= new Infirmier(); // 
+        this.fenetrePrecedente = fenetre;
+        this.employe = fenetrePrecedente.getEmploye();
+        //employe=new Infirmier( jLabelPrenomInf.getText(),jLabelNomInf.getText(),jLabelService.getText());
+        this.p=fenetrePrecedente.getP();
+        
         jLabelPrenomInf.setText(employe.getPrenom());
         jLabelNomInf.setText(employe.getNom());
+        jLabelService.setText(employe.getService().toString());
 
+        jLabel3NomPatient.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
+        jLabel4PrenomPatient.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
+        jLabelSexePatient.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
+        jLabel2dateDeNAissancePatient.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());
+
+        jScrollPane1ListeObservations.setVisible(false);
+        jScrollPane1ListeOperations.setVisible(false);
     }
 
     /**
@@ -411,10 +428,12 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_ajouterObservationActionPerformed
 
     private void ajouterPrescription1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescription1ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_ajouterPrescription1ActionPerformed
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
@@ -424,6 +443,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
                     g.setLocationRelativeTo(this);
                     this.dispose();
                     g.setVisible(true);*/
+       
         jPanel1Observations.setLayout(new GridLayout(50, 1));
         jPanel1Observations.add(new JLabel("L'opération s'est bien déroulée. Cependant, le patiant présente des signes d'infection de la peau."));
 
@@ -436,6 +456,13 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         iden.setLocationRelativeTo(this);
         this.dispose();
         iden.setVisible(true);
+       
+       /* MedTechAccueil inte = new MedTechAccueil();
+                inte.setSize(this.getSize());
+                inte.setLocationRelativeTo(this);
+                this.dispose();
+                inte.setVisible(true);*/
+
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
     /**
@@ -475,6 +502,8 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+
+
             public void run() {
                 new InfirmierAccueil().setVisible(true);
             }
@@ -512,4 +541,46 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1ListeObservations;
     private javax.swing.JScrollPane jScrollPane1ListeOperations;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the p
+     */
+    public Patient getP() {
+        return p;
+    }
+
+    /**
+     * @return the employe
+     */
+    public PMedical getEmploye() {
+        return employe;
+    }
+
+    /**
+     * @return the fenetrePrecedente
+     */
+    public RechercherPatient getFenetrePrecedente() {
+        return fenetrePrecedente;
+    }
+
+    /**
+     * @return the jLabelNomInf
+     */
+    public String getJLabelNomInf() {
+        return jLabelNomInf.getText();
+    }
+
+    /**
+     * @return the jLabelPrenomInf
+     */
+    public String getJLabelPrenomInf() {
+        return jLabelPrenomInf.getText();
+    }
+
+    /**
+     * @return the jLabelService
+     */
+    public String getJLabelService() {
+        return jLabelService.getText();
+    }
 }

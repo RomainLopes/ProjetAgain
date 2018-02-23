@@ -5,6 +5,10 @@
  */
 package ecrans;
 
+import projetsih.PMedical;
+import projetsih.Patient;
+import projetsih.SAdm;
+
 /**
  *
  * @author lisad
@@ -14,8 +18,17 @@ public class CreerDMA extends javax.swing.JFrame {
     /**
      * Creates new form CreerDMA
      */
+    private SaAccueil fenetrePrecedente;
+    private SAdm employe;
+    private Patient p;
+    
     public CreerDMA() {
         initComponents();
+    }
+    public CreerDMA(SaAccueil fenetre) {
+        initComponents();
+        this.fenetrePrecedente= fenetre;
+        this.employe= fenetrePrecedente.getSa();
     }
 
     /**

@@ -5,18 +5,37 @@
  */
 package ecrans;
 
+import projetsih.Patient;
+import projetsih.SAdm;
+
 /**
  *
  * @author romel
  */
 public class SaAccueil extends javax.swing.JFrame {
+    private SAdm sa;
+    private Patient p;
+    private Identification fenetrePrecedente;
+    
 
     /**
      * Creates new form SaAccueil
      */
-    public SaAccueil() {
+    public SaAccueil(Identification fenetrePrecedente) {
         initComponents();
+        this.fenetrePrecedente = fenetrePrecedente;
+        this.sa = fenetrePrecedente.getSa();
+        
+        jLabelNom.setText(((Identification) fenetrePrecedente).getSa().getNom());
+        jLabelPrenom.setText(((Identification) fenetrePrecedente).getSa().getPrenom());
 
+    }
+
+    SaAccueil() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    SAdm getSa(){
+        return this.sa;
     }
 
     /**
@@ -182,11 +201,11 @@ public class SaAccueil extends javax.swing.JFrame {
 
     private void jButtonCreeDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreeDMAActionPerformed
         // TODO add your handling code here:
-        /*CreerDMA dma = new CreerDMA();
+        CreerDMA dma = new CreerDMA();
         dma.setSize(this.getSize());
         dma.setLocationRelativeTo(this);
         this.dispose();
-        dma.setVisible(true);*/
+        dma.setVisible(true);
     }//GEN-LAST:event_jButtonCreeDMAActionPerformed
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
@@ -236,8 +255,9 @@ public class SaAccueil extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                Identification fenetre= new Identification();
                 try {
-                    new SaAccueil().setVisible(true);
+                    new SaAccueil(fenetre).setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

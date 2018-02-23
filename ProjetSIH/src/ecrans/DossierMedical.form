@@ -510,20 +510,20 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField4Prenom" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField1Nom" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextField4PrenomPat" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextField1NomPat" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel2Sexe" min="-2" pref="43" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField4Sexe" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextField4SexePat" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel2DateDeNaissance" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTextField4DDN1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextField4DDNPat" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
@@ -546,15 +546,15 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2Nom" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="jLabel2Sexe" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="jTextField1Nom" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField4Sexe" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField1NomPat" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField4SexePat" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1Prenom" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2DateDeNaissance" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="jTextField4DDN1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField4Prenom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField4DDNPat" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField4PrenomPat" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -619,25 +619,25 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ServiceCorrespondanceActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1Nom">
+            <Component class="javax.swing.JTextField" name="jTextField1NomPat">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4Sexe">
+            <Component class="javax.swing.JTextField" name="jTextField4SexePat">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField4SexeActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField4SexePatActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4DDN1">
+            <Component class="javax.swing.JTextField" name="jTextField4DDNPat">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4Prenom">
+            <Component class="javax.swing.JTextField" name="jTextField4PrenomPat">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
@@ -727,6 +727,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="D&#xe9;connexion"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeconnexionActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAccueil">
           <Properties>

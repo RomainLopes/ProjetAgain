@@ -2,9 +2,13 @@ package projetsih;
 
 import java.util.Vector;
 
-public abstract class DMMedical extends DM {
+public class DMMedical extends DM {
 
   private Vector <Prescriptions>  myPrescriptions;
+
+    public DMMedical(Patient p) {
+        super(p);
+    }
 
   
     public Vector <Prescriptions> getMyPrescriptions() {

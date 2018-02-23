@@ -1,6 +1,7 @@
 package projetsih;
 
 import java.util.Vector;
+import javax.swing.JScrollPane;
 
 public class DM {
 
@@ -9,9 +10,9 @@ public class DM {
     private String resultats;// ici il faut redéf le type pour pouvoir y associer un nom car un résultat dépend de l'acte fait 
     private Vector<Observation> observations;
     
-    /*public DM(Patient p){
+    public DM(Patient p){ //ici ca rajoute les infos à la bd 
         
-    }*/
+    }
 
 // ici il faut voir comment sont gérées les bd pour voir comment récupéer les infos avec le DM pour la tracabilité 
     public String consulterDM(Patient p, Service s) { // ici ce sont les medtech
@@ -23,6 +24,12 @@ public class DM {
         }
         System.out.println(afficher);
         return afficher;
+    }
+    public void consulterDM2(Patient p, Service s){
+        JScrollPane result;
+        JScrollPane observ; 
+        
+        
     }
 
     public void trierDM() {

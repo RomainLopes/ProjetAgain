@@ -64,11 +64,11 @@
                   <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabelNom" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelNomPmed" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                           <Component id="jLabelFonction" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jLabelPrenom" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPrenomPmed" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabelService" min="-2" max="-2" attributes="0"/>
@@ -85,7 +85,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelNom" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelNomPmed" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelService" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -95,7 +95,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabelFonction" min="-2" pref="22" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabelPrenom" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="jLabelPrenomPmed" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jButtonDeconnexion" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
                       </Group>
@@ -114,12 +114,12 @@
             <Property name="text" type="java.lang.String" value="M&#xe9;decin an&#xe9;sthesiste"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelNom">
+        <Component class="javax.swing.JLabel" name="jLabelNomPmed">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nom"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelPrenom">
+        <Component class="javax.swing.JLabel" name="jLabelPrenomPmed">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
           </Properties>

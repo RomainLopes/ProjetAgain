@@ -4,7 +4,8 @@ public class DMAnesthesie extends DMMedical {
 
     private Service correspondance; // service qui demande l'exam 
 
-    public DMAnesthesie() {
+    public DMAnesthesie(Patient p) {
+        super(p);
 
     }
 

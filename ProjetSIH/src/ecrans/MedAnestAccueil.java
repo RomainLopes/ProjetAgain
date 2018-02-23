@@ -13,14 +13,35 @@ import projetsih.Patient;
  * @author romel
  */
 public class MedAnestAccueil extends javax.swing.JFrame {
+    private RechercherPatient fenetrePrecedente;
+     private Patient p;
+    private PMedical employe;
 
     /**
      * Creates new form MedAnestAccueil
      */
-     private Patient p;
-    private PMedical employe;
-    public MedAnestAccueil() {
+    
+  
+    public MedAnestAccueil(RechercherPatient fenetre) {
         initComponents();
+         this.fenetrePrecedente = fenetre;
+        this.employe = fenetrePrecedente.getEmploye();
+        this.p=fenetrePrecedente.getP();
+        
+        jLabelPrenomPmed.setText(employe.getPrenom());
+        jLabelNomPmed.setText(employe.getNom());
+        jLabelService.setText(employe.getService().toString());
+
+        jTextField1Nom.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
+        jTextField2Prenom.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
+        jTextField3Sexe.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
+        jTextField4DDN.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());
+
+    }
+
+    private MedAnestAccueil() {
+        initComponents();
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -34,8 +55,8 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
         JPanelEnTeteMedTech = new javax.swing.JPanel();
         jLabelFonction = new javax.swing.JLabel();
-        jLabelNom = new javax.swing.JLabel();
-        jLabelPrenom = new javax.swing.JLabel();
+        jLabelNomPmed = new javax.swing.JLabel();
+        jLabelPrenomPmed = new javax.swing.JLabel();
         jButtonDeconnexion = new javax.swing.JButton();
         jButtonAccueil = new javax.swing.JButton();
         jLabelService = new javax.swing.JLabel();
@@ -77,9 +98,9 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         jLabelFonction.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelFonction.setText("Médecin anésthesiste");
 
-        jLabelNom.setText("Nom");
+        jLabelNomPmed.setText("Nom");
 
-        jLabelPrenom.setText("Prénom");
+        jLabelPrenomPmed.setText("Prénom");
 
         jButtonDeconnexion.setText("Déconnexion");
         jButtonDeconnexion.addActionListener(new java.awt.event.ActionListener() {
@@ -107,10 +128,10 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                 .addGap(93, 93, 93)
                 .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
-                        .addComponent(jLabelNom)
+                        .addComponent(jLabelNomPmed)
                         .addGap(104, 104, 104)
                         .addComponent(jLabelFonction))
-                    .addComponent(jLabelPrenom))
+                    .addComponent(jLabelPrenomPmed))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelService)
                 .addGap(18, 18, 18)
@@ -124,7 +145,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                     .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelNom)
+                            .addComponent(jLabelNomPmed)
                             .addComponent(jLabelService)))
                     .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -132,7 +153,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                             .addContainerGap()
                             .addComponent(jLabelFonction, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelPrenomPmed, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -483,15 +504,17 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-        Identification id = new Identification();
-        id.setVisible(true);
-        this.dispose();
+       RechercherPatient rechercher = new RechercherPatient();
+                    rechercher.setSize(this.getSize());
+                    rechercher.setLocationRelativeTo(this);
+                    this.dispose();
+                    rechercher.setVisible(true);
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void ConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMAActionPerformed
         // TODO add your handling code here:
         
-         ConsulterDMA sadm = new ConsulterDMA();
+         ConsulterDMA sadm = new ConsulterDMA(this.fenetrePrecedente);
                     sadm.setSize(this.getSize());
                     sadm.setLocationRelativeTo(this);
                     this.dispose();
@@ -595,8 +618,8 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2Nom;
     private javax.swing.JLabel jLabel2Sexe;
     private javax.swing.JLabel jLabelFonction;
-    private javax.swing.JLabel jLabelNom;
-    private javax.swing.JLabel jLabelPrenom;
+    private javax.swing.JLabel jLabelNomPmed;
+    private javax.swing.JLabel jLabelPrenomPmed;
     private javax.swing.JLabel jLabelService;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1Observations;

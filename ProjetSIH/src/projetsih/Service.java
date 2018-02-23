@@ -39,7 +39,11 @@ public enum Service { // jepense que c'est mieux de les définir ici
     private String nom;
     private String type;
     Service(String name, String type){
-        this.nom =nom;
+        this.nom =name;
         this.type=type;
+    }
+    @Override
+    public String toString(){
+        return nom;
     }
 }

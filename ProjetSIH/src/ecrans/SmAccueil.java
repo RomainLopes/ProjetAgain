@@ -15,12 +15,22 @@ import projetsih.Patient;
 public class SmAccueil extends javax.swing.JFrame {
     private Patient p;
     private PMedical employe;
+    private Identification fenetrePrecedente;
 
     /**
      * Creates new form SmAccueil
      */
-    public SmAccueil() {
+    public SmAccueil(Identification fenetrePrecedente) {
         initComponents();
+        this.fenetrePrecedente = fenetrePrecedente;
+        jLabelNom.setText(((Identification) fenetrePrecedente).getEmploye().getNom());
+        jLabelPrenom.setText(((Identification) fenetrePrecedente).getEmploye().getPrenom());
+        jLabelService.setText(((Identification) fenetrePrecedente).getEmploye().getService().toString());
+ 
+    }
+
+    SmAccueil() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -194,11 +204,11 @@ public class SmAccueil extends javax.swing.JFrame {
 
     private void jButtonCreeDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreeDMActionPerformed
         // TODO add your handling code here:
-        /*CreerDM rechercher = new CreerDM();
+        CreerDM rechercher = new CreerDM();
                     rechercher.setSize(this.getSize());
                     rechercher.setLocationRelativeTo(this);
                     this.dispose();
-                    rechercher.setVisible(true);*/
+                    rechercher.setVisible(true);
     }//GEN-LAST:event_jButtonCreeDMActionPerformed
 
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
@@ -240,8 +250,10 @@ public class SmAccueil extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                Identification fenetre= new Identification();
+                
                 try {
-                    new SaAccueil().setVisible(true);
+                    new SaAccueil(fenetre).setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

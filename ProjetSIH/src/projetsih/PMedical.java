@@ -9,6 +9,7 @@ public class PMedical extends Personnes {
   private Fonction fonction;
 
   private Service service;
+  private String nomService;
   
   
   public PMedical(){
@@ -20,12 +21,19 @@ public class PMedical extends Personnes {
       this.mdp=mdp;
       this.service = service;
       this.fonction= fonction;
+      nomService= service.toString();
   }
   public PMedical(String nom, String prenom, Service service, Fonction fonction){
       super(nom,prenom);
       this.service= service;
       this.fonction= fonction;
+      nomService= service.toString();
   }
+  public PMedical(String nom, String prenom, String nomService, Fonction fonction) {
+        super(nom,prenom);
+      this.nomService= nomService;
+      this.fonction= fonction;
+    }
   
   public void modifierMDP(String ancien, String nouveau) {
         if (this.getMdp().equals(ancien)) {
@@ -68,4 +76,5 @@ public class PMedical extends Personnes {
     public Service getService() {
         return service;
     }
+    
 }

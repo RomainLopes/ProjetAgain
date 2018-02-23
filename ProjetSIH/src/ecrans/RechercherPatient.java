@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 import projetsih.PMedical;
 import projetsih.Patient;
 import projetsih.RecherchePatient;
+import projetsih.SAdm;
+import projetsih.SMed;
 
 /**
  *
@@ -25,9 +27,45 @@ public class RechercherPatient extends javax.swing.JFrame {
      */
      private Patient p;
     private PMedical employe;
-    private JFrame fenetrePrecedente;
-    public RechercherPatient() {
+    private SAdm sa;
+    private SmAccueil fenetrePreSm;
+    private SaAccueil fenetrePreSa;
+    private Identification fenetrePrePh;
+    
+    public RechercherPatient(SmAccueil fenetre) {
         RecherchePatient rp = new RecherchePatient();
+        this.fenetrePreSm=fenetre;
+        initComponents();
+        employe= fenetrePreSm.getEmploye();
+        jLabelNom.setText(employe.getNom());
+        jLabelPrenom.setText(employe.getPrenom());
+        jLabelFonction.setText(employe.getFonction().toString());
+        jLabelService.setText(employe.getService().toString()); 
+    }
+    
+    public RechercherPatient(Identification fenetre) {
+        RecherchePatient rp = new RecherchePatient();
+        this.fenetrePrePh=fenetre;
+        initComponents();
+        employe= fenetrePrePh.getEmploye();
+        jLabelNom.setText(employe.getNom());
+        jLabelPrenom.setText(employe.getPrenom());
+        jLabelFonction.setText(employe.getFonction().toString());
+        jLabelService.setText(employe.getService().toString()); 
+    }
+    
+     public RechercherPatient(SaAccueil fenetre) {
+        RecherchePatient rp = new RecherchePatient();
+        this.fenetrePreSa=fenetre;
+        initComponents();
+        this.sa= fenetrePreSa.getSa();
+        jLabelNom.setText(employe.getNom());
+        jLabelPrenom.setText(employe.getPrenom());
+        jLabelFonction.setText(employe.getFonction().toString());
+        jLabelService.setText(employe.getService().toString()); 
+    }
+
+    public RechercherPatient() {
         initComponents();
     }
 
@@ -142,6 +180,11 @@ public class RechercherPatient extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jListpatients.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListpatientsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jListpatients);
 
         jTextFieldPrenom.addActionListener(new java.awt.event.ActionListener() {
@@ -248,6 +291,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         ArrayList<String> infoPatient = new ArrayList<String>();
         infoPatient = rp.enTetePatient(resultatRecherche.get(1));
+        this.p= new Patient(infoPatient.get(0),infoPatient.get(1),infoPatient.get(2));
 
         for (int i = 0; i < infoPatient.size(); i++) {
             System.out.println(infoPatient.get(i) + " \t \n");
@@ -259,13 +303,23 @@ public class RechercherPatient extends javax.swing.JFrame {
                 }*/
         boolean x = false;
         if (x == true/* fonction == Fonction.Secretaire_Médicale*/) {
+            Identification f= new Identification();
+             //this.fenetrePrecedente= new SmAccueil(f);
 
             //SMed smed= new SMed(nPS.get(0), nPS.get(1), nPS.get(2));
+            //SMed employe= new SMed(fenetrePrecedente.getEmploye().getNom(),fenetrePrecedente.getEmploye().getPrenom(),fenetrePrecedente.getEmploye().getService())
+                 //  this.employe= fenetrePrecedente.getEmploye();
+
             JOptionPane.showMessageDialog(null, "Dossier médical existant");
+            ConsulterDM sadm = new ConsulterDM();
+            sadm.setSize(this.getSize());
+            sadm.setLocationRelativeTo(this);
+            this.dispose();
+            sadm.setVisible(true);
 
         } else if (x == true/* fonction == Fonction.Secretaire_admin*/) {
 
-            ConsulterDMA sadm = new ConsulterDMA();
+            ConsulterDMA sadm = new ConsulterDMA(this);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
@@ -273,7 +327,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         } else if (x == true/* fonction == Fonction.Interne*/) {
 
-            InterneAccueil inte = new InterneAccueil();
+            InterneAccueil inte = new InterneAccueil(this);
             inte.setSize(this.getSize());
             inte.setLocationRelativeTo(this);
             this.dispose();
@@ -281,7 +335,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         } else if (x == true/* fonction == Fonction.Infirmier*/) {
 
-            InfirmierAccueil inte = new InfirmierAccueil();
+            InfirmierAccueil inte = new InfirmierAccueil(this);
             inte.setSize(this.getSize());
             inte.setLocationRelativeTo(this);
             this.dispose();
@@ -289,7 +343,7 @@ public class RechercherPatient extends javax.swing.JFrame {
         } else { // pH
             if (x == true/* pH.service.getType()=="Clinique"*/) {
 
-                MedClinAccueil inte = new MedClinAccueil();
+                MedClinAccueil inte = new MedClinAccueil(this);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
@@ -303,7 +357,7 @@ public class RechercherPatient extends javax.swing.JFrame {
                 inte.setVisible(true);
             } else if (x == true/* pH.service.getNom()=="Anesthésie"*/) {
 
-                MedAnestAccueil inte = new MedAnestAccueil();
+                MedAnestAccueil inte = new MedAnestAccueil(this);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
@@ -331,6 +385,15 @@ public class RechercherPatient extends javax.swing.JFrame {
     private void jTextFieldPrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrenomActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPrenomActionPerformed
+
+    private void jListpatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListpatientsMouseClicked
+        // TODO add your handling code here:
+        DossierMedical dm = new DossierMedical();
+        dm.setSize(this.getSize());
+        dm.setLocationRelativeTo(this);
+        this.dispose();
+        dm.setVisible(true);
+    }//GEN-LAST:event_jListpatientsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -362,9 +425,16 @@ public class RechercherPatient extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                JFrame fenetre= new JFrame();
                 new RechercherPatient().setVisible(true);
             }
         });
+    }
+    public Patient getP(){
+        return this.p;
+    }
+    public PMedical getEmploye(){
+        return this.employe;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

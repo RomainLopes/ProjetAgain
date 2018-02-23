@@ -19,7 +19,25 @@ public class MedTechAccueil extends javax.swing.JFrame {
      */
      private Patient p;
     private PMedical employe;
-    public MedTechAccueil() {
+    private RechercherPatient fenetrePrecedente;
+    
+    public MedTechAccueil(RechercherPatient fenetre) {
+        initComponents();
+        this.fenetrePrecedente = fenetre;
+        this.employe = fenetrePrecedente.getEmploye();
+        this.p=fenetrePrecedente.getP();
+        
+        jLabelPrenom.setText(employe.getPrenom());
+        jLabelNom.setText(employe.getNom());
+        jLabelService.setText(employe.getService().toString());
+
+        jLabel3NomPatient.setText(p.getNom());
+        jLabel4PrenomPatient.setText(p.getPrenom());
+        jLabel2Sexe.setText(p.getSexe());
+        jLabel2DateDeNaissance.setText(p.getDateNaissance().toString());
+    }
+    
+     public MedTechAccueil() {
         initComponents();
     }
 
@@ -370,9 +388,11 @@ public class MedTechAccueil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-        Identification id = new Identification();
-        id.setVisible(true);
-        this.dispose();
+       RechercherPatient rechercher = new RechercherPatient();
+                    rechercher.setSize(this.getSize());
+                    rechercher.setLocationRelativeTo(this);
+                    this.dispose();
+                    rechercher.setVisible(true);
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
@@ -400,6 +420,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        InfirmierAccueil infi= new InfirmierAccueil();
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

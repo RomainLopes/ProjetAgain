@@ -5,17 +5,36 @@
  */
 package ecrans;
 
+import javax.swing.JOptionPane;
+import projetsih.PMedical;
+import projetsih.Patient;
+
 /**
  *
  * @author lisad
  */
 public class CreerDM extends javax.swing.JFrame {
 
+    private Patient p;
+    private PMedical employe;
+    private SmAccueil fenetrePrecedente;
+
     /**
      * Creates new form CreerDM
      */
     public CreerDM() {
         initComponents();
+    }
+    
+    public CreerDM(SmAccueil fenetre) {
+        initComponents();
+        this.fenetrePrecedente = fenetre;
+        employe=fenetrePrecedente.getEmploye();
+        /*jTextField1Nom.setText(((SmAccueil) fenetrePrecedente).getP().getNom());
+        jTextField4Prenom.setText(((SmAccueil) fenetrePrecedente).getP().getPrenom());
+        jTextField4Sexe.setText(((SmAccueil) fenetrePrecedente).getP().getSexe());
+        jTextField4DDN1.setText(((SmAccueil) fenetrePrecedente).getP().getDateNaissance().toString());*/
+
     }
 
     /**
@@ -43,6 +62,7 @@ public class CreerDM extends javax.swing.JFrame {
         jTextField1IPP = new javax.swing.JTextField();
         jLabel2Service = new javax.swing.JLabel();
         jTextField1Service = new javax.swing.JTextField();
+        jButtonValider = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,15 +121,14 @@ public class CreerDM extends javax.swing.JFrame {
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addComponent(jLabel2DateDeNaissance)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField4DDN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(471, Short.MAX_VALUE))
+                                .addComponent(jTextField4DDN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                         .addComponent(jLabel1InfoPatients)
                         .addGap(96, 96, 96)
                         .addComponent(jLabel2IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1IPP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(jTextField1IPP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(443, Short.MAX_VALUE))
         );
         jPanel3InfoPatientLayout.setVerticalGroup(
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,6 +155,13 @@ public class CreerDM extends javax.swing.JFrame {
 
         jTextField1Service.setText("jTextField1");
 
+        jButtonValider.setText("Valider");
+        jButtonValider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonValiderActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1CreationDMLayout = new javax.swing.GroupLayout(jPanel1CreationDM);
         jPanel1CreationDM.setLayout(jPanel1CreationDMLayout);
         jPanel1CreationDMLayout.setHorizontalGroup(
@@ -144,10 +170,15 @@ public class CreerDM extends javax.swing.JFrame {
                 .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1CreationDMLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel2Service, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField1Service, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1CreationDMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1CreationDMLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel2Service, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1Service, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1CreationDMLayout.createSequentialGroup()
+                        .addGap(295, 295, 295)
+                        .addComponent(jButtonValider)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1CreationDMLayout.setVerticalGroup(
@@ -158,7 +189,9 @@ public class CreerDM extends javax.swing.JFrame {
                 .addGroup(jPanel1CreationDMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2Service, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1Service, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 277, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
+                .addComponent(jButtonValider)
+                .addGap(0, 199, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -190,6 +223,17 @@ public class CreerDM extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4SexeActionPerformed
 
+    private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
+        // TODO add your handling code here:
+        //mettre le code pour rajouter à la BD
+        JOptionPane.showMessageDialog(null, "Dossier médical créé");
+        RechercherPatient rechercher = new RechercherPatient();
+        rechercher.setSize(this.getSize());
+        rechercher.setLocationRelativeTo(this);
+        this.dispose();
+        rechercher.setVisible(true);
+    }//GEN-LAST:event_jButtonValiderActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -220,12 +264,14 @@ public class CreerDM extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 new CreerDM().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonValider;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1Prenom;

@@ -11,6 +11,10 @@ public class SMed extends PMedical {
         super(nom, prenom,service,Fonction.Secrétaire_Medicale );
         
     }
+     public SMed(String nom, String prenom, String service) {
+        super(nom,prenom,service,Fonction.Secrétaire_Medicale);
+
+    }
 
     public SMed() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -22,10 +26,16 @@ public class SMed extends PMedical {
       
   }*/
 
-  public void consulterDM() {
+  public void consulterDM(Patient patient) { // elle recherche juste
+      
   }
 
   public void transfertDM() {
+  }
+  
+  public void creerDM(Patient p){
+      DM dm= new DM(p);
+     
   }
 
 }

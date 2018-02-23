@@ -20,8 +20,30 @@ public class InterneAccueil extends javax.swing.JFrame {
      */
      private Patient p;
     private PMedical employe;
-    public InterneAccueil() {
+    private RechercherPatient fenetrePrecedente;
+    public InterneAccueil(RechercherPatient fenetre) {
         initComponents();
+        this.fenetrePrecedente = fenetre;
+        this.employe = fenetrePrecedente.getEmploye();
+        this.p=fenetrePrecedente.getP();
+        
+        jLabelPrenomInt.setText(employe.getPrenom());
+        jLabelNomInt.setText(employe.getNom());
+        jLabelService.setText(employe.getService().toString());
+
+        jTextField1NomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
+        jTextField4PrenomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
+        jTextField4SexePat.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
+        jTextField4DDN1Pat.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());
+
+        jScrollPane1ListeObservations.setVisible(false);
+        
+  
+        
+    }
+
+    private InterneAccueil() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public void ecrirJLabel(String a){
@@ -40,8 +62,8 @@ public class InterneAccueil extends javax.swing.JFrame {
 
         JPanelEnTeteMedTech = new javax.swing.JPanel();
         jLabelFonction = new javax.swing.JLabel();
-        jLabelNom = new javax.swing.JLabel();
-        jLabelPrenom = new javax.swing.JLabel();
+        jLabelNomInt = new javax.swing.JLabel();
+        jLabelPrenomInt = new javax.swing.JLabel();
         jButtonDeconnexion = new javax.swing.JButton();
         jButtonAccueil = new javax.swing.JButton();
         jLabelService = new javax.swing.JLabel();
@@ -57,10 +79,10 @@ public class InterneAccueil extends javax.swing.JFrame {
         jLabel2Sexe = new javax.swing.JLabel();
         jLabel2DateDeNaissance = new javax.swing.JLabel();
         jLabel1InfoPatients = new javax.swing.JLabel();
-        jTextField1Nom = new javax.swing.JTextField();
-        jTextField4Sexe = new javax.swing.JTextField();
-        jTextField4DDN1 = new javax.swing.JTextField();
-        jTextField4Prenom = new javax.swing.JTextField();
+        jTextField1NomPat = new javax.swing.JTextField();
+        jTextField4SexePat = new javax.swing.JTextField();
+        jTextField4DDN1Pat = new javax.swing.JTextField();
+        jTextField4PrenomPat = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,9 +91,9 @@ public class InterneAccueil extends javax.swing.JFrame {
         jLabelFonction.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelFonction.setText("Interne");
 
-        jLabelNom.setText("Nom");
+        jLabelNomInt.setText("Nom");
 
-        jLabelPrenom.setText("Prénom");
+        jLabelPrenomInt.setText("Prénom");
 
         jButtonDeconnexion.setText("Déconnexion");
         jButtonDeconnexion.addActionListener(new java.awt.event.ActionListener() {
@@ -99,10 +121,10 @@ public class InterneAccueil extends javax.swing.JFrame {
                 .addGap(93, 93, 93)
                 .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
-                        .addComponent(jLabelNom)
+                        .addComponent(jLabelNomInt)
                         .addGap(153, 153, 153)
                         .addComponent(jLabelFonction))
-                    .addComponent(jLabelPrenom))
+                    .addComponent(jLabelPrenomInt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 336, Short.MAX_VALUE)
                 .addComponent(jLabelService)
                 .addGap(18, 18, 18)
@@ -116,7 +138,7 @@ public class InterneAccueil extends javax.swing.JFrame {
                     .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelNom)
+                            .addComponent(jLabelNomInt)
                             .addComponent(jLabelService)))
                     .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -124,7 +146,7 @@ public class InterneAccueil extends javax.swing.JFrame {
                             .addContainerGap()
                             .addComponent(jLabelFonction, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelPrenomInt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -210,18 +232,18 @@ public class InterneAccueil extends javax.swing.JFrame {
 
         jLabel1InfoPatients.setText("Informations du patient ");
 
-        jTextField1Nom.setText("jTextField1");
+        jTextField1NomPat.setText("jTextField1");
 
-        jTextField4Sexe.setText("jTextField1");
-        jTextField4Sexe.addActionListener(new java.awt.event.ActionListener() {
+        jTextField4SexePat.setText("jTextField1");
+        jTextField4SexePat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4SexeActionPerformed(evt);
+                jTextField4SexePatActionPerformed(evt);
             }
         });
 
-        jTextField4DDN1.setText("jTextField1");
+        jTextField4DDN1Pat.setText("jTextField1");
 
-        jTextField4Prenom.setText("jTextField1");
+        jTextField4PrenomPat.setText("jTextField1");
 
         javax.swing.GroupLayout jPanel3InfoPatientLayout = new javax.swing.GroupLayout(jPanel3InfoPatient);
         jPanel3InfoPatient.setLayout(jPanel3InfoPatientLayout);
@@ -237,18 +259,18 @@ public class InterneAccueil extends javax.swing.JFrame {
                             .addComponent(jLabel1Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1Nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField4PrenomPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1NomPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(60, 60, 60)
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextField4SexePat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addComponent(jLabel2DateDeNaissance)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField4DDN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jTextField4DDN1Pat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3InfoPatientLayout.setVerticalGroup(
@@ -259,14 +281,14 @@ public class InterneAccueil extends javax.swing.JFrame {
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1Nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1NomPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField4SexePat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1Prenom)
                     .addComponent(jLabel2DateDeNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4DDN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jTextField4DDN1Pat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField4PrenomPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -311,9 +333,9 @@ public class InterneAccueil extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ajouterObservationActionPerformed
 
-    private void jTextField4SexeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4SexeActionPerformed
+    private void jTextField4SexePatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4SexePatActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4SexeActionPerformed
+    }//GEN-LAST:event_jTextField4SexePatActionPerformed
 
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
         // TODO add your handling code here:
@@ -376,16 +398,16 @@ public class InterneAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2Nom;
     private javax.swing.JLabel jLabel2Sexe;
     private javax.swing.JLabel jLabelFonction;
-    private javax.swing.JLabel jLabelNom;
-    private javax.swing.JLabel jLabelPrenom;
+    private javax.swing.JLabel jLabelNomInt;
+    private javax.swing.JLabel jLabelPrenomInt;
     private javax.swing.JLabel jLabelService;
     private javax.swing.JPanel jPanel1Observations;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel3InfoPatient;
     private javax.swing.JScrollPane jScrollPane1ListeObservations;
-    private javax.swing.JTextField jTextField1Nom;
-    private javax.swing.JTextField jTextField4DDN1;
-    private javax.swing.JTextField jTextField4Prenom;
-    private javax.swing.JTextField jTextField4Sexe;
+    private javax.swing.JTextField jTextField1NomPat;
+    private javax.swing.JTextField jTextField4DDN1Pat;
+    private javax.swing.JTextField jTextField4PrenomPat;
+    private javax.swing.JTextField jTextField4SexePat;
     // End of variables declaration//GEN-END:variables
 }
