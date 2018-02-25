@@ -25,27 +25,27 @@ public class RechercherPatient extends javax.swing.JFrame {
     /**
      * Creates new form RechercherPatient
      */
-    private static ArrayList<String> med =new ArrayList<String>(4);
-     private ArrayList<String> p;
+    private static ArrayList<String> med;
+    private static ArrayList<String> p;
     private ArrayList<String> employe;
     private SmAccueil fenetrePreSm;
     private SaAccueil fenetrePreSa;
     private Identification fenetrePrePh;
-    
+
     public RechercherPatient(ArrayList<String> nps) {
         RecherchePatient rp = new RecherchePatient();
         med = nps;
         initComponents();
-           // this.fenetrePrePh=fenetre;
-            //this.employe= fenetre.getEmploye();
+        // this.fenetrePrePh=fenetre;
+        //this.employe= fenetre.getEmploye();
 
         jLabelNom.setText(nps.get(0));
         jLabelPrenom.setText(nps.get(1));
         jLabelFonction.setText(nps.get(2));
-        jLabelService.setText(nps.get(3)); 
+        jLabelService.setText(nps.get(3));
     }
-    
-   /* public RechercherPatient(Identification fenetre) {
+
+    /* public RechercherPatient(Identification fenetre) {
         RecherchePatient rp = new RecherchePatient();
         this.fenetrePrePh=fenetre;
         initComponents();
@@ -66,7 +66,6 @@ public class RechercherPatient extends javax.swing.JFrame {
         jLabelFonction.setText(employe.getFonction().toString());
         jLabelService.setText(employe.getService().toString()); 
     }*/
-
     public RechercherPatient() {
         initComponents();
     }
@@ -293,7 +292,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         ArrayList<String> infoPatient = new ArrayList<String>();
         infoPatient = rp.enTetePatient(resultatRecherche.get(1));
-        p= infoPatient;
+        p = infoPatient;
         //this.p= new Patient(infoPatient.get(0),infoPatient.get(1),infoPatient.get(2));
 
         for (int i = 0; i < infoPatient.size(); i++) {
@@ -306,13 +305,12 @@ public class RechercherPatient extends javax.swing.JFrame {
                 }*/
         boolean x = false;
         if (x == true/* fonction == Fonction.Secretaire_Médicale*/) {
-            Identification f= new Identification();
-             //this.fenetrePrecedente= new SmAccueil(f);
+            Identification f = new Identification();
+            //this.fenetrePrecedente= new SmAccueil(f);
 
             //SMed smed= new SMed(nPS.get(0), nPS.get(1), nPS.get(2));
             //SMed employe= new SMed(fenetrePrecedente.getEmploye().getNom(),fenetrePrecedente.getEmploye().getPrenom(),fenetrePrecedente.getEmploye().getService())
-                 //  this.employe= fenetrePrecedente.getEmploye();
-
+            //  this.employe= fenetrePrecedente.getEmploye();
             JOptionPane.showMessageDialog(null, "Dossier médical existant");
             ConsulterDM sadm = new ConsulterDM();
             sadm.setSize(this.getSize());
@@ -391,18 +389,19 @@ public class RechercherPatient extends javax.swing.JFrame {
 
     private void jListpatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListpatientsMouseClicked
         // TODO add your handling code here:
-        DossierMedical dm = new DossierMedical();
-        dm.setSize(this.getSize());
-        dm.setLocationRelativeTo(this);
+        InfirmierAccueil ia = new InfirmierAccueil(med, p);
+        //DossierMedical dm = new DossierMedical();
+        ia.setSize(this.getSize());
+        ia.setLocationRelativeTo(this);
         this.dispose();
-        dm.setVisible(true);
+        ia.setVisible(true);
     }//GEN-LAST:event_jListpatientsMouseClicked
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -429,15 +428,17 @@ public class RechercherPatient extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JFrame fenetre= new JFrame();
+                JFrame fenetre = new JFrame();
                 new RechercherPatient(med).setVisible(true);
             }
         });
     }
-    public ArrayList<String> getP(){
+
+    public ArrayList<String> getP() {
         return this.p;
     }
-    public ArrayList<String> getEmploye(){
+
+    public ArrayList<String> getEmploye() {
         return this.employe;
     }
 

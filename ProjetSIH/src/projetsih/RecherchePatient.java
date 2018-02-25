@@ -145,6 +145,37 @@ public class RecherchePatient {
         return resultatRecherche;
     }
 
+    public ArrayList<String> creerPatient(String nom, String prenom, Date ddn, String localisation, String adresse, int IPP) {
+        ArrayList<String> resultatRecherche = new ArrayList<String>();
+        String Query = new String();
+        Query = "INSERT INTO patients (IPP, nompatient, prenompatient,datedenaissance, localisation,adresse,ipp) ";
+        Query+=" VALUES ('" + IPP + "','" + nom +"','" + prenom + "','" + ddn + "','" + localisation + "','" + adresse + "','{" + IPP +"}'" ;
+        /*
+        if (nom.equals("")) {
+            //Query = "SELECT * FROM patients WHERE patients.prenompatient = '" + prenom + "'";
+            System.out.println("nom null");
+        } else if (prenom.equals("")) {
+            System.out.println("prenom null");
+            //Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'";
+        } else {
+            //System.out.println("rien de null");
+            //Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'" + " AND patients.prenompatient = '" + prenom + "'";
+        }*/
+
+        try {
+
+            Connection conn = BDDconnection.getInstance();
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet result = state.executeQuery(Query);
+
+            System.out.println("patient ajouté");
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return resultatRecherche;
+    }
+    
     public static void main(String[] args) {
 
         try {
