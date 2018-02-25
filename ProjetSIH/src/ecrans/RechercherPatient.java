@@ -32,15 +32,15 @@ public class RechercherPatient extends javax.swing.JFrame {
     private SaAccueil fenetrePreSa;
     private Identification fenetrePrePh;
     
-    public RechercherPatient(SmAccueil fenetre) {
+    public RechercherPatient(ArrayList<String> nps) {
         RecherchePatient rp = new RecherchePatient();
-        this.fenetrePreSm=fenetre;
+        
         initComponents();
-        employe= fenetrePreSm.getEmploye();
-        jLabelNom.setText(employe.getNom());
-        jLabelPrenom.setText(employe.getPrenom());
-        jLabelFonction.setText(employe.getFonction().toString());
-        jLabelService.setText(employe.getService().toString()); 
+        //employe= fenetrePreSm.getEmploye();
+        jLabelNom.setText(nps.get(0));
+        jLabelPrenom.setText(nps.get(1));
+        jLabelFonction.setText(nps.get(2));
+        jLabelService.setText(nps.get(3)); 
     }
     
     public RechercherPatient(Identification fenetre) {

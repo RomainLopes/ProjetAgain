@@ -178,7 +178,7 @@ public class Identification extends javax.swing.JFrame {
                     Fonction fonction=  Fonction.Interne; // remplacer fonction par nPS.get(3)
 
                     //employe = new PMedical( nPS.get(0), nPS.get(1), nPS.get(2), nPS.get(3));
-                    RechercherPatient rechercher = new RechercherPatient(this);
+                    RechercherPatient rechercher = new RechercherPatient(nPS);
                     rechercher.setSize(this.getSize());
                     rechercher.setLocationRelativeTo(this);
                     this.dispose();
