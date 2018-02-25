@@ -5,7 +5,7 @@
  */
 package ecrans;
 
-import projetsih.PMedical;
+import projetsih.PHospitalier;
 import projetsih.Patient;
 import projetsih.SAdm;
 

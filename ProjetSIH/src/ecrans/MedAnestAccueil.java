@@ -5,7 +5,8 @@
  */
 package ecrans;
 
-import projetsih.PMedical;
+import java.util.ArrayList;
+import projetsih.PHospitalier;
 import projetsih.Patient;
 
 /**
@@ -15,33 +16,29 @@ import projetsih.Patient;
 public class MedAnestAccueil extends javax.swing.JFrame {
     private RechercherPatient fenetrePrecedente;
      private Patient p;
-    private PMedical employe;
+    private PHospitalier employe;
 
     /**
      * Creates new form MedAnestAccueil
      */
     
   
-    public MedAnestAccueil(RechercherPatient fenetre) {
+    public MedAnestAccueil(ArrayList<String> personnel, ArrayList<String> patient ) {
         initComponents();
-         this.fenetrePrecedente = fenetre;
-        this.employe = fenetrePrecedente.getEmploye();
-        this.p=fenetrePrecedente.getP();
+        jLabelNomPmed.setText(personnel.get(0));
+        jLabelPrenomPmed.setText(personnel.get(1));
+       // jLabelFonction.setText(personnel.get(2));
+        jLabelService.setText(personnel.get(3)); 
         
-        jLabelPrenomPmed.setText(employe.getPrenom());
-        jLabelNomPmed.setText(employe.getNom());
-        jLabelService.setText(employe.getService().toString());
-
-        jTextField1Nom.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
-        jTextField2Prenom.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
-        jTextField3Sexe.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
-        jTextField4DDN.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());
+        jTextField1Nom.setText(personnel.get(0));
+        jTextField2Prenom.setText(personnel.get(1));
+        jTextField4DDN.setText(personnel.get(2));
+        jTextField3Sexe.setText(personnel.get(3));
 
     }
 
-    private MedAnestAccueil() {
+    public MedAnestAccueil() {
         initComponents();
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -514,7 +511,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     private void ConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMAActionPerformed
         // TODO add your handling code here:
         
-         ConsulterDMA sadm = new ConsulterDMA(this.fenetrePrecedente);
+         ConsulterDMA sadm = new ConsulterDMA();
                     sadm.setSize(this.getSize());
                     sadm.setLocationRelativeTo(this);
                     this.dispose();

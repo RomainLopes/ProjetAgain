@@ -1,7 +1,7 @@
 package projetsih;
 
 
-public class SMed extends PMedical {
+public class SMed extends PHospitalier {
 
     public SMed(String nom, String prenom, String id, String mdp, Service service) {
         super(nom, prenom, id, mdp, service,Fonction.Secrétaire_Medicale );
@@ -17,7 +17,6 @@ public class SMed extends PMedical {
     }
 
     public SMed() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

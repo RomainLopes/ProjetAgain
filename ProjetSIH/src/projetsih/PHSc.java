@@ -1,6 +1,6 @@
 package projetsih;
 
-public class PHSc extends PMedical {
+public class PHSc extends PHospitalier {
 
 
     public PHSc(String nom, String prenom, String id, String mdp, Service service) {

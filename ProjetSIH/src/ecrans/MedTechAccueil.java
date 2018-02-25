@@ -5,7 +5,8 @@
  */
 package ecrans;
 
-import projetsih.PMedical;
+import java.util.ArrayList;
+import projetsih.PHospitalier;
 import projetsih.Patient;
 
 /**
@@ -18,23 +19,29 @@ public class MedTechAccueil extends javax.swing.JFrame {
      * Creates new form MedAccueil
      */
      private Patient p;
-    private PMedical employe;
+    private PHospitalier employe;
     private RechercherPatient fenetrePrecedente;
     
-    public MedTechAccueil(RechercherPatient fenetre) {
+    public MedTechAccueil(ArrayList<String> personnel, ArrayList<String> patient ) {
         initComponents();
-        this.fenetrePrecedente = fenetre;
-        this.employe = fenetrePrecedente.getEmploye();
-        this.p=fenetrePrecedente.getP();
+        jLabelNom.setText(personnel.get(0));
+        jLabelPrenom.setText(personnel.get(1));
+        //jLabelFonction.setText(personnel.get(2));
+        jLabelService.setText(personnel.get(3)); 
         
-        jLabelPrenom.setText(employe.getPrenom());
+        jLabel3NomPatient.setText(personnel.get(0));
+        jLabel4PrenomPatient.setText(personnel.get(1));
+        jLabel2DateDeNaissance.setText(personnel.get(2));
+        //jLabel2Sexe.setText(personnel.get(3));
+        
+      /*  jLabelPrenom.setText(employe.getPrenom());
         jLabelNom.setText(employe.getNom());
         jLabelService.setText(employe.getService().toString());
 
         jLabel3NomPatient.setText(p.getNom());
         jLabel4PrenomPatient.setText(p.getPrenom());
-        jLabel2Sexe.setText(p.getSexe());
-        jLabel2DateDeNaissance.setText(p.getDateNaissance().toString());
+       jLabel2Sexe .setText(p.getSexe());
+        jLabel2DateDeNaissance.setText(p.getDateNaissance().toString());*/
     }
     
      public MedTechAccueil() {

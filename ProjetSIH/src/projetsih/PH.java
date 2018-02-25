@@ -1,6 +1,6 @@
 package projetsih;
 
-public class PH extends PMedical {
+public class PH extends PHospitalier {
 
   public boolean chefService;
 

@@ -10,7 +10,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-import projetsih.PMedical;
+import projetsih.PHospitalier;
 import projetsih.Patient;
 import projetsih.RecherchePatient;
 import projetsih.SAdm;
@@ -25,25 +25,27 @@ public class RechercherPatient extends javax.swing.JFrame {
     /**
      * Creates new form RechercherPatient
      */
-     private Patient p;
-    private PMedical employe;
-    private SAdm sa;
+    private static ArrayList<String> med =new ArrayList<String>(4);
+     private ArrayList<String> p;
+    private ArrayList<String> employe;
     private SmAccueil fenetrePreSm;
     private SaAccueil fenetrePreSa;
     private Identification fenetrePrePh;
     
     public RechercherPatient(ArrayList<String> nps) {
         RecherchePatient rp = new RecherchePatient();
-        
+        med = nps;
         initComponents();
-        //employe= fenetrePreSm.getEmploye();
+           // this.fenetrePrePh=fenetre;
+            //this.employe= fenetre.getEmploye();
+
         jLabelNom.setText(nps.get(0));
         jLabelPrenom.setText(nps.get(1));
         jLabelFonction.setText(nps.get(2));
         jLabelService.setText(nps.get(3)); 
     }
     
-    public RechercherPatient(Identification fenetre) {
+   /* public RechercherPatient(Identification fenetre) {
         RecherchePatient rp = new RecherchePatient();
         this.fenetrePrePh=fenetre;
         initComponents();
@@ -63,7 +65,7 @@ public class RechercherPatient extends javax.swing.JFrame {
         jLabelPrenom.setText(employe.getPrenom());
         jLabelFonction.setText(employe.getFonction().toString());
         jLabelService.setText(employe.getService().toString()); 
-    }
+    }*/
 
     public RechercherPatient() {
         initComponents();
@@ -291,7 +293,8 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         ArrayList<String> infoPatient = new ArrayList<String>();
         infoPatient = rp.enTetePatient(resultatRecherche.get(1));
-        this.p= new Patient(infoPatient.get(0),infoPatient.get(1),infoPatient.get(2));
+        p= infoPatient;
+        //this.p= new Patient(infoPatient.get(0),infoPatient.get(1),infoPatient.get(2));
 
         for (int i = 0; i < infoPatient.size(); i++) {
             System.out.println(infoPatient.get(i) + " \t \n");
@@ -319,7 +322,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         } else if (x == true/* fonction == Fonction.Secretaire_admin*/) {
 
-            ConsulterDMA sadm = new ConsulterDMA(this);
+            ConsulterDMA sadm = new ConsulterDMA();
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
@@ -327,7 +330,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         } else if (x == true/* fonction == Fonction.Interne*/) {
 
-            InterneAccueil inte = new InterneAccueil(this);
+            InterneAccueil inte = new InterneAccueil();
             inte.setSize(this.getSize());
             inte.setLocationRelativeTo(this);
             this.dispose();
@@ -335,7 +338,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         } else if (x == true/* fonction == Fonction.Infirmier*/) {
 
-            InfirmierAccueil inte = new InfirmierAccueil(this);
+            InfirmierAccueil inte = new InfirmierAccueil();
             inte.setSize(this.getSize());
             inte.setLocationRelativeTo(this);
             this.dispose();
@@ -343,7 +346,7 @@ public class RechercherPatient extends javax.swing.JFrame {
         } else { // pH
             if (x == true/* pH.service.getType()=="Clinique"*/) {
 
-                MedClinAccueil inte = new MedClinAccueil(this);
+                MedClinAccueil inte = new MedClinAccueil();
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
@@ -357,7 +360,7 @@ public class RechercherPatient extends javax.swing.JFrame {
                 inte.setVisible(true);
             } else if (x == true/* pH.service.getNom()=="Anesthésie"*/) {
 
-                MedAnestAccueil inte = new MedAnestAccueil(this);
+                MedAnestAccueil inte = new MedAnestAccueil();
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
@@ -399,6 +402,7 @@ public class RechercherPatient extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -426,14 +430,14 @@ public class RechercherPatient extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame fenetre= new JFrame();
-                new RechercherPatient().setVisible(true);
+                new RechercherPatient(med).setVisible(true);
             }
         });
     }
-    public Patient getP(){
+    public ArrayList<String> getP(){
         return this.p;
     }
-    public PMedical getEmploye(){
+    public ArrayList<String> getEmploye(){
         return this.employe;
     }
 

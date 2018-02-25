@@ -5,8 +5,9 @@
  */
 package ecrans;
 
+import java.util.ArrayList;
 import javax.swing.JLabel;
-import projetsih.PMedical;
+import projetsih.PHospitalier;
 import projetsih.Patient;
 
 /**
@@ -19,31 +20,29 @@ public class InterneAccueil extends javax.swing.JFrame {
      * Creates new form InterneAccueil
      */
      private Patient p;
-    private PMedical employe;
+    private PHospitalier employe;
     private RechercherPatient fenetrePrecedente;
-    public InterneAccueil(RechercherPatient fenetre) {
+    public InterneAccueil(ArrayList<String> personnel, ArrayList<String> patient ) {
         initComponents();
-        this.fenetrePrecedente = fenetre;
-        this.employe = fenetrePrecedente.getEmploye();
-        this.p=fenetrePrecedente.getP();
+        jLabelNomInt.setText(personnel.get(0));
+        jLabelPrenomInt.setText(personnel.get(1));
+        jLabelFonction.setText(personnel.get(2));
+        jLabelService.setText(personnel.get(3)); 
         
-        jLabelPrenomInt.setText(employe.getPrenom());
-        jLabelNomInt.setText(employe.getNom());
-        jLabelService.setText(employe.getService().toString());
-
-        jTextField1NomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
-        jTextField4PrenomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
-        jTextField4SexePat.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
-        jTextField4DDN1Pat.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());
-
+        jTextField1NomPat.setText(personnel.get(0));
+        jTextField4PrenomPat.setText(personnel.get(1));
+        jTextField4SexePat.setText(personnel.get(2));
+        jTextField4DDN1Pat.setText(personnel.get(3));
+        
+        
         jScrollPane1ListeObservations.setVisible(false);
         
   
         
     }
 
-    private InterneAccueil() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public InterneAccueil() {
+        initComponents();
     }
     
     public void ecrirJLabel(String a){

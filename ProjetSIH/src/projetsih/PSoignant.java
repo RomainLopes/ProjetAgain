@@ -1,6 +1,6 @@
 package projetsih;
 
-public class PSoignant extends PMedical {
+public class PSoignant extends PHospitalier {
 
   public String observation;
 

@@ -5,6 +5,7 @@
  */
 package ecrans;
 
+import java.util.ArrayList;
 import projetsih.Patient;
 import projetsih.SAdm;
 
@@ -21,14 +22,13 @@ public class SaAccueil extends javax.swing.JFrame {
     /**
      * Creates new form SaAccueil
      */
-    public SaAccueil(Identification fenetrePrecedente) {
-        initComponents();
-        this.fenetrePrecedente = fenetrePrecedente;
-        this.sa = fenetrePrecedente.getSa();
+    public SaAccueil(ArrayList<String> nps) {
         
-        jLabelNom.setText(((Identification) fenetrePrecedente).getSa().getNom());
-        jLabelPrenom.setText(((Identification) fenetrePrecedente).getSa().getPrenom());
-
+        initComponents();
+        jLabelNom.setText(nps.get(0));
+        jLabelPrenom.setText(nps.get(1));
+        //jLabelFonction.setText(nps.get(2));
+        
     }
 
     SaAccueil() {
@@ -257,7 +257,7 @@ public class SaAccueil extends javax.swing.JFrame {
             public void run() {
                 Identification fenetre= new Identification();
                 try {
-                    new SaAccueil(fenetre).setVisible(true);
+                    new SaAccueil().setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

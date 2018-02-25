@@ -14,7 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import projetsih.Infirmier;
-import projetsih.PMedical;
+import projetsih.PHospitalier;
 import projetsih.Patient;
 import projetsih.SMed;
 
@@ -25,7 +25,7 @@ import projetsih.SMed;
 public class InfirmierAccueil extends javax.swing.JFrame {
 
     private Patient p;
-    private PMedical employe;
+    private PHospitalier employe;
     private RechercherPatient fenetrePrecedente;
 
     /**
@@ -46,22 +46,28 @@ public class InfirmierAccueil extends javax.swing.JFrame {
       
 
     }
+    
 
-    public InfirmierAccueil(RechercherPatient fenetre) {
+    public InfirmierAccueil(ArrayList<String> personnel, ArrayList<String> patient ) {
         initComponents();
-        this.fenetrePrecedente = fenetre;
-        this.employe = fenetrePrecedente.getEmploye();
-        //employe=new Infirmier( jLabelPrenomInf.getText(),jLabelNomInf.getText(),jLabelService.getText());
-        this.p=fenetrePrecedente.getP();
+        jLabelNomInf.setText(personnel.get(0));
+        jLabelPrenomInf.setText(personnel.get(1));
+        jLabelFonction.setText(personnel.get(2));
+        jLabelService.setText(personnel.get(3)); 
         
-        jLabelPrenomInf.setText(employe.getPrenom());
+        jLabel3NomPatient.setText(personnel.get(0));
+        jLabel4PrenomPatient.setText(personnel.get(1));
+        jLabel2dateDeNAissancePatient.setText(personnel.get(2));
+        jLabelSexePatient.setText(personnel.get(3)); 
+        
+        /*jLabelPrenomInf.setText(employe.getPrenom());
         jLabelNomInf.setText(employe.getNom());
         jLabelService.setText(employe.getService().toString());
 
         jLabel3NomPatient.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
         jLabel4PrenomPatient.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
         jLabelSexePatient.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
-        jLabel2dateDeNAissancePatient.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());
+        jLabel2dateDeNAissancePatient.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());*/
 
         jScrollPane1ListeObservations.setVisible(false);
         jScrollPane1ListeOperations.setVisible(false);
@@ -552,7 +558,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     /**
      * @return the employe
      */
-    public PMedical getEmploye() {
+    public PHospitalier getEmploye() {
         return employe;
     }
 

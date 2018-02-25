@@ -5,8 +5,9 @@
  */
 package ecrans;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import projetsih.PMedical;
+import projetsih.PHospitalier;
 import projetsih.Patient;
 
 /**
@@ -16,26 +17,25 @@ import projetsih.Patient;
 public class CreerDM extends javax.swing.JFrame {
 
     private Patient p;
-    private PMedical employe;
+    private PHospitalier employe;
     private SmAccueil fenetrePrecedente;
 
     /**
      * Creates new form CreerDM
      */
-    public CreerDM() {
-        initComponents();
-    }
-    
+  
     public CreerDM(SmAccueil fenetre) {
         initComponents();
         this.fenetrePrecedente = fenetre;
         employe=fenetrePrecedente.getEmploye();
-        /*jTextField1Nom.setText(((SmAccueil) fenetrePrecedente).getP().getNom());
+       /* jTextField1Nom.setText(((SmAccueil) fenetrePrecedente).getP().getNom());
         jTextField4Prenom.setText(((SmAccueil) fenetrePrecedente).getP().getPrenom());
         jTextField4Sexe.setText(((SmAccueil) fenetrePrecedente).getP().getSexe());
         jTextField4DDN1.setText(((SmAccueil) fenetrePrecedente).getP().getDateNaissance().toString());*/
 
     }
+     public CreerDM( ) {
+        initComponents();}
 
     /**
      * This method is called from within the constructor to initialize the form.

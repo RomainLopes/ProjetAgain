@@ -14,7 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import projetsih.DM;
 import projetsih.DMMedical;
-import projetsih.PMedical;
+import projetsih.PHospitalier;
 import projetsih.Patient;
 
 /**
@@ -24,7 +24,7 @@ import projetsih.Patient;
 public class ConsulterDM extends javax.swing.JFrame {
 
     private Patient p;
-    private PMedical employe;
+    private PHospitalier employe;
     private RechercherPatient fenetrePrecedente;
 
     public ConsulterDM() {
@@ -48,16 +48,19 @@ public class ConsulterDM extends javax.swing.JFrame {
         dmPat.getResultats().toString();*/
     }
 
-    public ConsulterDM(RechercherPatient fenetre) {
+    public ConsulterDM(ArrayList<String> patient ) {
         initComponents();
-        this.fenetrePrecedente = fenetre;
-        this.employe = fenetrePrecedente.getEmploye();
-        this.p = fenetrePrecedente.getP();
-        jTextFieldNomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
+        
+        jTextFieldNomPat.setText(patient.get(0));
+        jTextField4Prenom.setText(patient.get(1));
+        jTextField4DDN1.setText(patient.get(2));
+        jTextField4Sexe.setText(patient.get(3)); 
+        
+        /*jTextFieldNomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
         jTextField4Prenom.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
         jTextField4Sexe.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
         jTextField4DDN1.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());
-
+*/
         DM dmPat = new DMMedical(p);//p.getDpi().getMyDM();
         dmPat.getResultats().toString();
         //dmPat.getPrescriptions().toString();

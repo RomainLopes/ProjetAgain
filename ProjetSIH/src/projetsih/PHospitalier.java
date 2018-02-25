@@ -1,8 +1,9 @@
 package projetsih;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
 
-public class PMedical extends Personnes {
+public class PHospitalier extends Personnes {
 
   private String id;
   private String mdp;
@@ -10,12 +11,11 @@ public class PMedical extends Personnes {
 
   private Service service;
   private String nomService;
+ 
   
-  
-  public PMedical(){
-      
+  public PHospitalier(){
   }
-  public PMedical(String nom, String prenom, String id, String mdp, Service service, Fonction fonction){
+  public PHospitalier(String nom, String prenom, String id, String mdp, Service service, Fonction fonction){
       super(nom,prenom);
       this.id= id;
       this.mdp=mdp;
@@ -23,13 +23,13 @@ public class PMedical extends Personnes {
       this.fonction= fonction;
       nomService= service.toString();
   }
-  public PMedical(String nom, String prenom, Service service, Fonction fonction){
+  public PHospitalier(String nom, String prenom, Service service, Fonction fonction){
       super(nom,prenom);
       this.service= service;
       this.fonction= fonction;
       nomService= service.toString();
   }
-  public PMedical(String nom, String prenom, String nomService, Fonction fonction) {
+  public PHospitalier(String nom, String prenom, String nomService, Fonction fonction) {
         super(nom,prenom);
       this.nomService= nomService;
       this.fonction= fonction;

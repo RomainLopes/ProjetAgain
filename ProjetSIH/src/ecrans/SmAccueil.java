@@ -5,7 +5,8 @@
  */
 package ecrans;
 
-import projetsih.PMedical;
+import java.util.ArrayList;
+import projetsih.PHospitalier;
 import projetsih.Patient;
 
 /**
@@ -14,18 +15,22 @@ import projetsih.Patient;
  */
 public class SmAccueil extends javax.swing.JFrame {
     private Patient p;
-    private PMedical employe;
+    private PHospitalier employe;
     private Identification fenetrePrecedente;
 
     /**
      * Creates new form SmAccueil
      */
-    public SmAccueil(Identification fenetrePrecedente) {
+    public SmAccueil(ArrayList<String> personnel) {
         initComponents();
-        this.fenetrePrecedente = fenetrePrecedente;
-        jLabelNom.setText(((Identification) fenetrePrecedente).getEmploye().getNom());
+        jLabelNom.setText(personnel.get(0));
+        jLabelPrenom.setText(personnel.get(1));
+       // jLabelFonction.setText(personnel.get(2));
+        jLabelService.setText(personnel.get(3)); 
+        
+      /*  jLabelNom.setText(((Identification) fenetrePrecedente).getEmploye().getNom());
         jLabelPrenom.setText(((Identification) fenetrePrecedente).getEmploye().getPrenom());
-        jLabelService.setText(((Identification) fenetrePrecedente).getEmploye().getService().toString());
+        jLabelService.setText(((Identification) fenetrePrecedente).getEmploye().getService().toString());*/
  
     }
 
@@ -253,7 +258,7 @@ public class SmAccueil extends javax.swing.JFrame {
                 Identification fenetre= new Identification();
                 
                 try {
-                    new SaAccueil(fenetre).setVisible(true);
+                    new SaAccueil().setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -285,7 +290,7 @@ public class SmAccueil extends javax.swing.JFrame {
     /**
      * @return the employe
      */
-    public PMedical getEmploye() {
+    public PHospitalier getEmploye() {
         return employe;
     }
 }

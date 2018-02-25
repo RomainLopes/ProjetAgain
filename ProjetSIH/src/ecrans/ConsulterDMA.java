@@ -5,7 +5,8 @@
  */
 package ecrans;
 
-import projetsih.PMedical;
+import java.util.ArrayList;
+import projetsih.PHospitalier;
 import projetsih.Patient;
 
 /**
@@ -15,7 +16,7 @@ import projetsih.Patient;
 public class ConsulterDMA extends javax.swing.JFrame {
 
     private Patient p;
-    private PMedical employe;
+    private PHospitalier employe;
     private RechercherPatient fenetrePrecedente;
 
     /**
@@ -26,19 +27,25 @@ public class ConsulterDMA extends javax.swing.JFrame {
     }
     // si ca ouvre la ^page sans considérer les données modifier le constructeur en bas
 
-    public ConsulterDMA(RechercherPatient fenetre) {
+    public ConsulterDMA(ArrayList<String> personnel, ArrayList<String> patient ) {
         initComponents();
-        this.fenetrePrecedente = fenetre;
-        this.employe = fenetrePrecedente.getEmploye();
-        this.p=fenetrePrecedente.getP();
+        jLabelNomPmed.setText(personnel.get(0));
+        jLabelPrenomPmed.setText(personnel.get(1));
+        jLabelFonction.setText(personnel.get(2));
+        jLabelService.setText(personnel.get(3)); 
         
-        jTextField1NomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
+        jTextField1NomPat.setText(personnel.get(0));
+        jTextFieldPrenomPat.setText(personnel.get(1));
+        jTextFieldDDNPat.setText(personnel.get(2));
+        jTextFieldSexePat.setText(personnel.get(3)); 
+        
+        /*jTextField1NomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
         jTextFieldPrenomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
         jTextFieldSexePat.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
         jTextFieldDDNPat.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());
         jLabelNomPmed.setText(((RechercherPatient) fenetrePrecedente).getEmploye().getNom());
         jLabelPrenomPmed.setText(((RechercherPatient) fenetrePrecedente).getEmploye().getPrenom());
-        jLabelService.setText(((RechercherPatient) fenetrePrecedente).getEmploye().getService().toString());
+        jLabelService.setText(((RechercherPatient) fenetrePrecedente).getEmploye().getService().toString());*/
     }
 
     /**

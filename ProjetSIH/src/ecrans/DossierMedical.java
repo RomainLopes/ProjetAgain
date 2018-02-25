@@ -5,7 +5,8 @@
  */
 package ecrans;
 
-import projetsih.PMedical;
+import java.util.ArrayList;
+import projetsih.PHospitalier;
 import projetsih.Patient;
 
 /**
@@ -14,7 +15,7 @@ import projetsih.Patient;
  */
 public class DossierMedical extends javax.swing.JFrame {
         private Patient p; 
-    private PMedical employe;
+    private PHospitalier employe;
     private RechercherPatient fenetrePrecedente;
 
     /**
@@ -24,16 +25,26 @@ public class DossierMedical extends javax.swing.JFrame {
         initComponents();
       
     }
-    public DossierMedical(RechercherPatient fenetre) {
+    public DossierMedical(ArrayList<String> personnel, ArrayList<String> patient ) {
         initComponents();
-        this.fenetrePrecedente=fenetre;
-        jTextField1NomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
+        jLabelNom.setText(personnel.get(0));
+        jLabelPrenom.setText(personnel.get(1));
+        jLabelFonction.setText(personnel.get(2));
+        jLabelService.setText(personnel.get(3)); 
+        
+        jTextField1NomPat.setText(personnel.get(0));
+        jTextField4PrenomPat.setText(personnel.get(1));
+        jTextField4SexePat.setText(personnel.get(2));
+        jTextField4DDNPat.setText(personnel.get(3));
+        
+      /*  jTextField1NomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
         jTextField4PrenomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
         jTextField4SexePat.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
         jTextField4DDNPat.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());
+       
         jLabelNom.setText(((RechercherPatient) fenetrePrecedente).getEmploye().getNom());
         jLabelPrenom.setText(((RechercherPatient) fenetrePrecedente).getEmploye().getPrenom());
-        jLabelService.setText(((RechercherPatient) fenetrePrecedente).getEmploye().getService().toString());
+        jLabelService.setText(((RechercherPatient) fenetrePrecedente).getEmploye().getService().toString());*/
 
       
     }

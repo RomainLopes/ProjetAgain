@@ -5,7 +5,8 @@
  */
 package ecrans;
 
-import projetsih.PMedical;
+import java.util.ArrayList;
+import projetsih.PHospitalier;
 import projetsih.Patient;
 
 /**
@@ -18,24 +19,30 @@ public class MedRadioAccueil extends javax.swing.JFrame {
      * Creates new form MedRadioAccueil
      */
      private Patient p;
-    private PMedical employe;
+    private PHospitalier employe;
     private RechercherPatient fenetrePrecedente;
     
-    public MedRadioAccueil(RechercherPatient fenetre) {
+    public MedRadioAccueil(ArrayList<String> personnel, ArrayList<String> patient ) {
         initComponents();
+        jLabelNom.setText(personnel.get(0));
+        jLabelPrenom.setText(personnel.get(1));
+        //jLabelFonction.setText(personnel.get(2));
+        jLabelService.setText(personnel.get(3)); 
         
-        this.fenetrePrecedente = fenetre;
-        this.employe = fenetrePrecedente.getEmploye();
-        this.p=fenetrePrecedente.getP();
+        jTextField1Nom.setText(personnel.get(0));
+        jTextField2Prenom.setText(personnel.get(1));
+        jTextField4DDN.setText(personnel.get(2));
+        //jTextField3Sexe.setText(personnel.get(3));
         
-        jLabelPrenom.setText(employe.getPrenom());
+        
+       /* jLabelPrenom.setText(employe.getPrenom());
         jLabelNom.setText(employe.getNom());
         jLabelService.setText(employe.getService().toString());
 
         jTextField1Nom.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
         jTextField2Prenom.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
         jTextField3Sexe.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
-        jTextField4DDN.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());
+        jTextField4DDN.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());*/
     }
     
     public MedRadioAccueil() {
