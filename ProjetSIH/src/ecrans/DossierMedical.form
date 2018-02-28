@@ -54,7 +54,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="JPanelEnTeteMedTech" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="565" max="32767" attributes="0"/>
+                  <EmptySpace pref="586" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -72,7 +72,7 @@
                   <Component id="jPanel4Prescriptions" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanelOperations" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="23" max="32767" attributes="0"/>
                   <Component id="jPanel7Resultat" min="-2" max="-2" attributes="0"/>
               </Group>
               <Component id="jPanel3InfoPatient" max="32767" attributes="0"/>
@@ -82,12 +82,12 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel3InfoPatient" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel1Observations" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel4Prescriptions" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="45" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jPanelOperations" max="32767" attributes="0"/>
                       <Component id="jPanel7Resultat" max="32767" attributes="0"/>
@@ -505,36 +505,39 @@
                           <Component id="jLabel1InfoPatients" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel2Nom" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Component id="jLabel1Prenom" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel2Nom" min="-2" pref="43" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel1Nomp" min="-2" pref="77" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel1Prenom" min="-2" pref="55" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel2PrenomP" min="-2" pref="77" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField4PrenomPat" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField1NomPat" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel2Sexe" min="-2" pref="43" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField4SexePat" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel3Sexep" min="-2" pref="77" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel2DateDeNaissance" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTextField4DDNPat" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel4DateP" min="-2" pref="77" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="ConsulterDMA" min="-2" pref="179" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="EcrireLettreSortie1" min="-2" pref="194" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="ServiceCorrespondance" min="-2" pref="194" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="EcrireLettreSortie1" min="-2" pref="194" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="ServiceCorrespondance" min="-2" pref="194" max="-2" attributes="0"/>
+                      <EmptySpace pref="63" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -542,27 +545,27 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jLabel1InfoPatients" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" pref="30" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2Nom" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="jLabel2Sexe" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="jTextField1NomPat" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField4SexePat" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1Nomp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3Sexep" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1Prenom" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2DateDeNaissance" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="jTextField4DDNPat" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField4PrenomPat" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2PrenomP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4DateP" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ConsulterDMA" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
                           <Component id="EcrireLettreSortie1" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
                           <Component id="ServiceCorrespondance" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
+                          <Component id="ConsulterDMA" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -595,14 +598,6 @@
                 <Property name="text" type="java.lang.String" value="Informations du patient "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="ConsulterDMA">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Consulter DMA"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsulterDMAActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="EcrireLettreSortie1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ecrire Lettre de Sortie"/>
@@ -619,28 +614,33 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ServiceCorrespondanceActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1NomPat">
+            <Component class="javax.swing.JLabel" name="jLabel1Nomp">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
+                <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4SexePat">
+            <Component class="javax.swing.JLabel" name="jLabel2PrenomP">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
+                <Property name="text" type="java.lang.String" value="jLabel1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel3Sexep">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLabel1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel4DateP">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLabel1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="ConsulterDMA">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Consulter DMA"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField4SexePatActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsulterDMAActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4DDNPat">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4PrenomPat">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -667,11 +667,14 @@
                           <Component id="jLabelNom1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
                           <Component id="jLabelFonction" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="584" max="32767" attributes="0"/>
+                          <Component id="jLabelService" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jLabelPrenom" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabelPrenom" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="584" max="32767" attributes="0"/>
-                  <Component id="jLabelService" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jButtonDeconnexion" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
@@ -690,17 +693,16 @@
                           </Group>
                       </Group>
                       <Component id="jButtonAccueil" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabelFonction" min="-2" pref="22" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabelPrenom" min="-2" pref="25" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jButtonDeconnexion" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jButtonDeconnexion" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabelFonction" min="-2" pref="22" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jLabelPrenom" min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

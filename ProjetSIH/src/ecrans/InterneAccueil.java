@@ -75,7 +75,6 @@ public class InterneAccueil extends javax.swing.JFrame {
         jLabel2Sexe = new javax.swing.JLabel();
         jLabel2DateDeNaissance = new javax.swing.JLabel();
         jLabel1InfoPatients = new javax.swing.JLabel();
-        jTextField1NomPat = new javax.swing.JTextField();
         jTextField4SexePat = new javax.swing.JTextField();
         jTextField4DDN1Pat = new javax.swing.JTextField();
         jTextField4PrenomPat = new javax.swing.JTextField();
@@ -228,8 +227,6 @@ public class InterneAccueil extends javax.swing.JFrame {
 
         jLabel1InfoPatients.setText("Informations du patient ");
 
-        jTextField1NomPat.setText("jTextField1");
-
         jTextField4SexePat.setText("jTextField1");
         jTextField4SexePat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,9 +251,7 @@ public class InterneAccueil extends javax.swing.JFrame {
                             .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4PrenomPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1NomPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField4PrenomPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
@@ -267,7 +262,7 @@ public class InterneAccueil extends javax.swing.JFrame {
                                 .addComponent(jLabel2DateDeNaissance)
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextField4DDN1Pat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(506, Short.MAX_VALUE))
         );
         jPanel3InfoPatientLayout.setVerticalGroup(
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,7 +272,6 @@ public class InterneAccueil extends javax.swing.JFrame {
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1NomPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4SexePat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -401,7 +395,6 @@ public class InterneAccueil extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel3InfoPatient;
     private javax.swing.JScrollPane jScrollPane1ListeObservations;
-    private javax.swing.JTextField jTextField1NomPat;
     private javax.swing.JTextField jTextField4DDN1Pat;
     private javax.swing.JTextField jTextField4PrenomPat;
     private javax.swing.JTextField jTextField4SexePat;

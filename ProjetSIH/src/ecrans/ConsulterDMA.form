@@ -52,7 +52,7 @@
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="JPanelEnTeteMedTech" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="386" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="758" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -182,20 +182,20 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldPrenomPat" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField1NomPat" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2PrenomP" min="-2" pref="77" max="-2" attributes="0"/>
+                              <Component id="jLabel1Nomp" min="-2" pref="77" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel2Sexe" min="-2" pref="43" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextFieldSexePat" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel3Sexep" min="-2" pref="77" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel2DateDeNaissance" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldDDNPat" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel4DateP" min="-2" pref="77" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -212,15 +212,15 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2Nom" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jLabel2Sexe" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="jTextField1NomPat" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldSexePat" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1Nomp" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel3Sexep" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1Prenom" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2DateDeNaissance" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="jTextFieldDDNPat" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldPrenomPat" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel2PrenomP" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel4DateP" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -252,27 +252,24 @@
             <Property name="text" type="java.lang.String" value="Informations du patient "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1NomPat">
+        <Component class="javax.swing.JLabel" name="jLabel1Nomp">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
+            <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldSexePat">
+        <Component class="javax.swing.JLabel" name="jLabel2PrenomP">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldSexePatActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldDDNPat">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
+            <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldPrenomPat">
+        <Component class="javax.swing.JLabel" name="jLabel3Sexep">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
+            <Property name="text" type="java.lang.String" value="jLabel1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4DateP">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -289,7 +286,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="listech" min="-2" pref="292" max="-2" attributes="0"/>
@@ -310,7 +307,12 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="502" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="235" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -333,7 +335,9 @@
                       <Component id="jScrollPane2ListeType" min="-2" pref="92" max="-2" attributes="0"/>
                       <Component id="jScrollPane3ListeDate" min="-2" pref="92" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="77" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -431,6 +435,27 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="jTable1">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="4" rowCount="4">
+                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                  </Table>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
