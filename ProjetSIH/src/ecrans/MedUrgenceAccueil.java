@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author lisad
@@ -14,8 +16,12 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
     /**
      * Creates new form Urgence
      */
-    public MedUrgenceAccueil() {
+    private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
+    public MedUrgenceAccueil(ArrayList<String> employe, ArrayList<String> patient) {
         initComponents();
+        this.employe=employe;
+        this.patient=patient;
     }
 
     /**
@@ -404,7 +410,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
 
     private void ConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMActionPerformed
         // TODO add your handling code here:
-        ConsulterDM dm = new ConsulterDM();
+        ConsulterDM dm = new ConsulterDM(employe,patient);
         dm.setSize(this.getSize());
         dm.setLocationRelativeTo(this);
         this.dispose();
@@ -466,7 +472,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MedUrgenceAccueil().setVisible(true);
+                new MedUrgenceAccueil(employe,patient).setVisible(true);
             }
         });
     }

@@ -19,11 +19,14 @@ public class InterneAccueil extends javax.swing.JFrame {
     /**
      * Creates new form InterneAccueil
      */
-     private Patient p;
-    private PHospitalier employe;
-    private RechercherPatient fenetrePrecedente;
+    private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
+
     public InterneAccueil(ArrayList<String> personnel, ArrayList<String> patient ) {
         initComponents();
+        employe=personnel;
+        this.patient=patient;
+        
         jLabelNomInt.setText(personnel.get(0));
         jLabelPrenomInt.setText(personnel.get(1));
         jLabelFonction.setText(personnel.get(2));
@@ -31,19 +34,13 @@ public class InterneAccueil extends javax.swing.JFrame {
         
         jTextField1NomPat.setText(personnel.get(0));
         jTextField4PrenomPat.setText(personnel.get(1));
-        jTextField4SexePat.setText(personnel.get(2));
+       // jTextField4SexePat.setText(personnel.get(2));
         jTextField4DDN1Pat.setText(personnel.get(3));
-        
-        
-        jScrollPane1ListeObservations.setVisible(false);
-        
+                
   
         
     }
 
-    public InterneAccueil() {
-        initComponents();
-    }
     
     public void ecrirJLabel(String a){
         JLabel test= new JLabel();
@@ -379,7 +376,7 @@ public class InterneAccueil extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InterneAccueil().setVisible(true);
+                new InterneAccueil(employe,patient).setVisible(true);
             }
         });
     }

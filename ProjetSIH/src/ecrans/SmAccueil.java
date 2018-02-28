@@ -14,19 +14,20 @@ import projetsih.Patient;
  * @author romel
  */
 public class SmAccueil extends javax.swing.JFrame {
-    private Patient p;
-    private PHospitalier employe;
-    private Identification fenetrePrecedente;
+    private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
 
     /**
      * Creates new form SmAccueil
      */
     public SmAccueil(ArrayList<String> personnel) {
+        // service get(2) fonction get(3)
         initComponents();
+        employe=personnel;
         jLabelNom.setText(personnel.get(0));
         jLabelPrenom.setText(personnel.get(1));
-       // jLabelFonction.setText(personnel.get(2));
-        jLabelService.setText(personnel.get(3)); 
+       // jLabelFonction.setText(personnel.get(3));
+        jLabelService.setText(personnel.get(2)); 
         
       /*  jLabelNom.setText(((Identification) fenetrePrecedente).getEmploye().getNom());
         jLabelPrenom.setText(((Identification) fenetrePrecedente).getEmploye().getPrenom());
@@ -209,7 +210,7 @@ public class SmAccueil extends javax.swing.JFrame {
 
     private void jButtonCreeDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreeDMActionPerformed
         // TODO add your handling code here:
-        CreerDM rechercher = new CreerDM();
+        CreerDM rechercher = new CreerDM(employe);
                     rechercher.setSize(this.getSize());
                     rechercher.setLocationRelativeTo(this);
                     this.dispose();
@@ -258,7 +259,7 @@ public class SmAccueil extends javax.swing.JFrame {
                 Identification fenetre= new Identification();
                 
                 try {
-                    new SaAccueil().setVisible(true);
+                    new SaAccueil(employe).setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -283,14 +284,4 @@ public class SmAccueil extends javax.swing.JFrame {
     /**
      * @return the p
      */
-    public Patient getP() {
-        return p;
-    }
-
-    /**
-     * @return the employe
-     */
-    public PHospitalier getEmploye() {
-        return employe;
-    }
 }

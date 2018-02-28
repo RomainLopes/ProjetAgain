@@ -24,14 +24,13 @@ import projetsih.SMed;
  */
 public class InfirmierAccueil extends javax.swing.JFrame {
 
-    private Patient p;
-    private PHospitalier employe;
-    private RechercherPatient fenetrePrecedente;
+  private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
 
     /**
      * Creates new form InfirmierAccueil
      */
-    public InfirmierAccueil() {
+  /*  public InfirmierAccueil() {
         initComponents();
 
         jPanelOperations.setLayout(new GridLayout(50, 1));
@@ -39,17 +38,16 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         jPanelOperations.add(new JLabel("25/01/2017    Pose de cathéter"));
         jPanel1Observations.setLayout(new GridLayout(50, 1));
         jPanel1Observations.add(new JLabel("L'opération s'est bien déroulée."));
-           /*  jPanel1Observations.setVisible(false);
+            jPanel1Observations.setVisible(false);
         jLabelPrenomInf.setText(employe.getPrenom());
-        jLabelNomInf.setText(employe.getNom());*/
- 
-      
-
-    }
+        jLabelNomInf.setText(employe.getNom());
+    }*/
     
 
     public InfirmierAccueil(ArrayList<String> personnel, ArrayList<String> patient ) {
         initComponents();
+        employe=personnel;
+        this.patient=patient;
         jLabelNomInf.setText(personnel.get(0));
         jLabelPrenomInf.setText(personnel.get(1));
         jLabelFonction.setText(personnel.get(2));
@@ -60,15 +58,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         jLabel2dateDeNAissancePatient.setText(patient.get(2));
         //jLabelSexePatient.setText(patient.get(3)); 
         
-        /*jLabelPrenomInf.setText(employe.getPrenom());
-        jLabelNomInf.setText(employe.getNom());
-        jLabelService.setText(employe.getService().toString());
-
-        jLabel3NomPatient.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
-        jLabel4PrenomPatient.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
-        jLabelSexePatient.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
-        jLabel2dateDeNAissancePatient.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());*/
-
+    
         jScrollPane1ListeObservations.setVisible(false);
         jScrollPane1ListeOperations.setVisible(false);
     }
@@ -511,7 +501,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
 
             public void run() {
-                new InfirmierAccueil().setVisible(true);
+                new InfirmierAccueil(employe,patient).setVisible(true);
             }
         });
     }
@@ -548,30 +538,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1ListeOperations;
     // End of variables declaration//GEN-END:variables
 
-    /**
-     * @return the p
-     */
-    public Patient getP() {
-        return p;
-    }
 
-    /**
-     * @return the employe
-     */
-    public PHospitalier getEmploye() {
-        return employe;
-    }
-
-    /**
-     * @return the fenetrePrecedente
-     */
-    public RechercherPatient getFenetrePrecedente() {
-        return fenetrePrecedente;
-    }
-
-    /**
-     * @return the jLabelNomInf
-     */
     public String getJLabelNomInf() {
         return jLabelNomInf.getText();
     }

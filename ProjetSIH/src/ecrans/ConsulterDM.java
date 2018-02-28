@@ -23,58 +23,55 @@ import projetsih.Patient;
  */
 public class ConsulterDM extends javax.swing.JFrame {
 
-    private Patient p;
-    private PHospitalier employe;
-    private RechercherPatient fenetrePrecedente;
+    private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
 
-    public ConsulterDM() {
+   /* public ConsulterDM() {
         initComponents();
         // test 
         ArrayList<String> pat = new ArrayList();// liste des infos que je récupère qui sera
         pat.add("Rdio du poumon gauche");
         pat.add("Echographiede l'abdomen");
 
-     jScrollPane2ListePrescription.setBounds(0, 0, 930, 610);
+        jScrollPane2ListePrescription.setBounds(0, 0, 930, 610);
         jPanel4Prescriptions.setLayout(new GridLayout(50, 1));
-        
-            for (int i=0; i<=10; i++){
-                for (String j : pat) {
+
+        for (int i = 0; i <= 10; i++) {
+            for (String j : pat) {
                 jPanel4Prescriptions.add(new JLabel(j));
-            }}
-        
+            }
+        }
 
 //jPanel4Prescriptions.setVisible(true);jScrollPane2ListePrescription
-        /* DM dmPat =p.getDpi().getMyDM();
-        dmPat.getResultats().toString();*/
-    }
+       // DM dmPat =p.getDpi().getMyDM();
+       // dmPat.getResultats().toString();
+    }*/
 
-    public ConsulterDM(ArrayList<String> patient ) {
+    public ConsulterDM(ArrayList<String> employe ,ArrayList<String> patient) {
         initComponents();
-        
+        this.patient= patient;
+        this.employe=employe;
+
         jTextFieldNomPat.setText(patient.get(0));
         jTextField4Prenom.setText(patient.get(1));
         jTextField4DDN1.setText(patient.get(2));
-        jTextField4Sexe.setText(patient.get(3)); 
-        
-        /*jTextFieldNomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
-        jTextField4Prenom.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
-        jTextField4Sexe.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
-        jTextField4DDN1.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());
-*/
-        DM dmPat = new DMMedical(p);//p.getDpi().getMyDM();
+        jTextField4Sexe.setText(patient.get(3));
+
+ 
+        /*DM dmPat = new DMMedical(p);//p.getDpi().getMyDM();
         dmPat.getResultats().toString();
         //dmPat.getPrescriptions().toString();
         ArrayList<String> pat = new ArrayList();// liste des infos que je récupère
         pat.add("Rdio du poumon gauche");
         pat.add("Echographiede l'abdomen");
 
-      jScrollPane2ListePrescription.setBounds(0, 0, 930, 610);
+        jScrollPane2ListePrescription.setBounds(0, 0, 930, 610);
         jPanel4Prescriptions.setLayout(new GridLayout(50, 1));
         for (int i = 0; i < 50; i++) {
             for (String j : pat) {
                 jPanel4Prescriptions.add(new JButton(j));
             }
-        }
+        }*/
         //setSize(930, 610);//je redimensionne la fenetre
         //setVisible(true);
 
@@ -464,7 +461,7 @@ public class ConsulterDM extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsulterDM().setVisible(true);
+                new ConsulterDM(employe,patient).setVisible(true);
             }
         });
     }

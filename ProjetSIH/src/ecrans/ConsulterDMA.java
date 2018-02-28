@@ -15,20 +15,19 @@ import projetsih.Patient;
  */
 public class ConsulterDMA extends javax.swing.JFrame {
 
-    private Patient p;
-    private PHospitalier employe;
-    private RechercherPatient fenetrePrecedente;
+     private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
 
     /**
      * Creates new form DossierMedicoAdministratif
      */
-    public ConsulterDMA() {
-        initComponents();
-    }
+
     // si ca ouvre la ^page sans considérer les données modifier le constructeur en bas
 
     public ConsulterDMA(ArrayList<String> personnel, ArrayList<String> patient ) {
         initComponents();
+        employe=personnel;
+        this.patient=patient;
         jLabelNomPmed.setText(personnel.get(0));
         jLabelPrenomPmed.setText(personnel.get(1));
         jLabelFonction.setText(personnel.get(2));
@@ -328,7 +327,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-        SaAccueil rechercher = new SaAccueil();
+        SaAccueil rechercher = new SaAccueil(employe);
         rechercher.setSize(this.getSize());
         rechercher.setLocationRelativeTo(this);
         this.dispose();
@@ -380,7 +379,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsulterDMA().setVisible(true);
+                new ConsulterDMA(employe,patient).setVisible(true);
             }
         });
     }

@@ -5,6 +5,7 @@
  */
 package ecrans;
 
+import java.util.ArrayList;
 import projetsih.PHospitalier;
 import projetsih.Patient;
 import projetsih.SAdm;
@@ -18,17 +19,13 @@ public class CreerDMA extends javax.swing.JFrame {
     /**
      * Creates new form CreerDMA
      */
-    private SaAccueil fenetrePrecedente;
-    private SAdm employe;
-    private Patient p;
+   private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
     
-    public CreerDMA() {
+   
+    public CreerDMA(ArrayList<String> employe) {
         initComponents();
-    }
-    public CreerDMA(SaAccueil fenetre) {
-        initComponents();
-        this.fenetrePrecedente= fenetre;
-        this.employe= fenetrePrecedente.getSa();
+        this.employe= employe;
     }
 
     /**
@@ -384,7 +381,7 @@ public class CreerDMA extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreerDMA().setVisible(true);
+                new CreerDMA(employe).setVisible(true);
             }
         });
     }

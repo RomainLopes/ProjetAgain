@@ -14,9 +14,8 @@ import projetsih.Patient;
  * @author romel
  */
 public class MedAnestAccueil extends javax.swing.JFrame {
-    private RechercherPatient fenetrePrecedente;
-     private Patient p;
-    private PHospitalier employe;
+     private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
 
     /**
      * Creates new form MedAnestAccueil
@@ -25,6 +24,9 @@ public class MedAnestAccueil extends javax.swing.JFrame {
   
     public MedAnestAccueil(ArrayList<String> personnel, ArrayList<String> patient ) {
         initComponents();
+        employe=personnel;
+        this.patient= patient;
+        
         jLabelNomPmed.setText(personnel.get(0));
         jLabelPrenomPmed.setText(personnel.get(1));
        // jLabelFonction.setText(personnel.get(2));
@@ -35,10 +37,6 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         jTextField4DDN.setText(personnel.get(2));
         jTextField3Sexe.setText(personnel.get(3));
 
-    }
-
-    public MedAnestAccueil() {
-        initComponents();
     }
 
     /**
@@ -511,7 +509,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     private void ConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMAActionPerformed
         // TODO add your handling code here:
         
-         ConsulterDMA sadm = new ConsulterDMA();
+         ConsulterDMA sadm = new ConsulterDMA(employe,patient);
                     sadm.setSize(this.getSize());
                     sadm.setLocationRelativeTo(this);
                     this.dispose();
@@ -532,7 +530,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
     private void ConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMActionPerformed
         // TODO add your handling code here:
-        ConsulterDM dm = new ConsulterDM();
+        ConsulterDM dm = new ConsulterDM(employe,patient);
                     dm.setSize(this.getSize());
                     dm.setLocationRelativeTo(this);
                     this.dispose();
@@ -590,7 +588,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MedAnestAccueil().setVisible(true);
+                new MedAnestAccueil(employe, patient).setVisible(true);
             }
         });
     }

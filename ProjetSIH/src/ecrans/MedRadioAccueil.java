@@ -18,12 +18,13 @@ public class MedRadioAccueil extends javax.swing.JFrame {
     /**
      * Creates new form MedRadioAccueil
      */
-     private Patient p;
-    private PHospitalier employe;
-    private RechercherPatient fenetrePrecedente;
+    private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
     
     public MedRadioAccueil(ArrayList<String> personnel, ArrayList<String> patient ) {
         initComponents();
+        employe=personnel;
+        this.patient=patient;
         jLabelNom.setText(personnel.get(0));
         jLabelPrenom.setText(personnel.get(1));
         //jLabelFonction.setText(personnel.get(2));
@@ -45,10 +46,6 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         jTextField4DDN.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());*/
     }
     
-    public MedRadioAccueil() {
-        initComponents();
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -572,7 +569,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MedRadioAccueil().setVisible(true);
+                new MedRadioAccueil(employe,patient).setVisible(true);
             }
         });
     }

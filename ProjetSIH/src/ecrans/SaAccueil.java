@@ -14,28 +14,20 @@ import projetsih.SAdm;
  * @author romel
  */
 public class SaAccueil extends javax.swing.JFrame {
-    private SAdm sa;
-    private Patient p;
-    private Identification fenetrePrecedente;
+   private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
     
 
     /**
      * Creates new form SaAccueil
      */
     public SaAccueil(ArrayList<String> nps) {
-        
+        employe=nps;
         initComponents();
         jLabelNom.setText(nps.get(0));
         jLabelPrenom.setText(nps.get(1));
         //jLabelFonction.setText(nps.get(2));
         
-    }
-
-    SaAccueil() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    SAdm getSa(){
-        return this.sa;
     }
 
     /**
@@ -201,7 +193,7 @@ public class SaAccueil extends javax.swing.JFrame {
 
     private void jButtonCreeDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreeDMAActionPerformed
         // TODO add your handling code here:
-        CreerDMA dma = new CreerDMA();
+        CreerDMA dma = new CreerDMA(employe);
         dma.setSize(this.getSize());
         dma.setLocationRelativeTo(this);
         this.dispose();
@@ -257,7 +249,7 @@ public class SaAccueil extends javax.swing.JFrame {
             public void run() {
                 Identification fenetre= new Identification();
                 try {
-                    new SaAccueil().setVisible(true);
+                    new SaAccueil(employe).setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -17,26 +17,24 @@ import projetsih.RecherchePatient;
  */
 public class CreerDM extends javax.swing.JFrame {
 
-    private Patient p;
-    private PHospitalier employe;
-    private SmAccueil fenetrePrecedente;
+     private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
 
     /**
      * Creates new form CreerDM
      */
   
-    public CreerDM(SmAccueil fenetre) {
+    public CreerDM(ArrayList<String> employe) {
         initComponents();
-        this.fenetrePrecedente = fenetre;
-        employe=fenetrePrecedente.getEmploye();
+        
+       this.employe =employe; 
+       
        /* jTextField1Nom.setText(((SmAccueil) fenetrePrecedente).getP().getNom());
         jTextField4Prenom.setText(((SmAccueil) fenetrePrecedente).getP().getPrenom());
         jTextField4Sexe.setText(((SmAccueil) fenetrePrecedente).getP().getSexe());
         jTextField4DDN1.setText(((SmAccueil) fenetrePrecedente).getP().getDateNaissance().toString());*/
 
     }
-     public CreerDM( ) {
-        initComponents();}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -288,7 +286,7 @@ public class CreerDM extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
-                new CreerDM().setVisible(true);
+                new CreerDM(employe).setVisible(true);
             }
         });
     }

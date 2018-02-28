@@ -18,12 +18,13 @@ public class MedClinAccueil extends javax.swing.JFrame {
     /**
      * Creates new form MedClinAccueil
      */
-     private Patient p;
-    private PHospitalier employe;
-    private RechercherPatient fenetrePrecedente;
+    private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
     
     public MedClinAccueil(ArrayList<String> personnel, ArrayList<String> patient ) {
         initComponents();
+        employe=personnel;
+        this.patient=patient;
         jLabelNom.setText(personnel.get(0));
         jLabelPrenom.setText(personnel.get(1));
         //jLabelFonction.setText(personnel.get(2));
@@ -45,9 +46,6 @@ public class MedClinAccueil extends javax.swing.JFrame {
         jTextField4DDN.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());*/
     }
     
-    public MedClinAccueil() {
-        initComponents();
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -527,7 +525,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MedClinAccueil().setVisible(true);
+                new MedClinAccueil(employe,patient).setVisible(true);
             }
         });
     }

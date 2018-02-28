@@ -14,19 +14,18 @@ import projetsih.Patient;
  * @author lisad
  */
 public class DossierMedical extends javax.swing.JFrame {
-        private Patient p; 
-    private PHospitalier employe;
-    private RechercherPatient fenetrePrecedente;
+    private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
 
     /**
      * Creates new form DossierMedical
      */
-    public DossierMedical() {
-        initComponents();
-      
-    }
+
     public DossierMedical(ArrayList<String> personnel, ArrayList<String> patient ) {
         initComponents();
+        
+        employe=personnel;
+        this.patient=patient;
         jLabelNom.setText(personnel.get(0));
         jLabelPrenom.setText(personnel.get(1));
         jLabelFonction.setText(personnel.get(2));
@@ -601,7 +600,7 @@ public class DossierMedical extends javax.swing.JFrame {
 
     private void ConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMAActionPerformed
         // TODO add your handling code here:
-        ConsulterDMA sadm = new ConsulterDMA();
+        ConsulterDMA sadm = new ConsulterDMA(employe,patient);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
@@ -659,7 +658,7 @@ public class DossierMedical extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DossierMedical().setVisible(true);
+                new DossierMedical(employe,patient).setVisible(true);
             }
         });
     }

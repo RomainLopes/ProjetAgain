@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author lisad
@@ -14,6 +16,10 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
     /**
      * Creates new form CreationDMAtemporaire
      */
+    
+    private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
+    
     public CreationDMAtemporaire() {
         initComponents();
     }

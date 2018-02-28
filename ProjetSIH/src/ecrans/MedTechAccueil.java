@@ -18,12 +18,13 @@ public class MedTechAccueil extends javax.swing.JFrame {
     /**
      * Creates new form MedAccueil
      */
-     private Patient p;
-    private PHospitalier employe;
-    private RechercherPatient fenetrePrecedente;
+   private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
     
     public MedTechAccueil(ArrayList<String> personnel, ArrayList<String> patient ) {
         initComponents();
+        employe=personnel;
+        this.patient=patient;
         jLabelNom.setText(personnel.get(0));
         jLabelPrenom.setText(personnel.get(1));
         //jLabelFonction.setText(personnel.get(2));
@@ -42,10 +43,6 @@ public class MedTechAccueil extends javax.swing.JFrame {
         jLabel4PrenomPatient.setText(p.getPrenom());
        jLabel2Sexe .setText(p.getSexe());
         jLabel2DateDeNaissance.setText(p.getDateNaissance().toString());*/
-    }
-    
-     public MedTechAccueil() {
-        initComponents();
     }
 
     /**
@@ -427,7 +424,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        InfirmierAccueil infi= new InfirmierAccueil();
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -455,7 +452,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MedTechAccueil().setVisible(true);
+                new MedTechAccueil(employe,patient).setVisible(true);
             }
         });
     }
