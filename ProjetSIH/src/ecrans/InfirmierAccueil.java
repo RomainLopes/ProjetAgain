@@ -127,7 +127,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
             }
         });
 
-        jLabelService.setText("Gériatrie");
+        jLabelService.setText("Service");
 
         javax.swing.GroupLayout JPanelEnTeteMedTechLayout = new javax.swing.GroupLayout(JPanelEnTeteMedTech);
         JPanelEnTeteMedTech.setLayout(JPanelEnTeteMedTechLayout);
@@ -143,7 +143,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
                         .addGap(153, 153, 153)
                         .addComponent(jLabelFonction))
                     .addComponent(jLabelPrenomInf))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
                 .addComponent(jLabelService)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonDeconnexion)
@@ -186,7 +186,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
         jLabel2Nom.setText("Nom : ");
 
-        jLabel3NomPatient.setText("Christie");
+        jLabel3NomPatient.setText("kk");
 
         jLabel4PrenomPatient.setText("Laurence");
 
