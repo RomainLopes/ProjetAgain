@@ -32,10 +32,10 @@ public class InterneAccueil extends javax.swing.JFrame {
         jLabelFonction.setText(personnel.get(2));
         jLabelService.setText(personnel.get(3)); 
         
-        jTextField1NomPat.setText(personnel.get(0));
-        jTextField4PrenomPat.setText(personnel.get(1));
-       // jTextField4SexePat.setText(personnel.get(2));
-        jTextField4DDN1Pat.setText(personnel.get(3));
+        jLabel1Nomp.setText(personnel.get(0));
+        jLabel2PrenomP.setText(personnel.get(1));
+       // jLabel3Sexep.setText(personnel.get(2));
+        jLabel4DateP.setText(personnel.get(3));
                 
   
         

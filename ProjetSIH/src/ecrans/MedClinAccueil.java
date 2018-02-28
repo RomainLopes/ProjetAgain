@@ -30,10 +30,10 @@ public class MedClinAccueil extends javax.swing.JFrame {
         //jLabelFonction.setText(personnel.get(2));
         jLabelService.setText(personnel.get(3)); 
         
-        jTextField1Nom.setText(personnel.get(0));
-        jTextField2Prenom.setText(personnel.get(1));
-        jTextField4DDN.setText(personnel.get(2));
-        jTextField3Sexe.setText(personnel.get(3));
+        jLabel1Nomp.setText(personnel.get(0));
+        jLabel2PrenomP.setText(personnel.get(1));
+        jLabel3Sexep.setText(personnel.get(2));
+        jLabel4DateP.setText(personnel.get(3));
         
         
        /* jLabelPrenom.setText(employe.getPrenom());
