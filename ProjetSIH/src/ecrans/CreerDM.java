@@ -98,7 +98,7 @@ public class CreerDM extends javax.swing.JFrame {
 
         jTextFieldIPP.setText("jTextField1");
 
-        jFormattedTextFieldDateDeNaissance.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        jFormattedTextFieldDateDeNaissance.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
         jFormattedTextFieldIpp.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
@@ -245,7 +245,7 @@ public class CreerDM extends javax.swing.JFrame {
         //mettre le code pour rajouter à la BD
         JOptionPane.showMessageDialog(null, "Dossier médical créé");
         RecherchePatient rp = new RecherchePatient();
-        //rp.creerPatient(jTextFieldNom.getText(),jTextFieldPrenom.getText(), (Date)jFormattedTextFieldDateDeNaissance.getValue(), "","", jFormattedTextFieldIpp.getValue());
+        //rp.creerPatient(jTextFieldNom.getText(),jTextFieldPrenom.getText(), jFormattedTextFieldDateDeNaissance.getText(), "","", jFormattedTextFieldIpp.);
         
         
         RechercherPatient rechercher = new RechercherPatient();

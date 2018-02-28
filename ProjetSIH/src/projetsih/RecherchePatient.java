@@ -145,7 +145,7 @@ public class RecherchePatient {
         return resultatRecherche;
     }
 
-    public ArrayList<String> creerPatient(String nom, String prenom, Date ddn, String localisation, String adresse, int IPP) {
+    public ArrayList<String> creerPatient(String nom, String prenom, String ddn, String localisation, String adresse, int IPP) {
         ArrayList<String> resultatRecherche = new ArrayList<String>();
         String Query = new String();
         Query = "INSERT INTO patients (IPP, nompatient, prenompatient,datedenaissance, localisation,adresse,ipp) ";

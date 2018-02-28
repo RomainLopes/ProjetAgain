@@ -13,7 +13,7 @@ public class BDDconnection{
 	/**
 	 * URL de connection
 	 */
-        private static String url = "jdbc:postgresql://localhost:5432/projetSIH";
+        private static String url = "jdbc:postgresql://192.168.43.123/projetSIH";
 	/**
 	 * Nom du user
 	 */
