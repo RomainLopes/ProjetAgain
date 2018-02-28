@@ -85,6 +85,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         Prescriptio2 = new javax.swing.JLabel();
         ajouterPrescription2 = new javax.swing.JButton();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
+        consulterObservation1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -423,13 +424,24 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        consulterObservation1.setText("Consulter Résultat");
+        consulterObservation1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consulterObservation1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7ResultatLayout = new javax.swing.GroupLayout(jPanel7Resultat);
         jPanel7Resultat.setLayout(jPanel7ResultatLayout);
         jPanel7ResultatLayout.setHorizontalGroup(
             jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7ResultatLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3ListeResultats, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                .addGroup(jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3ListeResultats, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7ResultatLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(consulterObservation1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel7ResultatLayout.createSequentialGroup()
@@ -440,8 +452,10 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         jPanel7ResultatLayout.setVerticalGroup(
             jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7ResultatLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(jScrollPane3ListeResultats)
+                .addGap(30, 30, 30)
+                .addComponent(consulterObservation1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3ListeResultats, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel7ResultatLayout.createSequentialGroup()
@@ -458,7 +472,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                 .addComponent(jPanel1Observations, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4Prescriptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96)
+                .addGap(167, 167, 167)
                 .addComponent(jPanel7Resultat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
             .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -558,6 +572,10 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                     iden.setVisible(true);
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
+    private void consulterObservation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservation1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_consulterObservation1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -605,6 +623,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     private javax.swing.JButton ajouterPrescription;
     private javax.swing.JButton ajouterPrescription2;
     private javax.swing.JButton consulterObservation;
+    private javax.swing.JButton consulterObservation1;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JLabel jLabel1InfoPatients;

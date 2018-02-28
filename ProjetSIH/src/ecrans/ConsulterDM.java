@@ -52,10 +52,10 @@ public class ConsulterDM extends javax.swing.JFrame {
         this.patient= patient;
         this.employe=employe;
 
-        jTextFieldNomPat.setText(patient.get(0));
-        jTextField4Prenom.setText(patient.get(1));
-        jTextField4DDN1.setText(patient.get(2));
-        jTextField4Sexe.setText(patient.get(3));
+        jLabel1Nomp.setText(patient.get(0));
+        jLabel2PrenomP.setText(patient.get(1));
+        jLabel4DateP.setText(patient.get(2));
+        jLabel3Sexep.setText(patient.get(3));
 
  
         /*DM dmPat = new DMMedical(p);//p.getDpi().getMyDM();
