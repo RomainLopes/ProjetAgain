@@ -96,7 +96,7 @@
                       </Group>
                       <Component id="jLabelPrenomInf" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="196" max="32767" attributes="0"/>
+                  <EmptySpace pref="202" max="32767" attributes="0"/>
                   <Component id="jLabelService" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jButtonDeconnexion" min="-2" max="-2" attributes="0"/>
@@ -168,7 +168,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelService">
           <Properties>
-            <Property name="text" type="java.lang.String" value="G&#xe9;riatrie"/>
+            <Property name="text" type="java.lang.String" value="Service"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -271,7 +271,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3NomPatient">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Christie"/>
+            <Property name="text" type="java.lang.String" value="kk"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4PrenomPatient">

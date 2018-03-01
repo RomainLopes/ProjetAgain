@@ -40,15 +40,15 @@
                           <Component id="jButton1Creer" min="-2" pref="161" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNomObservation" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel5Observation" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
                                   <Component id="jLabel3Date" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jTextField3" alignment="0" pref="414" max="32767" attributes="0"/>
-                                  <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField2" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldDateP" alignment="0" pref="414" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldNomObservationP" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldObservationP" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -72,18 +72,18 @@
               </Group>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNomObservation" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="jTextFieldNomObservationP" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3Date" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                  <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldDateP" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5Observation" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="jTextField2" alignment="3" min="-2" pref="224" max="-2" attributes="0"/>
+                  <Component id="jTextFieldObservationP" alignment="3" min="-2" pref="224" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="33" max="32767" attributes="0"/>
               <Component id="jButton1Creer" min="-2" pref="41" max="-2" attributes="0"/>
@@ -98,17 +98,17 @@
         <Property name="text" type="java.lang.String" value="Cr&#xe9;ation Observation"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="jLabelNomObservation">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nom de l&apos;acte, de l&apos;observation :  "/>
+        <Property name="text" type="java.lang.String" value="Nom de l&apos;observation :  "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="jTextFieldNomObservationP">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNomObservationPActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3IPP">
@@ -126,12 +126,12 @@
         <Property name="text" type="java.lang.String" value="Observations :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="jTextFieldObservationP">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldObservationPActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3Date">
@@ -139,12 +139,12 @@
         <Property name="text" type="java.lang.String" value="Date :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="jTextFieldDateP">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField3"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldDatePActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1Creer">
