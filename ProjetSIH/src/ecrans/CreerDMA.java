@@ -61,9 +61,10 @@ public class CreerDMA extends javax.swing.JFrame {
         jLabel1NoSejour = new javax.swing.JLabel();
         jTextField1NoSejour = new javax.swing.JTextField();
         jLabel3Type = new javax.swing.JLabel();
-        jTextField2Type = new javax.swing.JTextField();
         jLabel2NomPH = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxTypeService = new javax.swing.JComboBox<>();
+        jButtonValider = new javax.swing.JButton();
         jTextField1Adressep = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
 
@@ -206,36 +207,43 @@ public class CreerDMA extends javax.swing.JFrame {
 
         jLabel3Type.setText("Type :");
 
-        jTextField2Type.setText("jTextField1");
-        jTextField2Type.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2TypeActionPerformed(evt);
-            }
-        });
-
         jLabel2NomPH.setText("Nom du Praticien Hospitalier responsable :");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jComboBoxTypeService.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxTypeService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxTypeServiceActionPerformed(evt);
+            }
+        });
+
+        jButtonValider.setText("jButtonValider");
 
         javax.swing.GroupLayout jPanel2CreationDMALayout = new javax.swing.GroupLayout(jPanel2CreationDMA);
         jPanel2CreationDMA.setLayout(jPanel2CreationDMALayout);
         jPanel2CreationDMALayout.setHorizontalGroup(
             jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
-                        .addComponent(jLabel2NomPH, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
-                        .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3Type, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1NoSejour, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(19, 19, 19)
                         .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1NoSejour, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2Type, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
+                                .addComponent(jLabel2NomPH, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
+                                .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3Type, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1NoSejour, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField1NoSejour, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBoxTypeService, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
+                        .addGap(262, 262, 262)
+                        .addComponent(jButtonValider)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2CreationDMALayout.setVerticalGroup(
@@ -248,12 +256,14 @@ public class CreerDMA extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3Type, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField2Type))
+                    .addComponent(jComboBoxTypeService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2NomPH, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(77, 77, 77))
+                .addGap(43, 43, 43)
+                .addComponent(jButtonValider)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -332,13 +342,13 @@ public class CreerDMA extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1NoSejourActionPerformed
 
-    private void jTextField2TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2TypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2TypeActionPerformed
-
     private void jTextField1AdressepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1AdressepActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1AdressepActionPerformed
+
+    private void jComboBoxTypeServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTypeServiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxTypeServiceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -376,7 +386,9 @@ public class CreerDMA extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonValider;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBoxTypeService;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1NoSejour;
@@ -399,7 +411,6 @@ public class CreerDMA extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1IPP;
     private javax.swing.JTextField jTextField1NoSejour;
     private javax.swing.JTextField jTextField1Nom;
-    private javax.swing.JTextField jTextField2Type;
     private javax.swing.JTextField jTextField4DDN1;
     private javax.swing.JTextField jTextField4Localisation;
     private javax.swing.JTextField jTextField4Prenom;

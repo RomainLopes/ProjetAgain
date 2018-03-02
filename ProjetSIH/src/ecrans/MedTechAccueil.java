@@ -81,7 +81,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
         jPanel7Resultat = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         Prescriptio2 = new javax.swing.JLabel();
-        ajouterObservation = new javax.swing.JButton();
+        ajouterResultat = new javax.swing.JButton();
         consulterResultat = new javax.swing.JButton();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
 
@@ -294,10 +294,10 @@ public class MedTechAccueil extends javax.swing.JFrame {
 
         Prescriptio2.setText("Résultats");
 
-        ajouterObservation.setText("+");
-        ajouterObservation.addActionListener(new java.awt.event.ActionListener() {
+        ajouterResultat.setText("+");
+        ajouterResultat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ajouterObservationActionPerformed(evt);
+                ajouterResultatActionPerformed(evt);
             }
         });
 
@@ -317,7 +317,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Prescriptio2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(ajouterObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ajouterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                         .addComponent(consulterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(19, 19, 19))
@@ -330,7 +330,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(consulterResultat, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                    .addComponent(ajouterObservation, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
+                    .addComponent(ajouterResultat, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel7ResultatLayout = new javax.swing.GroupLayout(jPanel7Resultat);
@@ -412,16 +412,31 @@ public class MedTechAccueil extends javax.swing.JFrame {
                     rechercher.setVisible(true);
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
-    private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
+    private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ajouterObservationActionPerformed
+         NewResultat obs = new NewResultat();
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
+    }//GEN-LAST:event_ajouterResultatActionPerformed
 
     private void ajouterObservation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservation1ActionPerformed
         // TODO add your handling code here:
+         NewObservations obs = new NewObservations();
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_ajouterObservation1ActionPerformed
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
         // TODO add your handling code here:
+         ConsulterObservation obs = new ConsulterObservation();
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_consulterObservationActionPerformed
 
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
@@ -479,8 +494,8 @@ public class MedTechAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel Observations;
     private javax.swing.JLabel Prescriptio2;
     private javax.swing.JLabel Sa;
-    private javax.swing.JButton ajouterObservation;
     private javax.swing.JButton ajouterObservation1;
+    private javax.swing.JButton ajouterResultat;
     private javax.swing.JButton consulterObservation;
     private javax.swing.JButton consulterResultat;
     private javax.swing.JButton jButtonAccueil;

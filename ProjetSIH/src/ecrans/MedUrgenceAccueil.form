@@ -207,7 +207,7 @@
                           <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                           <Component id="ConsulterDM1" min="-2" pref="172" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ConsulterDM2" min="-2" pref="179" max="-2" attributes="0"/>
+                          <Component id="ConsulterDMA" min="-2" pref="179" max="-2" attributes="0"/>
                           <EmptySpace pref="8" max="32767" attributes="0"/>
                           <Component id="ConsulterDM" min="-2" pref="179" max="-2" attributes="0"/>
                       </Group>
@@ -239,7 +239,7 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="ConsulterDM" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
-                      <Component id="ConsulterDM2" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="ConsulterDMA" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
                       <Component id="ConsulterDM1" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -281,12 +281,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsulterDMActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="ConsulterDM2">
+        <Component class="javax.swing.JButton" name="ConsulterDMA">
           <Properties>
             <Property name="text" type="java.lang.String" value="Consulter DMA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsulterDM2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsulterDMAActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1Nomp">

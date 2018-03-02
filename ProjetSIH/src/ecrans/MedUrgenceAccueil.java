@@ -18,10 +18,11 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
      */
     private static ArrayList<String> employe;
     private static ArrayList<String> patient;
+
     public MedUrgenceAccueil(ArrayList<String> employe, ArrayList<String> patient) {
         initComponents();
-        this.employe=employe;
-        this.patient=patient;
+        this.employe = employe;
+        this.patient = patient;
     }
 
     /**
@@ -47,7 +48,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
         jLabel2DateDeNaissance = new javax.swing.JLabel();
         jLabel1InfoPatients = new javax.swing.JLabel();
         ConsulterDM = new javax.swing.JButton();
-        ConsulterDM2 = new javax.swing.JButton();
+        ConsulterDMA = new javax.swing.JButton();
         jLabel1Nomp = new javax.swing.JLabel();
         jLabel2PrenomP = new javax.swing.JLabel();
         jLabel3Sexep = new javax.swing.JLabel();
@@ -155,10 +156,10 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
             }
         });
 
-        ConsulterDM2.setText("Consulter DMA");
-        ConsulterDM2.addActionListener(new java.awt.event.ActionListener() {
+        ConsulterDMA.setText("Consulter DMA");
+        ConsulterDMA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsulterDM2ActionPerformed(evt);
+                ConsulterDMAActionPerformed(evt);
             }
         });
 
@@ -208,7 +209,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
                         .addGap(71, 71, 71)
                         .addComponent(ConsulterDM1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ConsulterDM2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                         .addComponent(ConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -233,7 +234,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConsulterDM2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ConsulterDM1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -411,7 +412,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
 
     private void ConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMActionPerformed
         // TODO add your handling code here:
-        ConsulterDM dm = new ConsulterDM(employe,patient);
+        ConsulterDM dm = new ConsulterDM(employe, patient);
         dm.setSize(this.getSize());
         dm.setLocationRelativeTo(this);
         this.dispose();
@@ -420,23 +421,48 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
 
     private void ConsulterDM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDM1ActionPerformed
         // TODO add your handling code here:
+        CreationDMAtemporaire obs = new CreationDMAtemporaire();
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_ConsulterDM1ActionPerformed
 
     private void ajouterObservation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservation1ActionPerformed
         // TODO add your handling code here:
+        NewObservations obs = new NewObservations();
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_ajouterObservation1ActionPerformed
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
         // TODO add your handling code here:
+        ConsulterObservation obs = new ConsulterObservation();
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_consulterObservationActionPerformed
 
     private void ajouterPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescriptionActionPerformed
         // TODO add your handling code here:
+        NewPrescription obs = new NewPrescription();
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_ajouterPrescriptionActionPerformed
 
-    private void ConsulterDM2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDM2ActionPerformed
+    private void ConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMAActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ConsulterDM2ActionPerformed
+        ConsulterDMA obs = new ConsulterDMA(employe,patient);
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
+    }//GEN-LAST:event_ConsulterDMAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -469,7 +495,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MedUrgenceAccueil(employe,patient).setVisible(true);
+                new MedUrgenceAccueil(employe, patient).setVisible(true);
             }
         });
     }
@@ -477,7 +503,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConsulterDM;
     private javax.swing.JButton ConsulterDM1;
-    private javax.swing.JButton ConsulterDM2;
+    private javax.swing.JButton ConsulterDMA;
     private javax.swing.JPanel JPanelEnTeteMedTech;
     private javax.swing.JLabel Observations;
     private javax.swing.JLabel Prescriptio;

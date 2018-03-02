@@ -234,8 +234,6 @@ public class CreerDM extends javax.swing.JFrame {
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         // TODO add your handling code here:
         
-        
-        
         //mettre le code pour rajouter à la BD
         JOptionPane.showMessageDialog(null, "Dossier médical créé");
         RecherchePatient rp = new RecherchePatient();
