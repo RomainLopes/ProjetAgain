@@ -86,6 +86,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
         jList3 = new javax.swing.JList<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         JPanelEnTeteMedTech.setBackground(new java.awt.Color(65, 131, 215));
         JPanelEnTeteMedTech.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -126,7 +127,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
                         .addGap(128, 128, 128)
                         .addComponent(jLabelFonction))
                     .addComponent(jLabelPrenomPmed))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 299, Short.MAX_VALUE)
                 .addComponent(jLabelService)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonDeconnexion)
@@ -152,6 +153,10 @@ public class ConsulterDMA extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        getContentPane().add(JPanelEnTeteMedTech);
+        JPanelEnTeteMedTech.setBounds(0, 0, 782, 113);
+
+        jPanel3InfoPatient.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3InfoPatient.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1Prenom.setText("Prénom : ");
@@ -203,8 +208,9 @@ public class ConsulterDMA extends javax.swing.JFrame {
         jPanel3InfoPatientLayout.setVerticalGroup(
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1InfoPatients)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -218,6 +224,10 @@ public class ConsulterDMA extends javax.swing.JFrame {
                     .addComponent(jLabel4DateP)))
         );
 
+        getContentPane().add(jPanel3InfoPatient);
+        jPanel3InfoPatient.setBounds(0, 106, 790, 120);
+
+        DMA.setBackground(new java.awt.Color(255, 255, 255));
         DMA.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         listech.setText("Listes des consultations et des hospitalisations ");
@@ -269,7 +279,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
                         .addGroup(DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3Date, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane3ListeDate, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addContainerGap(372, Short.MAX_VALUE))
         );
         DMALayout.setVerticalGroup(
             DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,35 +300,8 @@ public class ConsulterDMA extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(DMA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DMA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 342, Short.MAX_VALUE)))
-        );
+        getContentPane().add(DMA);
+        DMA.setBounds(2, 225, 780, 230);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

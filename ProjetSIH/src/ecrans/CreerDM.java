@@ -97,10 +97,11 @@ public class CreerDM extends javax.swing.JFrame {
         );
 
         jPanel1CreationDM.add(jPanel1);
-        jPanel1.setBounds(0, 0, 790, 100);
+        jPanel1.setBounds(-10, 0, 790, 100);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel3InfoPatient.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3InfoPatient.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1Prenom.setText("Prénom : ");
@@ -229,11 +230,11 @@ public class CreerDM extends javax.swing.JFrame {
                     .addComponent(jLabel2Service, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonValider)
-                .addGap(0, 76, Short.MAX_VALUE))
+                .addGap(0, 80, Short.MAX_VALUE))
         );
 
         jPanel1CreationDM.add(jPanel3);
-        jPanel3.setBounds(-12, 106, 800, 266);
+        jPanel3.setBounds(-10, 100, 800, 270);
 
         getContentPane().add(jPanel1CreationDM);
         jPanel1CreationDM.setBounds(10, 0, 784, 372);

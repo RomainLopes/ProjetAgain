@@ -145,11 +145,19 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jButtonConsulterDMA" linkSize="1" min="-2" pref="354" max="-2" attributes="0"/>
-                      <Component id="jButtonCreeDMA" linkSize="1" min="-2" pref="473" max="-2" attributes="0"/>
-                      <Component id="jButtonTransfereDMA" linkSize="1" min="-2" pref="257" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jButtonTransfereDMA1" min="-2" pref="473" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jButtonConsulterDMA" linkSize="1" min="-2" pref="354" max="-2" attributes="0"/>
+                              <Component id="jButtonCreeDMA" linkSize="1" min="-2" pref="473" max="-2" attributes="0"/>
+                              <Component id="jButtonTransfereDMA" linkSize="1" min="-2" pref="257" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                   <EmptySpace pref="204" max="32767" attributes="0"/>
               </Group>
@@ -164,7 +172,9 @@
                   <Component id="jButtonCreeDMA" linkSize="2" min="-2" pref="43" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Component id="jButtonTransfereDMA" linkSize="2" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace pref="154" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="jButtonTransfereDMA1" min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace pref="80" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -190,6 +200,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Transf&#xe9;rer DMA"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonTransfereDMA1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fusion Service Urgence / Service Clinique"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonTransfereDMA1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
