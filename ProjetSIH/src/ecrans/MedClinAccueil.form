@@ -417,6 +417,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Consulter Observations"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consulterObservationActionPerformed"/>
+              </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1ListeObservations">
               <Properties>
@@ -606,8 +609,11 @@
         </Container>
         <Component class="javax.swing.JButton" name="consulterResultat">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Consulter Observations"/>
+            <Property name="text" type="java.lang.String" value="Consulter R&amp;&#xe9;sultats"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consulterResultatActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

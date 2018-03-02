@@ -26,6 +26,11 @@ public class BDDconnection{
 	 * Objet Connection
 	 */
 	private static Connection connect;
+        
+        
+        private BDDconnection(){
+            // Nothing to do here
+        }
 	
 	/**
 	 * Méthode qui va nous retourner notre instance

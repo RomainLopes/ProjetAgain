@@ -458,7 +458,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="Prescriptio2" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="ajouterObservation" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="ajouterResultat" min="-2" pref="41" max="-2" attributes="0"/>
                                   <EmptySpace pref="62" max="32767" attributes="0"/>
                                   <Component id="consulterResultat" min="-2" pref="161" max="-2" attributes="0"/>
                               </Group>
@@ -475,7 +475,7 @@
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="consulterResultat" pref="34" max="32767" attributes="0"/>
-                              <Component id="ajouterObservation" pref="34" max="32767" attributes="0"/>
+                              <Component id="ajouterResultat" pref="34" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -487,12 +487,12 @@
                     <Property name="text" type="java.lang.String" value="R&#xe9;sultats"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="ajouterObservation">
+                <Component class="javax.swing.JButton" name="ajouterResultat">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ajouterObservationActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ajouterResultatActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="consulterResultat">

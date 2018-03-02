@@ -36,6 +36,9 @@ public class DossierMedical extends javax.swing.JFrame {
         jLabel3Sexep.setText(personnel.get(2));
         jLabel4DateP.setText(personnel.get(3));
         
+       // ArrayList infoPatient = new ArrayList();
+        
+        
       /*  jTextField1NomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
         jTextField4PrenomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
         jTextField4SexePat.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
@@ -74,12 +77,12 @@ public class DossierMedical extends javax.swing.JFrame {
         jPanelOperations = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         Operations = new javax.swing.JLabel();
-        ajouterPrescription1 = new javax.swing.JButton();
+        ajouterOperation = new javax.swing.JButton();
         jScrollPane1ListeOperations = new javax.swing.JScrollPane();
         jPanel7Resultat = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         Prescriptio2 = new javax.swing.JLabel();
-        ajouterPrescription2 = new javax.swing.JButton();
+        ajouterResultat = new javax.swing.JButton();
         consulterResultat = new javax.swing.JButton();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
         jPanel3InfoPatient = new javax.swing.JPanel();
@@ -119,6 +122,11 @@ public class DossierMedical extends javax.swing.JFrame {
         });
 
         consulterObservation.setText("Consulter Observations");
+        consulterObservation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consulterObservationActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -233,10 +241,10 @@ public class DossierMedical extends javax.swing.JFrame {
 
         Operations.setText("Opérations");
 
-        ajouterPrescription1.setText("+");
-        ajouterPrescription1.addActionListener(new java.awt.event.ActionListener() {
+        ajouterOperation.setText("+");
+        ajouterOperation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ajouterPrescription1ActionPerformed(evt);
+                ajouterOperationActionPerformed(evt);
             }
         });
 
@@ -248,7 +256,7 @@ public class DossierMedical extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(ajouterPrescription1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ajouterOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(Operations, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -259,7 +267,7 @@ public class DossierMedical extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(Operations, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ajouterPrescription1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ajouterOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanelOperationsLayout = new javax.swing.GroupLayout(jPanelOperations);
@@ -293,10 +301,10 @@ public class DossierMedical extends javax.swing.JFrame {
 
         Prescriptio2.setText("Résultats");
 
-        ajouterPrescription2.setText("+");
-        ajouterPrescription2.addActionListener(new java.awt.event.ActionListener() {
+        ajouterResultat.setText("+");
+        ajouterResultat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ajouterPrescription2ActionPerformed(evt);
+                ajouterResultatActionPerformed(evt);
             }
         });
 
@@ -315,7 +323,7 @@ public class DossierMedical extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(ajouterPrescription2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ajouterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(consulterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
@@ -329,7 +337,7 @@ public class DossierMedical extends javax.swing.JFrame {
                 .addComponent(Prescriptio2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ajouterPrescription2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ajouterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(consulterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
@@ -589,19 +597,39 @@ public class DossierMedical extends javax.swing.JFrame {
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
         // TODO add your handling code here:
+          NewObservations obs = new NewObservations();
+                    obs.setSize(this.getSize());
+                    obs.setLocationRelativeTo(this);
+                    this.dispose();
+                    obs.setVisible(true);
     }//GEN-LAST:event_ajouterObservationActionPerformed
 
     private void ajouterPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescriptionActionPerformed
         // TODO add your handling code here:
+        NewPrescription obs = new NewPrescription();
+                    obs.setSize(this.getSize());
+                    obs.setLocationRelativeTo(this);
+                    this.dispose();
+                    obs.setVisible(true);
     }//GEN-LAST:event_ajouterPrescriptionActionPerformed
 
-    private void ajouterPrescription1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescription1ActionPerformed
+    private void ajouterOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterOperationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ajouterPrescription1ActionPerformed
+         NewOperation obs = new NewOperation();
+                    obs.setSize(this.getSize());
+                    obs.setLocationRelativeTo(this);
+                    this.dispose();
+                    obs.setVisible(true);
+    }//GEN-LAST:event_ajouterOperationActionPerformed
 
-    private void ajouterPrescription2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescription2ActionPerformed
+    private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ajouterPrescription2ActionPerformed
+        NewResultat obs = new NewResultat();
+                    obs.setSize(this.getSize());
+                    obs.setLocationRelativeTo(this);
+                    this.dispose();
+                    obs.setVisible(true);
+    }//GEN-LAST:event_ajouterResultatActionPerformed
 
     private void ConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMAActionPerformed
         // TODO add your handling code here:
@@ -614,6 +642,11 @@ public class DossierMedical extends javax.swing.JFrame {
 
     private void EcrireLettreSortie1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EcrireLettreSortie1ActionPerformed
         // TODO add your handling code here:
+        LettreDeSortie lettre = new LettreDeSortie(employe,patient);
+            lettre.setSize(this.getSize());
+            lettre.setLocationRelativeTo(this);
+            this.dispose();
+            lettre.setVisible(true);
     }//GEN-LAST:event_EcrireLettreSortie1ActionPerformed
 
     private void ServiceCorrespondanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServiceCorrespondanceActionPerformed
@@ -631,7 +664,21 @@ public class DossierMedical extends javax.swing.JFrame {
 
     private void consulterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterResultatActionPerformed
         // TODO add your handling code here:
+         ConsulterResultat obs = new ConsulterResultat();
+                    obs.setSize(this.getSize());
+                    obs.setLocationRelativeTo(this);
+                    this.dispose();
+                    obs.setVisible(true);
     }//GEN-LAST:event_consulterResultatActionPerformed
+
+    private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
+        // TODO add your handling code here:
+        ConsulterObservation obs = new ConsulterObservation();
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
+    }//GEN-LAST:event_consulterObservationActionPerformed
 
     /**
      * @param args the command line arguments
@@ -679,9 +726,9 @@ public class DossierMedical extends javax.swing.JFrame {
     private javax.swing.JLabel Prescriptio2;
     private javax.swing.JButton ServiceCorrespondance;
     private javax.swing.JButton ajouterObservation;
+    private javax.swing.JButton ajouterOperation;
     private javax.swing.JButton ajouterPrescription;
-    private javax.swing.JButton ajouterPrescription1;
-    private javax.swing.JButton ajouterPrescription2;
+    private javax.swing.JButton ajouterResultat;
     private javax.swing.JButton consulterObservation;
     private javax.swing.JButton consulterResultat;
     private javax.swing.JButton jButtonAccueil;

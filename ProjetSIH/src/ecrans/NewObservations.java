@@ -5,11 +5,15 @@
  */
 package ecrans;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author lisad
  */
 public class NewObservations extends javax.swing.JFrame {
+    private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
 
     /**
      * Creates new form NewObservations

@@ -84,7 +84,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
         jPanel8 = new javax.swing.JPanel();
         Prescriptio2 = new javax.swing.JLabel();
-        ajouterPrescription2 = new javax.swing.JButton();
+        ajouterResultat = new javax.swing.JButton();
         consulterResultat = new javax.swing.JButton();
         jPanel1Observations1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -300,10 +300,10 @@ public class MedRadioAccueil extends javax.swing.JFrame {
 
         Prescriptio2.setText("Résultats");
 
-        ajouterPrescription2.setText("+");
-        ajouterPrescription2.addActionListener(new java.awt.event.ActionListener() {
+        ajouterResultat.setText("+");
+        ajouterResultat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ajouterPrescription2ActionPerformed(evt);
+                ajouterResultatActionPerformed(evt);
             }
         });
 
@@ -322,7 +322,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(ajouterPrescription2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ajouterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(consulterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
@@ -336,7 +336,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
                 .addComponent(Prescriptio2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ajouterPrescription2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ajouterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(consulterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -516,22 +516,42 @@ public class MedRadioAccueil extends javax.swing.JFrame {
 
     private void ConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMAActionPerformed
         // TODO add your handling code here:
+         ConsulterDMA obs = new ConsulterDMA(employe,patient);
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_ConsulterDMAActionPerformed
 
     private void ConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMActionPerformed
         // TODO add your handling code here:
+         ConsulterDM obs = new ConsulterDM(employe,patient);
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_ConsulterDMActionPerformed
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ajouterObservationActionPerformed
 
-    private void ajouterPrescription2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescription2ActionPerformed
+    private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ajouterPrescription2ActionPerformed
+         NewPrescription obs = new NewPrescription();
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
+    }//GEN-LAST:event_ajouterResultatActionPerformed
 
     private void ajouterObservation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservation1ActionPerformed
         // TODO add your handling code here:
+         NewObservations obs = new NewObservations();
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_ajouterObservation1ActionPerformed
 
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
@@ -545,10 +565,20 @@ public class MedRadioAccueil extends javax.swing.JFrame {
 
     private void consulterObservation3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservation3ActionPerformed
         // TODO add your handling code here:
+         ConsulterObservation obs = new ConsulterObservation();
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_consulterObservation3ActionPerformed
 
     private void consulterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterResultatActionPerformed
         // TODO add your handling code here:
+         ConsulterResultat obs = new ConsulterResultat();
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_consulterResultatActionPerformed
 
     /**
@@ -595,7 +625,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel Prescriptio2;
     private javax.swing.JButton ajouterObservation;
     private javax.swing.JButton ajouterObservation1;
-    private javax.swing.JButton ajouterPrescription2;
+    private javax.swing.JButton ajouterResultat;
     private javax.swing.JButton consulterObservation;
     private javax.swing.JButton consulterObservation3;
     private javax.swing.JButton consulterResultat;

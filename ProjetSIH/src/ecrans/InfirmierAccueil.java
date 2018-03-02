@@ -24,13 +24,13 @@ import projetsih.SMed;
  */
 public class InfirmierAccueil extends javax.swing.JFrame {
 
-  private static ArrayList<String> employe;
+    private static ArrayList<String> employe;
     private static ArrayList<String> patient;
 
     /**
      * Creates new form InfirmierAccueil
      */
-  /*  public InfirmierAccueil() {
+    /*  public InfirmierAccueil() {
         initComponents();
 
         jPanelOperations.setLayout(new GridLayout(50, 1));
@@ -42,23 +42,20 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         jLabelPrenomInf.setText(employe.getPrenom());
         jLabelNomInf.setText(employe.getNom());
     }*/
-    
-
-    public InfirmierAccueil(ArrayList<String> personnel, ArrayList<String> patient ) {
+    public InfirmierAccueil(ArrayList<String> personnel, ArrayList<String> patient) {
         initComponents();
-        employe=personnel;
-        this.patient=patient;
+        employe = personnel;
+        this.patient = patient;
         jLabelNomInf.setText(personnel.get(0));
         jLabelPrenomInf.setText(personnel.get(1));
         jLabelFonction.setText(personnel.get(2));
-        jLabelService.setText(personnel.get(3)); 
-        
+        jLabelService.setText(personnel.get(3));
+
         jLabel3NomPatient.setText(patient.get(0));
         jLabel4PrenomPatient.setText(patient.get(1));
         jLabel2dateDeNAissancePatient.setText(patient.get(2));
         //jLabelSexePatient.setText(patient.get(3)); 
-        
-    
+
         jScrollPane1ListeObservations.setVisible(false);
         jScrollPane1ListeOperations.setVisible(false);
     }
@@ -99,7 +96,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         jPanelOperations = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         Operations = new javax.swing.JLabel();
-        ajouterPrescription1 = new javax.swing.JButton();
+        ajouterOperation = new javax.swing.JButton();
         jScrollPane1ListeOperations = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -318,10 +315,10 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
         Operations.setText("Opérations");
 
-        ajouterPrescription1.setText("+");
-        ajouterPrescription1.addActionListener(new java.awt.event.ActionListener() {
+        ajouterOperation.setText("+");
+        ajouterOperation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ajouterPrescription1ActionPerformed(evt);
+                ajouterOperationActionPerformed(evt);
             }
         });
 
@@ -333,7 +330,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(ajouterPrescription1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ajouterOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(Operations, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -344,7 +341,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(Operations, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ajouterPrescription1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ajouterOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanelOperationsLayout = new javax.swing.GroupLayout(jPanelOperations);
@@ -423,26 +420,33 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
-        // TODO add your handling code here:
-
+        NewObservations obs = new NewObservations();
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_ajouterObservationActionPerformed
 
-    private void ajouterPrescription1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescription1ActionPerformed
+    private void ajouterOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterOperationActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_ajouterPrescription1ActionPerformed
+         NewObservations obs = new NewObservations();
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
+    }//GEN-LAST:event_ajouterOperationActionPerformed
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
         // TODO add your handling code here:
-        /*InfirmierAccueil g= new InfirmierAccueil("f");
-        g.setSize(this.getSize());
-                    g.setLocationRelativeTo(this);
-                    this.dispose();
-                    g.setVisible(true);*/
-       
-        jPanel1Observations.setLayout(new GridLayout(50, 1));
-        jPanel1Observations.add(new JLabel("L'opération s'est bien déroulée. Cependant, le patiant présente des signes d'infection de la peau."));
+              ConsulterObservation obs = new ConsulterObservation();
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
 
+       /* jPanel1Observations.setLayout(new GridLayout(50, 1));
+        jPanel1Observations.add(new JLabel("L'opération s'est bien déroulée. Cependant, le patiant présente des signes d'infection de la peau."));
+*/
     }//GEN-LAST:event_consulterObservationActionPerformed
 
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
@@ -452,8 +456,8 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         iden.setLocationRelativeTo(this);
         this.dispose();
         iden.setVisible(true);
-       
-       /* MedTechAccueil inte = new MedTechAccueil();
+
+        /* MedTechAccueil inte = new MedTechAccueil();
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
@@ -499,9 +503,8 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
 
-
             public void run() {
-                new InfirmierAccueil(employe,patient).setVisible(true);
+                new InfirmierAccueil(employe, patient).setVisible(true);
             }
         });
     }
@@ -511,7 +514,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel Observations;
     private javax.swing.JLabel Operations;
     private javax.swing.JButton ajouterObservation;
-    private javax.swing.JButton ajouterPrescription1;
+    private javax.swing.JButton ajouterOperation;
     private javax.swing.JButton consulterObservation;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDeconnexion;
@@ -537,7 +540,6 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1ListeObservations;
     private javax.swing.JScrollPane jScrollPane1ListeOperations;
     // End of variables declaration//GEN-END:variables
-
 
     public String getJLabelNomInf() {
         return jLabelNomInf.getText();

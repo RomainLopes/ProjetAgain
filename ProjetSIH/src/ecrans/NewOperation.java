@@ -5,16 +5,21 @@
  */
 package ecrans;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author lisad
  */
 public class NewOperation extends javax.swing.JFrame {
+    private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
 
     /**
      * Creates new form NewOperation
      */
     public NewOperation() {
+        jLabel4Service.setText(employe.get(0));
         initComponents();
     }
 
