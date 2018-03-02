@@ -11,4 +11,113 @@ package GestionBDD;
  */
 public class Prescriptions {
     
+    /**
+     * ipp
+     */
+    private int[] ipp = {};
+    /**
+     * nosejour
+     */
+    private int[] nosejour = {};
+    /**
+     * idprescription
+     */
+    private String idprescription = "";
+    /**
+     * dateprescription
+     */
+    private String dateprescription = "";
+    /**
+     * prescription
+     */
+    private String prescription = "";
+    /**
+     * service
+     */
+    private String service = "";
+
+    /**
+     * @return the ipp
+     */
+    public int[] getIpp() {
+        return ipp;
+    }
+
+    /**
+     * @param ipp the ipp to set
+     */
+    public void setIpp(int[] ipp) {
+        this.ipp = ipp;
+    }
+
+    /**
+     * @return the nosejour
+     */
+    public int[] getNosejour() {
+        return nosejour;
+    }
+
+    /**
+     * @param nosejour the nosejour to set
+     */
+    public void setNosejour(int[] nosejour) {
+        this.nosejour = nosejour;
+    }
+
+    /**
+     * @return the idprescription
+     */
+    public String getIdprescription() {
+        return idprescription;
+    }
+
+    /**
+     * @param idprescription the idprescription to set
+     */
+    public void setIdprescription(String idprescription) {
+        this.idprescription = idprescription;
+    }
+
+    /**
+     * @return the dateprescription
+     */
+    public String getDateprescription() {
+        return dateprescription;
+    }
+
+    /**
+     * @param dateprescription the dateprescription to set
+     */
+    public void setDateprescription(String dateprescription) {
+        this.dateprescription = dateprescription;
+    }
+
+    /**
+     * @return the prescription
+     */
+    public String getPrescription() {
+        return prescription;
+    }
+
+    /**
+     * @param prescription the prescription to set
+     */
+    public void setPrescription(String prescription) {
+        this.prescription = prescription;
+    }
+
+    /**
+     * @return the service
+     */
+    public String getService() {
+        return service;
+    }
+
+    /**
+     * @param service the service to set
+     */
+    public void setService(String service) {
+        this.service = service;
+    }
+    
 }

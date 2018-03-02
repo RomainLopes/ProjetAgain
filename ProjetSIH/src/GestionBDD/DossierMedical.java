@@ -5,12 +5,31 @@
  */
 package GestionBDD;
 
+
+
 /**
  *
  * @author romel
  */
 public class DossierMedical {
 
+    /**
+     * ipp
+     */
+    private int[] ipp = {};
+    /**
+     * nosejour
+     */
+    private int[] nosejour = {};
+    /**
+     * service
+     */
+    private String service = "";
+    /**
+     * correspondance
+     */
+    private String correspondance = "";
+    
     /**
      * @return the ipp
      */
@@ -67,22 +86,7 @@ public class DossierMedical {
         this.correspondance = correspondance;
     }
     
-    /**
-     * ipp
-     */
-    private int[] ipp = {};
-    /**
-     * nosejour
-     */
-    private int[] nosejour = {};
-    /**
-     * service
-     */
-    private String service = "";
-    /**
-     * correspondance
-     */
-    private String correspondance = "";
+    
     
     
 }
