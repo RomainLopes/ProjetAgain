@@ -7,21 +7,22 @@ package GestionBDD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import org.postgresql.Driver;
 
 public class BDDconnection{
 
 	/**
 	 * URL de connection
 	 */
-        private static String url = "jdbc:postgresql://192.168.43.123/projetSIH";
+        private static String url = "jdbc:postgres://htdxinqp:l_YgqQRD-oDOxOC9h4732glCwj_tfSzs@horton.elephantsql.com:5432/htdxinqp";
 	/**
 	 * Nom du user
 	 */
-	private static String user = "postgres";
+	private static String user = "htdxinqp";
 	/**
 	 * Mot de passe du user
 	 */
-	private static String passwd = "postgres";
+	private static String passwd = "l_YgqQRD-oDOxOC9h4732glCwj_tfSzs";
 	/**
 	 * Objet Connection
 	 */
