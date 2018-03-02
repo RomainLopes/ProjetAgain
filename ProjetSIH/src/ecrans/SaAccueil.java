@@ -49,6 +49,7 @@ public class SaAccueil extends javax.swing.JFrame {
         jButtonConsulterDMA = new javax.swing.JButton();
         jButtonCreeDMA = new javax.swing.JButton();
         jButtonTransfereDMA = new javax.swing.JButton();
+        jButtonTransfereDMA1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -91,7 +92,7 @@ public class SaAccueil extends javax.swing.JFrame {
                         .addGap(143, 143, 143)
                         .addComponent(Sa))
                     .addComponent(jLabelPrenom))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
                 .addComponent(jButtonDeconnexion)
                 .addGap(8, 8, 8))
         );
@@ -135,16 +136,28 @@ public class SaAccueil extends javax.swing.JFrame {
 
         jButtonTransfereDMA.setText("Transférer DMA");
 
+        jButtonTransfereDMA1.setText("Fusion Service Urgence / Service Clinique");
+        jButtonTransfereDMA1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTransfereDMA1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(229, 229, 229)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCreeDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonTransfereDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButtonTransfereDMA1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGap(229, 229, 229)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonCreeDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonTransfereDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(204, Short.MAX_VALUE))
         );
 
@@ -159,7 +172,9 @@ public class SaAccueil extends javax.swing.JFrame {
                 .addComponent(jButtonCreeDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addComponent(jButtonTransfereDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(jButtonTransfereDMA1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonConsulterDMA, jButtonCreeDMA, jButtonTransfereDMA});
@@ -204,6 +219,10 @@ public class SaAccueil extends javax.swing.JFrame {
         this.dispose();
         iden.setVisible(true);
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
+
+    private void jButtonTransfereDMA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTransfereDMA1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonTransfereDMA1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,6 +273,7 @@ public class SaAccueil extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCreeDMA;
     private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JButton jButtonTransfereDMA;
+    private javax.swing.JButton jButtonTransfereDMA1;
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JLabel jLabelPrenom;
     private javax.swing.JPanel jPanel2;
