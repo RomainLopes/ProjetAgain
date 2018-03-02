@@ -130,7 +130,7 @@ public class SaAccueil extends javax.swing.JFrame {
 
         jButtonTransfereDMA.setText("Transférer DMA");
 
-        jButtonTransfereDMA1.setText("Fusion Urgence/Clinique");
+        jButtonTransfereDMA1.setText("Fusion Service Urgence / Service Clinique");
         jButtonTransfereDMA1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonTransfereDMA1ActionPerformed(evt);
