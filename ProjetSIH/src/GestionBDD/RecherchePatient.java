@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetsih;
+package GestionBDD;
 
-import projetsih.BDDconnection.*;
+import GestionBDD.BDDconnection.*;
 import ecrans.InfirmierAccueil;
 import ecrans.RechercherPatient;
 import ecrans.essaiEncore;

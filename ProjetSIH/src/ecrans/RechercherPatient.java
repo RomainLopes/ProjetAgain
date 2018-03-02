@@ -12,7 +12,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import projetsih.PHospitalier;
 import projetsih.Patient;
-import projetsih.RecherchePatient;
+import GestionBDD.RecherchePatient;
 import projetsih.SAdm;
 import projetsih.SMed;
 

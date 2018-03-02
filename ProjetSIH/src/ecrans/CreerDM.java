@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import projetsih.PHospitalier;
 import projetsih.Patient;
-import projetsih.RecherchePatient;
+import GestionBDD.RecherchePatient;
 
 /**
  *
