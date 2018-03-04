@@ -48,10 +48,13 @@ public class NewOperation extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(65, 131, 215));
 
+        jLabel1Titre.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
         jLabel1Titre.setText("Création Opération");
 
+        jLabel3IPP.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3IPP.setText("IPP du patient ");
 
+        jLabel4Service.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4Service.setText("Service");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -60,8 +63,8 @@ public class NewOperation extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(269, 269, 269)
-                .addComponent(jLabel1Titre, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(159, 159, 159)
+                .addComponent(jLabel1Titre, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(145, 145, 145)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3IPP, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -89,6 +92,7 @@ public class NewOperation extends javax.swing.JFrame {
 
         jTextField3.setText("jTextField3");
 
+        jLabel3Date.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3Date.setText("Date :");
 
         jTextField1.setText("jTextField1");
@@ -98,8 +102,12 @@ public class NewOperation extends javax.swing.JFrame {
             }
         });
 
+        jLabel3Date1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3Date1.setText("Opération :");
 
+        jButton1Creer.setBackground(new java.awt.Color(228, 241, 254));
+        jButton1Creer.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButton1Creer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CreerDossier2.PNG"))); // NOI18N
         jButton1Creer.setText("Créer");
         jButton1Creer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +132,7 @@ public class NewOperation extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(291, 291, 291)
                 .addComponent(jButton1Creer, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(327, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

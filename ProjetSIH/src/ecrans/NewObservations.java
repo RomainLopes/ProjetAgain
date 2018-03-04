@@ -49,10 +49,13 @@ public class NewObservations extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(65, 131, 215));
 
+        jLabel1Titre.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
         jLabel1Titre.setText("Création Observation");
 
+        jLabel4Service.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4Service.setText("Service");
 
+        jLabel3IPP.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3IPP.setText("IPP du patient ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -60,9 +63,9 @@ public class NewObservations extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1Titre, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(161, 161, 161)
+                .addContainerGap(210, Short.MAX_VALUE)
+                .addComponent(jLabel1Titre, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(119, 119, 119)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -94,6 +97,7 @@ public class NewObservations extends javax.swing.JFrame {
             }
         });
 
+        jLabelNomObservation.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelNomObservation.setText("Nom de l'observation :  ");
 
         jTextFieldDateP.setText("jTextField3");
@@ -103,6 +107,7 @@ public class NewObservations extends javax.swing.JFrame {
             }
         });
 
+        jLabel3Date.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3Date.setText("Date :");
 
         jTextFieldObservationP.setText("jTextField1");
@@ -112,8 +117,12 @@ public class NewObservations extends javax.swing.JFrame {
             }
         });
 
+        jLabel5Observation.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel5Observation.setText("Observations :");
 
+        jButton1Creer.setBackground(new java.awt.Color(228, 241, 254));
+        jButton1Creer.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButton1Creer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CreerDossier2.PNG"))); // NOI18N
         jButton1Creer.setText("Créer");
         jButton1Creer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +140,7 @@ public class NewObservations extends javax.swing.JFrame {
                     .addComponent(jLabelNomObservation)
                     .addComponent(jLabel3Date)
                     .addComponent(jLabel5Observation, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jTextFieldObservationP, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
                     .addComponent(jTextFieldDateP, javax.swing.GroupLayout.Alignment.LEADING)

@@ -46,15 +46,15 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonAccueil" min="-2" pref="71" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Component id="jButtonAccueil" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabelNom" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
                           <Component id="jLabelFonction" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="316" max="32767" attributes="0"/>
                           <Component id="jLabelService" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -79,7 +79,6 @@
                               <Component id="jLabelService" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jButtonAccueil" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
@@ -87,10 +86,13 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabelPrenom" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jButtonDeconnexion" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                              <Component id="jButtonDeconnexion" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="jButtonAccueil" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="40" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -99,23 +101,38 @@
         <Component class="javax.swing.JLabel" name="jLabelFonction">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="18" style="0"/>
+              <Font name="Wiggle" size="24" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="M&#xe9;decin radiologiste"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelNom">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Nom"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPrenom">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonDeconnexion">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="fe" green="f1" red="e4" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Trebuchet MS" size="12" style="0"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Images/Deconnexion 2.PNG"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="D&#xe9;connexion"/>
           </Properties>
           <Events>
@@ -124,6 +141,15 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAccueil">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="fe" green="f1" red="e4" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Trebuchet MS" size="12" style="0"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Images/Accueil 2.PNG"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Accueil"/>
           </Properties>
           <Events>
@@ -132,6 +158,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelService">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Service"/>
           </Properties>
         </Component>
@@ -211,7 +240,7 @@
                               <Component id="ConsulterDM" min="-2" pref="194" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="305" max="32767" attributes="0"/>
+                      <EmptySpace pref="298" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -219,7 +248,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jLabel1InfoPatients" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" pref="29" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" pref="26" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2Nom" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="jLabel2Sexe" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
@@ -249,31 +278,55 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel1Prenom">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="12" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Pr&#xe9;nom : "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2Nom">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="12" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Nom : "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2Sexe">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="12" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Sexe :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2DateDeNaissance">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="12" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Date de Naissance : "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1InfoPatients">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="14" style="2"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Informations du patient "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="ConsulterDM">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="fe" green="f1" red="e4" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Trebuchet MS" size="12" style="0"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/Consulter 2.PNG"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Consulter DM"/>
               </Properties>
               <Events>
@@ -302,6 +355,15 @@
             </Component>
             <Component class="javax.swing.JButton" name="ConsulterDMA">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="fe" green="f1" red="e4" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Trebuchet MS" size="12" style="0"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/Consulter 2.PNG"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Consulter DMA"/>
               </Properties>
               <Events>
@@ -371,7 +433,7 @@
                               <Component id="jPanel8" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="jScrollPane3ListeResultats" min="-2" pref="225" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -382,7 +444,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="105" max="32767" attributes="0"/>
+                          <EmptySpace pref="104" max="32767" attributes="0"/>
                           <Component id="jScrollPane3ListeResultats" min="-2" pref="339" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -405,7 +467,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="ajouterResultat" min="-2" pref="41" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="consulterResultat" min="-2" pref="140" max="-2" attributes="0"/>
+                                      <Component id="consulterResultat" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
@@ -433,11 +495,17 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="Prescriptio2">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Arial Black" size="12" style="0"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="R&#xe9;sultats"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="ajouterResultat">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="7c" green="d3" red="87" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="+"/>
                       </Properties>
                       <Events>
@@ -446,6 +514,15 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="consulterResultat">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="fe" green="f1" red="e4" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="0"/>
+                        </Property>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/Images/Consulter 2.PNG"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Consulter R&#xe9;sultats"/>
                       </Properties>
                       <Events>
@@ -530,11 +607,17 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="Observations1">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Arial Black" size="12" style="0"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Observations"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="ajouterObservation1">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="7c" green="d3" red="87" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="+"/>
                       </Properties>
                       <Events>
@@ -543,6 +626,15 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="consulterObservation3">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="fe" green="f1" red="e4" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="0"/>
+                        </Property>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/Images/Consulter 2.PNG"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Consulter Observations"/>
                       </Properties>
                       <Events>

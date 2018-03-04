@@ -50,10 +50,13 @@ public class NewPrescription extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(65, 131, 215));
 
+        jLabel1Titre.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
         jLabel1Titre.setText("Création Prescription");
 
+        jLabel3IPP.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3IPP.setText("IPP du patient ");
 
+        jLabel4Service.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4Service.setText("Service");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -61,9 +64,9 @@ public class NewPrescription extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addComponent(jLabel1Titre, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
+                .addGap(223, 223, 223)
+                .addComponent(jLabel1Titre, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(113, 113, 113)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -94,12 +97,17 @@ public class NewPrescription extends javax.swing.JFrame {
 
         jTextField1.setText("jTextField1");
 
+        jLabel1Date.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1Date.setText("Date : ");
 
         jTextField2.setText("jTextField2");
 
+        jLabel2Prescription.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2Prescription.setText("Prescription : ");
 
+        jButton1Creer.setBackground(new java.awt.Color(228, 241, 254));
+        jButton1Creer.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButton1Creer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CreerDossier2.PNG"))); // NOI18N
         jButton1Creer.setText("Créer");
         jButton1Creer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +129,7 @@ public class NewPrescription extends javax.swing.JFrame {
                     .addComponent(jButton1Creer, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
                     .addComponent(jTextField1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

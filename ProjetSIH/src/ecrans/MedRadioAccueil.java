@@ -95,13 +95,18 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         JPanelEnTeteMedTech.setBackground(new java.awt.Color(65, 131, 215));
         JPanelEnTeteMedTech.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabelFonction.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelFonction.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
         jLabelFonction.setText("Médecin radiologiste");
 
+        jLabelNom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelNom.setText("Nom");
 
+        jLabelPrenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelPrenom.setText("Prénom");
 
+        jButtonDeconnexion.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonDeconnexion.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonDeconnexion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Deconnexion 2.PNG"))); // NOI18N
         jButtonDeconnexion.setText("Déconnexion");
         jButtonDeconnexion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +114,9 @@ public class MedRadioAccueil extends javax.swing.JFrame {
             }
         });
 
+        jButtonAccueil.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonAccueil.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonAccueil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Accueil 2.PNG"))); // NOI18N
         jButtonAccueil.setText("Accueil");
         jButtonAccueil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +124,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
             }
         });
 
+        jLabelService.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelService.setText("Service");
 
         javax.swing.GroupLayout JPanelEnTeteMedTechLayout = new javax.swing.GroupLayout(JPanelEnTeteMedTech);
@@ -123,15 +132,15 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         JPanelEnTeteMedTechLayout.setHorizontalGroup(
             JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonAccueil)
+                .addGap(45, 45, 45)
                 .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
                         .addComponent(jLabelNom)
-                        .addGap(171, 171, 171)
+                        .addGap(205, 205, 205)
                         .addComponent(jLabelFonction)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
                         .addComponent(jLabelService))
                     .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
                         .addComponent(jLabelPrenom)
@@ -149,15 +158,16 @@ public class MedRadioAccueil extends javax.swing.JFrame {
                         .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelNom)
                             .addComponent(jLabelService)))
-                    .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(jLabelFonction, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabelPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         getContentPane().add(JPanelEnTeteMedTech);
@@ -169,16 +179,24 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         jPanel3InfoPatient.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3InfoPatient.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel1Prenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1Prenom.setText("Prénom : ");
 
+        jLabel2Nom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2Nom.setText("Nom : ");
 
+        jLabel2Sexe.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2Sexe.setText("Sexe :");
 
+        jLabel2DateDeNaissance.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2DateDeNaissance.setText("Date de Naissance : ");
 
+        jLabel1InfoPatients.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         jLabel1InfoPatients.setText("Informations du patient ");
 
+        ConsulterDM.setBackground(new java.awt.Color(228, 241, 254));
+        ConsulterDM.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        ConsulterDM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
         ConsulterDM.setText("Consulter DM");
         ConsulterDM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,6 +212,9 @@ public class MedRadioAccueil extends javax.swing.JFrame {
 
         jLabel4DateP.setText("jLabel1");
 
+        ConsulterDMA.setBackground(new java.awt.Color(228, 241, 254));
+        ConsulterDMA.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        ConsulterDMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
         ConsulterDMA.setText("Consulter DMA");
         ConsulterDMA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,13 +254,13 @@ public class MedRadioAccueil extends javax.swing.JFrame {
                         .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(ConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(305, Short.MAX_VALUE))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
         jPanel3InfoPatientLayout.setVerticalGroup(
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createSequentialGroup()
                 .addComponent(jLabel1InfoPatients)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,8 +289,10 @@ public class MedRadioAccueil extends javax.swing.JFrame {
 
         jPanel7Resultat.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        Prescriptio2.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Prescriptio2.setText("Résultats");
 
+        ajouterResultat.setBackground(new java.awt.Color(135, 211, 124));
         ajouterResultat.setText("+");
         ajouterResultat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -277,6 +300,9 @@ public class MedRadioAccueil extends javax.swing.JFrame {
             }
         });
 
+        consulterResultat.setBackground(new java.awt.Color(228, 241, 254));
+        consulterResultat.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        consulterResultat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
         consulterResultat.setText("Consulter Résultats");
         consulterResultat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -294,7 +320,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(ajouterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(consulterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(consulterResultat))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(Prescriptio2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -321,22 +347,24 @@ public class MedRadioAccueil extends javax.swing.JFrame {
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel7ResultatLayout.createSequentialGroup()
                         .addComponent(jScrollPane3ListeResultats, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 12, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel7ResultatLayout.setVerticalGroup(
             jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7ResultatLayout.createSequentialGroup()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(jScrollPane3ListeResultats, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         jPanel1Observations1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        Observations1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Observations1.setText("Observations");
 
+        ajouterObservation1.setBackground(new java.awt.Color(135, 211, 124));
         ajouterObservation1.setText("+");
         ajouterObservation1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -344,6 +372,9 @@ public class MedRadioAccueil extends javax.swing.JFrame {
             }
         });
 
+        consulterObservation3.setBackground(new java.awt.Color(228, 241, 254));
+        consulterObservation3.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        consulterObservation3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
         consulterObservation3.setText("Consulter Observations");
         consulterObservation3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

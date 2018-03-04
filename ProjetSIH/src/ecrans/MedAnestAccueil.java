@@ -94,13 +94,18 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         JPanelEnTeteMedTech.setBackground(new java.awt.Color(65, 131, 215));
         JPanelEnTeteMedTech.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabelFonction.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelFonction.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
         jLabelFonction.setText("Médecin anésthesiste");
 
+        jLabelNomPmed.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelNomPmed.setText("Nom");
 
+        jLabelPrenomPmed.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelPrenomPmed.setText("Prénom");
 
+        jButtonDeconnexion.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonDeconnexion.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonDeconnexion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Deconnexion 2.PNG"))); // NOI18N
         jButtonDeconnexion.setText("Déconnexion");
         jButtonDeconnexion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +113,9 @@ public class MedAnestAccueil extends javax.swing.JFrame {
             }
         });
 
+        jButtonAccueil.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonAccueil.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonAccueil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Accueil 2.PNG"))); // NOI18N
         jButtonAccueil.setText("Accueil");
         jButtonAccueil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +123,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
             }
         });
 
+        jLabelService.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelService.setText("Service");
 
         javax.swing.GroupLayout JPanelEnTeteMedTechLayout = new javax.swing.GroupLayout(JPanelEnTeteMedTech);
@@ -123,19 +132,19 @@ public class MedAnestAccueil extends javax.swing.JFrame {
             JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93)
+                .addComponent(jButtonAccueil)
+                .addGap(53, 53, 53)
                 .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
                         .addComponent(jLabelNomPmed)
                         .addGap(104, 104, 104)
                         .addComponent(jLabelFonction))
                     .addComponent(jLabelPrenomPmed))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 445, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 327, Short.MAX_VALUE)
                 .addComponent(jLabelService)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonDeconnexion)
-                .addGap(8, 8, 8))
+                .addGap(16, 16, 16))
         );
         JPanelEnTeteMedTechLayout.setVerticalGroup(
             JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,15 +155,18 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                         .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelNomPmed)
                             .addComponent(jLabelService)))
-                    .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabelFonction, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelPrenomPmed, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
+                                .addComponent(jLabelFonction, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabelPrenomPmed, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
+                                .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17)))))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         getContentPane().add(JPanelEnTeteMedTech);
@@ -166,8 +178,10 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
         jPanel7Resultat.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        Prescriptio2.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Prescriptio2.setText("Résultats");
 
+        ajouterResultat.setBackground(new java.awt.Color(135, 211, 124));
         ajouterResultat.setText("+");
         ajouterResultat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,6 +189,9 @@ public class MedAnestAccueil extends javax.swing.JFrame {
             }
         });
 
+        consulterResultat.setBackground(new java.awt.Color(228, 241, 254));
+        consulterResultat.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        consulterResultat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
         consulterResultat.setText("Consulter Résultat");
         consulterResultat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,8 +250,11 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
         jPanel4Prescriptions.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        Prescriptio.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Prescriptio.setText("Prescriptions");
 
+        ajouterPrescription.setBackground(new java.awt.Color(135, 211, 124));
+        ajouterPrescription.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         ajouterPrescription.setText("+");
         ajouterPrescription.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,12 +269,12 @@ public class MedAnestAccueil extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(Prescriptio, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(ajouterPrescription, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(110, Short.MAX_VALUE))
+                        .addComponent(ajouterPrescription, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(Prescriptio)))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,8 +308,12 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
         jPanel1Observations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        Observations.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Observations.setText("Observations");
 
+        consulterObservation.setBackground(new java.awt.Color(228, 241, 254));
+        consulterObservation.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        consulterObservation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
         consulterObservation.setText("Consulter Observations");
         consulterObservation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,6 +321,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
             }
         });
 
+        ajouterObservations.setBackground(new java.awt.Color(135, 211, 124));
         ajouterObservations.setText("+");
         ajouterObservations.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,8 +342,8 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addComponent(ajouterObservations, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(consulterObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addComponent(consulterObservation)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,7 +367,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                 .addGroup(jPanel1ObservationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1ObservationsLayout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 26, Short.MAX_VALUE))
                     .addComponent(jScrollPane1ListeObservations, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -363,7 +388,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jPanel1Observations, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
+                .addGap(27, 27, 27)
                 .addComponent(jPanel4Prescriptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(jPanel7Resultat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -396,21 +421,28 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 230, 1069, 790);
+        jPanel1.setBounds(0, 230, 1092, 790);
 
         jPanel3InfoPatient.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3InfoPatient.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel1Prenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1Prenom.setText("Prénom : ");
 
+        jLabel2Nom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2Nom.setText("Nom : ");
 
+        jLabel2Sexe.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2Sexe.setText("Sexe :");
 
+        jLabel2DateDeNaissance.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2DateDeNaissance.setText("Date de Naissance : ");
 
+        jLabel1InfoPatients.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         jLabel1InfoPatients.setText("Informations du patient ");
 
+        ServiceCorrespondance.setBackground(new java.awt.Color(228, 241, 254));
+        ServiceCorrespondance.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         ServiceCorrespondance.setText("Service : correspondance");
         ServiceCorrespondance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -418,6 +450,9 @@ public class MedAnestAccueil extends javax.swing.JFrame {
             }
         });
 
+        ConsulterDM.setBackground(new java.awt.Color(228, 241, 254));
+        ConsulterDM.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        ConsulterDM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
         ConsulterDM.setText("Consulter DM");
         ConsulterDM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -433,6 +468,9 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
         jLabel4DateP.setText("jLabel1");
 
+        ConsulterDMA.setBackground(new java.awt.Color(228, 241, 254));
+        ConsulterDMA.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        ConsulterDMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
         ConsulterDMA.setText("Consulter DMA");
         ConsulterDMA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -475,13 +513,14 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                         .addComponent(ConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(ServiceCorrespondance, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel3InfoPatientLayout.setVerticalGroup(
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1InfoPatients)
-                .addGap(36, 36, 36)
+                .addGap(25, 25, 25)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -493,7 +532,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                     .addComponent(jLabel1Prenom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2DateDeNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4DateP))
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
