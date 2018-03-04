@@ -15,7 +15,7 @@ public class BDDconnection {
     /**
      * URL de connection
      */
-    private static String url = "jdbc:postgres://htdxinqp:l_YgqQRD-oDOxOC9h4732glCwj_tfSzs@horton.elephantsql.com:5432/htdxinqp";
+    private static String url = "jdbc:postgresql://htdxinqp:l_YgqQRD-oDOxOC9h4732glCwj_tfSzs@horton.elephantsql.com:5432/htdxinqp";
     /**
      * Nom du user
      */
@@ -41,11 +41,7 @@ public class BDDconnection {
      */
     public static Connection getInstance() {
         if (connect == null) {
-            try {
-                Class.forName("org.postgresql.Driver");
-            } catch (java.lang.ClassNotFoundException e) {
-                System.out.println(e.getMessage());
-            }
+            
             try {
                 System.out.println(" avant essai connexion");
                 connect = DriverManager.getConnection(url, user, passwd);
@@ -53,6 +49,7 @@ public class BDDconnection {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            
         }
         return connect;
     }
