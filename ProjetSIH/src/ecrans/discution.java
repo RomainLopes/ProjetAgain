@@ -66,6 +66,8 @@ public class discution extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jPanel1 = new javax.swing.JPanel();
+        list1 = new java.awt.List();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         list1 = new java.awt.List();

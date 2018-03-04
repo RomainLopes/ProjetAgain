@@ -56,8 +56,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         jLabel2dateDeNAissancePatient.setText(patient.get(2));
         //jLabelSexePatient.setText(patient.get(3)); 
 
-        jScrollPane1ListeObservations.setVisible(false);
-        jScrollPane1ListeOperations.setVisible(false);
+
     }
 
     /**

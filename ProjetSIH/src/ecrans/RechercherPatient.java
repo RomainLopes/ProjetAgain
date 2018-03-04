@@ -87,11 +87,13 @@ public class RechercherPatient extends javax.swing.JFrame {
         jButtonRechercher = new javax.swing.JButton();
         jTextFieldNom = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListpatients = new javax.swing.JList<>();
+        jListpatients = new javax.swing.JList<String>();
         jTextFieldPrenom = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
+        JPanelEnTeteMedTech.setBackground(new java.awt.Color(65, 131, 215));
         JPanelEnTeteMedTech.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabelFonction.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -157,6 +159,11 @@ public class RechercherPatient extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        getContentPane().add(JPanelEnTeteMedTech);
+        JPanelEnTeteMedTech.setBounds(0, 0, 706, 108);
+
+        jPanel1RecherchePatient.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1RecherchePatient.setText("Recherche d'un patient :");
 
         jLabel2Nom.setText("Nom : ");
@@ -170,10 +177,10 @@ public class RechercherPatient extends javax.swing.JFrame {
             }
         });
 
-        jListpatients.setModel(new javax.swing.AbstractListModel<String>() {
+        jListpatients.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jListpatients.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -195,7 +202,7 @@ public class RechercherPatient extends javax.swing.JFrame {
             .addGroup(jPanel1RecherchePatientLayout.createSequentialGroup()
                 .addGap(209, 209, 209)
                 .addComponent(jButtonRechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(363, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1RecherchePatientLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,26 +239,11 @@ public class RechercherPatient extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35)
                 .addComponent(jButtonRechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1RecherchePatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1RecherchePatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        getContentPane().add(jPanel1RecherchePatient);
+        jPanel1RecherchePatient.setBounds(0, 104, 706, 410);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
