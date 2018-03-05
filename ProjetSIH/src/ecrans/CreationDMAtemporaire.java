@@ -48,6 +48,7 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
         jLabel2Localisation = new javax.swing.JLabel();
         jTextFieldadresse = new javax.swing.JTextField();
         jTextField4Localisation = new javax.swing.JTextField();
+        jButtonPrecedent = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -106,6 +107,13 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
             }
         });
 
+        jButtonPrecedent.setText("Précédent");
+        jButtonPrecedent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPrecedentActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3InfoPatientLayout = new javax.swing.GroupLayout(jPanel3InfoPatient);
         jPanel3InfoPatient.setLayout(jPanel3InfoPatientLayout);
         jPanel3InfoPatientLayout.setHorizontalGroup(
@@ -147,11 +155,17 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextFieldadresse)))
                         .addGap(0, 4, Short.MAX_VALUE))))
+            .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonPrecedent)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3InfoPatientLayout.setVerticalGroup(
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(14, 14, 14)
+                .addComponent(jButtonPrecedent)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1InfoPatients)
                 .addGap(27, 27, 27)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -207,6 +221,10 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4LocalisationActionPerformed
 
+    private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonPrecedentActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -243,6 +261,7 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonPrecedent;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1Prenom;
     private javax.swing.JLabel jLabel2Adresse;

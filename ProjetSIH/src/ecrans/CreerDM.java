@@ -49,6 +49,7 @@ public class CreerDM extends javax.swing.JFrame {
         jPanel1CreationDM = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButtonPrecedent2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel3InfoPatient = new javax.swing.JPanel();
         jLabel1Prenom = new javax.swing.JLabel();
@@ -79,12 +80,21 @@ public class CreerDM extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
         jLabel1.setText("Création d'un dossier médical");
 
+        jButtonPrecedent2.setText("Précédent");
+        jButtonPrecedent2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPrecedent2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(186, 186, 186)
+                .addGap(24, 24, 24)
+                .addComponent(jButtonPrecedent2)
+                .addGap(81, 81, 81)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(201, Short.MAX_VALUE))
         );
@@ -94,6 +104,10 @@ public class CreerDM extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonPrecedent2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1CreationDM.add(jPanel1);
@@ -294,6 +308,10 @@ public class CreerDM extends javax.swing.JFrame {
         rechercher.setVisible(true);
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
+    private void jButtonPrecedent2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedent2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonPrecedent2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -331,6 +349,7 @@ public class CreerDM extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonPrecedent2;
     private javax.swing.JButton jButtonValider;
     private javax.swing.JFormattedTextField jFormattedTextFieldDateDeNaissance;
     private javax.swing.JFormattedTextField jFormattedTextFieldIpp;

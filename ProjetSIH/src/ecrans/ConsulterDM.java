@@ -98,6 +98,7 @@ public class ConsulterDM extends javax.swing.JFrame {
         jLabel3Sexep = new javax.swing.JLabel();
         jLabel4DateP = new javax.swing.JLabel();
         jLabel5ServiceP = new javax.swing.JLabel();
+        jButtonPrecedent = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanelOperations = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -150,6 +151,13 @@ public class ConsulterDM extends javax.swing.JFrame {
 
         jLabel5ServiceP.setText("jLabel1");
 
+        jButtonPrecedent.setText("Précédent");
+        jButtonPrecedent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPrecedentActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3InfoPatientLayout = new javax.swing.GroupLayout(jPanel3InfoPatient);
         jPanel3InfoPatient.setLayout(jPanel3InfoPatientLayout);
         jPanel3InfoPatientLayout.setHorizontalGroup(
@@ -182,7 +190,9 @@ public class ConsulterDM extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel5ServiceP, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                        .addGap(167, 167, 167)
+                        .addContainerGap()
+                        .addComponent(jButtonPrecedent)
+                        .addGap(76, 76, 76)
                         .addComponent(jLabel1InfoPatients)))
                 .addContainerGap(146, Short.MAX_VALUE))
         );
@@ -190,7 +200,9 @@ public class ConsulterDM extends javax.swing.JFrame {
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1InfoPatients, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1InfoPatients, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonPrecedent))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -413,6 +425,10 @@ public class ConsulterDM extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonPrecedentActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -453,6 +469,9 @@ public class ConsulterDM extends javax.swing.JFrame {
     private javax.swing.JLabel Operations;
     private javax.swing.JLabel Prescriptio;
     private javax.swing.JLabel Prescriptio2;
+    private javax.swing.JButton jButtonPrecedent;
+    private javax.swing.JButton jButtonPrecedent2;
+    private javax.swing.JButton jButtonPrecedent3;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1Nomp;
     private javax.swing.JLabel jLabel1Prenom;

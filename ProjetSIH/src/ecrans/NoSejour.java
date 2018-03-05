@@ -30,14 +30,14 @@ public class NoSejour extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1NoSejourP = new javax.swing.JLabel();
         jLabel1NoSejour = new javax.swing.JLabel();
-        jComboBox1Type = new javax.swing.JComboBox<String>();
+        jComboBox1Type = new javax.swing.JComboBox<>();
         jLabel3Type = new javax.swing.JLabel();
         jLabel1NomPHrespo = new javax.swing.JLabel();
         jLabel2NomPH = new javax.swing.JLabel();
         jLabel1LettreSortiep = new javax.swing.JLabel();
         jLabel4LettreSortie = new javax.swing.JLabel();
         jScrollPane1ListePrestaMT = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<String>();
+        jList1 = new javax.swing.JList<>();
         jLabel5PrestaMT = new javax.swing.JLabel();
         jPanel3InfoPatient = new javax.swing.JPanel();
         jLabel1Prenom = new javax.swing.JLabel();
@@ -49,6 +49,7 @@ public class NoSejour extends javax.swing.JFrame {
         jLabel2PrenomP = new javax.swing.JLabel();
         jLabel3Sexep = new javax.swing.JLabel();
         jLabel4DateP = new javax.swing.JLabel();
+        jButtonPrecedent = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -61,7 +62,7 @@ public class NoSejour extends javax.swing.JFrame {
         jLabel1NoSejour.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1NoSejour.setText("Numéro de séjour : ");
 
-        jComboBox1Type.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1Type.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1TypeActionPerformed(evt);
@@ -81,10 +82,10 @@ public class NoSejour extends javax.swing.JFrame {
         jLabel4LettreSortie.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4LettreSortie.setText("Lettre de sortie ");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1ListePrestaMT.setViewportView(jList1);
 
@@ -162,6 +163,13 @@ public class NoSejour extends javax.swing.JFrame {
                     .addComponent(jLabel4DateP)))
         );
 
+        jButtonPrecedent.setText("Précédent");
+        jButtonPrecedent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPrecedentActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -189,13 +197,18 @@ public class NoSejour extends javax.swing.JFrame {
                                 .addComponent(jLabel1NoSejourP, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButtonPrecedent)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addContainerGap()
+                .addComponent(jButtonPrecedent)
+                .addGap(9, 9, 9)
                 .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -221,7 +234,7 @@ public class NoSejour extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 761, 500);
+        jPanel1.setBounds(10, 0, 761, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -229,6 +242,10 @@ public class NoSejour extends javax.swing.JFrame {
     private void jComboBox1TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1TypeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1TypeActionPerformed
+
+    private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,6 +283,7 @@ public class NoSejour extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonPrecedent;
     private javax.swing.JComboBox<String> jComboBox1Type;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1LettreSortiep;
