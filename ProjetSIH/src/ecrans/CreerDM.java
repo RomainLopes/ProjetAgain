@@ -5,8 +5,12 @@
  */
 package ecrans;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.text.MaskFormatter;
 import projetsih.PHospitalier;
 import projetsih.Patient;
 import projetsih.RecherchePatient;
@@ -17,23 +21,21 @@ import projetsih.RecherchePatient;
  */
 public class CreerDM extends javax.swing.JFrame {
 
-     private static ArrayList<String> employe;
+    private static ArrayList<String> employe;
     private static ArrayList<String> patient;
 
     /**
      * Creates new form CreerDM
      */
-  
     public CreerDM(ArrayList<String> employe) {
         initComponents();
-        
-       this.employe =employe; 
-       
-       /* jTextField1Nom.setText(((SmAccueil) fenetrePrecedente).getP().getNom());
+
+        this.employe = employe;
+
+        /* jTextField1Nom.setText(((SmAccueil) fenetrePrecedente).getP().getNom());
         jTextField4Prenom.setText(((SmAccueil) fenetrePrecedente).getP().getPrenom());
         jTextField4Sexe.setText(((SmAccueil) fenetrePrecedente).getP().getSexe());
         jTextField4DDN1.setText(((SmAccueil) fenetrePrecedente).getP().getDateNaissance().toString());*/
-
     }
 
     /**
@@ -61,68 +63,73 @@ public class CreerDM extends javax.swing.JFrame {
         jTextFieldPrenom = new javax.swing.JTextField();
         jTextFieldSexe = new javax.swing.JTextField();
         jTextFieldDatedn = new javax.swing.JTextField();
-        jFormattedTextFieldDateDeNaissance = new javax.swing.JFormattedTextField();
-        jFormattedTextFieldIpp = new javax.swing.JFormattedTextField();
-        jLabel2Service = new javax.swing.JLabel();
-        jTextField1Service = new javax.swing.JTextField();
-        jButtonValider = new javax.swing.JButton();
+        try{
 
-        jLabel2.setText("jLabel2");
+            MaskFormatter tel2 = new MaskFormatter("##-##-####");
+            jFormattedTextFieldDateDeNaissance = new javax.swing.JFormattedTextField(tel2);
+            jFormattedTextFieldIpp = new javax.swing.JFormattedTextField();
+            jLabel2Service = new javax.swing.JLabel();
+            jTextField1Service = new javax.swing.JTextField();
+            jButtonValider = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+            jLabel2.setText("jLabel2");
 
-        jPanel1.setBackground(new java.awt.Color(65, 131, 215));
+            setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setBackground(new java.awt.Color(65, 131, 215));
-        jLabel1.setText("Création d'un dossier médical");
+            jPanel1.setBackground(new java.awt.Color(65, 131, 215));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(275, 275, 275)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(369, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
+            jLabel1.setBackground(new java.awt.Color(65, 131, 215));
+            jLabel1.setText("Création d'un dossier médical");
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+            javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+            jPanel1.setLayout(jPanel1Layout);
+            jPanel1Layout.setHorizontalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(275, 275, 275)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(369, Short.MAX_VALUE))
+            );
+            jPanel1Layout.setVerticalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(20, Short.MAX_VALUE))
+            );
 
-        jPanel3InfoPatient.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+            jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1Prenom.setText("Prénom : ");
+            jPanel3InfoPatient.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel2Nom.setText("Nom : ");
+            jLabel1Prenom.setText("Prénom : ");
 
-        jLabel2Sexe.setText("Sexe :");
+            jLabel2Nom.setText("Nom : ");
 
-        jLabel2DateDeNaissance.setText("Date de Naissance : ");
+            jLabel2Sexe.setText("Sexe :");
 
-        jLabel1InfoPatients.setText("Informations générales du patient ");
+            jLabel2DateDeNaissance.setText("Date de Naissance : ");
 
-        jLabel2IPP.setText("IPP :");
+            jLabel1InfoPatients.setText("Informations générales du patient ");
 
-        jTextFieldNom.setText("jTextField1");
+            jLabel2IPP.setText("IPP :");
 
-        jTextFieldPrenom.setText("jTextField1");
+            jTextFieldNom.setText("jTextField1");
 
-        jTextFieldSexe.setText("jTextField1");
-        jTextFieldSexe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSexeActionPerformed(evt);
-            }
-        });
+            jTextFieldPrenom.setText("jTextField1");
 
-        jTextFieldDatedn.setText("jTextField1");
+            jTextFieldSexe.setText("jTextField1");
+            jTextFieldSexe.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jTextFieldSexeActionPerformed(evt);
+                }
+            });
 
-        jFormattedTextFieldDateDeNaissance.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+            jTextFieldDatedn.setText("jTextField1");
+
+            jFormattedTextFieldDateDeNaissance.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        }
+        catch(ParseException e){e.printStackTrace();}
 
         jFormattedTextFieldIpp.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
@@ -275,18 +282,31 @@ public class CreerDM extends javax.swing.JFrame {
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         // TODO add your handling code here:
-        
-        //mettre le code pour rajouter à la BD
-        JOptionPane.showMessageDialog(null, "Dossier médical créé");
-        RecherchePatient rp = new RecherchePatient();
-        //rp.creerPatient(jTextFieldNom.getText(),jTextFieldPrenom.getText(), jFormattedTextFieldDateDeNaissance.getText(), "","", jFormattedTextFieldIpp.);
-        
-        
-        RechercherPatient rechercher = new RechercherPatient();
-        rechercher.setSize(this.getSize());
-        rechercher.setLocationRelativeTo(this);
-        this.dispose();
-        rechercher.setVisible(true);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String s = jFormattedTextFieldDateDeNaissance.getText();
+        Date d = new Date();
+        try {
+            d = sdf.parse(s);
+            String t = sdf.format(d);
+            if (t.compareTo(s) != 0) {
+                JOptionPane.showMessageDialog(null, "Date non valide");
+            } else {
+                //mettre le code pour rajouter à la BD
+                JOptionPane.showMessageDialog(null, "Dossier médical créé");
+                RecherchePatient rp = new RecherchePatient();
+                //rp.creerPatient(jTextFieldNom.getText(),jTextFieldPrenom.getText(), jFormattedTextFieldDateDeNaissance.getText(), "","", jFormattedTextFieldIpp.);
+
+                RechercherPatient rechercher = new RechercherPatient();
+                rechercher.setSize(this.getSize());
+                rechercher.setLocationRelativeTo(this);
+                this.dispose();
+                rechercher.setVisible(true);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Exception");
+        }
+
+
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
     /**
@@ -319,7 +339,7 @@ public class CreerDM extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
                 new CreerDM(employe).setVisible(true);
             }
         });

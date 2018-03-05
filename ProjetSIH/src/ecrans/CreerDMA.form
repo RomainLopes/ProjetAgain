@@ -303,7 +303,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel2NomPH" min="-2" pref="219" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jComboBox1" min="-2" pref="127" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxPH" min="-2" pref="127" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
@@ -313,7 +313,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jTextField1NoSejour" min="-2" pref="85" max="-2" attributes="0"/>
-                                          <Component id="jComboBoxTypeService" min="-2" pref="75" max="-2" attributes="0"/>
+                                          <Component id="jComboBoxTypeSejour" min="-2" pref="75" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -338,12 +338,12 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3Type" alignment="3" max="32767" attributes="0"/>
-                          <Component id="jComboBoxTypeService" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBoxTypeSejour" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2NomPH" alignment="3" pref="44" max="32767" attributes="0"/>
-                          <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBoxPH" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Component id="jButtonValider" min="-2" max="-2" attributes="0"/>
@@ -376,7 +376,7 @@
                 <Property name="text" type="java.lang.String" value="Nom du Praticien Hospitalier responsable :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="jComboBoxPH">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -391,7 +391,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBoxTypeService">
+            <Component class="javax.swing.JComboBox" name="jComboBoxTypeSejour">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -403,7 +403,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxTypeServiceActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxTypeSejourActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -411,8 +411,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButtonValider">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jButtonValider"/>
+                <Property name="text" type="java.lang.String" value="Valider"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonValiderActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -5,17 +5,29 @@
  */
 package ecrans;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author lisad
  */
 public class ConsulterObservation extends javax.swing.JFrame {
+    private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
+    private  ArrayList<String> test;
 
     /**
      * Creates new form ConsulterObservation
      */
-    public ConsulterObservation() {
+    public ConsulterObservation(ArrayList<String> employe , ArrayList<String> patient) {
         initComponents();
+        this.employe=employe;
+        this.patient=patient;
+        // mettre l'indice qui correspond à chaque information
+        jLabelIPP.setText(test.get(0)); 
+        jLabelObservationP.setText(test.get(0));
+        jLabelNomObservationP.setText(test.get(0)) ;
+        jLabelDateP.setText(test.get(0));
     }
 
     /**
@@ -32,7 +44,7 @@ public class ConsulterObservation extends javax.swing.JFrame {
         jLabelObservation = new javax.swing.JLabel();
         jLabelNomObservationP = new javax.swing.JLabel();
         jLabelDateP = new javax.swing.JLabel();
-        jLabel3IPP = new javax.swing.JLabel();
+        jLabelIPP = new javax.swing.JLabel();
         jLabel4Service = new javax.swing.JLabel();
         jLabelObservationP = new javax.swing.JLabel();
 
@@ -48,7 +60,7 @@ public class ConsulterObservation extends javax.swing.JFrame {
 
         jLabelDateP.setText("jLabel1");
 
-        jLabel3IPP.setText("IPP du patient ");
+        jLabelIPP.setText("IPP du patient ");
 
         jLabel4Service.setText("Service");
 
@@ -77,12 +89,12 @@ public class ConsulterObservation extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4Service, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3IPP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)))
+                    .addComponent(jLabelIPP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel3IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelIPP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4Service, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
@@ -133,16 +145,16 @@ public class ConsulterObservation extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsulterObservation().setVisible(true);
+                new ConsulterObservation(employe, patient).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel3IPP;
     private javax.swing.JLabel jLabel4Service;
     private javax.swing.JLabel jLabelDate;
     private javax.swing.JLabel jLabelDateP;
+    private javax.swing.JLabel jLabelIPP;
     private javax.swing.JLabel jLabelNomObservation;
     private javax.swing.JLabel jLabelNomObservationP;
     private javax.swing.JLabel jLabelObservation;

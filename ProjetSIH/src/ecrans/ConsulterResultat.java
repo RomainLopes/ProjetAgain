@@ -5,17 +5,29 @@
  */
 package ecrans;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author lisad
  */
 public class ConsulterResultat extends javax.swing.JFrame {
+    private static ArrayList<String> employe;
+    private static ArrayList<String> patient;
+    private  ArrayList<String> test;
 
     /**
      * Creates new form ConsulterResultat
      */
-    public ConsulterResultat() {
+    public ConsulterResultat(ArrayList<String> employe , ArrayList<String> patient) {
         initComponents();
+        this.employe=employe;
+        this.patient=patient;
+        // mettre l'indice qui correspond à chaque information
+        jLabelIPP.setText(test.get(0)); 
+        jLabelResultatP.setText(test.get(0));
+        jLabelNaturePrestaP.setText(test.get(0)) ;
+        jLabelDateP.setText(test.get(0));
     }
 
     /**
@@ -28,7 +40,7 @@ public class ConsulterResultat extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel3Date = new javax.swing.JLabel();
-        jLabel3IPP = new javax.swing.JLabel();
+        jLabelIPP = new javax.swing.JLabel();
         jLabel4Service = new javax.swing.JLabel();
         jLabel3Date1 = new javax.swing.JLabel();
         jLabel3Date2 = new javax.swing.JLabel();
@@ -41,7 +53,7 @@ public class ConsulterResultat extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel3IPP.setText("IPP du patient ");
+        jLabelIPP.setText("IPP du patient ");
 
         jLabel4Service.setText("Service");
 
@@ -65,7 +77,7 @@ public class ConsulterResultat extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4Service, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3IPP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)))
+                    .addComponent(jLabelIPP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,7 +98,7 @@ public class ConsulterResultat extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel3IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelIPP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4Service, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
@@ -99,7 +111,6 @@ public class ConsulterResultat extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelNaturePrestaP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(5, 5, 5)))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelResultatP, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -139,7 +150,7 @@ public class ConsulterResultat extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsulterResultat().setVisible(true);
+                new ConsulterResultat(employe, patient).setVisible(true);
             }
         });
     }
@@ -149,9 +160,9 @@ public class ConsulterResultat extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3Date;
     private javax.swing.JLabel jLabel3Date1;
     private javax.swing.JLabel jLabel3Date2;
-    private javax.swing.JLabel jLabel3IPP;
     private javax.swing.JLabel jLabel4Service;
     private javax.swing.JLabel jLabelDateP;
+    private javax.swing.JLabel jLabelIPP;
     private javax.swing.JLabel jLabelNaturePrestaP;
     private javax.swing.JLabel jLabelResultatP;
     // End of variables declaration//GEN-END:variables

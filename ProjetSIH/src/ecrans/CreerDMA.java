@@ -5,9 +5,13 @@
  */
 package ecrans;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.JOptionPane;
 import projetsih.PHospitalier;
 import projetsih.Patient;
+import projetsih.RecherchePatient;
 import projetsih.SAdm;
 
 /**
@@ -19,13 +23,21 @@ public class CreerDMA extends javax.swing.JFrame {
     /**
      * Creates new form CreerDMA
      */
-   private static ArrayList<String> employe;
+    private static ArrayList<String> employe;
     private static ArrayList<String> patient;
-    
-   
+    private static ArrayList<String> listMed;
+
+
     public CreerDMA(ArrayList<String> employe) {
         initComponents();
-        this.employe= employe;
+        this.employe = employe;
+        jComboBoxTypeSejour.addItem("Hospitalisation");
+        jComboBoxTypeSejour.addItem("Consultation");
+        for (String j: listMed){
+            jComboBoxPH.addItem(j);
+        }
+        
+
     }
 
     /**
@@ -38,7 +50,7 @@ public class CreerDMA extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1ListePrestaMT = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<String>();
+        jList1 = new javax.swing.JList<>();
         jPanel2 = new javax.swing.JPanel();
         jPanel3InfoPatient = new javax.swing.JPanel();
         jLabel1Prenom = new javax.swing.JLabel();
@@ -61,16 +73,16 @@ public class CreerDMA extends javax.swing.JFrame {
         jTextField1NoSejour = new javax.swing.JTextField();
         jLabel3Type = new javax.swing.JLabel();
         jLabel2NomPH = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<String>();
-        jComboBoxTypeService = new javax.swing.JComboBox<String>();
+        jComboBoxPH = new javax.swing.JComboBox<>();
+        jComboBoxTypeSejour = new javax.swing.JComboBox<>();
         jButtonValider = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1ListePrestaMT.setViewportView(jList1);
 
@@ -209,16 +221,21 @@ public class CreerDMA extends javax.swing.JFrame {
 
         jLabel2NomPH.setText("Nom du Praticien Hospitalier responsable :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxPH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBoxTypeService.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxTypeService.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxTypeSejour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxTypeSejour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTypeServiceActionPerformed(evt);
+                jComboBoxTypeSejourActionPerformed(evt);
             }
         });
 
-        jButtonValider.setText("jButtonValider");
+        jButtonValider.setText("Valider");
+        jButtonValider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonValiderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2CreationDMALayout = new javax.swing.GroupLayout(jPanel2CreationDMA);
         jPanel2CreationDMA.setLayout(jPanel2CreationDMALayout);
@@ -232,7 +249,7 @@ public class CreerDMA extends javax.swing.JFrame {
                             .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
                                 .addComponent(jLabel2NomPH, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBoxPH, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
                                 .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel3Type, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -240,7 +257,7 @@ public class CreerDMA extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField1NoSejour, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxTypeService, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jComboBoxTypeSejour, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
                         .addGap(262, 262, 262)
                         .addComponent(jButtonValider)))
@@ -256,11 +273,11 @@ public class CreerDMA extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3Type, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBoxTypeService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxTypeSejour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2NomPH, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxPH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addComponent(jButtonValider)
                 .addContainerGap())
@@ -345,9 +362,38 @@ public class CreerDMA extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1NoSejourActionPerformed
 
-    private void jComboBoxTypeServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTypeServiceActionPerformed
+    private void jComboBoxTypeSejourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTypeSejourActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxTypeServiceActionPerformed
+    }//GEN-LAST:event_jComboBoxTypeSejourActionPerformed
+
+    private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
+        // TODO add your handling code here:
+          SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String s = jTextField4DDN1.getText();
+        Date d = new Date();
+        try {
+            d = sdf.parse(s);
+            String t = sdf.format(d);
+            if (t.compareTo(s) != 0) {
+                JOptionPane.showMessageDialog(null, "Date non valide");
+            } else {
+                //mettre le code pour rajouter à la BD
+                JOptionPane.showMessageDialog(null, "Dossier médical créé");
+                RecherchePatient rp = new RecherchePatient();
+                //rp.creerPatient(jTextFieldNom.getText(),jTextFieldPrenom.getText(), jFormattedTextFieldDateDeNaissance.getText(), "","", jFormattedTextFieldIpp.);
+
+                RechercherPatient rechercher = new RechercherPatient();
+                rechercher.setSize(this.getSize());
+                rechercher.setLocationRelativeTo(this);
+                this.dispose();
+                rechercher.setVisible(true);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Exception");
+        }
+
+
+    }//GEN-LAST:event_jButtonValiderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -386,8 +432,8 @@ public class CreerDMA extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonValider;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBoxTypeService;
+    private javax.swing.JComboBox<String> jComboBoxPH;
+    private javax.swing.JComboBox<String> jComboBoxTypeSejour;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1NoSejour;

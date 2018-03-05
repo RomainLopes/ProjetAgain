@@ -7,6 +7,7 @@ package ecrans;
 
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,8 +26,10 @@ public class ConsulterDM extends javax.swing.JFrame {
 
     private static ArrayList<String> employe;
     private static ArrayList<String> patient;
+    private  ArrayList<String> test; // ici ce sont les infos du patient
 
-   /* public ConsulterDM() {
+
+    /* public ConsulterDM() {
         initComponents();
         // test 
         ArrayList<String> pat = new ArrayList();// liste des infos que je récupère qui sera
@@ -46,34 +49,24 @@ public class ConsulterDM extends javax.swing.JFrame {
        // DM dmPat =p.getDpi().getMyDM();
        // dmPat.getResultats().toString();
     }*/
-
-    public ConsulterDM(ArrayList<String> employe ,ArrayList<String> patient) {
+    public ConsulterDM(ArrayList<String> employe, ArrayList<String> patient) {
         initComponents();
-        this.patient= patient;
-        this.employe=employe;
+        this.patient = patient;
+        this.employe = employe;
 
         jLabel1Nomp.setText(patient.get(0));
         jLabel2PrenomP.setText(patient.get(1));
         jLabel4DateP.setText(patient.get(2));
         jLabel3Sexep.setText(patient.get(3));
 
- 
-        /*DM dmPat = new DMMedical(p);//p.getDpi().getMyDM();
-        dmPat.getResultats().toString();
-        //dmPat.getPrescriptions().toString();
-        ArrayList<String> pat = new ArrayList();// liste des infos que je récupère
-        pat.add("Rdio du poumon gauche");
-        pat.add("Echographiede l'abdomen");
-
-        jScrollPane2ListePrescription.setBounds(0, 0, 930, 610);
-        jPanel4Prescriptions.setLayout(new GridLayout(50, 1));
-        for (int i = 0; i < 50; i++) {
-            for (String j : pat) {
-                jPanel4Prescriptions.add(new JButton(j));
+        test.add("Rdio du poumon gauche");
+        test.add("Echographiede l'abdomen");
+        DefaultListModel modele = new DefaultListModel();
+        for (String i : test) {
+                modele.addElement(i);
             }
-        }*/
-        //setSize(930, 610);//je redimensionne la fenetre
-        //setVisible(true);
+         jListObservation.setModel(modele);
+         jListPrescription.setModel(modele);
 
     }
 
@@ -111,8 +104,10 @@ public class ConsulterDM extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         Observations = new javax.swing.JLabel();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
+        jListObservation = new javax.swing.JList<>();
         jPanel4Prescriptions = new javax.swing.JPanel();
         jScrollPane2ListePrescription = new javax.swing.JScrollPane();
+        jListPrescription = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
         Prescriptio = new javax.swing.JLabel();
 
@@ -308,6 +303,13 @@ public class ConsulterDM extends javax.swing.JFrame {
 
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jListObservation.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1ListeObservations.setViewportView(jListObservation);
+
         javax.swing.GroupLayout jPanel1ObservationsLayout = new javax.swing.GroupLayout(jPanel1Observations);
         jPanel1Observations.setLayout(jPanel1ObservationsLayout);
         jPanel1ObservationsLayout.setHorizontalGroup(
@@ -331,6 +333,13 @@ public class ConsulterDM extends javax.swing.JFrame {
         );
 
         jPanel4Prescriptions.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jListPrescription.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2ListePrescription.setViewportView(jListPrescription);
 
         Prescriptio.setText("Prescriptions");
 
@@ -433,7 +442,7 @@ public class ConsulterDM extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsulterDM(employe,patient).setVisible(true);
+                new ConsulterDM(employe, patient).setVisible(true);
             }
         });
     }
@@ -454,6 +463,8 @@ public class ConsulterDM extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3Sexep;
     private javax.swing.JLabel jLabel4DateP;
     private javax.swing.JLabel jLabel5ServiceP;
+    private javax.swing.JList<String> jListObservation;
+    private javax.swing.JList<String> jListPrescription;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1Observations;
     private javax.swing.JPanel jPanel3;
