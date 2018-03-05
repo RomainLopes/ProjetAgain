@@ -32,6 +32,16 @@ public class Prestations {
      */
     private String prestation = "";
 
+    public Prestations (int[] ipp,int[] nosejour,String datePrestation,String service,String prestation){
+        this.datePrestation=datePrestation;
+        this.ipp=ipp;
+        this.nosejour=nosejour;
+        this.prestation=prestation;
+        this.service=service;
+    }
+    
+    public Prestations (){}
+    
     /**
      * @return the ipp
      */

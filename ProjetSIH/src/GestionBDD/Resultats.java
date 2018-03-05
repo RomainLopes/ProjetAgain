@@ -36,6 +36,17 @@ public class Resultats {
      */
     private String resultat = "";
 
+    public Resultats (int[] ipp,int[] nosejour,String idPrescription,String service,String dateResultat,String resultat){
+        this.dateResultat=dateResultat;
+        this.idPrescription=idPrescription;
+        this.ipp=ipp;
+        this.nosejour=nosejour;
+        this.resultat=resultat;
+        this.service=service;
+    }
+    
+    public Resultats (){}
+    
     /**
      * @return the ipp
      */

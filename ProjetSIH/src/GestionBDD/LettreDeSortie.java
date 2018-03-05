@@ -24,6 +24,14 @@ public class LettreDeSortie {
      */
     private String texte = "";
 
+    public LettreDeSortie (int[] ipp,String idph,String texte){
+        this.ipp=ipp;
+        this.idph=idph;
+        this.texte=texte;
+    }
+    
+    public LettreDeSortie () {}
+    
     /**
      * @return the ipp
      */

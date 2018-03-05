@@ -17,9 +17,12 @@ public class ProjetSIH {
 		try {
 			Class.forName("org.postgresql.Driver");
 			
-			String url = "jdbc:postgresql://localhost:5432/projetSIH";
-			String user = "postgres";
-			String passwd = "postgres";
+                        
+                        // jdbc:postgresql://host:port/database
+			//String url = "jdbc:postgresql://htdxinqp:l_YgqQRD-oDOxOC9h4732glCwj_tfSzs@horton.elephantsql.com:5432/htdxinqp";
+			String url = "jdbc:postgresql://horton.elephantsql.com:5432/htdxinqp";
+                        String user = "htdxinqp";
+			String passwd = "l_YgqQRD-oDOxOC9h4732glCwj_tfSzs";
 			
 			Connection conn = DriverManager.getConnection(url, user, passwd);
 			System.out.println("Connection effective !");			

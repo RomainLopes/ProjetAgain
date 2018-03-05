@@ -36,6 +36,17 @@ public class Patients {
      */
     private String adresse ="";
 
+    public Patients (int[] ipp, String nompatient, String prenompatient,String dateDeNaissance,String localisation,String adresse ){
+        this.ipp=ipp;
+        this.nompatient=nompatient;
+        this.prenompatient=prenompatient;
+        this.dateDeNaissance=dateDeNaissance;
+        this.localisation=localisation;
+        this.adresse=adresse;
+    }
+    
+    public Patients () {}
+    
     /**
      * @return the ipp
      */

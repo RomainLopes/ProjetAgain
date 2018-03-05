@@ -40,6 +40,18 @@ public class Observations {
      */
     private String resume = "";
 
+    public Observations(int[] ipp,int[] nosejour,String service,String dateObservation,String idph,String nomacte,String resume){
+        this.ipp=ipp;
+        this.dateObservation=dateObservation;
+        this.idph=idph;
+        this.nomacte=nomacte;
+        this.nosejour=nosejour;
+        this.resume=resume;
+        this.service=service;
+    }
+    
+    public Observations(){}
+    
     /**
      * @return the ipp
      */

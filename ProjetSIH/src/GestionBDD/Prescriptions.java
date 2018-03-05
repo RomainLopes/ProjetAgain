@@ -36,6 +36,17 @@ public class Prescriptions {
      */
     private String service = "";
 
+    public Prescriptions (int[] ipp,int[] nosejour,String idprescription,String dateprescription,String prescription,String service) {
+        this.dateprescription=dateprescription;
+        this.idprescription=idprescription;
+        this.ipp=ipp;
+        this.nosejour=nosejour;
+        this.prescription=prescription;
+        this.service=service;
+    }
+    
+    public Prescriptions () {}
+    
     /**
      * @return the ipp
      */

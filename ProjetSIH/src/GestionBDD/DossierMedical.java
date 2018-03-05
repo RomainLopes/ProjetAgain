@@ -30,6 +30,15 @@ public class DossierMedical {
      */
     private String correspondance = "";
     
+    public DossierMedical (int[] ipp, int[] nosejour, String service, String correspondance ){
+        this.ipp = ipp;
+        this.nosejour = nosejour;
+        this.service = service;
+        this.correspondance = correspondance;
+    }
+    
+    public DossierMedical () {};
+    
     /**
      * @return the ipp
      */

@@ -20,14 +20,14 @@ public class Postgres {
             System.out.println(e.getMessage());
         }
 
-        String url = "jdbc:postgres://htdxinqp:l_YgqQRD-oDOxOC9h4732glCwj_tfSzs@horton.elephantsql.com:5432/htdxinqp";
+        String url = "jdbc:postgresql://htdxinqp:l_YgqQRD-oDOxOC9h4732glCwj_tfSzs@horton.elephantsql.com:5432/htdxinqp";
         String username = "htdxinqp";
         String password = "l_YgqQRD-oDOxOC9h4732glCwj_tfSzs";
 
         try {
             Connection db = DriverManager.getConnection(url, username, password);
             Statement st = db.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM people");
+            ResultSet rs = st.executeQuery("SELECT * FROM patients");
             while (rs.next()) {
                 System.out.print("Column 1 returned ");
                 System.out.println(rs.getString(2));

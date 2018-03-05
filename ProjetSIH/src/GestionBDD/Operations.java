@@ -32,6 +32,16 @@ public class Operations {
      */
     private String operation = "";
 
+    public Operations (int[] ipp,int[] nosejour,String idph,String dateOperation,String operation){
+        this.ipp=ipp;
+        this.idph=idph;
+        this.dateOperation=dateOperation;
+        this.nosejour=nosejour;
+        this.operation=operation;
+    }
+    
+    public Operations (){}
+    
     /**
      * @return the ipp
      */

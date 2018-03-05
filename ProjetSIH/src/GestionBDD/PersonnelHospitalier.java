@@ -36,6 +36,17 @@ public class PersonnelHospitalier {
      */
     private String fonction ="";
 
+    public PersonnelHospitalier (String nomph,String prenomph,String id,String mdp,String service,String fonction){
+        this.fonction=fonction;
+        this.id=id;
+        this.mdp=mdp;
+        this.nomph=nomph;
+        this.prenomph=prenomph;
+        this.service=service;
+    }
+    
+    public PersonnelHospitalier (){}
+    
     /**
      * @return the nomph
      */

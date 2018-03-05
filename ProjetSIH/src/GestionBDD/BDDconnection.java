@@ -8,6 +8,7 @@ package GestionBDD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.*;
 import org.postgresql.Driver;
 
 public class BDDconnection {
@@ -15,7 +16,9 @@ public class BDDconnection {
     /**
      * URL de connection
      */
-    private static String url = "jdbc:postgresql://htdxinqp:l_YgqQRD-oDOxOC9h4732glCwj_tfSzs@horton.elephantsql.com:5432/htdxinqp";
+    private static String url = "jdbc:postgresql://horton.elephantsql.com:5432/htdxinqp";
+    
+    
     /**
      * Nom du user
      */
@@ -23,6 +26,9 @@ public class BDDconnection {
     /**
      * Mot de passe du user
      */
+    private static Properties props = new Properties();
+
+    
     private static String passwd = "l_YgqQRD-oDOxOC9h4732glCwj_tfSzs";
     /**
      * Objet Connection
@@ -41,15 +47,16 @@ public class BDDconnection {
      */
     public static Connection getInstance() {
         if (connect == null) {
-            
+
             try {
                 System.out.println(" avant essai connexion");
-                connect = DriverManager.getConnection(url, user, passwd);
+                
+                connect = DriverManager.getConnection(url, user,passwd);
                 System.out.println(" après essai connexion");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            
+
         }
         return connect;
     }
