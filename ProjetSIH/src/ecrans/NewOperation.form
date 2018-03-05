@@ -41,7 +41,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="269" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonPrecedent" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
                   <Component id="jLabel1Titre" min="-2" pref="232" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -60,6 +62,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jButtonPrecedent" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jLabel3IPP" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -96,6 +99,14 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Service"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonPrecedent">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pr&#xe9;c&#xe9;dent"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPrecedentActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
