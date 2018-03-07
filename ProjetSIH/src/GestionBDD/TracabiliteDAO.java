@@ -13,19 +13,18 @@ import java.sql.Statement;
  *
  * @author romel
  */
-public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
+public class TracabiliteDAO extends DAO<Tracabilite> {
 
-    public PersonnelHospitalierDAO(Connection conn) {
+    public TracabiliteDAO(Connection conn) {
         super(conn);
     }
 
     @Override
-    public boolean create(PersonnelHospitalier obj) {
+    public boolean create(Tracabilite obj) {
         String Query = new String();
-        Query = "insert into personnelhospitalier (nomph,prenomph,id,mdp,service,fonction) "
-                + "values ('{" + obj.getNomph() + "}','{" + obj.getPrenomph() + "}','"
-                + obj.getId() + "','" + obj.getMdp() + "','" + obj.getService()
-                + "','" + obj.getFonction() + "')";
+        Query = "insert into Tracabilite (ipp,idph,dateconnection) "
+                + "values ('{" + obj.getIpp() + "}','{" + obj.getIdph() + "}','"
+                + obj.getDateconnection() + "')";
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -38,14 +37,12 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
         }
 
     }
-
-  /*
-    public PersonnelHospitalier findser(String ipp, String nosejour,String service) {
-        PersonnelHospitalier ph = new PersonnelHospitalier();
+    
+    public Tracabilite findser(String ipp) {
+        Tracabilite tra = new Tracabilite();
         String Query = new String();
-        Query = "select * from personnelhospitalier where ipp = '{" + ipp
-                + "}' and nosejour = '{" + nosejour + "}' and service = '"
-                + service + "'";
+        Query = "select * from tracabilite where ipp = '{" + ipp
+                + "}'";
 
         try {
 
@@ -54,30 +51,30 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
             ResultSet result = state.executeQuery(Query);
 
             if (result.next()) {
-                ph = new PersonnelHospitalier(result.getString("nomph"), result.getString("prenomph"), result.getString("id"), result.getString("mdp"), result.getString("service"), result.getString("fonction"));
+                tra = new Tracabilite(result.getString("ipp"), result.getString("idph"), result.getString("dateconnection"));
                 result.close();
                 state.close();
-                return ph;
+                return tra;
 
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return ph;
-    }*/
+        return tra;
+    }
 
     @Override
-    public boolean delete(PersonnelHospitalier obj) {
+    public boolean delete(Tracabilite obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean update(PersonnelHospitalier obj) {
+    public boolean update(Tracabilite obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PersonnelHospitalier find(String id, String service) {
+    public Tracabilite find(String id, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
