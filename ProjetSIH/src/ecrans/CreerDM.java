@@ -80,6 +80,9 @@ public class CreerDM extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
         jLabel1.setText("Création d'un dossier médical");
 
+        jButtonPrecedent2.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonPrecedent2.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonPrecedent2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Bouton précedent.PNG"))); // NOI18N
         jButtonPrecedent2.setText("Précédent");
         jButtonPrecedent2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +99,7 @@ public class CreerDM extends javax.swing.JFrame {
                 .addComponent(jButtonPrecedent2)
                 .addGap(81, 81, 81)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

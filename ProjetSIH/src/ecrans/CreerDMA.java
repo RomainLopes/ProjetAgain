@@ -38,7 +38,7 @@ public class CreerDMA extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1ListePrestaMT = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jList1 = new javax.swing.JList<String>();
         jPanel2 = new javax.swing.JPanel();
         jPanel3InfoPatient = new javax.swing.JPanel();
         jLabel1Prenom = new javax.swing.JLabel();
@@ -61,17 +61,17 @@ public class CreerDMA extends javax.swing.JFrame {
         jTextField1NoSejour = new javax.swing.JTextField();
         jLabel3Type = new javax.swing.JLabel();
         jLabel2NomPH = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBoxTypeService = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBoxTypeService = new javax.swing.JComboBox<String>();
         jButtonValider = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButtonPrecedent2 = new javax.swing.JButton();
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1ListePrestaMT.setViewportView(jList1);
 
@@ -222,9 +222,9 @@ public class CreerDMA extends javax.swing.JFrame {
         jLabel2NomPH.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2NomPH.setText("Nom du Praticien Hospitalier responsable :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBoxTypeService.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxTypeService.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxTypeService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxTypeServiceActionPerformed(evt);
@@ -312,6 +312,9 @@ public class CreerDMA extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
         jLabel1.setText("Création d'un dossier médico-administratif");
 
+        jButtonPrecedent2.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonPrecedent2.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonPrecedent2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Bouton précedent.PNG"))); // NOI18N
         jButtonPrecedent2.setText("Précédent");
         jButtonPrecedent2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -328,7 +331,7 @@ public class CreerDMA extends javax.swing.JFrame {
                 .addComponent(jButtonPrecedent2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -406,8 +409,6 @@ public class CreerDMA extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonPrecedent;
-    private javax.swing.JButton jButtonPrecedent1;
     private javax.swing.JButton jButtonPrecedent2;
     private javax.swing.JButton jButtonValider;
     private javax.swing.JComboBox<String> jComboBox1;
