@@ -151,6 +151,9 @@ public class ConsulterDM extends javax.swing.JFrame {
 
         jLabel5ServiceP.setText("jLabel1");
 
+        jButtonPrecedent.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonPrecedent.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonPrecedent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Bouton précedent.PNG"))); // NOI18N
         jButtonPrecedent.setText("Précédent");
         jButtonPrecedent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -470,8 +473,6 @@ public class ConsulterDM extends javax.swing.JFrame {
     private javax.swing.JLabel Prescriptio;
     private javax.swing.JLabel Prescriptio2;
     private javax.swing.JButton jButtonPrecedent;
-    private javax.swing.JButton jButtonPrecedent2;
-    private javax.swing.JButton jButtonPrecedent3;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1Nomp;
     private javax.swing.JLabel jLabel1Prenom;
