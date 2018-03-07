@@ -5,6 +5,9 @@
  */
 package ecrans;
 
+import GestionBDD.BDDconnection;
+import GestionBDD.PersonnelHospitalier;
+import GestionBDD.PersonnelHospitalierDAO;
 import GestionBDD.RecherchePatient;
 import GestionBDD.RecherchePatient.*;
 import java.awt.Dimension;
@@ -13,6 +16,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JOptionPane;
 import projetsih.Fonction;
 import projetsih.PHospitalier;
+
 import projetsih.Patient;
 import projetsih.SAdm;
 import projetsih.SMed;
@@ -22,7 +26,8 @@ import projetsih.SMed;
  * @author romel
  */
 public class Identification extends javax.swing.JFrame {
-
+    private PersonnelHospitalier ph;
+    
     private ArrayList<String> p;
     private ArrayList<String> employe;
 
@@ -177,13 +182,17 @@ public class Identification extends javax.swing.JFrame {
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         RecherchePatient rp = new RecherchePatient();
-
+        PersonnelHospitalier ph = new PersonnelHospitalier();
+        PersonnelHospitalierDAO phd = new PersonnelHospitalierDAO(BDDconnection.getInstance());
+        
+        
         if (jTextFieldIdentifiant.getText().equals("") | jTextFieldMdp.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe non renseigné");
 
         } else {
             if (rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())) {
 
+                ph = phd.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
                 ArrayList<String> nPS = new ArrayList<String>();
                 nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
                 // nPS est une liste de string renvoyant en indice 0 le nom, en indice 1 le prénom et 
@@ -212,7 +221,7 @@ public class Identification extends javax.swing.JFrame {
                     //Fonction fonction=  Fonction.Interne; // remplacer fonction par nPS.get(3)
 
                     //employe = new PMedical( nPS.get(0), nPS.get(1), nPS.get(2), nPS.get(3));
-                    RechercherPatient rechercher = new RechercherPatient(nPS);
+                    RechercherPatient rechercher = new RechercherPatient(ph);
                     rechercher.setSize(this.getSize());
                     rechercher.setLocationRelativeTo(this);
                     this.dispose();

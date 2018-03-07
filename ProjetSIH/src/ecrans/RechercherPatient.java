@@ -9,6 +9,7 @@ import GestionBDD.BDDconnection;
 import GestionBDD.DAO;
 import GestionBDD.Patients;
 import GestionBDD.PatientsDAO;
+import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
@@ -29,18 +30,19 @@ public class RechercherPatient extends javax.swing.JFrame {
     /**
      * Creates new form RechercherPatient
      */
+    private static PersonnelHospitalier phr;
     private static ArrayList<String> med;
     private static ArrayList<String> p;
 
-    public RechercherPatient(ArrayList<String> nps) {
-        RecherchePatient rp = new RecherchePatient();
-        med = nps;
+    public RechercherPatient(PersonnelHospitalier ph) {
+        //RecherchePatient rp = new RecherchePatient();
+        //med = nps;
         initComponents();
 
-        jLabelNom.setText(nps.get(0));
-        jLabelPrenom.setText(nps.get(1));
-        jLabelFonction.setText(nps.get(2));
-        jLabelService.setText(nps.get(3));
+        jLabelNom.setText(ph.getNomph());
+        jLabelPrenom.setText(ph.getPrenomph());
+        jLabelFonction.setText(ph.getFonction());
+        jLabelService.setText(ph.getService());
     }
 
     /* public RechercherPatient(Identification fenetre) {
@@ -437,7 +439,7 @@ public class RechercherPatient extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RechercherPatient(med).setVisible(true);
+                new RechercherPatient(phr).setVisible(true);
             }
         });
     }
