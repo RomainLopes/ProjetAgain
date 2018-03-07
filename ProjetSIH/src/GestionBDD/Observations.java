@@ -10,15 +10,15 @@ package GestionBDD;
  * @author romel
  */
 public class Observations {
-    
+
     /**
      * ipp
      */
-    private int[] ipp = {};
+    private String ipp = "";
     /**
      * nosejour
      */
-    private int[] nosejour = {};
+    private String nosejour = "";
     /**
      * service
      */
@@ -40,43 +40,45 @@ public class Observations {
      */
     private String resume = "";
 
-    public Observations(int[] ipp,int[] nosejour,String service,String dateObservation,String idph,String nomacte,String resume){
-        this.ipp=ipp;
-        this.dateObservation=dateObservation;
-        this.idph=idph;
-        this.nomacte=nomacte;
-        this.nosejour=nosejour;
-        this.resume=resume;
-        this.service=service;
+    public Observations(String ipp, String nosejour, String service, String dateObservation, String idph, String nomacte, String resume) {
+        this.ipp = ipp;
+        this.service = service;
+        this.nosejour = nosejour;
+        this.dateObservation = dateObservation;
+        this.idph = idph;
+        this.nomacte = nomacte;
+        this.resume = resume;
+
     }
-    
-    public Observations(){}
-    
+
+    public Observations() {
+    }
+
     /**
      * @return the ipp
      */
-    public int[] getIpp() {
+    public String getIpp() {
         return ipp;
     }
 
     /**
      * @param ipp the ipp to set
      */
-    public void setIpp(int[] ipp) {
+    public void setIpp(String ipp) {
         this.ipp = ipp;
     }
 
     /**
      * @return the nosejour
      */
-    public int[] getNosejour() {
+    public String getNosejour() {
         return nosejour;
     }
 
     /**
      * @param nosejour the nosejour to set
      */
-    public void setNosejour(int[] nosejour) {
+    public void setNosejour(String nosejour) {
         this.nosejour = nosejour;
     }
 
@@ -149,5 +151,5 @@ public class Observations {
     public void setResume(String resume) {
         this.resume = resume;
     }
-    
+
 }

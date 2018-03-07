@@ -10,15 +10,15 @@ package GestionBDD;
  * @author romel
  */
 public class Prestations {
- 
+
     /**
      * ipp
      */
-    private int[] ipp = {};
+    private String ipp = "";
     /**
      * nosejour
      */
-    private int[] nosejour = {};
+    private String nosejour = "";
     /**
      * datePrestation
      */
@@ -32,41 +32,43 @@ public class Prestations {
      */
     private String prestation = "";
 
-    public Prestations (int[] ipp,int[] nosejour,String datePrestation,String service,String prestation){
-        this.datePrestation=datePrestation;
-        this.ipp=ipp;
-        this.nosejour=nosejour;
-        this.prestation=prestation;
-        this.service=service;
+    public Prestations(String ipp, String nosejour, String datePrestation, String service, String prestation) {
+        this.ipp = ipp;
+        this.nosejour = nosejour;
+        this.datePrestation = datePrestation;
+        this.service = service;
+        this.prestation = prestation;
+
     }
-    
-    public Prestations (){}
-    
+
+    public Prestations() {
+    }
+
     /**
      * @return the ipp
      */
-    public int[] getIpp() {
+    public String getIpp() {
         return ipp;
     }
 
     /**
      * @param ipp the ipp to set
      */
-    public void setIpp(int[] ipp) {
+    public void setIpp(String ipp) {
         this.ipp = ipp;
     }
 
     /**
      * @return the nosejour
      */
-    public int[] getNosejour() {
+    public String getNosejour() {
         return nosejour;
     }
 
     /**
      * @param nosejour the nosejour to set
      */
-    public void setNosejour(int[] nosejour) {
+    public void setNosejour(String nosejour) {
         this.nosejour = nosejour;
     }
 
@@ -111,5 +113,5 @@ public class Prestations {
     public void setPrestation(String prestation) {
         this.prestation = prestation;
     }
-    
+
 }

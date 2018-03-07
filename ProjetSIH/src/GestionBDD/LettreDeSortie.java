@@ -14,7 +14,7 @@ public class LettreDeSortie {
     /**
      * ipp
      */
-    private int[] ipp = {};
+    private String ipp = "";
     /**
      * idph
      */
@@ -24,7 +24,7 @@ public class LettreDeSortie {
      */
     private String texte = "";
 
-    public LettreDeSortie (int[] ipp,String idph,String texte){
+    public LettreDeSortie (String ipp,String idph,String texte){
         this.ipp=ipp;
         this.idph=idph;
         this.texte=texte;
@@ -35,14 +35,14 @@ public class LettreDeSortie {
     /**
      * @return the ipp
      */
-    public int[] getIpp() {
+    public String getIpp() {
         return ipp;
     }
 
     /**
      * @param ipp the ipp to set
      */
-    public void setIpp(int[] ipp) {
+    public void setIpp(String ipp) {
         this.ipp = ipp;
     }
 

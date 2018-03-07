@@ -14,11 +14,11 @@ public class Prescriptions {
     /**
      * ipp
      */
-    private int[] ipp = {};
+    private String ipp = "";
     /**
      * nosejour
      */
-    private int[] nosejour = {};
+    private String nosejour = "";
     /**
      * idprescription
      */
@@ -36,7 +36,7 @@ public class Prescriptions {
      */
     private String service = "";
 
-    public Prescriptions (int[] ipp,int[] nosejour,String idprescription,String dateprescription,String prescription,String service) {
+    public Prescriptions (String ipp,String nosejour,String idprescription,String dateprescription,String prescription,String service) {
         this.dateprescription=dateprescription;
         this.idprescription=idprescription;
         this.ipp=ipp;
@@ -50,28 +50,28 @@ public class Prescriptions {
     /**
      * @return the ipp
      */
-    public int[] getIpp() {
+    public String getIpp() {
         return ipp;
     }
 
     /**
      * @param ipp the ipp to set
      */
-    public void setIpp(int[] ipp) {
+    public void setIpp(String ipp) {
         this.ipp = ipp;
     }
 
     /**
      * @return the nosejour
      */
-    public int[] getNosejour() {
+    public String getNosejour() {
         return nosejour;
     }
 
     /**
      * @param nosejour the nosejour to set
      */
-    public void setNosejour(int[] nosejour) {
+    public void setNosejour(String nosejour) {
         this.nosejour = nosejour;
     }
 

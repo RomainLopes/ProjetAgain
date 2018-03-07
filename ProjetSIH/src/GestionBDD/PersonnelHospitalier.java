@@ -10,43 +10,44 @@ package GestionBDD;
  * @author romel
  */
 public class PersonnelHospitalier {
-    
+
     /**
      * nomph
      */
-    private String nomph ="";
+    private String nomph = "";
     /**
      * prenomph
      */
-    private String prenomph ="";
+    private String prenomph = "";
     /**
      * id
      */
-    private String id ="";
+    private String id = "";
     /**
      * mdp
      */
-    private String mdp ="";
+    private String mdp = "";
     /**
      * service
      */
-    private String service ="";
+    private String service = "";
     /**
      * fonction
      */
-    private String fonction ="";
+    private String fonction = "";
 
-    public PersonnelHospitalier (String nomph,String prenomph,String id,String mdp,String service,String fonction){
-        this.fonction=fonction;
-        this.id=id;
-        this.mdp=mdp;
-        this.nomph=nomph;
-        this.prenomph=prenomph;
-        this.service=service;
+    public PersonnelHospitalier(String nomph, String prenomph, String id, String mdp, String service, String fonction) {
+        this.nomph = nomph;
+        this.prenomph = prenomph;
+        this.id = id;
+        this.mdp = mdp;
+        this.service = service;
+        this.fonction = fonction;
     }
-    
-    public PersonnelHospitalier (){}
-    
+
+    public PersonnelHospitalier() {
+    }
+
     /**
      * @return the nomph
      */
@@ -130,5 +131,5 @@ public class PersonnelHospitalier {
     public void setFonction(String fonction) {
         this.fonction = fonction;
     }
-    
+
 }

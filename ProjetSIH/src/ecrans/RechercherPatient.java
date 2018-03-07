@@ -5,6 +5,10 @@
  */
 package ecrans;
 
+import GestionBDD.BDDconnection;
+import GestionBDD.DAO;
+import GestionBDD.Patients;
+import GestionBDD.PatientsDAO;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
@@ -275,7 +279,8 @@ public class RechercherPatient extends javax.swing.JFrame {
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
         // TODO add your handling code here:
         RecherchePatient rp = new RecherchePatient();
-
+        
+        
         ArrayList<String> resultatRecherche = new ArrayList<String>();
         ArrayList<String> resultatAffiche = new ArrayList<String>();
         /*

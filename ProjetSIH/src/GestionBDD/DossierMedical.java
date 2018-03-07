@@ -16,11 +16,11 @@ public class DossierMedical {
     /**
      * ipp
      */
-    private int[] ipp = {};
+    private String ipp = "";
     /**
      * nosejour
      */
-    private int[] nosejour = {};
+    private String nosejour = "";
     /**
      * service
      */
@@ -30,7 +30,7 @@ public class DossierMedical {
      */
     private String correspondance = "";
     
-    public DossierMedical (int[] ipp, int[] nosejour, String service, String correspondance ){
+    public DossierMedical (String ipp, String nosejour, String service, String correspondance ){
         this.ipp = ipp;
         this.nosejour = nosejour;
         this.service = service;
@@ -42,28 +42,28 @@ public class DossierMedical {
     /**
      * @return the ipp
      */
-    public int[] getIpp() {
+    public String getIpp() {
         return ipp;
     }
 
     /**
      * @param ipp the ipp to set
      */
-    public void setIpp(int[] ipp) {
+    public void setIpp(String ipp) {
         this.ipp = ipp;
     }
 
     /**
      * @return the nosejour
      */
-    public int[] getNosejour() {
+    public String getNosejour() {
         return nosejour;
     }
 
     /**
      * @param nosejour the nosejour to set
      */
-    public void setNosejour(int[] nosejour) {
+    public void setNosejour(String nosejour) {
         this.nosejour = nosejour;
     }
 

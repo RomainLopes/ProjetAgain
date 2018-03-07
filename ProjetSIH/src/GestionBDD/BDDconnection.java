@@ -17,18 +17,13 @@ public class BDDconnection {
      * URL de connection
      */
     private static String url = "jdbc:postgresql://horton.elephantsql.com:5432/htdxinqp";
-    
-    
     /**
      * Nom du user
      */
     private static String user = "htdxinqp";
     /**
      * Mot de passe du user
-     */
-    private static Properties props = new Properties();
-
-    
+     */    
     private static String passwd = "l_YgqQRD-oDOxOC9h4732glCwj_tfSzs";
     /**
      * Objet Connection
@@ -49,10 +44,7 @@ public class BDDconnection {
         if (connect == null) {
 
             try {
-                System.out.println(" avant essai connexion");
-                
                 connect = DriverManager.getConnection(url, user,passwd);
-                System.out.println(" après essai connexion");
             } catch (SQLException e) {
                 e.printStackTrace();
             }

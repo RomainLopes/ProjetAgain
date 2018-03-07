@@ -14,17 +14,17 @@ public class Patients {
     /**
      * ipp
      */
-    private int[] ipp = {};
+    private String ipp = "";
     /**
-     * nompatient
+     * nom du patient
      */
     private String nompatient ="";
     /**
-     * prenompatient
+     * prenomdu patient
      */
     private String prenompatient ="";
     /**
-     * dateDeNaissance
+     * date De Naissance
      */
     private String dateDeNaissance ="";
     /**
@@ -35,14 +35,28 @@ public class Patients {
      * adresse
      */
     private String adresse ="";
-
-    public Patients (int[] ipp, String nompatient, String prenompatient,String dateDeNaissance,String localisation,String adresse ){
+    /**
+     * Sexe
+     */
+    private String sexe ="";
+    /**
+     * 
+     * @param ipp
+     * @param nompatient
+     * @param prenompatient
+     * @param dateDeNaissance
+     * @param localisation
+     * @param adresse 
+     * @param sexe
+     */
+    public Patients (String ipp, String nompatient, String prenompatient,String dateDeNaissance,String localisation,String adresse,String sexe ){
         this.ipp=ipp;
         this.nompatient=nompatient;
         this.prenompatient=prenompatient;
         this.dateDeNaissance=dateDeNaissance;
         this.localisation=localisation;
         this.adresse=adresse;
+        this.sexe=sexe;
     }
     
     public Patients () {}
@@ -50,14 +64,14 @@ public class Patients {
     /**
      * @return the ipp
      */
-    public int[] getIpp() {
+    public String getIpp() {
         return ipp;
     }
 
     /**
      * @param ipp the ipp to set
      */
-    public void setIpp(int[] ipp) {
+    public void setIpp(String ipp) {
         this.ipp = ipp;
     }
 
@@ -129,6 +143,20 @@ public class Patients {
      */
     public void setAdresse(String adresse) {
         this.adresse = adresse;
+    }
+
+    /**
+     * @return the sexe
+     */
+    public String getSexe() {
+        return sexe;
+    }
+
+    /**
+     * @param sexe the sexe to set
+     */
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
     }
     
 }

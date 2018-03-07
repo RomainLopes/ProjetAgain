@@ -14,11 +14,11 @@ public class Operations {
     /**
      * ipp
      */
-    private int[] ipp = {};
+    private String ipp = "";
     /**
      * nosejour
      */
-    private int[] nosejour = {};
+    private String nosejour = "";
     /**
      * idph
      */
@@ -32,11 +32,11 @@ public class Operations {
      */
     private String operation = "";
 
-    public Operations (int[] ipp,int[] nosejour,String idph,String dateOperation,String operation){
+    public Operations (String ipp,String nosejour,String idph,String dateOperation,String operation){
         this.ipp=ipp;
+        this.nosejour=nosejour;
         this.idph=idph;
         this.dateOperation=dateOperation;
-        this.nosejour=nosejour;
         this.operation=operation;
     }
     
@@ -45,28 +45,28 @@ public class Operations {
     /**
      * @return the ipp
      */
-    public int[] getIpp() {
+    public String getIpp() {
         return ipp;
     }
 
     /**
      * @param ipp the ipp to set
      */
-    public void setIpp(int[] ipp) {
+    public void setIpp(String ipp) {
         this.ipp = ipp;
     }
 
     /**
      * @return the nosejour
      */
-    public int[] getNosejour() {
+    public String getNosejour() {
         return nosejour;
     }
 
     /**
      * @param nosejour the nosejour to set
      */
-    public void setNosejour(int[] nosejour) {
+    public void setNosejour(String nosejour) {
         this.nosejour = nosejour;
     }
 
