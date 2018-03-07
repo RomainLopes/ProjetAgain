@@ -5,14 +5,18 @@
  */
 package ecrans;
 
-import projetsih.RecherchePatient;
-import projetsih.RecherchePatient.*;
+import GestionBDD.BDDconnection;
+import GestionBDD.PersonnelHospitalier;
+import GestionBDD.PersonnelHospitalierDAO;
+import GestionBDD.RecherchePatient;
+import GestionBDD.RecherchePatient.*;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JOptionPane;
 import projetsih.Fonction;
 import projetsih.PHospitalier;
+
 import projetsih.Patient;
 import projetsih.SAdm;
 import projetsih.SMed;
@@ -22,7 +26,8 @@ import projetsih.SMed;
  * @author romel
  */
 public class Identification extends javax.swing.JFrame {
-
+    private PersonnelHospitalier ph;
+    
     private ArrayList<String> p;
     private ArrayList<String> employe;
 
@@ -56,9 +61,8 @@ public class Identification extends javax.swing.JFrame {
         jLabelMdp = new javax.swing.JLabel();
         jTextFieldMdp = new javax.swing.JTextField();
         jButtonValider = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -67,7 +71,7 @@ public class Identification extends javax.swing.JFrame {
         jPanelEnTete.setBackground(new java.awt.Color(65, 131, 215));
         jPanelEnTete.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabelTitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabelTitle.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
         jLabelTitle.setText("Identification");
 
         javax.swing.GroupLayout jPanelEnTeteLayout = new javax.swing.GroupLayout(jPanelEnTete);
@@ -92,6 +96,7 @@ public class Identification extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabelIdentifiant.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelIdentifiant.setText("Identifiant : ");
 
         jTextFieldIdentifiant.addActionListener(new java.awt.event.ActionListener() {
@@ -100,8 +105,12 @@ public class Identification extends javax.swing.JFrame {
             }
         });
 
+        jLabelMdp.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelMdp.setText("Mot de passe :");
 
+        jButtonValider.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonValider.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
         jButtonValider.setText("Valider");
         jButtonValider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,28 +118,21 @@ public class Identification extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Wafa\\Documents\\projet\\ProjetAgain\\ProjetSIH\\src\\Images\\logo.png")); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(114, Short.MAX_VALUE)
+                .addContainerGap(111, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelMdp)
-                            .addComponent(jLabelIdentifiant))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonValider, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldMdp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(136, 136, 136))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap())))
+                    .addComponent(jLabelMdp)
+                    .addComponent(jLabelIdentifiant))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonValider, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldMdp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(136, 136, 136))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,9 +147,7 @@ public class Identification extends javax.swing.JFrame {
                     .addComponent(jLabelMdp))
                 .addGap(41, 41, 41)
                 .addComponent(jButtonValider, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(23, 23, 23))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -163,15 +163,15 @@ public class Identification extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
+            .addGap(0, 60, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 510, 290, 70);
+        jPanel2.setBounds(0, 520, 290, 60);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Wafa\\Documents\\projet\\ProjetAgain\\ProjetSIH\\src\\Images\\plainsboro blanc.PNG")); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 120, 370, 410);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plainsboro blanc.PNG"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 133, 300, 390);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -182,13 +182,17 @@ public class Identification extends javax.swing.JFrame {
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         RecherchePatient rp = new RecherchePatient();
-
+        PersonnelHospitalier ph = new PersonnelHospitalier();
+        PersonnelHospitalierDAO phd = new PersonnelHospitalierDAO(BDDconnection.getInstance());
+        
+        
         if (jTextFieldIdentifiant.getText().equals("") | jTextFieldMdp.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe non renseigné");
 
         } else {
             if (rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())) {
 
+                ph = phd.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
                 ArrayList<String> nPS = new ArrayList<String>();
                 nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
                 // nPS est une liste de string renvoyant en indice 0 le nom, en indice 1 le prénom et 
@@ -217,7 +221,7 @@ public class Identification extends javax.swing.JFrame {
                     //Fonction fonction=  Fonction.Interne; // remplacer fonction par nPS.get(3)
 
                     //employe = new PMedical( nPS.get(0), nPS.get(1), nPS.get(2), nPS.get(3));
-                    RechercherPatient rechercher = new RechercherPatient(nPS);
+                    RechercherPatient rechercher = new RechercherPatient(ph);
                     rechercher.setSize(this.getSize());
                     rechercher.setLocationRelativeTo(this);
                     this.dispose();
@@ -270,7 +274,6 @@ public class Identification extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonValider;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelIdentifiant;
     private javax.swing.JLabel jLabelMdp;
     private javax.swing.JLabel jLabelTitle;

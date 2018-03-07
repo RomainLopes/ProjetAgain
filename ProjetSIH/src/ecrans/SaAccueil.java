@@ -57,13 +57,18 @@ public class SaAccueil extends javax.swing.JFrame {
         JPanelEnTeteSa.setBackground(new java.awt.Color(65, 131, 215));
         JPanelEnTeteSa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        Sa.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Sa.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
         Sa.setText("Secrétaire Adminstrative");
 
+        jLabelNom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelNom.setText("Nom");
 
+        jLabelPrenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelPrenom.setText("Prénom");
 
+        jButtonDeconnexion.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonDeconnexion.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonDeconnexion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Deconnexion 2.PNG"))); // NOI18N
         jButtonDeconnexion.setText("Déconnexion");
         jButtonDeconnexion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +76,9 @@ public class SaAccueil extends javax.swing.JFrame {
             }
         });
 
+        jButtonAccueil.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonAccueil.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonAccueil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Accueil 2.PNG"))); // NOI18N
         jButtonAccueil.setText("Accueil");
         jButtonAccueil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,17 +92,17 @@ public class SaAccueil extends javax.swing.JFrame {
             JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93)
+                .addComponent(jButtonAccueil)
+                .addGap(53, 53, 53)
                 .addGroup(JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
                         .addComponent(jLabelNom)
                         .addGap(143, 143, 143)
                         .addComponent(Sa))
                     .addComponent(jLabelPrenom))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addComponent(jButtonDeconnexion)
-                .addGap(8, 8, 8))
+                .addContainerGap())
         );
         JPanelEnTeteSaLayout.setVerticalGroup(
             JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,15 +111,17 @@ public class SaAccueil extends javax.swing.JFrame {
                     .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabelNom))
-                    .addGroup(JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(Sa, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
+                                .addComponent(Sa, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabelPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         getContentPane().add(JPanelEnTeteSa);
@@ -120,6 +130,9 @@ public class SaAccueil extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jButtonConsulterDMA.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonConsulterDMA.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonConsulterDMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
         jButtonConsulterDMA.setText("Consulter DMA");
         jButtonConsulterDMA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +140,9 @@ public class SaAccueil extends javax.swing.JFrame {
             }
         });
 
+        jButtonCreeDMA.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonCreeDMA.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonCreeDMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CreerDossier2.PNG"))); // NOI18N
         jButtonCreeDMA.setText("Créer DMA");
         jButtonCreeDMA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,8 +150,14 @@ public class SaAccueil extends javax.swing.JFrame {
             }
         });
 
+        jButtonTransfereDMA.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonTransfereDMA.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonTransfereDMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/TransfererDossier2.PNG"))); // NOI18N
         jButtonTransfereDMA.setText("Transférer DMA");
 
+        jButtonTransfereDMA1.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonTransfereDMA1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonTransfereDMA1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fusion.png"))); // NOI18N
         jButtonTransfereDMA1.setText("Fusion Service Urgence / Service Clinique");
         jButtonTransfereDMA1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetsih;
+package GestionBDD;
 
-import projetsih.BDDconnection.*;
+import GestionBDD.BDDconnection.*;
 import ecrans.InfirmierAccueil;
 import ecrans.RechercherPatient;
 import ecrans.essaiEncore;
@@ -21,7 +21,7 @@ public class RecherchePatient {
 
     public boolean connex(String id, String mdp) {
         String QueryId = new String();
-        QueryId = "SELECT * FROM personnelmedical WHERE personnelmedical.id = '" + id + "'"; // WHERE personnelmedical.id = '" + id + "'
+        QueryId = "SELECT * FROM personnelhospitalier WHERE personnelhospitalier.id = '" + id + "'"; // WHERE personnelmedical.id = '" + id + "'
         /*
         System.out.println(QueryId);    
          */
@@ -61,15 +61,15 @@ public class RecherchePatient {
     public ArrayList<String> enTete(String id, String mdp) {
         ArrayList<String> nomPrenonService = new ArrayList<String>();
         String QueryId = new String();
-        QueryId = "SELECT nommed,prenommed,service,fonction FROM personnelmedical WHERE personnelmedical.id = '" + id + "'";
+        QueryId = "SELECT nomph,prenomph,service,fonction FROM personnelhospitalier WHERE personnelhospitalier.id = '" + id + "'";
         try {
 
             Connection conn = BDDconnection.getInstance();
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet result = state.executeQuery(QueryId);
             while (result.next()) {
-                nomPrenonService.add(result.getString("nommed"));
-                nomPrenonService.add(result.getString("prenommed"));
+                nomPrenonService.add(result.getString("nomph"));
+                nomPrenonService.add(result.getString("prenomph"));
                 nomPrenonService.add(result.getString("service"));
                 nomPrenonService.add(result.getString("fonction"));
                 return nomPrenonService;

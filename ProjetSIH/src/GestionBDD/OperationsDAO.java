@@ -1,0 +1,78 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package GestionBDD;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+/**
+ *
+ * @author romel
+ */
+public class OperationsDAO extends DAO<Operations> {
+
+    public OperationsDAO(Connection conn) {
+        super(conn);
+    }
+
+    @Override
+    public boolean create(Operations obj) {
+        String Query = new String();
+        Query = "insert into operations (ipp,nosejour,idph,dateOperation,operation) "
+                + "values ('{" + obj.getIpp() + "}','{" + obj.getNosejour() + "}','"
+                + obj.getIdph() + "','" + obj.getDateOperation()
+                + "','" + obj.getOperation() + "')";
+        try {
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            System.out.println(Query);
+            int result = state.executeUpdate(Query);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
+    @Override
+    public Operations find(String ipp, String nosejour) {
+        Operations ope = new Operations();
+        String Query = new String();
+        Query = "select * from operations where ipp = '{" + ipp
+                + "}' and nosejour = '{" + nosejour + "}'";
+
+        try {
+
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet result = state.executeQuery(Query);
+
+            if (result.next()) {
+                ope = new Operations(result.getString("ipp"), result.getString("nosejour"), result.getString("idph"), result.getString("dateOperation"), result.getString("operation"));
+                result.close();
+                state.close();
+                return ope;
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ope;
+    }
+
+    @Override
+    public boolean delete(Operations obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean update(Operations obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+}
