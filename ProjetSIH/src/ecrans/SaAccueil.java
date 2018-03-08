@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
 import projetsih.Patient;
 import projetsih.SAdm;
@@ -14,19 +16,20 @@ import projetsih.SAdm;
  * @author romel
  */
 public class SaAccueil extends javax.swing.JFrame {
-   private static ArrayList<String> employe;
-    private static ArrayList<String> patient;
+     private static PersonnelHospitalier employe;
+    private static Patients patient;
+
     
 
     /**
      * Creates new form SaAccueil
      */
-    public SaAccueil(ArrayList<String> nps) {
-        employe=nps;
+    public SaAccueil(PersonnelHospitalier employe) {
+        this.employe=employe;
         initComponents();
-        jLabelNom.setText(nps.get(0));
-        jLabelPrenom.setText(nps.get(1));
-        //jLabelFonction.setText(nps.get(2));
+        jLabelNom.setText(employe.getNomph());
+        jLabelPrenom.setText(employe.getPrenomph());
+        //jLabelFonction.setText(employe.getFonction());
         
     }
 
@@ -209,7 +212,7 @@ public class SaAccueil extends javax.swing.JFrame {
 
     private void jButtonConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulterDMAActionPerformed
         // TODO add your handling code here:
-        RechercherPatient rechercher = new RechercherPatient();
+        RechercherPatient rechercher = new RechercherPatient(employe);
         rechercher.setSize(this.getSize());
         rechercher.setLocationRelativeTo(this);
         this.dispose();

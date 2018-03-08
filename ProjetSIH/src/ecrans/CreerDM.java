@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,13 +23,13 @@ import GestionBDD.RecherchePatient;
  */
 public class CreerDM extends javax.swing.JFrame {
 
-    private static ArrayList<String> employe;
-    private static ArrayList<String> patient;
+    private static PersonnelHospitalier employe;
+    private static Patients patient;
 
     /**
      * Creates new form CreerDM
      */
-    public CreerDM(ArrayList<String> employe) {
+    public CreerDM ( PersonnelHospitalier employe) {
         initComponents();
 
         this.employe = employe;
@@ -318,7 +320,7 @@ public class CreerDM extends javax.swing.JFrame {
                 RecherchePatient rp = new RecherchePatient();
                 //rp.creerPatient(jTextFieldNom.getText(),jTextFieldPrenom.getText(), jFormattedTextFieldDateDeNaissance.getText(), "","", jFormattedTextFieldIpp.);
 
-                RechercherPatient rechercher = new RechercherPatient();
+                RechercherPatient rechercher = new RechercherPatient(employe);
                 rechercher.setSize(this.getSize());
                 rechercher.setLocationRelativeTo(this);
                 this.dispose();

@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
 
 /**
@@ -12,22 +14,23 @@ import java.util.ArrayList;
  * @author lisad
  */
 public class ConsulterObservation extends javax.swing.JFrame {
-    private static ArrayList<String> employe;
-    private static ArrayList<String> patient;
+     private static PersonnelHospitalier employe;
+    private static Patients patient;
     private  ArrayList<String> test;
 
     /**
      * Creates new form ConsulterObservation
      */
-    public ConsulterObservation(ArrayList<String> employe , ArrayList<String> patient) {
+    public ConsulterObservation(PersonnelHospitalier employe , Patients patient) {
         initComponents();
         this.employe=employe;
         this.patient=patient;
         // mettre l'indice qui correspond à chaque information
-        jLabel3IPP.setText(test.get(0)); 
+        jLabel3IPP.setText(patient.getIpp()); 
         jLabelObservationP.setText(test.get(0));
         jLabelNomObservationP.setText(test.get(0)) ;
         jLabelDateP.setText(test.get(0));
+        jLabel4Service.setText(employe.getService());
     }
 
     /**

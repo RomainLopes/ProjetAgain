@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
 
 /**
@@ -16,13 +18,22 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
     /**
      * Creates new form Urgence
      */
-    private static ArrayList<String> employe;
-    private static ArrayList<String> patient;
+     private static PersonnelHospitalier employe;
+    private static Patients patient;
 
-    public MedUrgenceAccueil(ArrayList<String> employe, ArrayList<String> patient) {
+    public MedUrgenceAccueil(PersonnelHospitalier employe, Patients patient) {
         initComponents();
         this.employe = employe;
         this.patient = patient;
+        jLabelNomPmed.setText(employe.getNomph());
+        jLabelPrenomPmed.setText(employe.getPrenomph());
+        //jLabelFonction.setText(employe.getFonction());
+        jLabelService.setText(employe.getService()); 
+        
+        jLabel1Nomp.setText(patient.getNompatient());
+        jLabel2PrenomP.setText(patient.getPrenompatient());
+        jLabel2DateDeNaissance.setText(patient.getDateDeNaissance());
+        jLabel2Sexe.setText(patient.getSexe());
     }
 
     /**
@@ -443,7 +454,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-        RechercherPatient rechercher = new RechercherPatient();
+        RechercherPatient rechercher = new RechercherPatient(employe);
         rechercher.setSize(this.getSize());
         rechercher.setLocationRelativeTo(this);
         this.dispose();
@@ -461,7 +472,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
 
     private void ConsulterDM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDM1ActionPerformed
         // TODO add your handling code here:
-        CreationDMAtemporaire obs = new CreationDMAtemporaire();
+        CreationDMAtemporaire obs = new CreationDMAtemporaire(employe);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -470,7 +481,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
 
     private void ajouterObservation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservation1ActionPerformed
         // TODO add your handling code here:
-        NewObservations obs = new NewObservations();
+        NewObservations obs = new NewObservations(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -488,7 +499,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
 
     private void ajouterPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescriptionActionPerformed
         // TODO add your handling code here:
-        NewPrescription obs = new NewPrescription();
+        NewPrescription obs = new NewPrescription(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

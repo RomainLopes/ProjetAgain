@@ -5,17 +5,29 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
+
 /**
  *
  * @author lisad
  */
 public class NoSejour extends javax.swing.JFrame {
+      private static PersonnelHospitalier employe;
+    private static Patients patient;
 
     /**
      * Creates new form NoSejour
      */
-    public NoSejour() {
+    public NoSejour(PersonnelHospitalier personnel, Patients patient) {
         initComponents();
+        this.patient= patient;
+        employe=personnel;
+        
+          jLabel1Nomp.setText(patient.getNompatient());
+        jLabel2PrenomP.setText(patient.getPrenompatient());
+        jLabel4DateP.setText(patient.getDateDeNaissance());
+        jLabel3Sexep.setText(patient.getSexe());
     }
 
     /**
@@ -274,7 +286,7 @@ public class NoSejour extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NoSejour().setVisible(true);
+                new NoSejour(employe,patient).setVisible(true);
             }
         });
     }

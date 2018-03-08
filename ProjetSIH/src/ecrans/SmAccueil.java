@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
 import projetsih.PHospitalier;
 import projetsih.Patient;
@@ -14,20 +16,21 @@ import projetsih.Patient;
  * @author romel
  */
 public class SmAccueil extends javax.swing.JFrame {
-    private static ArrayList<String> employe;
-    private static ArrayList<String> patient;
+     private static PersonnelHospitalier employe;
+    private static Patients patient;
+
 
     /**
      * Creates new form SmAccueil
      */
-    public SmAccueil(ArrayList<String> personnel) {
+    public SmAccueil(PersonnelHospitalier personnel) {
         // service get(2) fonction get(3)
         initComponents();
         employe=personnel;
-        jLabelNom.setText(personnel.get(0));
-        jLabelPrenom.setText(personnel.get(1));
-       // jLabelFonction.setText(personnel.get(3));
-        jLabelService.setText(personnel.get(2)); 
+        jLabelNom.setText(personnel.getNomph());
+        jLabelPrenom.setText(personnel.getPrenomph());
+       // jLabelFonction.setText(personnel.getFonction());
+        jLabelService.setText(personnel.getService()); 
         
       /*  jLabelNom.setText(((Identification) fenetrePrecedente).getEmploye().getNom());
         jLabelPrenom.setText(((Identification) fenetrePrecedente).getEmploye().getPrenom());
@@ -206,7 +209,7 @@ public class SmAccueil extends javax.swing.JFrame {
 
     private void jButtonConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulterDMActionPerformed
         // TODO add your handling code here:
-        RechercherPatient rechercher = new RechercherPatient();
+        RechercherPatient rechercher = new RechercherPatient(employe);
                     rechercher.setSize(this.getSize());
                     rechercher.setLocationRelativeTo(this);
                     this.dispose();

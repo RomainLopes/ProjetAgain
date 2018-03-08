@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import projetsih.PHospitalier;
@@ -15,8 +17,8 @@ import projetsih.Patient;
  * @author lisad
  */
 public class DossierMedical extends javax.swing.JFrame {
-    private static ArrayList<String> employe;
-    private static ArrayList<String> patient;
+     private static PersonnelHospitalier employe;
+    private static Patients patient;
         private static ArrayList<String> test;
 
 
@@ -24,20 +26,20 @@ public class DossierMedical extends javax.swing.JFrame {
      * Creates new form DossierMedical
      */
 
-    public DossierMedical(ArrayList<String> personnel, ArrayList<String> patient ) {
+    public DossierMedical(PersonnelHospitalier personnel, Patients patient ) {
         initComponents();
         
         employe=personnel;
         this.patient=patient;
-        jLabelNom.setText(personnel.get(0));
-        jLabelPrenom.setText(personnel.get(1));
-        jLabelFonction.setText(personnel.get(2));
-        jLabelService.setText(personnel.get(3)); 
+        jLabelNom.setText(personnel.getNomph());
+        jLabelPrenom.setText(personnel.getPrenomph());
+        jLabelFonction.setText(personnel.getFonction());
+        jLabelService.setText(personnel.getService()); 
         
-        jLabel1Nomp.setText(personnel.get(0));
-        jLabel2PrenomP.setText(personnel.get(1));
-        jLabel3Sexep.setText(personnel.get(2));
-        jLabel4DateP.setText(personnel.get(3));
+        jLabel1Nomp.setText(patient.getNompatient());
+        jLabel2PrenomP.setText(patient.getPrenompatient());
+        jLabel3Sexep.setText(patient.getSexe());
+        jLabel4DateP.setText(patient.getDateDeNaissance());
         
         test.add("Rdio du poumon gauche");
         test.add("Echographiede l'abdomen");
@@ -663,7 +665,7 @@ public class DossierMedical extends javax.swing.JFrame {
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
         // TODO add your handling code here:
-          NewObservations obs = new NewObservations();
+          NewObservations obs = new NewObservations(employe,patient);
                     obs.setSize(this.getSize());
                     obs.setLocationRelativeTo(this);
                     this.dispose();
@@ -672,7 +674,7 @@ public class DossierMedical extends javax.swing.JFrame {
 
     private void ajouterPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescriptionActionPerformed
         // TODO add your handling code here:
-        NewPrescription obs = new NewPrescription();
+        NewPrescription obs = new NewPrescription(employe,patient);
                     obs.setSize(this.getSize());
                     obs.setLocationRelativeTo(this);
                     this.dispose();
@@ -681,7 +683,7 @@ public class DossierMedical extends javax.swing.JFrame {
 
     private void ajouterOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterOperationActionPerformed
         // TODO add your handling code here:
-         NewOperation obs = new NewOperation();
+         NewOperation obs = new NewOperation(employe,patient);
                     obs.setSize(this.getSize());
                     obs.setLocationRelativeTo(this);
                     this.dispose();
@@ -690,7 +692,7 @@ public class DossierMedical extends javax.swing.JFrame {
 
     private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
         // TODO add your handling code here:
-        NewResultat obs = new NewResultat();
+        NewResultat obs = new NewResultat(employe,patient);
                     obs.setSize(this.getSize());
                     obs.setLocationRelativeTo(this);
                     this.dispose();

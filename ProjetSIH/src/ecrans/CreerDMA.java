@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,12 +25,12 @@ public class CreerDMA extends javax.swing.JFrame {
     /**
      * Creates new form CreerDMA
      */
-    private static ArrayList<String> employe;
-    private static ArrayList<String> patient;
+      private static PersonnelHospitalier employe;
+    private static Patients patient;
     private static ArrayList<String> listMed;
 
 
-    public CreerDMA(ArrayList<String> employe) {
+    public CreerDMA(PersonnelHospitalier employe) {
         initComponents();
         this.employe = employe;
         jComboBoxTypeSejour.addItem("Hospitalisation");
@@ -258,6 +260,7 @@ public class CreerDMA extends javax.swing.JFrame {
         jButtonValider.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
         jButtonValider.setText("Valider");
+        /*
         jButtonValider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonValiderMouseClicked(evt);
@@ -268,6 +271,7 @@ public class CreerDMA extends javax.swing.JFrame {
                 jButtonValiderActionPerformed(evt);
             }
         });
+        */
         jPanel2CreationDMA.add(jButtonValider);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -288,7 +292,7 @@ public class CreerDMA extends javax.swing.JFrame {
                 .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2CreationDMA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(231, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2);

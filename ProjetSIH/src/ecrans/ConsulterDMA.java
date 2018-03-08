@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
 import projetsih.PHospitalier;
 import projetsih.Patient;
@@ -15,8 +17,8 @@ import projetsih.Patient;
  */
 public class ConsulterDMA extends javax.swing.JFrame {
 
-     private static ArrayList<String> employe;
-    private static ArrayList<String> patient;
+       private static PersonnelHospitalier employe;
+    private static Patients patient;
 
     /**
      * Creates new form DossierMedicoAdministratif
@@ -24,20 +26,20 @@ public class ConsulterDMA extends javax.swing.JFrame {
 
     // si ca ouvre la ^page sans considérer les données modifier le constructeur en bas
 
-    public ConsulterDMA(ArrayList<String> personnel, ArrayList<String> patient ) {
+    public ConsulterDMA(PersonnelHospitalier personnel, Patients patient ) {
         initComponents();
         employe=personnel;
         this.patient=patient;
-        jLabelNomPmed.setText(personnel.get(0));
-        jLabelPrenomPmed.setText(personnel.get(1));
-        jLabelFonction.setText(personnel.get(2));
-        jLabelService.setText(personnel.get(3)); 
         
-        jLabel1Nomp.setText(personnel.get(0));
-        jLabel2PrenomP.setText(personnel.get(1));
-        jLabel4DateP.setText(personnel.get(2));
-        jLabel3Sexep.setText(personnel.get(3)); 
+        jLabelNomPmed.setText(personnel.getNomph());
+        jLabelPrenomPmed.setText(personnel.getPrenomph());
+        jLabelFonction.setText(personnel.getFonction());
+        jLabelService.setText(personnel.getService()); 
         
+          jLabel1Nomp.setText(patient.getNompatient());
+        jLabel2PrenomP.setText(patient.getPrenompatient());
+        jLabel4DateP.setText(patient.getDateDeNaissance());
+        jLabel3Sexep.setText(patient.getSexe());
         /*jTextField1NomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
         jTextFieldPrenomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
         jTextFieldSexePat.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());

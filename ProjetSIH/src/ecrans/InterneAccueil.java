@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 import projetsih.PHospitalier;
@@ -19,23 +21,23 @@ public class InterneAccueil extends javax.swing.JFrame {
     /**
      * Creates new form InterneAccueil
      */
-    private static ArrayList<String> employe;
-    private static ArrayList<String> patient;
+    private static PersonnelHospitalier employe;
+    private static Patients patient;
 
-    public InterneAccueil(ArrayList<String> personnel, ArrayList<String> patient ) {
+    public InterneAccueil(PersonnelHospitalier personnel, Patients patient ) {
         initComponents();
         employe=personnel;
         this.patient=patient;
         
-        jLabelNomInt.setText(personnel.get(0));
-        jLabelPrenomInt.setText(personnel.get(1));
-        jLabelFonction.setText(personnel.get(2));
-        jLabelService.setText(personnel.get(3)); 
+        jLabelNomInt.setText(personnel.getNomph());
+        jLabelPrenomInt.setText(personnel.getPrenomph());
+        jLabelFonction.setText(personnel.getFonction());
+        jLabelService.setText(personnel.getService()); 
         
-        jLabel1Nomp.setText(personnel.get(0));
-        jLabel2PrenomP.setText(personnel.get(1));
-       // jLabel3Sexep.setText(personnel.get(2));
-        jLabel4DateP.setText(personnel.get(3));
+        jLabel1Nomp.setText(patient.getNompatient());
+        jLabel2PrenomP.setText(patient.getPrenompatient());
+       jLabel3Sexep.setText(patient.getSexe());
+        jLabel4DateP.setText(patient.getDateDeNaissance());
                 
   
         
@@ -362,7 +364,7 @@ public class InterneAccueil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-        RechercherPatient rechercher = new RechercherPatient();
+        RechercherPatient rechercher = new RechercherPatient(employe);
                     rechercher.setSize(this.getSize());
                     rechercher.setLocationRelativeTo(this);
                     this.dispose();
@@ -371,7 +373,7 @@ public class InterneAccueil extends javax.swing.JFrame {
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
         // TODO add your handling code here:
-         NewObservations obs = new NewObservations();
+         NewObservations obs = new NewObservations(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

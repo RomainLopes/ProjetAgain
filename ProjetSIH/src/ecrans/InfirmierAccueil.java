@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JButton;
@@ -24,8 +26,8 @@ import projetsih.SMed;
  */
 public class InfirmierAccueil extends javax.swing.JFrame {
 
-    private static ArrayList<String> employe;
-    private static ArrayList<String> patient;
+      private static PersonnelHospitalier employe;
+    private static Patients patient;
 
     /**
      * Creates new form InfirmierAccueil
@@ -42,19 +44,20 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         jLabelPrenomInf.setText(employe.getPrenom());
         jLabelNomInf.setText(employe.getNom());
     }*/
-    public InfirmierAccueil(ArrayList<String> personnel, ArrayList<String> patient) {
+    public InfirmierAccueil(PersonnelHospitalier personnel, Patients patient) {
         initComponents();
         employe = personnel;
         this.patient = patient;
-        jLabelNomInf.setText(personnel.get(0));
-        jLabelPrenomInf.setText(personnel.get(1));
-        jLabelFonction.setText(personnel.get(2));
-        jLabelService.setText(personnel.get(3));
+        
+        jLabelNomInf.setText(personnel.getNomph());
+        jLabelPrenomInf.setText(personnel.getPrenomph());
+        jLabelFonction.setText(personnel.getFonction());
+        jLabelService.setText(personnel.getService());
 
-        jLabel3NomPatient.setText(patient.get(0));
-        jLabel4PrenomPatient.setText(patient.get(1));
-        jLabel2dateDeNAissancePatient.setText(patient.get(2));
-        //jLabelSexePatient.setText(patient.get(3)); 
+        jLabel3NomPatient.setText(patient.getNompatient());
+        jLabel4PrenomPatient.setText(patient.getPrenompatient());
+        jLabel2dateDeNAissancePatient.setText(patient.getDateDeNaissance());
+        jLabelSexePatient.setText(patient.getSexe()); 
 
 
     }
@@ -458,7 +461,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-        RechercherPatient rechercher = new RechercherPatient();
+        RechercherPatient rechercher = new RechercherPatient(employe);
         rechercher.setSize(this.getSize());
         rechercher.setLocationRelativeTo(this);
         this.dispose();
@@ -466,7 +469,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
-        NewObservations obs = new NewObservations();
+        NewObservations obs = new NewObservations(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -475,7 +478,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
     private void ajouterOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterOperationActionPerformed
         // TODO add your handling code here:
-         NewObservations obs = new NewObservations();
+         NewObservations obs = new NewObservations(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

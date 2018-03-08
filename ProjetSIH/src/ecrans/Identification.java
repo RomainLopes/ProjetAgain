@@ -204,7 +204,7 @@ public class Identification extends javax.swing.JFrame {
                 if (x == true && nPS.get(3) == "Secretaire_Médicale" ) {
 
                     //employe = new SMed(nPS.get(0), nPS.get(1), nPS.get(2),nPS.get(2) );
-                    SmAccueil smed = new SmAccueil(nPS);
+                    SmAccueil smed = new SmAccueil(ph);
                     smed.setSize(this.getSize());
                     smed.setLocationRelativeTo(this);
                     this.dispose();
@@ -212,7 +212,7 @@ public class Identification extends javax.swing.JFrame {
                 } else if (x == true && nPS.get(3) == "Secretaire_Admin" ) {
 
                     //sa = new SAdm(nPS.get(0), nPS.get(1));
-                    SaAccueil sadm = new SaAccueil(nPS);
+                    SaAccueil sadm = new SaAccueil(ph);
                     sadm.setSize(this.getSize());
                     sadm.setLocationRelativeTo(this);
                     this.dispose();

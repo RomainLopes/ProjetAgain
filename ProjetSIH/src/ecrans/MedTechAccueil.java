@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
 import projetsih.PHospitalier;
 import projetsih.Patient;
@@ -18,22 +20,22 @@ public class MedTechAccueil extends javax.swing.JFrame {
     /**
      * Creates new form MedAccueil
      */
-   private static ArrayList<String> employe;
-    private static ArrayList<String> patient;
+     private static PersonnelHospitalier employe;
+    private static Patients patient;
     
-    public MedTechAccueil(ArrayList<String> personnel, ArrayList<String> patient ) {
+    public MedTechAccueil(PersonnelHospitalier personnel, Patients patient ) {
         initComponents();
         employe=personnel;
         this.patient=patient;
-        jLabelNom.setText(personnel.get(0));
-        jLabelPrenom.setText(personnel.get(1));
-        //jLabelFonction.setText(personnel.get(2));
-        jLabelService.setText(personnel.get(3)); 
+        jLabelNom.setText(personnel.getNomph());
+        jLabelPrenom.setText(personnel.getPrenomph());
+        //jLabelFonction.setText(personnel.getFonction());
+        jLabelService.setText(personnel.getService()); 
         
-        jLabel3NomPatient.setText(personnel.get(0));
-        jLabel4PrenomPatient.setText(personnel.get(1));
-        jLabel2DateDeNaissance.setText(personnel.get(2));
-        //jLabel2Sexe.setText(personnel.get(3));
+        jLabel3NomPatient.setText(patient.getNompatient());
+        jLabel4PrenomPatient.setText(patient.getPrenompatient());
+        jLabel2DateDeNaissance.setText(patient.getDateDeNaissance());
+        jLabel2Sexe.setText(patient.getSexe());
         
       /*  jLabelPrenom.setText(employe.getPrenom());
         jLabelNom.setText(employe.getNom());
@@ -432,7 +434,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-       RechercherPatient rechercher = new RechercherPatient();
+       RechercherPatient rechercher = new RechercherPatient(employe);
                     rechercher.setSize(this.getSize());
                     rechercher.setLocationRelativeTo(this);
                     this.dispose();
@@ -441,7 +443,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
 
     private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
         // TODO add your handling code here:
-         NewResultat obs = new NewResultat();
+         NewResultat obs = new NewResultat(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -450,7 +452,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
 
     private void ajouterObservation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservation1ActionPerformed
         // TODO add your handling code here:
-         NewObservations obs = new NewObservations();
+         NewObservations obs = new NewObservations(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

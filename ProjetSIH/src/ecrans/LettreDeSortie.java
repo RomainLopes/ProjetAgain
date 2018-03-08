@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
 import javax.swing.JScrollPane;
 
@@ -13,14 +15,14 @@ import javax.swing.JScrollPane;
  * @author vodou
  */
 public class LettreDeSortie extends javax.swing.JFrame {
-    private static ArrayList<String> employe;
-    private static ArrayList<String> patient;
+      private static PersonnelHospitalier employe;
+    private static Patients patient;
 
 
     /**
      * Creates new form exemple
      */
-    public LettreDeSortie(ArrayList<String> personnel, ArrayList<String> patient) {
+    public LettreDeSortie(PersonnelHospitalier personnel,Patients patient) {
         initComponents();
         employe=personnel;
         this.patient=patient;

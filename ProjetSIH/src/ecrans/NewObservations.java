@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
 
 /**
@@ -12,14 +14,19 @@ import java.util.ArrayList;
  * @author lisad
  */
 public class NewObservations extends javax.swing.JFrame {
-    private static ArrayList<String> employe;
-    private static ArrayList<String> patient;
+      private static PersonnelHospitalier employe;
+    private static Patients patient;
+
 
     /**
      * Creates new form NewObservations
      */
-    public NewObservations() {
+    public NewObservations(PersonnelHospitalier personnel, Patients patient) {
         initComponents();
+        this.patient=patient;
+        employe= personnel;
+        jLabel3IPP.setText(patient.getIpp());
+        jLabel4Service.setText(personnel.getService());
     }
 
     /**
@@ -246,7 +253,7 @@ public class NewObservations extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewObservations().setVisible(true);
+                new NewObservations(employe,patient).setVisible(true);
             }
         });
     }

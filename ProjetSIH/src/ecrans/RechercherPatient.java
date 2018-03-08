@@ -16,10 +16,10 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import projetsih.PHospitalier;
-import projetsih.Patient;
+//import projetsih.Patient;
 import GestionBDD.RecherchePatient;
-import projetsih.SAdm;
-import projetsih.SMed;
+//import projetsih.SAdm;
+//import projetsih.SMed;
 
 /**
  *
@@ -33,11 +33,15 @@ public class RechercherPatient extends javax.swing.JFrame {
     private static PersonnelHospitalier phr;
     private static ArrayList<String> med;
     private static ArrayList<String> p;
+    
+    private static Patients patient;
+
 
     public RechercherPatient(PersonnelHospitalier ph) {
         //RecherchePatient rp = new RecherchePatient();
         //med = nps;
         initComponents();
+        phr=ph;
 
         jLabelNom.setText(ph.getNomph());
         jLabelPrenom.setText(ph.getPrenomph());
@@ -66,9 +70,9 @@ public class RechercherPatient extends javax.swing.JFrame {
         jLabelFonction.setText(employe.getFonction().toString());
         jLabelService.setText(employe.getService().toString()); 
     }*/
-    public RechercherPatient() {
+   /* public RechercherPatient() {
         initComponents();
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -323,7 +327,7 @@ public class RechercherPatient extends javax.swing.JFrame {
             //SMed employe= new SMed(fenetrePrecedente.getEmploye().getNom(),fenetrePrecedente.getEmploye().getPrenom(),fenetrePrecedente.getEmploye().getService())
             //  this.employe= fenetrePrecedente.getEmploye();
             JOptionPane.showMessageDialog(null, "Dossier médical existant");
-            ConsulterDM sadm = new ConsulterDM(med,p);
+            ConsulterDM sadm = new ConsulterDM(phr,patient);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
@@ -331,7 +335,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         } else if (x == true/* fonction == Fonction.Secretaire_admin*/) {
 
-            ConsulterDMA sadm = new ConsulterDMA(med,p);
+            ConsulterDMA sadm = new ConsulterDMA(phr,patient);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
@@ -339,7 +343,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         } else if (x == true/* fonction == Fonction.Interne*/) {
 
-            InterneAccueil inte = new InterneAccueil(med,p);
+            InterneAccueil inte = new InterneAccueil(phr,patient);
             inte.setSize(this.getSize());
             inte.setLocationRelativeTo(this);
             this.dispose();
@@ -347,7 +351,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         } else if (x == true/* fonction == Fonction.Infirmier*/) {
 
-            InfirmierAccueil inte = new InfirmierAccueil(med,p);
+            InfirmierAccueil inte = new InfirmierAccueil(phr,patient);
             inte.setSize(this.getSize());
             inte.setLocationRelativeTo(this);
             this.dispose();
@@ -355,28 +359,28 @@ public class RechercherPatient extends javax.swing.JFrame {
         } else { // pH
             if (x == true/* pH.service.getType()=="Clinique"*/) {
 
-                MedClinAccueil inte = new MedClinAccueil(med,p);
+                MedClinAccueil inte = new MedClinAccueil(phr,patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
             } else if (x == true/* pH.service.getNom()=="Radiologie"*/) {
 
-                MedRadioAccueil inte = new MedRadioAccueil(med,p);
+                MedRadioAccueil inte = new MedRadioAccueil(phr,patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
             } else if (x == true/* pH.service.getNom()=="Anesthésie"*/) {
 
-                MedAnestAccueil inte = new MedAnestAccueil(med,p);
+                MedAnestAccueil inte = new MedAnestAccueil(phr,patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
             } else if (x == true/* pH.service.getType()=="Médico-technique"*/) {
 
-                MedTechAccueil inte = new MedTechAccueil(med,p);
+                MedTechAccueil inte = new MedTechAccueil(phr,patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
@@ -400,7 +404,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
     private void jListpatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListpatientsMouseClicked
         // TODO add your handling code here:
-        InfirmierAccueil ia = new InfirmierAccueil(med, p);
+        InfirmierAccueil ia = new InfirmierAccueil(phr,patient);
         //DossierMedical dm = new DossierMedical();
         ia.setSize(this.getSize());
         ia.setLocationRelativeTo(this);

@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
 
 /**
@@ -17,11 +19,12 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
      * Creates new form CreationDMAtemporaire
      */
     
-    private static ArrayList<String> employe;
-    private static ArrayList<String> patient;
+    private static PersonnelHospitalier employe;
+    private static Patients patient;
     
-    public CreationDMAtemporaire() {
+    public CreationDMAtemporaire(PersonnelHospitalier employe) {
         initComponents();
+        this.employe= employe;
     }
 
     /**
@@ -288,7 +291,7 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreationDMAtemporaire().setVisible(true);
+                new CreationDMAtemporaire(employe).setVisible(true);
             }
         });
     }

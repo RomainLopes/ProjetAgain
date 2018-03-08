@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
@@ -24,8 +26,8 @@ import projetsih.Patient;
  */
 public class ConsulterDM extends javax.swing.JFrame {
 
-    private static ArrayList<String> employe;
-    private static ArrayList<String> patient;
+    private static PersonnelHospitalier employe;
+    private static Patients patient;
     private  ArrayList<String> test; // ici ce sont les infos du patient
 
 
@@ -49,15 +51,15 @@ public class ConsulterDM extends javax.swing.JFrame {
        // DM dmPat =p.getDpi().getMyDM();
        // dmPat.getResultats().toString();
     }*/
-    public ConsulterDM(ArrayList<String> employe, ArrayList<String> patient) {
+    public ConsulterDM(PersonnelHospitalier employe, Patients patient) {
         initComponents();
         this.patient = patient;
         this.employe = employe;
 
-        jLabel1Nomp.setText(patient.get(0));
-        jLabel2PrenomP.setText(patient.get(1));
-        jLabel4DateP.setText(patient.get(2));
-        jLabel3Sexep.setText(patient.get(3));
+        jLabel1Nomp.setText(patient.getNompatient());
+        jLabel2PrenomP.setText(patient.getPrenompatient());
+        jLabel4DateP.setText(patient.getDateDeNaissance());
+        jLabel3Sexep.setText(patient.getSexe());
 
         test.add("Rdio du poumon gauche");
         test.add("Echographiede l'abdomen");
