@@ -72,8 +72,8 @@ public class CreerDMA extends javax.swing.JFrame {
         jLabel1NoSejour = new javax.swing.JLabel();
         jTextField1NoSejour = new javax.swing.JTextField();
         jLabel3Type = new javax.swing.JLabel();
-        jLabel2NomPH = new javax.swing.JLabel();
         jComboBoxPH = new javax.swing.JComboBox<>();
+        jLabel2NomPH = new javax.swing.JLabel();
         jComboBoxTypeSejour = new javax.swing.JComboBox<>();
         jButtonValider = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -234,10 +234,6 @@ public class CreerDMA extends javax.swing.JFrame {
         jLabel3Type.setText("Type :");
         jPanel2CreationDMA.add(jLabel3Type);
 
-        jLabel2NomPH.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2NomPH.setText("Nom du Praticien Hospitalier responsable :");
-        jPanel2CreationDMA.add(jLabel2NomPH);
-
         jComboBoxPH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxPH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,6 +241,10 @@ public class CreerDMA extends javax.swing.JFrame {
             }
         });
         jPanel2CreationDMA.add(jComboBoxPH);
+
+        jLabel2NomPH.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel2NomPH.setText("Nom du Praticien Hospitalier responsable :");
+        jPanel2CreationDMA.add(jLabel2NomPH);
 
         jComboBoxTypeSejour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxTypeSejour.addActionListener(new java.awt.event.ActionListener() {
@@ -257,7 +257,7 @@ public class CreerDMA extends javax.swing.JFrame {
         jButtonValider.setBackground(new java.awt.Color(228, 241, 254));
         jButtonValider.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
-        jButtonValider.setText("jButtonValider");
+        jButtonValider.setText("Valider");
         jButtonValider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonValiderMouseClicked(evt);
@@ -279,7 +279,7 @@ public class CreerDMA extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2CreationDMA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

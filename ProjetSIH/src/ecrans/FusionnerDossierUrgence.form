@@ -403,12 +403,12 @@
                 </Container>
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Dossier&#xe0; garder"/>
+                    <Property name="text" type="java.lang.String" value="Dossier &#xe0; garder"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="dossier &#xe0; fusionner (va disparaitre)"/>
+                    <Property name="text" type="java.lang.String" value="Dossier &#xe0; fusionner (va disparaitre)"/>
                   </Properties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane3">

@@ -140,7 +140,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
                         .addComponent(jLabelNom)
                         .addGap(205, 205, 205)
                         .addComponent(jLabelFonction)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                         .addComponent(jLabelService))
                     .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
                         .addComponent(jLabelPrenom)
@@ -171,7 +171,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         );
 
         getContentPane().add(JPanelEnTeteMedTech);
-        JPanelEnTeteMedTech.setBounds(1, 0, 1150, 108);
+        JPanelEnTeteMedTech.setBounds(1, 0, 900, 108);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(null);
@@ -442,7 +442,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
                 .addComponent(jPanel1Observations1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(148, 148, 148)
                 .addComponent(jPanel7Resultat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(289, Short.MAX_VALUE))
         );
         jPanel1ObservationsLayout.setVerticalGroup(
             jPanel1ObservationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
