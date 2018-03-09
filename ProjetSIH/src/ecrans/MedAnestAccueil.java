@@ -572,7 +572,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
         // TODO add your handling code here:
-         ConsulterObservation obs = new ConsulterObservation();
+         ConsulterObservation obs = new ConsulterObservation(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -626,7 +626,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
     private void consulterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterResultatActionPerformed
         // TODO add your handling code here:
-         ConsulterResultat obs = new ConsulterResultat();
+         ConsulterResultat obs = new ConsulterResultat(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

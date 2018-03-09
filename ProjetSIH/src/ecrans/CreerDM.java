@@ -5,8 +5,12 @@
  */
 package ecrans;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.text.MaskFormatter;
 import projetsih.PHospitalier;
 import projetsih.Patient;
 import GestionBDD.RecherchePatient;
@@ -17,23 +21,21 @@ import GestionBDD.RecherchePatient;
  */
 public class CreerDM extends javax.swing.JFrame {
 
-     private static ArrayList<String> employe;
+    private static ArrayList<String> employe;
     private static ArrayList<String> patient;
 
     /**
      * Creates new form CreerDM
      */
-  
     public CreerDM(ArrayList<String> employe) {
         initComponents();
-        
-       this.employe =employe; 
-       
-       /* jTextField1Nom.setText(((SmAccueil) fenetrePrecedente).getP().getNom());
+
+        this.employe = employe;
+
+        /* jTextField1Nom.setText(((SmAccueil) fenetrePrecedente).getP().getNom());
         jTextField4Prenom.setText(((SmAccueil) fenetrePrecedente).getP().getPrenom());
         jTextField4Sexe.setText(((SmAccueil) fenetrePrecedente).getP().getSexe());
         jTextField4DDN1.setText(((SmAccueil) fenetrePrecedente).getP().getDateNaissance().toString());*/
-
     }
 
     /**
@@ -57,103 +59,98 @@ public class CreerDM extends javax.swing.JFrame {
         jLabel2Sexe = new javax.swing.JLabel();
         jLabel2DateDeNaissance = new javax.swing.JLabel();
         jLabel1InfoPatients = new javax.swing.JLabel();
-        jLabel2IPP = new javax.swing.JLabel();
         jTextFieldNom = new javax.swing.JTextField();
         jTextFieldPrenom = new javax.swing.JTextField();
         jTextFieldSexe = new javax.swing.JTextField();
-        jTextFieldDatedn = new javax.swing.JTextField();
-        jFormattedTextFieldDateDeNaissance = new javax.swing.JFormattedTextField();
-        jFormattedTextFieldIpp = new javax.swing.JFormattedTextField();
-        jLabel2Service = new javax.swing.JLabel();
-        jTextField1Service = new javax.swing.JTextField();
-        jButtonValider = new javax.swing.JButton();
+        try{
 
-        jLabel2.setText("jLabel2");
+            MaskFormatter tel2 = new MaskFormatter("##-##-####");
+            jFormattedTextFieldDateDeNaissance = new javax.swing.JFormattedTextField(tel2);
+            jLabel2Service = new javax.swing.JLabel();
+            jTextField1Service = new javax.swing.JTextField();
+            jButtonValider = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+            jLabel2.setText("jLabel2");
 
-        jPanel1CreationDM.setLayout(null);
+            setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(65, 131, 215));
+            jPanel1CreationDM.setLayout(null);
 
-        jLabel1.setBackground(new java.awt.Color(65, 131, 215));
-        jLabel1.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
-        jLabel1.setText("Création d'un dossier médical");
+            jPanel1.setBackground(new java.awt.Color(65, 131, 215));
 
-        jButtonPrecedent2.setBackground(new java.awt.Color(228, 241, 254));
-        jButtonPrecedent2.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jButtonPrecedent2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Bouton précedent.PNG"))); // NOI18N
-        jButtonPrecedent2.setText("Précédent");
-        jButtonPrecedent2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPrecedent2ActionPerformed(evt);
-            }
-        });
+            jLabel1.setBackground(new java.awt.Color(65, 131, 215));
+            jLabel1.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
+            jLabel1.setText("Création d'un dossier médical");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jButtonPrecedent2)
-                .addGap(81, 81, 81)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonPrecedent2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+            jButtonPrecedent2.setBackground(new java.awt.Color(228, 241, 254));
+            jButtonPrecedent2.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+            jButtonPrecedent2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Bouton précedent.PNG"))); // NOI18N
+            jButtonPrecedent2.setText("Précédent");
+            jButtonPrecedent2.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jButtonPrecedent2ActionPerformed(evt);
+                }
+            });
 
-        jPanel1CreationDM.add(jPanel1);
-        jPanel1.setBounds(-10, 0, 720, 100);
+            javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+            jPanel1.setLayout(jPanel1Layout);
+            jPanel1Layout.setHorizontalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(24, 24, 24)
+                    .addComponent(jButtonPrecedent2)
+                    .addGap(81, 81, 81)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(155, Short.MAX_VALUE))
+            );
+            jPanel1Layout.setVerticalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(20, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap())
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jButtonPrecedent2)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+            jPanel1CreationDM.add(jPanel1);
+            jPanel1.setBounds(-10, 0, 720, 100);
 
-        jPanel3InfoPatient.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+            jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1Prenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel1Prenom.setText("Prénom : ");
+            jPanel3InfoPatient.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel2Nom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2Nom.setText("Nom : ");
+            jLabel1Prenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+            jLabel1Prenom.setText("Prénom : ");
 
-        jLabel2Sexe.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2Sexe.setText("Sexe :");
+            jLabel2Nom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+            jLabel2Nom.setText("Nom : ");
 
-        jLabel2DateDeNaissance.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2DateDeNaissance.setText("Date de Naissance : ");
+            jLabel2Sexe.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+            jLabel2Sexe.setText("Sexe :");
 
-        jLabel1InfoPatients.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
-        jLabel1InfoPatients.setText("Informations générales du patient ");
+            jLabel2DateDeNaissance.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+            jLabel2DateDeNaissance.setText("Date de Naissance : ");
 
-        jLabel2IPP.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2IPP.setText("IPP :");
+            jLabel1InfoPatients.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+            jLabel1InfoPatients.setText("Informations générales du patient ");
 
-        jTextFieldNom.setText("jTextField1");
+            jTextFieldNom.setText("jTextField1");
 
-        jTextFieldPrenom.setText("jTextField1");
+            jTextFieldPrenom.setText("jTextField1");
 
-        jTextFieldSexe.setText("jTextField1");
-        jTextFieldSexe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSexeActionPerformed(evt);
-            }
-        });
+            jTextFieldSexe.setText("jTextField1");
+            jTextFieldSexe.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jTextFieldSexeActionPerformed(evt);
+                }
+            });
 
-        jTextFieldDatedn.setText("jTextField1");
-
-        jFormattedTextFieldDateDeNaissance.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-
-        jFormattedTextFieldIpp.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+            jFormattedTextFieldDateDeNaissance.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        }
+        catch(ParseException e){e.printStackTrace();}
 
         jLabel2Service.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2Service.setText("Service :");
@@ -188,13 +185,10 @@ public class CreerDM extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextField1Service, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createSequentialGroup()
-                                .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFormattedTextFieldIpp, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)))
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addGap(51, 51, 51)
@@ -208,12 +202,8 @@ public class CreerDM extends javax.swing.JFrame {
                                 .addGap(66, 66, 66)
                                 .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(60, 60, 60)
-                                .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                                        .addGap(135, 135, 135)
-                                        .addComponent(jTextFieldDatedn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextFieldSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 114, Short.MAX_VALUE))
+                                .addComponent(jTextFieldSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 207, Short.MAX_VALUE))
                     .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                         .addComponent(jLabel1InfoPatients)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -223,17 +213,7 @@ public class CreerDM extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jLabel1InfoPatients)
-                .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jTextFieldDatedn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextFieldIpp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -297,18 +277,31 @@ public class CreerDM extends javax.swing.JFrame {
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         // TODO add your handling code here:
-        
-        //mettre le code pour rajouter à la BD
-        JOptionPane.showMessageDialog(null, "Dossier médical créé");
-        RecherchePatient rp = new RecherchePatient();
-        //rp.creerPatient(jTextFieldNom.getText(),jTextFieldPrenom.getText(), jFormattedTextFieldDateDeNaissance.getText(), "","", jFormattedTextFieldIpp.);
-        
-        
-        RechercherPatient rechercher = new RechercherPatient();
-        rechercher.setSize(this.getSize());
-        rechercher.setLocationRelativeTo(this);
-        this.dispose();
-        rechercher.setVisible(true);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String s = jFormattedTextFieldDateDeNaissance.getText();
+        Date d = new Date();
+        try {
+            d = sdf.parse(s);
+            String t = sdf.format(d);
+            if (t.compareTo(s) != 0) {
+                JOptionPane.showMessageDialog(null, "Date non valide");
+            } else {
+                //mettre le code pour rajouter à la BD
+                JOptionPane.showMessageDialog(null, "Dossier médical créé");
+                RecherchePatient rp = new RecherchePatient();
+                //rp.creerPatient(jTextFieldNom.getText(),jTextFieldPrenom.getText(), jFormattedTextFieldDateDeNaissance.getText(), "","", jFormattedTextFieldIpp.);
+
+                RechercherPatient rechercher = new RechercherPatient();
+                rechercher.setSize(this.getSize());
+                rechercher.setLocationRelativeTo(this);
+                this.dispose();
+                rechercher.setVisible(true);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Exception");
+        }
+
+
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
     private void jButtonPrecedent2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedent2ActionPerformed
@@ -345,7 +338,7 @@ public class CreerDM extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
                 new CreerDM(employe).setVisible(true);
             }
         });
@@ -355,13 +348,11 @@ public class CreerDM extends javax.swing.JFrame {
     private javax.swing.JButton jButtonPrecedent2;
     private javax.swing.JButton jButtonValider;
     private javax.swing.JFormattedTextField jFormattedTextFieldDateDeNaissance;
-    private javax.swing.JFormattedTextField jFormattedTextFieldIpp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1Prenom;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel2DateDeNaissance;
-    private javax.swing.JLabel jLabel2IPP;
     private javax.swing.JLabel jLabel2Nom;
     private javax.swing.JLabel jLabel2Service;
     private javax.swing.JLabel jLabel2Sexe;
@@ -370,7 +361,6 @@ public class CreerDM extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel3InfoPatient;
     private javax.swing.JTextField jTextField1Service;
-    private javax.swing.JTextField jTextFieldDatedn;
     private javax.swing.JTextField jTextFieldNom;
     private javax.swing.JTextField jTextFieldPrenom;
     private javax.swing.JTextField jTextFieldSexe;

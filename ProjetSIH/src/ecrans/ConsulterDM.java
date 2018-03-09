@@ -7,6 +7,7 @@ package ecrans;
 
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,8 +26,10 @@ public class ConsulterDM extends javax.swing.JFrame {
 
     private static ArrayList<String> employe;
     private static ArrayList<String> patient;
+    private  ArrayList<String> test; // ici ce sont les infos du patient
 
-   /* public ConsulterDM() {
+
+    /* public ConsulterDM() {
         initComponents();
         // test 
         ArrayList<String> pat = new ArrayList();// liste des infos que je récupère qui sera
@@ -46,34 +49,24 @@ public class ConsulterDM extends javax.swing.JFrame {
        // DM dmPat =p.getDpi().getMyDM();
        // dmPat.getResultats().toString();
     }*/
-
-    public ConsulterDM(ArrayList<String> employe ,ArrayList<String> patient) {
+    public ConsulterDM(ArrayList<String> employe, ArrayList<String> patient) {
         initComponents();
-        this.patient= patient;
-        this.employe=employe;
+        this.patient = patient;
+        this.employe = employe;
 
         jLabel1Nomp.setText(patient.get(0));
         jLabel2PrenomP.setText(patient.get(1));
         jLabel4DateP.setText(patient.get(2));
         jLabel3Sexep.setText(patient.get(3));
 
- 
-        /*DM dmPat = new DMMedical(p);//p.getDpi().getMyDM();
-        dmPat.getResultats().toString();
-        //dmPat.getPrescriptions().toString();
-        ArrayList<String> pat = new ArrayList();// liste des infos que je récupère
-        pat.add("Rdio du poumon gauche");
-        pat.add("Echographiede l'abdomen");
-
-        jScrollPane2ListePrescription.setBounds(0, 0, 930, 610);
-        jPanel4Prescriptions.setLayout(new GridLayout(50, 1));
-        for (int i = 0; i < 50; i++) {
-            for (String j : pat) {
-                jPanel4Prescriptions.add(new JButton(j));
+        test.add("Rdio du poumon gauche");
+        test.add("Echographiede l'abdomen");
+        DefaultListModel modele = new DefaultListModel();
+        for (String i : test) {
+                modele.addElement(i);
             }
-        }*/
-        //setSize(930, 610);//je redimensionne la fenetre
-        //setVisible(true);
+         jListObservation.setModel(modele);
+         jListPrescription.setModel(modele);
 
     }
 
@@ -112,8 +105,10 @@ public class ConsulterDM extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         Observations = new javax.swing.JLabel();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
+        jListObservation = new javax.swing.JList<String>();
         jPanel4Prescriptions = new javax.swing.JPanel();
         jScrollPane2ListePrescription = new javax.swing.JScrollPane();
+        jListPrescription = new javax.swing.JList<String>();
         jPanel4 = new javax.swing.JPanel();
         Prescriptio = new javax.swing.JLabel();
 
@@ -224,12 +219,13 @@ public class ConsulterDM extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3InfoPatient);
-        jPanel3InfoPatient.setBounds(0, 0, 700, 110);
+        jPanel3InfoPatient.setBounds(0, 0, 700, 113);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanelOperations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        Operations.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Operations.setText("Opérations");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -237,9 +233,8 @@ public class ConsulterDM extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(Operations, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addComponent(Operations, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 43, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,6 +266,7 @@ public class ConsulterDM extends javax.swing.JFrame {
 
         jPanel7Resultat.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        Prescriptio2.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Prescriptio2.setText("Résultats");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -278,9 +274,8 @@ public class ConsulterDM extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
                 .addComponent(Prescriptio2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 35, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,10 +291,10 @@ public class ConsulterDM extends javax.swing.JFrame {
             jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7ResultatLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3ListeResultats, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
-                .addGap(0, 22, Short.MAX_VALUE))
+                .addGroup(jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3ListeResultats, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 24, Short.MAX_VALUE))
         );
         jPanel7ResultatLayout.setVerticalGroup(
             jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,6 +307,7 @@ public class ConsulterDM extends javax.swing.JFrame {
 
         jPanel1Observations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        Observations.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Observations.setText("Observations");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -319,30 +315,36 @@ public class ConsulterDM extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
                 .addComponent(Observations)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(0, 44, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(Observations, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         jScrollPane1ListeObservations.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jListObservation.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1ListeObservations.setViewportView(jListObservation);
+
         javax.swing.GroupLayout jPanel1ObservationsLayout = new javax.swing.GroupLayout(jPanel1Observations);
         jPanel1Observations.setLayout(jPanel1ObservationsLayout);
         jPanel1ObservationsLayout.setHorizontalGroup(
             jPanel1ObservationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1ObservationsLayout.createSequentialGroup()
+            .addGroup(jPanel1ObservationsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1ObservationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1ListeObservations)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(jPanel1ObservationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1ListeObservations, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1ObservationsLayout.setVerticalGroup(
             jPanel1ObservationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,11 +353,19 @@ public class ConsulterDM extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1ListeObservations, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jPanel4Prescriptions.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jListPrescription.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2ListePrescription.setViewportView(jListPrescription);
+
+        Prescriptio.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Prescriptio.setText("Prescriptions");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -363,15 +373,14 @@ public class ConsulterDM extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(Prescriptio, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addComponent(Prescriptio, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 50, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Prescriptio, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Prescriptio, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4PrescriptionsLayout = new javax.swing.GroupLayout(jPanel4Prescriptions);
@@ -405,10 +414,10 @@ public class ConsulterDM extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1Observations, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelOperations, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanelOperations, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel7Resultat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6))
+                .addGap(33, 33, 33))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -462,7 +471,7 @@ public class ConsulterDM extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsulterDM(employe,patient).setVisible(true);
+                new ConsulterDM(employe, patient).setVisible(true);
             }
         });
     }
@@ -484,6 +493,8 @@ public class ConsulterDM extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3Sexep;
     private javax.swing.JLabel jLabel4DateP;
     private javax.swing.JLabel jLabel5ServiceP;
+    private javax.swing.JList<String> jListObservation;
+    private javax.swing.JList<String> jListPrescription;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1Observations;
     private javax.swing.JPanel jPanel3;

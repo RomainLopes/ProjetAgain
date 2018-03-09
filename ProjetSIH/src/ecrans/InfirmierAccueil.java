@@ -56,8 +56,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         jLabel2dateDeNAissancePatient.setText(patient.get(2));
         //jLabelSexePatient.setText(patient.get(3)); 
 
-        jScrollPane1ListeObservations.setVisible(false);
-        jScrollPane1ListeOperations.setVisible(false);
+
     }
 
     /**
@@ -485,7 +484,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
         // TODO add your handling code here:
-              ConsulterObservation obs = new ConsulterObservation();
+              ConsulterObservation obs = new ConsulterObservation(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

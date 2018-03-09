@@ -389,7 +389,7 @@ public class InterneAccueil extends javax.swing.JFrame {
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
         // TODO add your handling code here:
-        ConsulterObservation obs = new ConsulterObservation();
+        ConsulterObservation obs = new ConsulterObservation(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
