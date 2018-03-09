@@ -26,10 +26,11 @@ import projetsih.SMed;
  * @author romel
  */
 public class Identification extends javax.swing.JFrame {
+
     private PersonnelHospitalier ph;
-    
+
     private ArrayList<String> p;
-    private ArrayList<String> employe;
+    private ArrayList<String> phs;
 
     /**
      * Creates new form Connexion
@@ -39,6 +40,7 @@ public class Identification extends javax.swing.JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         //this.setPreferredSize(new Dimension(639, 473));
         //this.setResizable(false);
+        PersonnelHospitalier ph = new PersonnelHospitalier();
 
         pack();
         setVisible(true);
@@ -59,8 +61,8 @@ public class Identification extends javax.swing.JFrame {
         jLabelIdentifiant = new javax.swing.JLabel();
         jTextFieldIdentifiant = new javax.swing.JTextField();
         jLabelMdp = new javax.swing.JLabel();
-        jTextFieldMdp = new javax.swing.JTextField();
         jButtonValider = new javax.swing.JButton();
+        jTextFieldMdp = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -118,6 +120,8 @@ public class Identification extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldMdp.setText("jPasswordField1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -130,8 +134,9 @@ public class Identification extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonValider, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldMdp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jTextFieldMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonValider, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(136, 136, 136))
         );
         jPanel1Layout.setVerticalGroup(
@@ -142,12 +147,12 @@ public class Identification extends javax.swing.JFrame {
                     .addComponent(jTextFieldIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelIdentifiant))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelMdp))
-                .addGap(41, 41, 41)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelMdp)
+                    .addComponent(jTextFieldMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addComponent(jButtonValider, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -182,10 +187,8 @@ public class Identification extends javax.swing.JFrame {
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         RecherchePatient rp = new RecherchePatient();
-        PersonnelHospitalier ph = new PersonnelHospitalier();
         PersonnelHospitalierDAO phd = new PersonnelHospitalierDAO(BDDconnection.getInstance());
-        
-        
+
         if (jTextFieldIdentifiant.getText().equals("") | jTextFieldMdp.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe non renseigné");
 
@@ -197,11 +200,11 @@ public class Identification extends javax.swing.JFrame {
                 nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
                 // nPS est une liste de string renvoyant en indice 0 le nom, en indice 1 le prénom et 
                 // en indice 2 le service, en 3 la fonction du personnel se connectant
-                
-                employe=nPS; // pour garder en mémoire les infos du personnel
-                
+
+                phs = nPS; // pour garder en mémoire les infos du personnel nom prenom service fonction
+
                 boolean x = false;
-                if (x == true && nPS.get(3) == "Secretaire_Médicale" ) {
+                if (x == true && nPS.get(3) == "Secretaire_Médicale") {
 
                     //employe = new SMed(nPS.get(0), nPS.get(1), nPS.get(2),nPS.get(2) );
                     SmAccueil smed = new SmAccueil(ph);
@@ -209,7 +212,7 @@ public class Identification extends javax.swing.JFrame {
                     smed.setLocationRelativeTo(this);
                     this.dispose();
                     smed.setVisible(true);
-                } else if (x == true && nPS.get(3) == "Secretaire_Admin" ) {
+                } else if (x == false && nPS.get(3) == "Administration") {
 
                     //sa = new SAdm(nPS.get(0), nPS.get(1));
                     SaAccueil sadm = new SaAccueil(ph);
@@ -281,11 +284,11 @@ public class Identification extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelEnTete;
     private javax.swing.JTextField jTextFieldIdentifiant;
-    private javax.swing.JTextField jTextFieldMdp;
+    private javax.swing.JPasswordField jTextFieldMdp;
     // End of variables declaration//GEN-END:variables
 
     public ArrayList<String> getEmploye() {
-        return this.employe;
+        return this.phs;
     }
 
 }

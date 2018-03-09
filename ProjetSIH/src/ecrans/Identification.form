@@ -100,8 +100,10 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jTextFieldIdentifiant" min="-2" pref="129" max="-2" attributes="0"/>
-                      <Component id="jButtonValider" min="-2" pref="113" max="-2" attributes="0"/>
-                      <Component id="jTextFieldMdp" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                          <Component id="jTextFieldMdp" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonValider" min="-2" pref="113" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
               </Group>
@@ -116,13 +118,13 @@
                       <Component id="jLabelIdentifiant" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldMdp" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelMdp" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabelMdp" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldMdp" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="jButtonValider" min="-2" pref="51" max="-2" attributes="0"/>
-                  <EmptySpace pref="218" max="32767" attributes="0"/>
+                  <EmptySpace pref="221" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -149,8 +151,6 @@
             <Property name="text" type="java.lang.String" value="Mot de passe :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldMdp">
-        </Component>
         <Component class="javax.swing.JButton" name="jButtonValider">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -167,6 +167,11 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonValiderActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="jTextFieldMdp">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
