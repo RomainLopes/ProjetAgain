@@ -7,6 +7,7 @@ package GestionBDD;
 
 import java.sql.Connection;
 import GestionBDD.BDDconnection.*;
+import java.util.ArrayList;
 
 public abstract class DAO<T> {
         
@@ -43,5 +44,5 @@ public abstract class DAO<T> {
          * @param service
          * @return
          */
-        public abstract T find(String id, String service);
+        public abstract ArrayList<T> find(String id, String service);
 }

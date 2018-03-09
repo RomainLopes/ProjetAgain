@@ -8,6 +8,7 @@ package GestionBDD;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -100,8 +101,10 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
     }
 
     @Override
-    public PersonnelHospitalier find(String id, String service) {
+    public ArrayList<PersonnelHospitalier> find(String id, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
 
 }

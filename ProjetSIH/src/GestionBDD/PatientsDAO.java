@@ -12,6 +12,7 @@ import GestionBDD.Patients.*;
 import GestionBDD.Patients;
 import GestionBDD.DAO;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -53,8 +54,8 @@ public class PatientsDAO extends DAO<Patients> {
         return pat;
     }
     
-    public Patients find(String ipp, String service) {
-        Patients pat = new Patients();
+    public ArrayList<Patients> find(String ipp, String service) {
+        ArrayList<Patients> pat = new ArrayList<Patients>();
         String Query = new String();
         Query = "SELECT patients.* FROM patients INNER JOIN dossiermedical "
                 + "ON patients.ipp = dossiermedical.ipp  WHERE patients.ipp = '{" + ipp + "}' "
@@ -66,8 +67,8 @@ public class PatientsDAO extends DAO<Patients> {
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet result = state.executeQuery(Query);
 
-            if (result.next()) {
-                pat = new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe"));
+            while (result.next()) {
+                pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));
                 result.close();
                 state.close();
                 return pat;

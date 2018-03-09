@@ -8,6 +8,7 @@ package GestionBDD;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -40,8 +41,8 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
 
     }
 
-    public DossierMedicoAdministratif findser(String ipp, String nosejour, String service) {
-        DossierMedicoAdministratif dma = new DossierMedicoAdministratif();
+    public ArrayList<DossierMedicoAdministratif> findser(String ipp, String nosejour, String service) {
+        ArrayList<DossierMedicoAdministratif> dma = new ArrayList<DossierMedicoAdministratif>();
         String Query = new String();
         Query = "select * from dossiermedicoadministratif where ipp = '{" + ipp
                 + "}' and nosejour = '{" + nosejour + "}' and service = '"
@@ -53,8 +54,8 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet result = state.executeQuery(Query);
 
-            if (result.next()) {
-                dma = new DossierMedicoAdministratif(result.getString("ipp"), result.getString("nosejour"), result.getString("dateentree"), result.getString("nomphrespo"),result.getString("service"),result.getString("type"));
+            while (result.next()) {
+                dma.add(new DossierMedicoAdministratif(result.getString("ipp"), result.getString("nosejour"), result.getString("dateentree"), result.getString("nomphrespo"),result.getString("service"),result.getString("type")));
                 result.close();
                 state.close();
                 return dma;
@@ -79,7 +80,9 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
     }
 
     @Override
-    public DossierMedicoAdministratif find(String id, String service) {
+    public ArrayList<DossierMedicoAdministratif> find(String id, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
 }
