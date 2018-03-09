@@ -8,6 +8,7 @@ package GestionBDD;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -39,9 +40,9 @@ public class OperationsDAO extends DAO<Operations> {
 
     }
 
-    @Override
-    public Operations find(String ipp, String nosejour) {
-        Operations ope = new Operations();
+    
+    public ArrayList<Operations> find(String ipp, String nosejour) {
+        ArrayList<Operations> ope = new ArrayList<Operations>();
         String Query = new String();
         Query = "select * from operations where ipp = '{" + ipp
                 + "}' and nosejour = '{" + nosejour + "}'";
@@ -52,8 +53,8 @@ public class OperationsDAO extends DAO<Operations> {
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet result = state.executeQuery(Query);
 
-            if (result.next()) {
-                ope = new Operations(result.getString("ipp"), result.getString("nosejour"), result.getString("idph"), result.getString("dateOperation"), result.getString("operation"));
+            while (result.next()) {
+                ope.add(new Operations(result.getString("ipp"), result.getString("nosejour"), result.getString("idph"), result.getString("dateOperation"), result.getString("operation")));
                 result.close();
                 state.close();
                 return ope;

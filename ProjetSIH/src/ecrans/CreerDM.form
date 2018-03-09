@@ -180,15 +180,10 @@
                                           <Component id="jTextField1Service" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel2Nom" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                                              <Component id="jLabel2IPP" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jLabel2Nom" min="-2" pref="43" max="-2" attributes="0"/>
                                           <EmptySpace min="22" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jFormattedTextFieldIpp" min="-2" pref="63" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldNom" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jTextFieldNom" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -206,16 +201,10 @@
                                           <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                                           <Component id="jLabel2Sexe" min="-2" pref="43" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
-                                                  <Component id="jTextFieldDatedn" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="jTextFieldSexe" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jTextFieldSexe" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="114" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="207" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel1InfoPatients" min="-2" max="-2" attributes="0"/>
@@ -230,21 +219,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="jLabel1InfoPatients" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldDatedn" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel2IPP" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Component id="jFormattedTextFieldIpp" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <EmptySpace pref="49" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                                   <Component id="jLabel2Nom" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
@@ -313,14 +288,6 @@
                     <Property name="text" type="java.lang.String" value="Informations g&#xe9;n&#xe9;rales du patient "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel2IPP">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="12" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="IPP :"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldNom">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField1"/>
@@ -339,11 +306,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldSexeActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldDatedn">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField1"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldDateDeNaissance">
                   <Properties>
                     <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
@@ -355,13 +317,6 @@
                     <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="try{&#xa;&#xa;  MaskFormatter tel2 = new MaskFormatter(&quot;##-##-####&quot;);"/>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="}&#xa;catch(ParseException e){e.printStackTrace();}"/>
                   </AuxValues>
-                </Component>
-                <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldIpp">
-                  <Properties>
-                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                      <Format format="#0" subtype="-1" type="0"/>
-                    </Property>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel2Service">
                   <Properties>

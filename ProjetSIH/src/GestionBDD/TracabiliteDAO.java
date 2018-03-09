@@ -8,6 +8,7 @@ package GestionBDD;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -38,8 +39,8 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
 
     }
     
-    public Tracabilite findser(String ipp) {
-        Tracabilite tra = new Tracabilite();
+    public ArrayList<Tracabilite> findser(String ipp) {
+        ArrayList<Tracabilite> tra = new ArrayList<Tracabilite>();
         String Query = new String();
         Query = "select * from tracabilite where ipp = '{" + ipp
                 + "}'";
@@ -50,8 +51,8 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet result = state.executeQuery(Query);
 
-            if (result.next()) {
-                tra = new Tracabilite(result.getString("ipp"), result.getString("idph"), result.getString("dateconnection"));
+            while (result.next()) {
+                tra.add(new Tracabilite(result.getString("ipp"), result.getString("idph"), result.getString("dateconnection")));
                 result.close();
                 state.close();
                 return tra;
@@ -74,8 +75,10 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
     }
 
     @Override
-    public Tracabilite find(String id, String service) {
+    public ArrayList<Tracabilite> find(String id, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
 }

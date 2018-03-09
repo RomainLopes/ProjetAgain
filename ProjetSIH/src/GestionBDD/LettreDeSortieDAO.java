@@ -8,6 +8,7 @@ package GestionBDD;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -39,8 +40,8 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
     }
 
     
-    public LettreDeSortie find(String ipp) {
-        LettreDeSortie lds = new LettreDeSortie();
+    public ArrayList<LettreDeSortie> find(String ipp) {
+        ArrayList<LettreDeSortie> lds = new ArrayList<LettreDeSortie>();
         String Query = new String();
         Query = "select * from operations where ipp = '{" + ipp
                 + "}'";
@@ -51,8 +52,8 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet result = state.executeQuery(Query);
 
-            if (result.next()) {
-                lds = new LettreDeSortie(result.getString("ipp"), result.getString("idph"), result.getString("texte"));
+            while (result.next()) {
+                lds.add(new LettreDeSortie(result.getString("ipp"), result.getString("idph"), result.getString("texte")));
                 result.close();
                 state.close();
                 return lds;
@@ -75,8 +76,10 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
     }
 
     @Override
-    public LettreDeSortie find(String id, String service) {
+    public ArrayList<LettreDeSortie> find(String id, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
 }

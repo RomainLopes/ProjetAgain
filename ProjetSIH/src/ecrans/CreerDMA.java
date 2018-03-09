@@ -64,8 +64,6 @@ public class CreerDMA extends javax.swing.JFrame {
         jTextField4Sexe = new javax.swing.JTextField();
         jTextField4DDN1 = new javax.swing.JTextField();
         jTextField4Prenom = new javax.swing.JTextField();
-        jLabel2IPP = new javax.swing.JLabel();
-        jTextField1IPP = new javax.swing.JTextField();
         jLabel2Adresse = new javax.swing.JLabel();
         jLabel2Localisation = new javax.swing.JLabel();
         jTextFieldadresse = new javax.swing.JTextField();
@@ -125,11 +123,6 @@ public class CreerDMA extends javax.swing.JFrame {
 
         jTextField4Prenom.setText("jTextField1");
 
-        jLabel2IPP.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2IPP.setText("IPP :");
-
-        jTextField1IPP.setText("jTextField1");
-
         jLabel2Adresse.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2Adresse.setText("Adresse : ");
 
@@ -159,10 +152,7 @@ public class CreerDMA extends javax.swing.JFrame {
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                         .addComponent(jLabel1InfoPatients)
-                        .addGap(96, 96, 96)
-                        .addComponent(jLabel2IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1IPP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,11 +186,8 @@ public class CreerDMA extends javax.swing.JFrame {
         jPanel3InfoPatientLayout.setVerticalGroup(
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createSequentialGroup()
-                .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1InfoPatients)
-                    .addComponent(jLabel2IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1IPP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1InfoPatients)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 15, Short.MAX_VALUE)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,7 +279,7 @@ public class CreerDMA extends javax.swing.JFrame {
                 .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2CreationDMA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addContainerGap(234, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2);
@@ -323,7 +310,7 @@ public class CreerDMA extends javax.swing.JFrame {
                 .addComponent(jButtonPrecedent2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,7 +323,7 @@ public class CreerDMA extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 688, 100);
+        jPanel1.setBounds(0, 0, 720, 100);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -419,7 +406,6 @@ public class CreerDMA extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1Prenom;
     private javax.swing.JLabel jLabel2Adresse;
     private javax.swing.JLabel jLabel2DateDeNaissance;
-    private javax.swing.JLabel jLabel2IPP;
     private javax.swing.JLabel jLabel2Localisation;
     private javax.swing.JLabel jLabel2Nom;
     private javax.swing.JLabel jLabel2NomPH;
@@ -431,7 +417,6 @@ public class CreerDMA extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2CreationDMA;
     private javax.swing.JPanel jPanel3InfoPatient;
     private javax.swing.JScrollPane jScrollPane1ListePrestaMT;
-    private javax.swing.JTextField jTextField1IPP;
     private javax.swing.JTextField jTextField1NoSejour;
     private javax.swing.JTextField jTextField1Nom;
     private javax.swing.JTextField jTextField4DDN1;

@@ -8,6 +8,7 @@ package GestionBDD;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -38,8 +39,8 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
         }
     }
 
-    public Prescriptions findser(String ipp, String nosejour, String service) {
-        Prescriptions pre = new Prescriptions();
+    public ArrayList<Prescriptions> findser(String ipp, String nosejour, String service) {
+        ArrayList<Prescriptions> pre = new ArrayList<Prescriptions>();
         String Query = new String();
         Query = "select * from prescriptions where ipp = '{" + ipp
                 + "}' and nosejour = '{" + nosejour + "}' and service = '"
@@ -51,8 +52,8 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet result = state.executeQuery(Query);
 
-            if (result.next()) {
-                pre = new Prescriptions(result.getString("ipp"), result.getString("nosejour"), result.getString("idprescription"), result.getString("dateprescription"), result.getString("prescription"), result.getString("service"));
+            while (result.next()) {
+                pre.add(new Prescriptions(result.getString("ipp"), result.getString("nosejour"), result.getString("idprescription"), result.getString("dateprescription"), result.getString("prescription"), result.getString("service")));
                 result.close();
                 state.close();
                 return pre;
@@ -75,8 +76,10 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
     }
 
     @Override
-    public Prescriptions find(String id, String service) {
+    public ArrayList<Prescriptions> find(String id, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
 
 }
