@@ -24,9 +24,9 @@ public class DossierMedicoAdministratif {
      */
     private String dateentree = "";
     /**
-     * nomphrespo
+     * idph responsable
      */
-    private String nomphrespo = "";
+    private String idph = "";
     /**
      * type
      */
@@ -36,11 +36,11 @@ public class DossierMedicoAdministratif {
      */
     private String service = "";
 
-    public DossierMedicoAdministratif (String ipp,String nosejour,String dateentree,String nomphrespo,String type,String service ){
+    public DossierMedicoAdministratif (String ipp,String nosejour,String dateentree,String idph,String type,String service ){
         this.ipp=ipp;
         this.nosejour=nosejour;
         this.dateentree=dateentree;
-        this.nomphrespo=nomphrespo;
+        this.idph=idph;
         this.service=service;
         this.type=type;
     }
@@ -92,15 +92,15 @@ public class DossierMedicoAdministratif {
     /**
      * @return the nomphrespo
      */
-    public String getNomphrespo() {
-        return nomphrespo;
+    public String getIdph() {
+        return idph;
     }
 
     /**
-     * @param nomphrespo the nomphrespo to set
+     * @param idph the nomphrespo to set
      */
-    public void setNomphrespo(String nomphrespo) {
-        this.nomphrespo = nomphrespo;
+    public void setIdph(String idph) {
+        this.idph = idph;
     }
 
     /**

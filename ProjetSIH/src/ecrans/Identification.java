@@ -205,15 +205,14 @@ public class Identification extends javax.swing.JFrame {
             if (rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())) {
 
                 ph = phd.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-                ArrayList<String> nPS = new ArrayList<String>();
-                nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
+                //ArrayList<String> nPS = new ArrayList<String>();
+                //nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
                 // nPS est une liste de string renvoyant en indice 0 le nom, en indice 1 le prénom et 
                 // en indice 2 le service, en 3 la fonction du personnel se connectant
+                //phs = nPS; // pour garder en mémoire les infos du personnel nom prenom service fonction
 
-                phs = nPS; // pour garder en mémoire les infos du personnel nom prenom service fonction
-
-                boolean x = false;
-                if (x == true && nPS.get(3) == "Secretaire_Médicale") {
+                boolean x = true;
+                if (x == true && ph.getFonction() == "Secretaire_Médicale") {
 
                     //employe = new SMed(nPS.get(0), nPS.get(1), nPS.get(2),nPS.get(2) );
                     SmAccueil smed = new SmAccueil(ph);
@@ -221,7 +220,7 @@ public class Identification extends javax.swing.JFrame {
                     smed.setLocationRelativeTo(this);
                     this.dispose();
                     smed.setVisible(true);
-                } else if (x == false && nPS.get(3) == "Administration") {
+                } else if (x == true && ph.getFonction() == "Administration") {
 
                     //sa = new SAdm(nPS.get(0), nPS.get(1));
                     SaAccueil sadm = new SaAccueil(ph);

@@ -15,6 +15,10 @@ public class LettreDeSortie {
      * ipp
      */
     private String ipp = "";
+     /**
+     * nosejour
+     */
+    private String nosejour;
     /**
      * idph
      */
@@ -22,12 +26,13 @@ public class LettreDeSortie {
      /**
      * texte
      */
-    private String texte = "";
+    private String lettre = "";
 
-    public LettreDeSortie (String ipp,String idph,String texte){
+    public LettreDeSortie (String ipp,String nosejour,String idph,String lettre){
         this.ipp=ipp;
+        this.nosejour=nosejour;
         this.idph=idph;
-        this.texte=texte;
+        this.lettre=lettre;
     }
     
     public LettreDeSortie () {}
@@ -61,17 +66,31 @@ public class LettreDeSortie {
     }
 
     /**
-     * @return the texte
+     * @return the nosejour
      */
-    public String getTexte() {
-        return texte;
+    public String getNosejour() {
+        return nosejour;
     }
 
     /**
-     * @param texte the texte to set
+     * @param nosejour the nosejour to set
      */
-    public void setTexte(String texte) {
-        this.texte = texte;
+    public void setNosejour(String nosejour) {
+        this.nosejour = nosejour;
     }
-    
+
+    /**
+     * @return the lettre
+     */
+    public String getLettre() {
+        return lettre;
+    }
+
+    /**
+     * @param lettre the lettre to set
+     */
+    public void setLettre(String lettre) {
+        this.lettre = lettre;
+    }
+
 }

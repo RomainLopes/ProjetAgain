@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 /**
  *
  * @author lisad

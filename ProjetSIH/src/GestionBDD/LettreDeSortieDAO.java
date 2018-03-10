@@ -23,9 +23,9 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
     @Override
     public boolean create(LettreDeSortie obj) {
         String Query = new String();
-        Query = "insert into operations (ipp,idph,texte) "
-                + "values ('{" + obj.getIpp() + "}','{" + obj.getIdph() + "}','"
-                + obj.getTexte() + "')";
+        Query = "insert into lettredesortie (ipp,nosejour,idph,lettre) "
+                + "values ('{" + obj.getIpp() + "}','{" + obj.getNosejour() + "}','"
+                + obj.getIdph() + "}','" + obj.getLettre() + "')";
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -39,12 +39,11 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
 
     }
 
-    
-    public ArrayList<LettreDeSortie> find(String ipp) {
+    public ArrayList<LettreDeSortie> find(String ipp, String nosejour) {
         ArrayList<LettreDeSortie> lds = new ArrayList<LettreDeSortie>();
         String Query = new String();
-        Query = "select * from operations where ipp = '{" + ipp
-                + "}'";
+        Query = "select * from lettredesortie where ipp = '{" + ipp
+                + "}' and nosejour = '{" + nosejour + "}'";
 
         try {
 
@@ -53,7 +52,7 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
             ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
-                lds.add(new LettreDeSortie(result.getString("ipp"), result.getString("idph"), result.getString("texte")));
+                lds.add(new LettreDeSortie(result.getString("ipp"), result.getString("nosejour"), result.getString("idph"), result.getString("lettre")));
                 result.close();
                 state.close();
                 return lds;
@@ -75,11 +74,4 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public ArrayList<LettreDeSortie> find(String id, String service) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
-    
 }
