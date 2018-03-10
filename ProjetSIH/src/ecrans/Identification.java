@@ -38,9 +38,10 @@ public class Identification extends javax.swing.JFrame {
     public Identification() {
         initComponents();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        //this.setPreferredSize(new Dimension(639, 473));
-        //this.setResizable(false);
+        this.setPreferredSize(new Dimension(639, 473));
+        this.setResizable(false);
         PersonnelHospitalier ph = new PersonnelHospitalier();
+        jTextFieldMdp.setText("");
 
         pack();
         setVisible(true);
@@ -212,19 +213,24 @@ public class Identification extends javax.swing.JFrame {
 
                 phs = nPS; // pour garder en mémoire les infos du personnel nom prenom service fonction
 
-                boolean x = false;
-                if (x == true && nPS.get(3) == "Secretaire_Médicale") {
+                if (phs.get(3) == "Secrétaire Médicale") {
 
                     //employe = new SMed(nPS.get(0), nPS.get(1), nPS.get(2),nPS.get(2) );
-                    SmAccueil smed = new SmAccueil(ph);
+                    /* SmAccueil smed = new SmAccueil(ph);
                     smed.setSize(this.getSize());
                     smed.setLocationRelativeTo(this);
                     this.dispose();
-                    smed.setVisible(true);
-                } else if (x == false && nPS.get(3) == "Administration") {
+                    smed.setVisible(true);*/
+                    RechercherPatient rechercher = new RechercherPatient(ph);
+                    rechercher.setSize(this.getSize());
+                    rechercher.setLocationRelativeTo(this);
+                    this.dispose();
+                    rechercher.setVisible(true);
+                } else if (phs.get(3) == "Praticien Hospitalier") {
 
                     //sa = new SAdm(nPS.get(0), nPS.get(1));
                     SaAccueil sadm = new SaAccueil(ph);
+                    
                     sadm.setSize(this.getSize());
                     sadm.setLocationRelativeTo(this);
                     this.dispose();
@@ -233,16 +239,22 @@ public class Identification extends javax.swing.JFrame {
                     //Fonction fonction=  Fonction.Interne; // remplacer fonction par nPS.get(3)
 
                     //employe = new PMedical( nPS.get(0), nPS.get(1), nPS.get(2), nPS.get(3));
-                    RechercherPatient rechercher = new RechercherPatient(ph);
+                    /*RechercherPatient rechercher = new RechercherPatient(ph);
                     rechercher.setSize(this.getSize());
                     rechercher.setLocationRelativeTo(this);
                     this.dispose();
-                    rechercher.setVisible(true);
+                    rechercher.setVisible(true);*/
+                    SmAccueil smed = new SmAccueil(ph);
+                    smed.setSize(this.getSize());
+                    smed.setLocationRelativeTo(this);
+                    this.dispose();
+                    smed.setVisible(true);
                 }
 
-            } else {
-                JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe incorrect");
             }
+            /*else {
+                JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe incorrect");
+            }*/
         }
         //rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
     }//GEN-LAST:event_jButtonValiderActionPerformed

@@ -68,14 +68,14 @@ public class ConsulterDMA extends javax.swing.JFrame {
         DMA = new javax.swing.JPanel();
         listech = new javax.swing.JLabel();
         jScrollPane1ListeSejour = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<String>();
+        jList1 = new javax.swing.JList<>();
         jLabel1Nosejour = new javax.swing.JLabel();
         jLabel2Type = new javax.swing.JLabel();
         jLabel3Date = new javax.swing.JLabel();
         jScrollPane2ListeType = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<String>();
+        jList2 = new javax.swing.JList<>();
         jScrollPane3ListeDate = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<String>();
+        jList3 = new javax.swing.JList<>();
         jLabel1Prenom = new javax.swing.JLabel();
         jLabel2DateDeNaissance = new javax.swing.JLabel();
         jLabel2PrenomP = new javax.swing.JLabel();
@@ -175,10 +175,10 @@ public class ConsulterDMA extends javax.swing.JFrame {
         DMA.add(listech);
         listech.setBounds(12, 99, 350, 41);
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1ListeSejour.setViewportView(jList1);
 
@@ -200,20 +200,20 @@ public class ConsulterDMA extends javax.swing.JFrame {
         DMA.add(jLabel3Date);
         jLabel3Date.setBounds(420, 160, 86, 27);
 
-        jList2.setModel(new javax.swing.AbstractListModel() {
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2ListeType.setViewportView(jList2);
 
         DMA.add(jScrollPane2ListeType);
         jScrollPane2ListeType.setBounds(224, 196, 111, 92);
 
-        jList3.setModel(new javax.swing.AbstractListModel() {
+        jList3.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane3ListeDate.setViewportView(jList3);
 

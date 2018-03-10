@@ -5,17 +5,29 @@
  */
 package ecrans;
 
+import GestionBDD.Patients;
+import GestionBDD.PersonnelHospitalier;
+import GestionBDD.RecherchePatient;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author lisad
  */
 public class Tracabilite extends javax.swing.JFrame {
+     private static PersonnelHospitalier employe;
+    private static Patients patient;
+    ArrayList<String> p;
 
     /**
      * Creates new form Tracabilite
      */
     public Tracabilite() {
         initComponents();
+        p=new ArrayList<String>();
     }
 
     /**
@@ -209,6 +221,7 @@ public class Tracabilite extends javax.swing.JFrame {
         for (String i : resultatAffiche) {
             modele.addElement(i);
         }
+        JList jListpatients= new JList();
         jListpatients.setModel(modele);
 
         ArrayList<String> infoPatient = new ArrayList<String>();
@@ -233,7 +246,7 @@ public class Tracabilite extends javax.swing.JFrame {
             //SMed employe= new SMed(fenetrePrecedente.getEmploye().getNom(),fenetrePrecedente.getEmploye().getPrenom(),fenetrePrecedente.getEmploye().getService())
             //  this.employe= fenetrePrecedente.getEmploye();
             JOptionPane.showMessageDialog(null, "Dossier médical existant");
-            ConsulterDM sadm = new ConsulterDM(med,p);
+            ConsulterDM sadm = new ConsulterDM(employe,patient);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
@@ -241,7 +254,7 @@ public class Tracabilite extends javax.swing.JFrame {
 
         } else if (x == true/* fonction == Fonction.Secretaire_admin*/) {
 
-            ConsulterDMA sadm = new ConsulterDMA(med,p);
+            ConsulterDMA sadm = new ConsulterDMA(employe,patient);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
@@ -249,7 +262,7 @@ public class Tracabilite extends javax.swing.JFrame {
 
         } else if (x == true/* fonction == Fonction.Interne*/) {
 
-            InterneAccueil inte = new InterneAccueil(med,p);
+            InterneAccueil inte = new InterneAccueil(employe,patient);
             inte.setSize(this.getSize());
             inte.setLocationRelativeTo(this);
             this.dispose();
@@ -257,7 +270,7 @@ public class Tracabilite extends javax.swing.JFrame {
 
         } else if (x == true/* fonction == Fonction.Infirmier*/) {
 
-            InfirmierAccueil inte = new InfirmierAccueil(med,p);
+            InfirmierAccueil inte = new InfirmierAccueil(employe,patient);
             inte.setSize(this.getSize());
             inte.setLocationRelativeTo(this);
             this.dispose();
@@ -265,28 +278,28 @@ public class Tracabilite extends javax.swing.JFrame {
         } else { // pH
             if (x == true/* pH.service.getType()=="Clinique"*/) {
 
-                MedClinAccueil inte = new MedClinAccueil(med,p);
+                MedClinAccueil inte = new MedClinAccueil(employe,patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
             } else if (x == true/* pH.service.getNom()=="Radiologie"*/) {
 
-                MedRadioAccueil inte = new MedRadioAccueil(med,p);
+                MedRadioAccueil inte = new MedRadioAccueil(employe,patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
             } else if (x == true/* pH.service.getNom()=="Anesthésie"*/) {
 
-                MedAnestAccueil inte = new MedAnestAccueil(med,p);
+                MedAnestAccueil inte = new MedAnestAccueil(employe,patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
             } else if (x == true/* pH.service.getType()=="Médico-technique"*/) {
 
-                MedTechAccueil inte = new MedTechAccueil(med,p);
+                MedTechAccueil inte = new MedTechAccueil(employe,patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();

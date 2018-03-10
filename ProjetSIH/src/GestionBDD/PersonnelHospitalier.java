@@ -44,7 +44,7 @@ public class PersonnelHospitalier {
         this.service = service;
         this.fonction = fonction;
     }
-
+   
     public PersonnelHospitalier() {
     }
 
