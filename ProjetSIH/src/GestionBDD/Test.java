@@ -46,16 +46,41 @@ public class Test {
         System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getService());
         */
         
-        
+        /*
         LettreDeSortieDAO dmadao = new LettreDeSortieDAO(BDDconnection.getInstance());
         ArrayList<LettreDeSortie> dm = dmadao.find("180000001","180100001");
         if (!dm.isEmpty()){
             System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getLettre());
         }
         System.out.println("is empty");
+        */
         
+        /*
+        ObservationsDAO dmadao = new ObservationsDAO(BDDconnection.getInstance());
+        ArrayList<Observations> dm = dmadao.findser("180000003","180200003","Urologie");
+        if (!dm.isEmpty()){
+            System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getResume());
+        }
+        System.out.println("is empty");
+        */
         
+        /*
+        OperationsDAO dmadao = new OperationsDAO(BDDconnection.getInstance());
+        ArrayList<Operations> dm = dmadao.find("180000003","180200002");
+        if (!dm.isEmpty()){
+            System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getOperation());
+        }
+        System.out.println("is empty");
+        */
         
+        /*
+        OperationsDAO dmadao = new OperationsDAO(BDDconnection.getInstance());
+        ArrayList<Operations> dm = dmadao.find("180000003","180200002");
+        if (!dm.isEmpty()){
+            System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getOperation());
+        }
+        System.out.println("is empty");
+        */
         
         /*
         DossierMedical pat = new DossierMedical();

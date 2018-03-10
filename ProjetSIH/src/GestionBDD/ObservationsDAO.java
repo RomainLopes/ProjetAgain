@@ -23,7 +23,7 @@ public class ObservationsDAO extends DAO<Observations> {
     @Override
     public boolean create(Observations obj) {
         String Query = new String();
-        Query = "insert into operations (ipp,nosejour,service,dateObservation,idph,nomacte,resume ) "
+        Query = "insert into observation (ipp,nosejour,service,dateObservation,idph,nomacte,resume ) "
                 + "values ('{" + obj.getIpp() + "}','{" + obj.getNosejour() + "}','"
                 + obj.getService() + "','" + obj.getDateObservation()
                 + "','" + obj.getIdph() + "','" + obj.getNomacte()
@@ -44,7 +44,7 @@ public class ObservationsDAO extends DAO<Observations> {
     public ArrayList<Observations> findser(String ipp, String nosejour, String service) {
         ArrayList<Observations> obs = new ArrayList<Observations>();
         String Query = new String();
-        Query = "select * from observations where ipp = '{" + ipp
+        Query = "select * from observation where ipp = '{" + ipp
                 + "}' and nosejour = '{" + nosejour + "}' and service = '"
                 + service + "'";
 
