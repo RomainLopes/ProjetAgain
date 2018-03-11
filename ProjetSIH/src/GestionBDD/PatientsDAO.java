@@ -7,13 +7,10 @@ package GestionBDD;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import GestionBDD.Patients.*;
 import GestionBDD.Patients;
 import GestionBDD.DAO;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  *
@@ -29,8 +26,8 @@ public class PatientsDAO extends DAO<Patients> {
         Patients pat = new Patients();
         String Query = new String();
         Query = "insert into patients (ipp,nompatient,prenompatient,datedenaissance,localisation,adresse,sexe) "
-                + "values ('{" + obj.getIpp() + "}','" + obj.getNompatient() + "','" + obj.getPrenompatient() 
-                + "','" + obj.getDateDeNaissance() + "','" + obj.getLocalisation() + "','" + obj.getAdresse() 
+                + "values ('{" + obj.getIpp() + "}','" + obj.getNompatient() + "','" + obj.getPrenompatient()
+                + "','" + obj.getDateDeNaissance() + "','" + obj.getLocalisation() + "','" + obj.getAdresse()
                 + "','" + obj.getSexe() + "')";
         try {
             Connection conn = this.connect;
@@ -42,18 +39,18 @@ public class PatientsDAO extends DAO<Patients> {
             e.printStackTrace();
             return false;
         }
-        
+
     }
 
     public boolean delete(Patients obj) {
         return false;
     }
 
-    public Patients find(int ipp){
+    public Patients find(int ipp) {
         Patients pat = new Patients();
         return pat;
     }
-    
+
     public ArrayList<Patients> find(String ipp, String service) {
         ArrayList<Patients> pat = new ArrayList<Patients>();
         String Query = new String();
@@ -79,12 +76,11 @@ public class PatientsDAO extends DAO<Patients> {
         }
         return pat;
     }
-    
+
     public ArrayList<Patients> findipp(String ipp) {
         ArrayList<Patients> pat = new ArrayList<Patients>();
         String Query = new String();
         Query = "SELECT * FROM patients WHERE patients.ipp = '{" + ipp + "}' ";
-               
 
         try {
 
@@ -104,7 +100,6 @@ public class PatientsDAO extends DAO<Patients> {
         }
         return pat;
     }
-
 
     public boolean update(Patients obj) {
         Patients pat = new Patients();

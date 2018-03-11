@@ -27,6 +27,7 @@ public class Test {
         ArrayList<Patients> patients = PatientsDAO.find("180000001", "Cardiologie");
         System.out.println(patients.get(0).getNompatient() +"   " + patients.get(0).getPrenompatient());
          */ //Test find(String ipp, string service) OK
+        
         /*
         Patients pat = new Patients();
         pat = new Patients(  ipp  , "1","2","10-10-1990","4","5","6");
@@ -96,10 +97,11 @@ public class Test {
         System.out.println("is empty");
         }
          */
+ 
         TracabiliteDAO dmadao = new TracabiliteDAO(BDDconnection.getInstance());
         ArrayList<Tracabilite> dm = dmadao.findser("180000001");
         if (!dm.isEmpty()) {
-            System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getDateconnection());
+            System.out.println(dm.get(0).getNompatient() + "   " + dm.get(0).getNomph()+ "   " + dm.get(0).getDateconnection());
         } else {
             System.out.println("is empty");
         }

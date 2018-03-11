@@ -23,6 +23,27 @@ public class Tracabilite {
      * idph
      */
     private String dateconnection = "";
+    /**
+     * nompatient
+     */
+    private String nompatient = "";
+    /**
+     * prenompatient
+     */
+    private String prenompatient = "";
+    /**
+     * nomph
+     */
+    private String nomph = "";
+    /**
+     * prenomph
+     */
+    private String prenomph = "";
+    /**
+     * fonction
+     */
+    private String fonction = "";
+
 /**
  * 
  * @param ipp
@@ -34,6 +55,17 @@ public class Tracabilite {
         this.idph = idph;
         this.dateconnection = dateconnection;
     }
+    
+    public Tracabilite(String nompatient, String prenompatient, String nomph,String prenomph, String fonction, String dateconnection) {
+        this.nompatient = nompatient;
+        this.prenompatient = prenompatient;
+        this.nomph = nomph;
+        this.nompatient = prenomph;
+        this.prenompatient = fonction;
+        this.dateconnection = dateconnection;
+    }
+    
+    
 
     public Tracabilite(){}
     
@@ -77,6 +109,76 @@ public class Tracabilite {
      */
     public void setDateconnection(String dateconnection) {
         this.dateconnection = dateconnection;
+    }
+
+    /**
+     * @return the nompatient
+     */
+    public String getNompatient() {
+        return nompatient;
+    }
+
+    /**
+     * @param nompatient the nompatient to set
+     */
+    public void setNompatient(String nompatient) {
+        this.nompatient = nompatient;
+    }
+
+    /**
+     * @return the prenompatient
+     */
+    public String getPrenompatient() {
+        return prenompatient;
+    }
+
+    /**
+     * @param prenompatient the prenompatient to set
+     */
+    public void setPrenompatient(String prenompatient) {
+        this.prenompatient = prenompatient;
+    }
+
+    /**
+     * @return the nomph
+     */
+    public String getNomph() {
+        return nomph;
+    }
+
+    /**
+     * @param nomph the nomph to set
+     */
+    public void setNomph(String nomph) {
+        this.nomph = nomph;
+    }
+
+    /**
+     * @return the prenomph
+     */
+    public String getPrenomph() {
+        return prenomph;
+    }
+
+    /**
+     * @param prenomph the prenomph to set
+     */
+    public void setPrenomph(String prenomph) {
+        this.prenomph = prenomph;
+    }
+
+    /**
+     * @return the fonction
+     */
+    public String getFonction() {
+        return fonction;
+    }
+
+    /**
+     * @param fonction the fonction to set
+     */
+    public void setFonction(String fonction) {
+        this.fonction = fonction;
     }
     /**
      * dateconnection
