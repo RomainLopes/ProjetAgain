@@ -79,6 +79,31 @@ public class PatientsDAO extends DAO<Patients> {
         }
         return pat;
     }
+    
+    public ArrayList<Patients> findipp(String ipp) {
+        ArrayList<Patients> pat = new ArrayList<Patients>();
+        String Query = new String();
+        Query = "SELECT * FROM patients WHERE patients.ipp = '{" + ipp + "}' ";
+               
+
+        try {
+
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet result = state.executeQuery(Query);
+
+            while (result.next()) {
+                pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));
+                result.close();
+                state.close();
+                return pat;
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return pat;
+    }
 
 
     public boolean update(Patients obj) {
