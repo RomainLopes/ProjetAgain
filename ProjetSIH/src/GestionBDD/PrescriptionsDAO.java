@@ -23,7 +23,7 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
     @Override
     public boolean create(Prescriptions obj) {
         String Query = new String();
-        Query = "insert into prescriptions (ipp,nosejour,idprescription,dateprescription,prescription,service) "
+        Query = "insert into prescription (ipp,nosejour,idprescription,dateprescription,prescription,service) "
                 + "values ('{" + obj.getIpp() + "}','{" + obj.getNosejour() + "}','"
                 + obj.getIdprescription() + "','" + obj.getDateprescription()
                 + "','" + obj.getPrescription() + "','" + obj.getService() + "')";
@@ -42,7 +42,7 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
     public ArrayList<Prescriptions> findser(String ipp, String nosejour, String service) {
         ArrayList<Prescriptions> pre = new ArrayList<Prescriptions>();
         String Query = new String();
-        Query = "select * from prescriptions where ipp = '{" + ipp
+        Query = "select * from prescription where ipp = '{" + ipp
                 + "}' and nosejour = '{" + nosejour + "}' and service = '"
                 + service + "'";
 

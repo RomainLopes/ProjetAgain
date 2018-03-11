@@ -42,8 +42,8 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
     public ArrayList<Tracabilite> findser(String ipp) {
         ArrayList<Tracabilite> tra = new ArrayList<Tracabilite>();
         String Query = new String();
-        Query = "select * from tracabilite where ipp = '{" + ipp
-                + "}'";
+        Query = "select * from tracabilite where ipp = '" + ipp
+                + "'";
 
         try {
 
