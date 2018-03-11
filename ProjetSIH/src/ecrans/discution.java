@@ -34,9 +34,18 @@ public class discution extends javax.swing.JFrame {
      */
     ArrayList<String> pat = new ArrayList();
     ArrayList<String> patients = new ArrayList();
+    
+    String ja, jaN;
+    
 
     public discution() {
         initComponents();
+        ja= "{bonjour je m'appelle orphee}";
+ jaN=ja.substring(1, ja.length()-1);
+      /* for (int i=1; i< ja.length();i++){
+           jaN+= ja.charAt(i);
+       }*/
+        System.out.println(jaN);
         
         patients.add("patient n°1");
         patients.add("patient n°2");
@@ -77,6 +86,7 @@ public class discution extends javax.swing.JFrame {
         jList1.setModel(modele);
 jList2.setModel(modele);
         // setSize(930, 610);//je redimensionne la fenetre
+       
     }
 
     /**
@@ -222,6 +232,13 @@ jList2.setModel(modele);
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
         //if 
+       essaiEncore ia = new essaiEncore(jList1.getSelectedValue());
+        //DossierMedical dm = new DossierMedical();
+        ia.setSize(this.getSize());
+        ia.setLocationRelativeTo(this);
+        this.dispose();
+        ia.setVisible(true);
+        
     }//GEN-LAST:event_jList1MouseClicked
 
     private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
@@ -231,7 +248,7 @@ jList2.setModel(modele);
     private void jButtonOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOkActionPerformed
         // TODO add your handling code here:
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+      /*  SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String s = jFormattedTextField1.getText();
         Date d = new Date();
         try {
@@ -244,7 +261,8 @@ jList2.setModel(modele);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Exception");
-        }
+        }*/
+      
     }//GEN-LAST:event_jButtonOkActionPerformed
 
     /**

@@ -23,9 +23,9 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
     @Override
     public boolean create(DossierMedicoAdministratif obj) {
         String Query = new String();
-        Query = "insert into dossiermedicoadministratif (ipp,nosejour,dateentree,nomphrespo,type,service) "
+        Query = "insert into dma (ipp,nosejour,dateentree,idph,type,service) "
                 + "values ('{" + obj.getIpp() + "}','{" + obj.getNosejour() + "}','"
-                + obj.getDateentree() + "','" + obj.getNomphrespo()
+                + obj.getDateentree() + "','" + obj.getIdph()
                 + "','" + obj.getType() + "','" + obj.getService()  
                 + "')";
         try {
@@ -44,7 +44,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
     public ArrayList<DossierMedicoAdministratif> findser(String ipp, String nosejour, String service) {
         ArrayList<DossierMedicoAdministratif> dma = new ArrayList<DossierMedicoAdministratif>();
         String Query = new String();
-        Query = "select * from dossiermedicoadministratif where ipp = '{" + ipp
+        Query = "select * from dma where ipp = '{" + ipp
                 + "}' and nosejour = '{" + nosejour + "}' and service = '"
                 + service + "'";
 
@@ -55,7 +55,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
             ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
-                dma.add(new DossierMedicoAdministratif(result.getString("ipp"), result.getString("nosejour"), result.getString("dateentree"), result.getString("nomphrespo"),result.getString("service"),result.getString("type")));
+                dma.add(new DossierMedicoAdministratif(result.getString("ipp"), result.getString("nosejour"), result.getString("dateentree"), result.getString("idph"),result.getString("service"),result.getString("type")));
                 result.close();
                 state.close();
                 return dma;

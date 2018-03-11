@@ -39,7 +39,7 @@ public class Identification extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setPreferredSize(new Dimension(639, 473));
-        this.setResizable(false);
+        //this.setResizable(false);
         PersonnelHospitalier ph = new PersonnelHospitalier();
         jTextFieldMdp.setText("");
 
@@ -206,27 +206,24 @@ public class Identification extends javax.swing.JFrame {
             if (rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())) {
 
                 ph = phd.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-                ArrayList<String> nPS = new ArrayList<String>();
-                nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
+                //ArrayList<String> nPS = new ArrayList<String>();
+                //nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
                 // nPS est une liste de string renvoyant en indice 0 le nom, en indice 1 le prénom et 
                 // en indice 2 le service, en 3 la fonction du personnel se connectant
+                //phs = nPS; // pour garder en mémoire les infos du personnel nom prenom service fonction
 
-                phs = nPS; // pour garder en mémoire les infos du personnel nom prenom service fonction
-
-                if (phs.get(3) == "Secrétaire Médicale") {
+                boolean x = true;
+               // System.out.println(ph.getFonction());
+                
+                if (x == true && "Secretaire medicale".equals(ph.getFonction())) {
 
                     //employe = new SMed(nPS.get(0), nPS.get(1), nPS.get(2),nPS.get(2) );
-                    /* SmAccueil smed = new SmAccueil(ph);
+                    SmAccueil smed = new SmAccueil(ph);
                     smed.setSize(this.getSize());
                     smed.setLocationRelativeTo(this);
                     this.dispose();
-                    smed.setVisible(true);*/
-                    RechercherPatient rechercher = new RechercherPatient(ph);
-                    rechercher.setSize(this.getSize());
-                    rechercher.setLocationRelativeTo(this);
-                    this.dispose();
-                    rechercher.setVisible(true);
-                } else if (phs.get(3) == "Praticien Hospitalier") {
+                    smed.setVisible(true);
+                } else if (x == true && "Administration".equals(ph.getFonction())) {
 
                     //sa = new SAdm(nPS.get(0), nPS.get(1));
                     SaAccueil sadm = new SaAccueil(ph);
@@ -239,16 +236,11 @@ public class Identification extends javax.swing.JFrame {
                     //Fonction fonction=  Fonction.Interne; // remplacer fonction par nPS.get(3)
 
                     //employe = new PMedical( nPS.get(0), nPS.get(1), nPS.get(2), nPS.get(3));
-                    /*RechercherPatient rechercher = new RechercherPatient(ph);
+                    RechercherPatient rechercher = new RechercherPatient(ph);
                     rechercher.setSize(this.getSize());
                     rechercher.setLocationRelativeTo(this);
                     this.dispose();
-                    rechercher.setVisible(true);*/
-                    SmAccueil smed = new SmAccueil(ph);
-                    smed.setSize(this.getSize());
-                    smed.setLocationRelativeTo(this);
-                    this.dispose();
-                    smed.setVisible(true);
+                    rechercher.setVisible(true);
                 }
 
             }

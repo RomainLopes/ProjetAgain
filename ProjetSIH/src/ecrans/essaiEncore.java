@@ -14,8 +14,11 @@ public class essaiEncore extends javax.swing.JFrame {
     /**
      * Creates new form essaiEncore
      */
-    public essaiEncore() {
+    private static String exp;
+    public essaiEncore(String m) {
         initComponents();
+        exp=m;
+        jLabel1.setText(m);
     }
 
     /**
@@ -36,7 +39,6 @@ public class essaiEncore extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("mauvais id ou mdp");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -45,14 +47,14 @@ public class essaiEncore extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(658, Short.MAX_VALUE))
+                .addContainerGap(746, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(461, Short.MAX_VALUE))
+                .addContainerGap(475, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,7 +101,7 @@ public class essaiEncore extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new essaiEncore().setVisible(true);
+                new essaiEncore(exp).setVisible(true);
             }
         });
     }

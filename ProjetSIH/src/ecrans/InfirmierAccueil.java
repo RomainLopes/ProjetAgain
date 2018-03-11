@@ -51,7 +51,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         
         jLabelNomInf.setText(personnel.getNomph());
         jLabelPrenomInf.setText(personnel.getPrenomph());
-        jLabelFonction.setText(personnel.getFonction());
+       // jLabelFonction.setText(personnel.getFonction());
         jLabelService.setText(personnel.getService());
 
         jLabel3NomPatient.setText(patient.getNompatient());

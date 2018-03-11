@@ -36,7 +36,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
         jLabelFonction.setText(personnel.getFonction());
         jLabelService.setText(personnel.getService()); 
         
-          jLabel1Nomp.setText(patient.getNompatient());
+        jLabel1Nomp.setText(patient.getNompatient());
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());

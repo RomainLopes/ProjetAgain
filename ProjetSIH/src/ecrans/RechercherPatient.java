@@ -33,15 +33,14 @@ public class RechercherPatient extends javax.swing.JFrame {
     private static PersonnelHospitalier phr;
     private static ArrayList<String> med;
     private static ArrayList<String> p;
-    
-    private static Patients patient;
 
+    private static Patients patient;
 
     public RechercherPatient(PersonnelHospitalier ph) {
         //RecherchePatient rp = new RecherchePatient();
         //med = nps;
         initComponents();
-        phr=ph;
+        phr = ph;
 
         jLabelNom.setText(ph.getNomph());
         jLabelPrenom.setText(ph.getPrenomph());
@@ -70,10 +69,9 @@ public class RechercherPatient extends javax.swing.JFrame {
         jLabelFonction.setText(employe.getFonction().toString());
         jLabelService.setText(employe.getService().toString()); 
     }*/
-   /* public RechercherPatient() {
+ /* public RechercherPatient() {
         initComponents();
     }*/
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -97,8 +95,9 @@ public class RechercherPatient extends javax.swing.JFrame {
         jButtonRechercher = new javax.swing.JButton();
         jTextFieldNom = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListpatients = new javax.swing.JList<String>();
+        jListpatients = new javax.swing.JList<>();
         jTextFieldPrenom = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -180,7 +179,7 @@ public class RechercherPatient extends javax.swing.JFrame {
         );
 
         getContentPane().add(JPanelEnTeteMedTech);
-        JPanelEnTeteMedTech.setBounds(0, 0, 706, 108);
+        JPanelEnTeteMedTech.setBounds(0, 0, 704, 108);
 
         jPanel1RecherchePatient.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -203,10 +202,10 @@ public class RechercherPatient extends javax.swing.JFrame {
             }
         });
 
-        jListpatients.setModel(new javax.swing.AbstractListModel() {
+        jListpatients.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListpatients.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -221,6 +220,13 @@ public class RechercherPatient extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1RecherchePatientLayout = new javax.swing.GroupLayout(jPanel1RecherchePatient);
         jPanel1RecherchePatient.setLayout(jPanel1RecherchePatientLayout);
         jPanel1RecherchePatientLayout.setHorizontalGroup(
@@ -228,7 +234,9 @@ public class RechercherPatient extends javax.swing.JFrame {
             .addGroup(jPanel1RecherchePatientLayout.createSequentialGroup()
                 .addGap(209, 209, 209)
                 .addComponent(jButtonRechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(91, 91, 91))
             .addGroup(jPanel1RecherchePatientLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,7 +272,9 @@ public class RechercherPatient extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35)
-                .addComponent(jButtonRechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonRechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
 
@@ -275,18 +285,19 @@ public class RechercherPatient extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-         Identification id = new Identification();
-                    id.setSize(this.getSize());
-                    id.setLocationRelativeTo(this);
-                    this.dispose();
-                    id.setVisible(true);
+        Identification id = new Identification();
+        id.setSize(this.getSize());
+        id.setLocationRelativeTo(this);
+        this.dispose();
+        id.setVisible(true);
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
         // TODO add your handling code here:
         RecherchePatient rp = new RecherchePatient();
-        
-        
+                PatientsDAO patd = new PatientsDAO(BDDconnection.getInstance());
+
+
         ArrayList<String> resultatRecherche = new ArrayList<String>();
         ArrayList<String> resultatAffiche = new ArrayList<String>();
         /*
@@ -295,6 +306,10 @@ public class RechercherPatient extends javax.swing.JFrame {
         resultatRecherche = rp.recherchePatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
         for (int i = 0; i < resultatRecherche.size(); i += 2) {
             resultatAffiche.add(resultatRecherche.get(i));
+        }
+                     System.out.println ("test de recherche"); 
+        for (String i : resultatRecherche) {
+            System.out.println(i);
         }
         /*
         System.out.println(" après recherche ");
@@ -308,8 +323,11 @@ public class RechercherPatient extends javax.swing.JFrame {
         ArrayList<String> infoPatient = new ArrayList<String>();
         infoPatient = rp.enTetePatient(resultatRecherche.get(1));
         p = infoPatient;
-        //this.p= new Patient(infoPatient.get(0),infoPatient.get(1),infoPatient.get(2));
+        int ipp= Integer.parseInt(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length()-1));
+        System.out.println(ipp);
+        patient= patd.find(ipp);
 
+        
         for (int i = 0; i < infoPatient.size(); i++) {
             System.out.println(infoPatient.get(i) + " \t \n");
         }
@@ -318,75 +336,8 @@ public class RechercherPatient extends javax.swing.JFrame {
                 for (int i = 1; i <= nPS.size(); i++) {
                     System.out.println(nPS.get(i) + " \t \n");
                 }*/
-        boolean x = false;
-        if (x == true/* fonction == Fonction.Secretaire_Médicale*/) {
-            Identification f = new Identification();
-            //this.fenetrePrecedente= new SmAccueil(f);
 
-            //SMed smed= new SMed(nPS.get(0), nPS.get(1), nPS.get(2));
-            //SMed employe= new SMed(fenetrePrecedente.getEmploye().getNom(),fenetrePrecedente.getEmploye().getPrenom(),fenetrePrecedente.getEmploye().getService())
-            //  this.employe= fenetrePrecedente.getEmploye();
-            JOptionPane.showMessageDialog(null, "Dossier médical existant");
-            ConsulterDM sadm = new ConsulterDM(phr,patient);
-            sadm.setSize(this.getSize());
-            sadm.setLocationRelativeTo(this);
-            this.dispose();
-            sadm.setVisible(true);
 
-        } else if (x == true/* fonction == Fonction.Secretaire_admin*/) {
-
-            ConsulterDMA sadm = new ConsulterDMA(phr,patient);
-            sadm.setSize(this.getSize());
-            sadm.setLocationRelativeTo(this);
-            this.dispose();
-            sadm.setVisible(true);
-
-        } else if (x == true/* fonction == Fonction.Interne*/) {
-
-            InterneAccueil inte = new InterneAccueil(phr,patient);
-            inte.setSize(this.getSize());
-            inte.setLocationRelativeTo(this);
-            this.dispose();
-            inte.setVisible(true);
-
-        } else if (x == true/* fonction == Fonction.Infirmier*/) {
-
-            InfirmierAccueil inte = new InfirmierAccueil(phr,patient);
-            inte.setSize(this.getSize());
-            inte.setLocationRelativeTo(this);
-            this.dispose();
-            inte.setVisible(true);
-        } else { // pH
-            if (x == true/* pH.service.getType()=="Clinique"*/) {
-
-                MedClinAccueil inte = new MedClinAccueil(phr,patient);
-                inte.setSize(this.getSize());
-                inte.setLocationRelativeTo(this);
-                this.dispose();
-                inte.setVisible(true);
-            } else if (x == true/* pH.service.getNom()=="Radiologie"*/) {
-
-                MedRadioAccueil inte = new MedRadioAccueil(phr,patient);
-                inte.setSize(this.getSize());
-                inte.setLocationRelativeTo(this);
-                this.dispose();
-                inte.setVisible(true);
-            } else if (x == true/* pH.service.getNom()=="Anesthésie"*/) {
-
-                MedAnestAccueil inte = new MedAnestAccueil(phr,patient);
-                inte.setSize(this.getSize());
-                inte.setLocationRelativeTo(this);
-                this.dispose();
-                inte.setVisible(true);
-            } else if (x == true/* pH.service.getType()=="Médico-technique"*/) {
-
-                MedTechAccueil inte = new MedTechAccueil(phr,patient);
-                inte.setSize(this.getSize());
-                inte.setLocationRelativeTo(this);
-                this.dispose();
-                inte.setVisible(true);
-            }
-        }
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
@@ -404,13 +355,104 @@ public class RechercherPatient extends javax.swing.JFrame {
 
     private void jListpatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListpatientsMouseClicked
         // TODO add your handling code here:
-        InfirmierAccueil ia = new InfirmierAccueil(phr,patient);
-        //DossierMedical dm = new DossierMedical();
-        ia.setSize(this.getSize());
-        ia.setLocationRelativeTo(this);
-        this.dispose();
-        ia.setVisible(true);
+        
+        boolean x=true;
+        if (x == true && "Secretaire medicale".equals(phr.getFonction())) {
+            //JOptionPane.showMessageDialog(null, "Dossier médical existant");
+
+            ConsulterDM sadm = new ConsulterDM(phr, patient);
+            sadm.setSize(this.getSize());
+            sadm.setLocationRelativeTo(this);
+            this.dispose();
+            sadm.setVisible(true);
+
+        } else if (x == true && "Administration".equals(phr.getFonction())) {
+            
+              System.out.println("****************************** TEST *****************");
+            System.out.println(phr.getFonction());
+                        System.out.println("/n)");
+
+            System.out.println(patient.getNompatient());
+                                    System.out.println("/n)");
+
+            System.out.println(patient.getSexe());
+                                    System.out.println("/n)");
+
+            System.out.println("****************************** TEST *****************");
+
+            ConsulterDMA sadm = new ConsulterDMA(phr, patient);
+            sadm.setSize(this.getSize());
+            sadm.setLocationRelativeTo(this);
+            this.dispose();
+            sadm.setVisible(true);
+
+        } else if (x == true && "Interne".equals(phr.getFonction())) {
+
+            InterneAccueil inte = new InterneAccueil(phr, patient);
+            inte.setSize(this.getSize());
+            inte.setLocationRelativeTo(this);
+            this.dispose();
+            inte.setVisible(true);
+
+        } else if (x == true&& "Infirmier".equals(phr.getFonction())) {
+
+            InfirmierAccueil inte = new InfirmierAccueil(phr, patient);
+            inte.setSize(this.getSize());
+            inte.setLocationRelativeTo(this);
+            this.dispose();
+            inte.setVisible(true);
+        } else { // pH
+            if (x == true&& "Clinique".equals(phr.getService())) { // ajouter le .getType()
+
+                MedClinAccueil inte = new MedClinAccueil(phr, patient);
+                inte.setSize(this.getSize());
+                inte.setLocationRelativeTo(this);
+                this.dispose();
+                inte.setVisible(true);
+            } else if (x == true/* pH.service.getNom()=="Radiologie"*/) {
+
+                MedRadioAccueil inte = new MedRadioAccueil(phr, patient);
+                inte.setSize(this.getSize());
+                inte.setLocationRelativeTo(this);
+                this.dispose();
+                inte.setVisible(true);
+            } else if (x == true/* pH.service.getNom()=="Anesthésie"*/) {
+
+                MedAnestAccueil inte = new MedAnestAccueil(phr, patient);
+                inte.setSize(this.getSize());
+                inte.setLocationRelativeTo(this);
+                this.dispose();
+                inte.setVisible(true);
+            } else if (x == true/* pH.service.getType()=="Médico-technique"*/) {
+
+                MedTechAccueil inte = new MedTechAccueil(phr, patient);
+                inte.setSize(this.getSize());
+                inte.setLocationRelativeTo(this);
+                this.dispose();
+                inte.setVisible(true);
+            }
+        }
+
+        
+        
+        
     }//GEN-LAST:event_jListpatientsMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        boolean x = true;
+if (x == true && "Administration".equals(phr.getFonction())){
+    
+      System.out.println("****************************** TEST *****************");
+            System.out.println(phr.getFonction() +"/n");
+            System.out.println(patient.getNompatient() +"/n");
+            System.out.println(patient.getSexe() +"/n");
+            System.out.println("****************************** TEST *****************");
+
+        }
+       
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -458,6 +500,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelEnTeteMedTech;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JButton jButtonRechercher;
