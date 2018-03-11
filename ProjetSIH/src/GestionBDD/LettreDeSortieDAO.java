@@ -43,7 +43,7 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
         ArrayList<LettreDeSortie> lds = new ArrayList<LettreDeSortie>();
         String Query = new String();
         Query = "select * from lettredesortie where ipp = '{" + ipp
-                + "}' and nosejour = '{" + nosejour + "}'";
+                + "}' and nosejour = '" + nosejour + "'";
 
         try {
 

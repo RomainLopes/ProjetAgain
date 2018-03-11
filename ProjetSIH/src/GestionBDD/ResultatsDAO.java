@@ -23,7 +23,7 @@ public class ResultatsDAO extends DAO<Resultats> {
     @Override
     public boolean create(Resultats obj) {
         String Query = new String();
-        Query = "insert into operations (ipp,nosejour,idPrescription,service,dateResultat,resultat) "
+        Query = "insert into resultat (ipp,nosejour,idPrescription,service,dateResultat,resultat) "
                 + "values ('{" + obj.getIpp() + "}','{" + obj.getNosejour() + "}','"
                 + obj.getIdPrescription() + "','" + obj.getService()
                 + "','" + obj.getDateResultat() + "','" + obj.getResultat() + "')";
@@ -53,7 +53,7 @@ public class ResultatsDAO extends DAO<Resultats> {
     public ArrayList<Resultats> find(String ipp, String nosejour) {
         ArrayList<Resultats> res = new ArrayList<Resultats>();
         String Query = new String();
-        Query = "select * from resultats where ipp = '{" + ipp
+        Query = "select * from resultat where ipp = '{" + ipp
                 + "}' and nosejour = '{" + nosejour + "}'";
 
         try {

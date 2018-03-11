@@ -59,11 +59,11 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
                 result.close();
                 state.close();
                 return dm;
-
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
         return dm;
     }
 

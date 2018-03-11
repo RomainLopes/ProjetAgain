@@ -23,7 +23,7 @@ public class OperationsDAO extends DAO<Operations> {
     @Override
     public boolean create(Operations obj) {
         String Query = new String();
-        Query = "insert into operations (ipp,nosejour,idph,dateOperation,operation) "
+        Query = "insert into operation (ipp,nosejour,idph,dateOperation,operation) "
                 + "values ('{" + obj.getIpp() + "}','{" + obj.getNosejour() + "}','"
                 + obj.getIdph() + "','" + obj.getDateOperation()
                 + "','" + obj.getOperation() + "')";
@@ -44,7 +44,7 @@ public class OperationsDAO extends DAO<Operations> {
     public ArrayList<Operations> find(String ipp, String nosejour) {
         ArrayList<Operations> ope = new ArrayList<Operations>();
         String Query = new String();
-        Query = "select * from operations where ipp = '{" + ipp
+        Query = "select * from operation where ipp = '{" + ipp
                 + "}' and nosejour = '{" + nosejour + "}'";
 
         try {
