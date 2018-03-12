@@ -23,8 +23,8 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
     @Override
     public boolean create(Tracabilite obj) {
         String Query = new String();
-        Query = "insert into Tracabilite (ipp,idph,dateconnection) "
-                + "values ('{" + obj.getIpp() + "}','{" + obj.getIdph() + "}','"
+        Query = "insert into Tracabilite (ipp,idph,dateconnexion) "
+                + "values ('{" + obj.getIpp() + "}','" + obj.getIdph() + "','"
                 + obj.getDateconnection() + "')";
         try {
             Connection conn = this.connect;
@@ -38,12 +38,16 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
         }
 
     }
-    
+
     public ArrayList<Tracabilite> findser(String ipp) {
         ArrayList<Tracabilite> tra = new ArrayList<Tracabilite>();
         String Query = new String();
-        Query = "select * from tracabilite where ipp = '" + ipp
-                + "'";
+        Query = "SELECT patients.nompatient, patients.prenompatient, personnelhospitalier.nomph, personnelhospitalier.prenomph, personnelhospitalier.fonction, tracabilite.dateconnexion"
+                + " FROM tracabilite INNER JOIN personnelhospitalier "
+                + " ON tracabilite.idph = personnelhospitalier.id "
+                + " INNER JOIN patients "
+                + " ON tracabilite.ipp = patients.ipp "
+                + " WHERE tracabilite.ipp = '{" + ipp + "}'";
 
         try {
 
@@ -52,7 +56,7 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
             ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
-                tra.add(new Tracabilite(result.getString("ipp"), result.getString("idph"), result.getString("dateconnection")));
+                tra.add(new Tracabilite(result.getString("nompatient"), result.getString("prenompatient"), result.getString("nomph"), result.getString("prenomph"), result.getString("fonction"), result.getString("dateconnexion")));
                 result.close();
                 state.close();
                 return tra;
@@ -79,6 +83,4 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
-    
 }

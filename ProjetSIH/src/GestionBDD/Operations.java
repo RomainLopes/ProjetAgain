@@ -24,19 +24,19 @@ public class Operations {
      */
     private String idph = "";
     /**
-     * dateOperation
+     * dateoperation
      */
-    private String dateOperation = "";
+    private String dateoperation = "";
     /**
      * operation
      */
     private String operation = "";
 
-    public Operations (String ipp,String nosejour,String idph,String dateOperation,String operation){
+    public Operations (String ipp,String nosejour,String idph,String dateoperation,String operation){
         this.ipp=ipp;
         this.nosejour=nosejour;
         this.idph=idph;
-        this.dateOperation=dateOperation;
+        this.dateoperation=dateoperation;
         this.operation=operation;
     }
     
@@ -87,15 +87,15 @@ public class Operations {
     /**
      * @return the dateOperation
      */
-    public String getDateOperation() {
-        return dateOperation;
+    public String getDateoperation() {
+        return dateoperation;
     }
 
     /**
-     * @param dateOperation the dateOperation to set
+     * @param dateoperation the dateOperation to set
      */
-    public void setDateOperation(String dateOperation) {
-        this.dateOperation = dateOperation;
+    public void setDateoperation(String dateoperation) {
+        this.dateoperation = dateoperation;
     }
 
     /**

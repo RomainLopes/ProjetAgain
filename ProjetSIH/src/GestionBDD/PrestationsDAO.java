@@ -24,7 +24,7 @@ public class PrestationsDAO extends DAO<Prestations> {
     public boolean create(Prestations obj) {
         String Query = new String();
         Query = "insert into prestation (ipp,nosejour,datePrestation,service,prestation) "
-                + "values ('{" + obj.getIpp() + "}','{" + obj.getNosejour() + "}','"
+                + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getDatePrestation() + "','" + obj.getService()
                 + "','" + obj.getPrestation() + "')";
         try {
@@ -54,7 +54,7 @@ public class PrestationsDAO extends DAO<Prestations> {
         ArrayList<Prestations> pre = new ArrayList<Prestations>();
         String Query = new String();
         Query = "select * from prestation where ipp = '{" + ipp
-                + "}' and nosejour = '{" + nosejour + "}'";
+                + "}' and nosejour = '" + nosejour + "'";
 
         try {
 

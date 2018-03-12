@@ -24,7 +24,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
     public boolean create(DossierMedicoAdministratif obj) {
         String Query = new String();
         Query = "insert into dma (ipp,nosejour,dateentree,idph,type,service) "
-                + "values ('{" + obj.getIpp() + "}','{" + obj.getNosejour() + "}','"
+                + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getDateentree() + "','" + obj.getIdph()
                 + "','" + obj.getType() + "','" + obj.getService()  
                 + "')";
@@ -45,7 +45,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
         ArrayList<DossierMedicoAdministratif> dma = new ArrayList<DossierMedicoAdministratif>();
         String Query = new String();
         Query = "select * from dma where ipp = '{" + ipp
-                + "}' and nosejour = '{" + nosejour + "}' and service = '"
+                + "}' and nosejour = '" + nosejour + "' and service = '"
                 + service + "'";
 
         try {
@@ -55,7 +55,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
             ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
-                dma.add(new DossierMedicoAdministratif(result.getString("ipp"), result.getString("nosejour"), result.getString("dateentree"), result.getString("idph"),result.getString("service"),result.getString("type")));
+                dma.add(new DossierMedicoAdministratif(result.getString("ipp"), result.getString("nosejour"), result.getString("dateentree"), result.getString("idph"),result.getString("type"),result.getString("service")));
                 result.close();
                 state.close();
                 return dma;

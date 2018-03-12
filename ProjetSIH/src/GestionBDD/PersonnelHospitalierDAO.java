@@ -24,7 +24,7 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
     public boolean create(PersonnelHospitalier obj) {
         String Query = new String();
         Query = "insert into personnelhospitalier (nomph,prenomph,id,mdp,service,fonction) "
-                + "values ('{" + obj.getNomph() + "}','{" + obj.getPrenomph() + "}','"
+                + "values ('" + obj.getNomph() + "','" + obj.getPrenomph() + "','"
                 + obj.getId() + "','" + obj.getMdp() + "','" + obj.getService()
                 + "','" + obj.getFonction() + "')";
         try {
@@ -43,7 +43,7 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
     public PersonnelHospitalier connex(String id, String mdp) {
         PersonnelHospitalier ph = new PersonnelHospitalier();
         String QueryId = new String();
-        QueryId = "SELECT * FROM personnelhospitalier WHERE personnelhospitalier.id = '" + id + "' and personnelhospitalier.mdp = '" + mdp + "'"; // WHERE personnelmedical.id = '" + id + "'
+        QueryId = "SELECT * FROM personnelhospitalier WHERE personnelhospitalier.id = '" + id + "' and personnelhospitalier.mdp = '" + mdp + "'"; 
 
         try {
 

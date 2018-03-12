@@ -37,10 +37,10 @@ public class Prescriptions {
     private String service = "";
 
     public Prescriptions (String ipp,String nosejour,String idprescription,String dateprescription,String prescription,String service) {
-        this.dateprescription=dateprescription;
-        this.idprescription=idprescription;
         this.ipp=ipp;
         this.nosejour=nosejour;
+        this.idprescription=idprescription;
+        this.dateprescription=dateprescription;
         this.prescription=prescription;
         this.service=service;
     }

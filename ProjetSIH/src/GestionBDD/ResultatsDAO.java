@@ -23,10 +23,11 @@ public class ResultatsDAO extends DAO<Resultats> {
     @Override
     public boolean create(Resultats obj) {
         String Query = new String();
-        Query = "insert into resultat (ipp,nosejour,idPrescription,service,dateResultat,resultat) "
-                + "values ('{" + obj.getIpp() + "}','{" + obj.getNosejour() + "}','"
-                + obj.getIdPrescription() + "','" + obj.getService()
-                + "','" + obj.getDateResultat() + "','" + obj.getResultat() + "')";
+        Query = "insert into resultat (ipp,nosejour,idPrescription,service,prestationmt,dateResultat,resultat) "
+                + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
+                + obj.getIdPrescription() + "','" + obj.getService() + "','"
+                + obj.getPrestationmt() + "','" + obj.getDateResultat() 
+                + "','" + obj.getResultat() + "')";
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -63,7 +64,7 @@ public class ResultatsDAO extends DAO<Resultats> {
             ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
-                res.add(new Resultats(result.getString("ipp"), result.getString("nosejour"), result.getString("idPrescription"), result.getString("service"), result.getString("dateResultat"), result.getString("resultat")));
+                res.add(new Resultats(result.getString("ipp"), result.getString("nosejour"), result.getString("idPrescription"), result.getString("service"), result.getString("prestationmt"), result.getString("dateResultat"), result.getString("resultat")));
                 result.close();
                 state.close();
                 return res;

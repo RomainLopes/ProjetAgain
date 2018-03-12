@@ -22,17 +22,17 @@ public class Observations {
     /**
      * service
      */
-    private String service = "";
+    private String idph = "";
     /**
-     * dateObservation
+     * nomacte
      */
     private String dateObservation = "";
     /**
      * idph
      */
-    private String idph = "";
+    private String service = "";
     /**
-     * nomacte
+     * dateObservation
      */
     private String nomacte = "";
     /**
@@ -40,12 +40,12 @@ public class Observations {
      */
     private String resume = "";
 
-    public Observations(String ipp, String nosejour, String service, String dateObservation, String idph, String nomacte, String resume) {
+    public Observations(String ipp, String nosejour, String idph, String dateObservation, String service, String nomacte, String resume) {
         this.ipp = ipp;
-        this.service = service;
         this.nosejour = nosejour;
-        this.dateObservation = dateObservation;
         this.idph = idph;
+        this.dateObservation = dateObservation;
+        this.service = service;
         this.nomacte = nomacte;
         this.resume = resume;
 
