@@ -24,7 +24,7 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
     public boolean create(Prescriptions obj) {
         String Query = new String();
         Query = "insert into prescription (ipp,nosejour,idprescription,dateprescription,prescription,service) "
-                + "values ('{" + obj.getIpp() + "}','{" + obj.getNosejour() + "}','"
+                + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getIdprescription() + "','" + obj.getDateprescription()
                 + "','" + obj.getPrescription() + "','" + obj.getService() + "')";
         try {
@@ -43,7 +43,7 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
         ArrayList<Prescriptions> pre = new ArrayList<Prescriptions>();
         String Query = new String();
         Query = "select * from prescription where ipp = '{" + ipp
-                + "}' and nosejour = '{" + nosejour + "}' and service = '"
+                + "}' and nosejour = '" + nosejour + "' and service = '"
                 + service + "'";
 
         try {

@@ -23,8 +23,8 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
     @Override
     public boolean create(DossierMedical obj) {
         String Query = new String();
-        Query = "insert into operations (ipp,nosejour,service,correspondance) "
-                + "values ('{" + obj.getIpp() + "}','{" + obj.getNosejour() + "}','"
+        Query = "insert into dossiermedical (ipp,nosejour,service,correspondance) "
+                + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getService() + "','" + obj.getCorrespondance()
                 + "')";
         try {
@@ -45,7 +45,7 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
         ArrayList<DossierMedical> dm = new ArrayList<DossierMedical>();
         String Query = new String();
         Query = "select * from dossiermedical where ipp = '{" + ipp
-                + "}' and nosejour = '{" + nosejour + "}' and service = '"
+                + "}' and nosejour = '" + nosejour + "' and service = '"
                 + service + "'";
 
         try {

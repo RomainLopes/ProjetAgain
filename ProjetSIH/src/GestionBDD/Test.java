@@ -27,7 +27,6 @@ public class Test {
         ArrayList<Patients> patients = PatientsDAO.find("180000001", "Cardiologie");
         System.out.println(patients.get(0).getNompatient() +"   " + patients.get(0).getPrenompatient());
          */ //Test find(String ipp, string service) OK
-        
         /*
         Patients pat = new Patients();
         pat = new Patients(  ipp  , "1","2","10-10-1990","4","5","6");
@@ -97,7 +96,7 @@ public class Test {
         System.out.println("is empty");
         }
          */
- 
+ /*
         TracabiliteDAO dmadao = new TracabiliteDAO(BDDconnection.getInstance());
         ArrayList<Tracabilite> dm = dmadao.findser("180000001");
         if (!dm.isEmpty()) {
@@ -105,13 +104,31 @@ public class Test {
         } else {
             System.out.println("is empty");
         }
-
-        /*
+         */
+ /*
         DossierMedical pat = new DossierMedical();
-        pat = new DossierMedical("", "1","2","10-10-1990");
+        pat = new DossierMedical("180000006", "180100002","Urologie ","");
         DAO<DossierMedical> DossierMedicalDAO = new DossierMedicalDAO(BDDconnection.getInstance());
         DossierMedicalDAO.create(pat);
          */
+ /*
+        DossierMedicoAdministratif pat = new DossierMedicoAdministratif();
+        pat = new DossierMedicoAdministratif("180000006", "180100002","01-05-2018","PH0001","Consultation","Cardiologie");
+        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        DossierMedicoAdministratifDAO.create(pat);
+         */
+ /*
+        LettreDeSortie pat = new LettreDeSortie();
+        pat = new LettreDeSortie("180000006", "180100002","PH0001","j autorise ma patiente a sortir...");
+        DAO<LettreDeSortie> LettreDeSortieDAO = new LettreDeSortieDAO(BDDconnection.getInstance());
+        LettreDeSortieDAO.create(pat);
+         */
+ 
+        Observations pat = new Observations();
+       // pat = new Observations("180000006", "180100002","01-05-2018","PH0001","Consultation","Cardiologie");
+        DAO<Observations> ObservationsDAO = new ObservationsDAO(BDDconnection.getInstance());
+        ObservationsDAO.create(pat);
+         
     }
 
 }

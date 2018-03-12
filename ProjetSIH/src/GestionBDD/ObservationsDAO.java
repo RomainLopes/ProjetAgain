@@ -24,7 +24,7 @@ public class ObservationsDAO extends DAO<Observations> {
     public boolean create(Observations obj) {
         String Query = new String();
         Query = "insert into observation (ipp,nosejour,service,dateObservation,idph,nomacte,resume ) "
-                + "values ('{" + obj.getIpp() + "}','{" + obj.getNosejour() + "}','"
+                + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getService() + "','" + obj.getDateObservation()
                 + "','" + obj.getIdph() + "','" + obj.getNomacte()
                 + "','" + obj.getResume() + "')";

@@ -9,17 +9,9 @@ import GestionBDD.BDDconnection;
 import GestionBDD.PersonnelHospitalier;
 import GestionBDD.PersonnelHospitalierDAO;
 import GestionBDD.RecherchePatient;
-import GestionBDD.RecherchePatient.*;
-import java.awt.Dimension;
 import java.util.ArrayList;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JOptionPane;
-import projetsih.Fonction;
-import projetsih.PHospitalier;
-
-import projetsih.Patient;
-import projetsih.SAdm;
-import projetsih.SMed;
 
 /**
  *

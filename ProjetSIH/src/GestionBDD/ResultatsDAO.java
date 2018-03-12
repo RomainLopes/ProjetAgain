@@ -24,7 +24,7 @@ public class ResultatsDAO extends DAO<Resultats> {
     public boolean create(Resultats obj) {
         String Query = new String();
         Query = "insert into resultat (ipp,nosejour,idPrescription,service,dateResultat,resultat) "
-                + "values ('{" + obj.getIpp() + "}','{" + obj.getNosejour() + "}','"
+                + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getIdPrescription() + "','" + obj.getService()
                 + "','" + obj.getDateResultat() + "','" + obj.getResultat() + "')";
         try {

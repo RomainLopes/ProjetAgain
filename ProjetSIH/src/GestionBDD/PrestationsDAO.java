@@ -54,7 +54,7 @@ public class PrestationsDAO extends DAO<Prestations> {
         ArrayList<Prestations> pre = new ArrayList<Prestations>();
         String Query = new String();
         Query = "select * from prestation where ipp = '{" + ipp
-                + "}' and nosejour = '{" + nosejour + "}'";
+                + "}' and nosejour = '" + nosejour + "'";
 
         try {
 
