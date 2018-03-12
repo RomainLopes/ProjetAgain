@@ -23,16 +23,82 @@ public class Test {
         // TODO code application logic here
 
         /*
-        DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
-        ArrayList<Patients> patients = PatientsDAO.find("180000001", "Cardiologie");
-        System.out.println(patients.get(0).getNompatient() +"   " + patients.get(0).getPrenompatient());
-         */ //Test find(String ipp, string service) OK
-        /*
+        DossierMedical pat = new DossierMedical();
+        pat = new DossierMedical("180000006", "180100002","Urologie ","");
+        DAO<DossierMedical> DossierMedicalDAO = new DossierMedicalDAO(BDDconnection.getInstance());
+        DossierMedicalDAO.create(pat);
+         */
+ /*
+        DossierMedicoAdministratif pat = new DossierMedicoAdministratif();
+        pat = new DossierMedicoAdministratif("180000006", "180100002","01-05-2018","PH0001","Consultation","Cardiologie");
+        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        DossierMedicoAdministratifDAO.create(pat);
+         */
+ /*
+        LettreDeSortie pat = new LettreDeSortie();
+        pat = new LettreDeSortie("180000006", "180100002","PH0001","j autorise ma patiente a sortir...");
+        DAO<LettreDeSortie> LettreDeSortieDAO = new LettreDeSortieDAO(BDDconnection.getInstance());
+        LettreDeSortieDAO.create(pat);
+         */
+ /*
+        Observations pat = new Observations();
+        pat = new Observations("185000002", "180300006","PH0001","03-13-2018","Cardiologie","Consultation classique","Lors de la consultation, ma patiente n a presenté aucun signe clinique inquiétant. ");
+        DAO<Observations> ObservationsDAO = new ObservationsDAO(BDDconnection.getInstance());
+        ObservationsDAO.create(pat);
+         */
+ /*
+        Operations pat = new Operations();
+        pat = new Operations("180000002", "180300006","IN0001","03-13-2018","ECG");
+        DAO<Operations> OperationsDAO = new OperationsDAO(BDDconnection.getInstance());
+        OperationsDAO.create(pat);
+         */
+ /*
         Patients pat = new Patients();
         pat = new Patients(  ipp  , "1","2","10-10-1990","4","5","6");
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
         PatientsDAO.create(pat);
-         */ // test create ça marche !!
+         */
+ /*
+        PersonnelHospitalier pat = new PersonnelHospitalier();
+        pat = new PersonnelHospitalier("Mac", "Arena","PH0008","tchatcha51","Urgence","Praticien Hospitalier");
+        DAO<PersonnelHospitalier> PersonnelHospitalierDAO = new PersonnelHospitalierDAO(BDDconnection.getInstance());
+        PersonnelHospitalierDAO.create(pat);
+         */
+ /*
+        Prescriptions pat = new Prescriptions();
+        pat = new Prescriptions("180000002", "180300006","P180300001","03-13-2018","ECG","Cardiologie");
+        DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
+        PrescriptionsDAO.create(pat);
+         */
+ /*
+        Prestations pat = new Prestations();
+        pat = new Prestations("180000006", "180200008", "02-22-2018", "Cardiologie", "Radiologie du coeur");
+        DAO<Prestations> PrestationsDAO = new PrestationsDAO(BDDconnection.getInstance());
+        PrestationsDAO.create(pat);
+         */
+
+ /*
+        Resultats pat = new Resultats();
+        pat = new Resultats("180000006", "180200008", "02-22-2018", "Cardiologie", "Radiologie du coeur", "02-22-2018","presente une anomalie au niveau de l artere coronaire ");
+        DAO<Resultats> ResultatsDAO = new ResultatsDAO(BDDconnection.getInstance());
+        ResultatsDAO.create(pat);
+         */
+ 
+        Tracabilite pat = new Tracabilite();
+        pat = new Tracabilite("180000006", "IN0001", "02-22-2018");
+        DAO<Tracabilite> TracabiliteDAO = new TracabiliteDAO(BDDconnection.getInstance());
+        TracabiliteDAO.create(pat);
+        
+ 
+ 
+ 
+ 
+ 
+ /*
+        DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
+        ArrayList<Patients> patients = PatientsDAO.find("180000001", "Cardiologie");
+        System.out.println(patients.get(0).getNompatient() +"   " + patients.get(0).getPrenompatient());
+         */ //Test find(String ipp, string service) OK
         /*
         DossierMedicalDAO dmdao = new DossierMedicalDAO(BDDconnection.getInstance());
         ArrayList<DossierMedical> dm = dmdao.findser("180000001", "180100001", "Cardiologie");
@@ -105,30 +171,6 @@ public class Test {
             System.out.println("is empty");
         }
          */
- /*
-        DossierMedical pat = new DossierMedical();
-        pat = new DossierMedical("180000006", "180100002","Urologie ","");
-        DAO<DossierMedical> DossierMedicalDAO = new DossierMedicalDAO(BDDconnection.getInstance());
-        DossierMedicalDAO.create(pat);
-         */
- /*
-        DossierMedicoAdministratif pat = new DossierMedicoAdministratif();
-        pat = new DossierMedicoAdministratif("180000006", "180100002","01-05-2018","PH0001","Consultation","Cardiologie");
-        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-        DossierMedicoAdministratifDAO.create(pat);
-         */
- /*
-        LettreDeSortie pat = new LettreDeSortie();
-        pat = new LettreDeSortie("180000006", "180100002","PH0001","j autorise ma patiente a sortir...");
-        DAO<LettreDeSortie> LettreDeSortieDAO = new LettreDeSortieDAO(BDDconnection.getInstance());
-        LettreDeSortieDAO.create(pat);
-         */
- 
-        Observations pat = new Observations();
-       // pat = new Observations("180000006", "180100002","01-05-2018","PH0001","Consultation","Cardiologie");
-        DAO<Observations> ObservationsDAO = new ObservationsDAO(BDDconnection.getInstance());
-        ObservationsDAO.create(pat);
-         
     }
 
 }

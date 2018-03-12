@@ -23,10 +23,10 @@ public class ObservationsDAO extends DAO<Observations> {
     @Override
     public boolean create(Observations obj) {
         String Query = new String();
-        Query = "insert into observation (ipp,nosejour,service,dateObservation,idph,nomacte,resume ) "
+        Query = "insert into observation (ipp,nosejour,idph,dateObservation,service,nomacte,resume ) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
-                + obj.getService() + "','" + obj.getDateObservation()
-                + "','" + obj.getIdph() + "','" + obj.getNomacte()
+                + obj.getIdph() + "','" + obj.getDateObservation()
+                + "','" + obj.getService() + "','" + obj.getNomacte()
                 + "','" + obj.getResume() + "')";
         try {
             Connection conn = this.connect;

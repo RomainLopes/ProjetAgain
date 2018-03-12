@@ -23,8 +23,8 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
     @Override
     public boolean create(Tracabilite obj) {
         String Query = new String();
-        Query = "insert into Tracabilite (ipp,idph,dateconnection) "
-                + "values ('{" + obj.getIpp() + "}','{" + obj.getIdph() + "}','"
+        Query = "insert into Tracabilite (ipp,idph,dateconnexion) "
+                + "values ('{" + obj.getIpp() + "}','" + obj.getIdph() + "','"
                 + obj.getDateconnection() + "')";
         try {
             Connection conn = this.connect;

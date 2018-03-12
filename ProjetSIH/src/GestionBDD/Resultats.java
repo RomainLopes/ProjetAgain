@@ -28,6 +28,10 @@ public class Resultats {
      */
     private String service = "";
     /**
+     * prestationmt
+     */
+    private String prestationmt = "";
+    /**
      * dateResultat
      */
     private String dateResultat = "";
@@ -36,13 +40,14 @@ public class Resultats {
      */
     private String resultat = "";
 
-    public Resultats (String ipp,String nosejour,String idPrescription,String service,String dateResultat,String resultat){
-        this.dateResultat=dateResultat;
-        this.idPrescription=idPrescription;
+    public Resultats (String ipp,String nosejour,String idPrescription,String service,String prestationmt,String dateResultat,String resultat){
         this.ipp=ipp;
         this.nosejour=nosejour;
-        this.resultat=resultat;
+        this.idPrescription=idPrescription;
         this.service=service;
+        this.prestationmt=prestationmt;
+        this.dateResultat=dateResultat;
+        this.resultat=resultat;
     }
     
     public Resultats (){}
@@ -129,6 +134,20 @@ public class Resultats {
      */
     public void setResultat(String resultat) {
         this.resultat = resultat;
+    }
+
+    /**
+     * @return the prestationmt
+     */
+    public String getPrestationmt() {
+        return prestationmt;
+    }
+
+    /**
+     * @param prestationmt the prestationmt to set
+     */
+    public void setPrestationmt(String prestationmt) {
+        this.prestationmt = prestationmt;
     }
     
 }
