@@ -5,8 +5,11 @@
  */
 package ecrans;
 
+import GestionBDD.BDDconnection;
 import GestionBDD.Patients;
+import GestionBDD.PatientsDAO;
 import GestionBDD.PersonnelHospitalier;
+import GestionBDD.RecherchePatient;
 import java.util.ArrayList;
 import projetsih.PHospitalier;
 import projetsih.Patient;
@@ -40,13 +43,10 @@ public class ConsulterDMA extends javax.swing.JFrame {
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());
-        /*jTextField1NomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
-        jTextFieldPrenomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
-        jTextFieldSexePat.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
-        jTextFieldDDNPat.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());
-        jLabelNomPmed.setText(((RechercherPatient) fenetrePrecedente).getEmploye().getNom());
-        jLabelPrenomPmed.setText(((RechercherPatient) fenetrePrecedente).getEmploye().getPrenom());
-        jLabelService.setText(((RechercherPatient) fenetrePrecedente).getEmploye().getService().toString());*/
+        
+         RecherchePatient rp = new RecherchePatient();
+         
+
     }
 
     /**

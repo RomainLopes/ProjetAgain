@@ -176,7 +176,7 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButtonTransfereDMA1" min="-2" pref="473" max="-2" attributes="0"/>
+                          <Component id="jButtonFusionnerDMA" min="-2" pref="473" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
@@ -201,7 +201,7 @@
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Component id="jButtonTransfereDMA" linkSize="2" min="-2" pref="44" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jButtonTransfereDMA1" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="jButtonFusionnerDMA" min="-2" pref="44" max="-2" attributes="0"/>
                   <EmptySpace pref="80" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -255,8 +255,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Transf&#xe9;rer DMA"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonTransfereDMAActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonTransfereDMA1">
+        <Component class="javax.swing.JButton" name="jButtonFusionnerDMA">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fe" green="f1" red="e4" type="rgb"/>
@@ -270,7 +273,7 @@
             <Property name="text" type="java.lang.String" value="Fusion Service Urgence / Service Clinique"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonTransfereDMA1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonFusionnerDMAActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

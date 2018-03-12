@@ -324,19 +324,29 @@ public class RechercherPatient extends javax.swing.JFrame {
         infoPatient = rp.enTetePatient(resultatRecherche.get(1));
         p = infoPatient;
         int ipp= Integer.parseInt(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length()-1));
-        System.out.println(ipp);
-        patient= patd.find(ipp);
+       ArrayList<Patients>  listepat= new ArrayList<Patients>();
+       listepat=  patd.findipp(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length()-1));
+               System.out.println(listepat.size());
+               
 
+        patient=listepat.get(0);
         
+        /* System.out.println("****************************** TEST *****************");
+            System.out.println(phr.getFonction());
+                        System.out.println("/n)");
+
+            System.out.println(patient.getNompatient());
+                                    System.out.println("/n)");
+
+            System.out.println(patient.getSexe());
+                                    System.out.println("/n)");
+
+            System.out.println("****************************** TEST *****************");
+
+        */
         for (int i = 0; i < infoPatient.size(); i++) {
             System.out.println(infoPatient.get(i) + " \t \n");
         }
-        //ArrayList<String> nPS = new ArrayList<String>();
-        /*nPS = rp.douille(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-                for (int i = 1; i <= nPS.size(); i++) {
-                    System.out.println(nPS.get(i) + " \t \n");
-                }*/
-
 
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 
@@ -357,9 +367,10 @@ public class RechercherPatient extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         boolean x=true;
+         System.out.println(phr.getFonction());
         if (x == true && "Secretaire medicale".equals(phr.getFonction())) {
             //JOptionPane.showMessageDialog(null, "Dossier médical existant");
-
+            
             ConsulterDM sadm = new ConsulterDM(phr, patient);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
@@ -367,19 +378,7 @@ public class RechercherPatient extends javax.swing.JFrame {
             sadm.setVisible(true);
 
         } else if (x == true && "Administration".equals(phr.getFonction())) {
-            
-              System.out.println("****************************** TEST *****************");
-            System.out.println(phr.getFonction());
-                        System.out.println("/n)");
-
-            System.out.println(patient.getNompatient());
-                                    System.out.println("/n)");
-
-            System.out.println(patient.getSexe());
-                                    System.out.println("/n)");
-
-            System.out.println("****************************** TEST *****************");
-
+          
             ConsulterDMA sadm = new ConsulterDMA(phr, patient);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);

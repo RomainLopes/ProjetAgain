@@ -52,7 +52,7 @@ public class SaAccueil extends javax.swing.JFrame {
         jButtonConsulterDMA = new javax.swing.JButton();
         jButtonCreeDMA = new javax.swing.JButton();
         jButtonTransfereDMA = new javax.swing.JButton();
-        jButtonTransfereDMA1 = new javax.swing.JButton();
+        jButtonFusionnerDMA = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -157,14 +157,19 @@ public class SaAccueil extends javax.swing.JFrame {
         jButtonTransfereDMA.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jButtonTransfereDMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/TransfererDossier2.PNG"))); // NOI18N
         jButtonTransfereDMA.setText("Transférer DMA");
-
-        jButtonTransfereDMA1.setBackground(new java.awt.Color(228, 241, 254));
-        jButtonTransfereDMA1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jButtonTransfereDMA1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fusion.png"))); // NOI18N
-        jButtonTransfereDMA1.setText("Fusion Service Urgence / Service Clinique");
-        jButtonTransfereDMA1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonTransfereDMA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonTransfereDMA1ActionPerformed(evt);
+                jButtonTransfereDMAActionPerformed(evt);
+            }
+        });
+
+        jButtonFusionnerDMA.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonFusionnerDMA.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonFusionnerDMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fusion.png"))); // NOI18N
+        jButtonFusionnerDMA.setText("Fusion Service Urgence / Service Clinique");
+        jButtonFusionnerDMA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFusionnerDMAActionPerformed(evt);
             }
         });
 
@@ -176,7 +181,7 @@ public class SaAccueil extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButtonTransfereDMA1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonFusionnerDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(229, 229, 229)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -198,7 +203,7 @@ public class SaAccueil extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(jButtonTransfereDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(jButtonTransfereDMA1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonFusionnerDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(80, Short.MAX_VALUE))
         );
 
@@ -221,11 +226,13 @@ public class SaAccueil extends javax.swing.JFrame {
 
     private void jButtonCreeDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreeDMAActionPerformed
         // TODO add your handling code here:
+        
         CreerDMA dma = new CreerDMA(employe);
         dma.setSize(this.getSize());
         dma.setLocationRelativeTo(this);
         this.dispose();
         dma.setVisible(true);
+        
     }//GEN-LAST:event_jButtonCreeDMAActionPerformed
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
@@ -245,9 +252,19 @@ public class SaAccueil extends javax.swing.JFrame {
         iden.setVisible(true);
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
-    private void jButtonTransfereDMA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTransfereDMA1ActionPerformed
+    private void jButtonFusionnerDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFusionnerDMAActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonTransfereDMA1ActionPerformed
+        FusionnerDossierUrgence fusion = new FusionnerDossierUrgence();
+        fusion.setSize(this.getSize());
+        fusion.setLocationRelativeTo(this);
+        this.dispose();
+        fusion.setVisible(true);
+    }//GEN-LAST:event_jButtonFusionnerDMAActionPerformed
+
+    private void jButtonTransfereDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTransfereDMAActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButtonTransfereDMAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -297,8 +314,8 @@ public class SaAccueil extends javax.swing.JFrame {
     private javax.swing.JButton jButtonConsulterDMA;
     private javax.swing.JButton jButtonCreeDMA;
     private javax.swing.JButton jButtonDeconnexion;
+    private javax.swing.JButton jButtonFusionnerDMA;
     private javax.swing.JButton jButtonTransfereDMA;
-    private javax.swing.JButton jButtonTransfereDMA1;
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JLabel jLabelPrenom;
     private javax.swing.JPanel jPanel2;

@@ -33,11 +33,11 @@ public class CreerDMA extends javax.swing.JFrame {
     public CreerDMA(PersonnelHospitalier employe) {
         initComponents();
         this.employe = employe;
-        jComboBoxTypeSejour.addItem("Hospitalisation");
+       /* jComboBoxTypeSejour.addItem("Hospitalisation");
         jComboBoxTypeSejour.addItem("Consultation");
         for (String j: listMed){
             jComboBoxPH.addItem(j);
-        }
+        }*/
         
 
     }

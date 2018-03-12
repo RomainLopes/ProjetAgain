@@ -61,14 +61,14 @@ public class ConsulterDM extends javax.swing.JFrame {
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());
 
-        test.add("Rdio du poumon gauche");
+        /*test.add("Rdio du poumon gauche");
         test.add("Echographiede l'abdomen");
         DefaultListModel modele = new DefaultListModel();
         for (String i : test) {
                 modele.addElement(i);
             }
          jListObservation.setModel(modele);
-         jListPrescription.setModel(modele);
+         jListPrescription.setModel(modele);*/
 
     }
 
