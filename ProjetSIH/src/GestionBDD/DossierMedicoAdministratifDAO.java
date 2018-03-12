@@ -55,7 +55,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
             ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
-                dma.add(new DossierMedicoAdministratif(result.getString("ipp"), result.getString("nosejour"), result.getString("dateentree"), result.getString("idph"),result.getString("service"),result.getString("type")));
+                dma.add(new DossierMedicoAdministratif(result.getString("ipp"), result.getString("nosejour"), result.getString("dateentree"), result.getString("idph"),result.getString("type"),result.getString("service")));
                 result.close();
                 state.close();
                 return dma;

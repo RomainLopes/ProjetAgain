@@ -45,7 +45,7 @@ public class ObservationsDAO extends DAO<Observations> {
         ArrayList<Observations> obs = new ArrayList<Observations>();
         String Query = new String();
         Query = "select * from observation where ipp = '{" + ipp
-                + "}' and nosejour = '{" + nosejour + "}' and service = '"
+                + "}' and nosejour = '" + nosejour + "' and service = '"
                 + service + "'";
 
         try {
@@ -55,7 +55,7 @@ public class ObservationsDAO extends DAO<Observations> {
             ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
-                obs.add(new Observations(result.getString("ipp"), result.getString("nosejour"), result.getString("service"), result.getString("dateObservation"), result.getString("idph"), result.getString("nomacte"), result.getString("resume")));
+                obs.add(new Observations(result.getString("ipp"), result.getString("nosejour"), result.getString("idph"), result.getString("dateObservation"), result.getString("service"), result.getString("nomacte"), result.getString("resume")));
                 result.close();
                 state.close();
                 return obs;

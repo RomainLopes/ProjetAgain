@@ -24,7 +24,7 @@ public class PrestationsDAO extends DAO<Prestations> {
     public boolean create(Prestations obj) {
         String Query = new String();
         Query = "insert into prestation (ipp,nosejour,datePrestation,service,prestation) "
-                + "values ('{" + obj.getIpp() + "}','{" + obj.getNosejour() + "}','"
+                + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getDatePrestation() + "','" + obj.getService()
                 + "','" + obj.getPrestation() + "')";
         try {

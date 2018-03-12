@@ -23,9 +23,9 @@ public class OperationsDAO extends DAO<Operations> {
     @Override
     public boolean create(Operations obj) {
         String Query = new String();
-        Query = "insert into operation (ipp,nosejour,idph,dateOperation,operation) "
+        Query = "insert into operation (ipp,nosejour,idph,dateoperation,operation) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
-                + obj.getIdph() + "','" + obj.getDateOperation()
+                + obj.getIdph() + "','" + obj.getDateoperation()
                 + "','" + obj.getOperation() + "')";
         try {
             Connection conn = this.connect;
@@ -54,7 +54,7 @@ public class OperationsDAO extends DAO<Operations> {
             ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
-                ope.add(new Operations(result.getString("ipp"), result.getString("nosejour"), result.getString("idph"), result.getString("dateOperation"), result.getString("operation")));
+                ope.add(new Operations(result.getString("ipp"), result.getString("nosejour"), result.getString("idph"), result.getString("dateoperation"), result.getString("operation")));
                 result.close();
                 state.close();
                 return ope;

@@ -43,7 +43,7 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
     public PersonnelHospitalier connex(String id, String mdp) {
         PersonnelHospitalier ph = new PersonnelHospitalier();
         String QueryId = new String();
-        QueryId = "SELECT * FROM personnelhospitalier WHERE personnelhospitalier.id = '" + id + "' and personnelhospitalier.mdp = '" + mdp + "'"; // WHERE personnelmedical.id = '" + id + "'
+        QueryId = "SELECT * FROM personnelhospitalier WHERE personnelhospitalier.id = '" + id + "' and personnelhospitalier.mdp = '" + mdp + "'"; 
 
         try {
 

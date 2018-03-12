@@ -64,7 +64,7 @@ public class ResultatsDAO extends DAO<Resultats> {
             ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
-                res.add(new Resultats(result.getString("ipp"), result.getString("nosejour"), result.getString("idPrescription"), result.getString("prestationmt"), result.getString("service"), result.getString("dateResultat"), result.getString("resultat")));
+                res.add(new Resultats(result.getString("ipp"), result.getString("nosejour"), result.getString("idPrescription"), result.getString("service"), result.getString("prestationmt"), result.getString("dateResultat"), result.getString("resultat")));
                 result.close();
                 state.close();
                 return res;

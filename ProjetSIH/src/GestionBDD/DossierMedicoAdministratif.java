@@ -41,8 +41,8 @@ public class DossierMedicoAdministratif {
         this.nosejour=nosejour;
         this.dateentree=dateentree;
         this.idph=idph;
-        this.service=service;
         this.type=type;
+        this.service=service;
     }
     
      public DossierMedicoAdministratif (){}

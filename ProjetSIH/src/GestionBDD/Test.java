@@ -22,6 +22,7 @@ public class Test {
     public static void main(String[] args) {
         // TODO code application logic here
 
+        //Tests unitaire de création
         /*
         DossierMedical pat = new DossierMedical();
         pat = new DossierMedical("180000006", "180100002","Urologie ","");
@@ -83,18 +84,14 @@ public class Test {
         DAO<Resultats> ResultatsDAO = new ResultatsDAO(BDDconnection.getInstance());
         ResultatsDAO.create(pat);
          */
- 
+ /*
         Tracabilite pat = new Tracabilite();
         pat = new Tracabilite("180000006", "IN0001", "02-22-2018");
         DAO<Tracabilite> TracabiliteDAO = new TracabiliteDAO(BDDconnection.getInstance());
         TracabiliteDAO.create(pat);
-        
- 
- 
- 
- 
- 
- /*
+         */
+        //Tests unitaire de recherche
+        /*
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
         ArrayList<Patients> patients = PatientsDAO.find("180000001", "Cardiologie");
         System.out.println(patients.get(0).getNompatient() +"   " + patients.get(0).getPrenompatient());
