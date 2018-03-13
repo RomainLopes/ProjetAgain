@@ -18,6 +18,20 @@ import projetsih.Patient;
 public class MedRadioAccueil extends javax.swing.JFrame {
 
     /**
+     * @return the jListObservations
+     */
+    public javax.swing.JList<String> getjListObservations() {
+        return jListObservations;
+    }
+
+    /**
+     * @return the jListResultats
+     */
+    public javax.swing.JList<String> getjListResultats() {
+        return jListResultats;
+    }
+
+    /**
      * Creates new form MedRadioAccueil
      */
    private static PersonnelHospitalier employe;
@@ -80,6 +94,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         jPanel1Observations = new javax.swing.JPanel();
         jPanel7Resultat = new javax.swing.JPanel();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
+        jListResultats = new javax.swing.JList<>();
         jPanel8 = new javax.swing.JPanel();
         Prescriptio2 = new javax.swing.JLabel();
         ajouterResultat = new javax.swing.JButton();
@@ -90,6 +105,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         ajouterObservation1 = new javax.swing.JButton();
         consulterObservation3 = new javax.swing.JButton();
         jScrollPane1ListeObservations1 = new javax.swing.JScrollPane();
+        jListObservations = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -291,6 +307,18 @@ public class MedRadioAccueil extends javax.swing.JFrame {
 
         jPanel7Resultat.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jListResultats.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListResultats.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListResultatsMouseClicked(evt);
+            }
+        });
+        jScrollPane3ListeResultats.setViewportView(jListResultats);
+
         Prescriptio2.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Prescriptio2.setText("Résultats");
 
@@ -412,6 +440,18 @@ public class MedRadioAccueil extends javax.swing.JFrame {
 
         jScrollPane1ListeObservations1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jListObservations.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListObservations.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListObservationsMouseClicked(evt);
+            }
+        });
+        jScrollPane1ListeObservations1.setViewportView(jListObservations);
+
         javax.swing.GroupLayout jPanel1Observations1Layout = new javax.swing.GroupLayout(jPanel1Observations1);
         jPanel1Observations1.setLayout(jPanel1Observations1Layout);
         jPanel1Observations1Layout.setHorizontalGroup(
@@ -520,21 +560,31 @@ public class MedRadioAccueil extends javax.swing.JFrame {
 
     private void consulterObservation3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservation3ActionPerformed
         // TODO add your handling code here:
-         ConsulterObservation obs = new ConsulterObservation(employe,patient);
+       
+    }//GEN-LAST:event_consulterObservation3ActionPerformed
+
+    private void consulterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterResultatActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_consulterResultatActionPerformed
+
+    private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
+        // TODO add your handling code here:
+          ConsulterObservation obs = new ConsulterObservation(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
         obs.setVisible(true);
-    }//GEN-LAST:event_consulterObservation3ActionPerformed
+    }//GEN-LAST:event_jListObservationsMouseClicked
 
-    private void consulterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterResultatActionPerformed
+    private void jListResultatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListResultatsMouseClicked
         // TODO add your handling code here:
          ConsulterResultat obs = new ConsulterResultat(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
         obs.setVisible(true);
-    }//GEN-LAST:event_consulterResultatActionPerformed
+    }//GEN-LAST:event_jListResultatsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -596,6 +646,8 @@ public class MedRadioAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JLabel jLabelPrenom;
     private javax.swing.JLabel jLabelService;
+    private javax.swing.JList<String> jListObservations;
+    private javax.swing.JList<String> jListResultats;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1Observations;
     private javax.swing.JPanel jPanel1Observations1;

@@ -7,9 +7,15 @@ package ecrans;
 
 import GestionBDD.BDDconnection;
 import GestionBDD.DAO;
+import GestionBDD.DossierMedicalDAO;
+import GestionBDD.DossierMedicoAdministratif;
+import GestionBDD.DossierMedicoAdministratifDAO;
+import GestionBDD.ObservationsDAO;
+import GestionBDD.OperationsDAO;
 import GestionBDD.Patients;
 import GestionBDD.PatientsDAO;
 import GestionBDD.PersonnelHospitalier;
+import GestionBDD.PrescriptionsDAO;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
@@ -18,6 +24,7 @@ import javax.swing.JOptionPane;
 import projetsih.PHospitalier;
 //import projetsih.Patient;
 import GestionBDD.RecherchePatient;
+import GestionBDD.ResultatsDAO;
 //import projetsih.SAdm;
 //import projetsih.SMed;
 
@@ -33,6 +40,7 @@ public class RechercherPatient extends javax.swing.JFrame {
     private static PersonnelHospitalier phr;
     private static ArrayList<String> med;
     private static ArrayList<String> p;
+    private static DossierMedicoAdministratif dma;
 
     private static Patients patient;
 
@@ -97,7 +105,6 @@ public class RechercherPatient extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jListpatients = new javax.swing.JList<>();
         jTextFieldPrenom = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -220,13 +227,6 @@ public class RechercherPatient extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("OK");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1RecherchePatientLayout = new javax.swing.GroupLayout(jPanel1RecherchePatient);
         jPanel1RecherchePatient.setLayout(jPanel1RecherchePatientLayout);
         jPanel1RecherchePatientLayout.setHorizontalGroup(
@@ -234,9 +234,7 @@ public class RechercherPatient extends javax.swing.JFrame {
             .addGroup(jPanel1RecherchePatientLayout.createSequentialGroup()
                 .addGap(209, 209, 209)
                 .addComponent(jButtonRechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(91, 91, 91))
+                .addGap(91, 373, Short.MAX_VALUE))
             .addGroup(jPanel1RecherchePatientLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,9 +270,7 @@ public class RechercherPatient extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35)
-                .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonRechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                .addComponent(jButtonRechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(89, Short.MAX_VALUE))
         );
 
@@ -295,8 +291,7 @@ public class RechercherPatient extends javax.swing.JFrame {
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
         // TODO add your handling code here:
         RecherchePatient rp = new RecherchePatient();
-                PatientsDAO patd = new PatientsDAO(BDDconnection.getInstance());
-
+        PatientsDAO patd = new PatientsDAO(BDDconnection.getInstance());
 
         ArrayList<String> resultatRecherche = new ArrayList<String>();
         ArrayList<String> resultatAffiche = new ArrayList<String>();
@@ -307,7 +302,7 @@ public class RechercherPatient extends javax.swing.JFrame {
         for (int i = 0; i < resultatRecherche.size(); i += 2) {
             resultatAffiche.add(resultatRecherche.get(i));
         }
-                     System.out.println ("test de recherche"); 
+        System.out.println("test de recherche");
         for (String i : resultatRecherche) {
             System.out.println(i);
         }
@@ -323,14 +318,13 @@ public class RechercherPatient extends javax.swing.JFrame {
         ArrayList<String> infoPatient = new ArrayList<String>();
         infoPatient = rp.enTetePatient(resultatRecherche.get(1));
         p = infoPatient;
-        int ipp= Integer.parseInt(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length()-1));
-       ArrayList<Patients>  listepat= new ArrayList<Patients>();
-       listepat=  patd.findipp(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length()-1));
-               System.out.println(listepat.size());
-               
+        int ipp = Integer.parseInt(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length() - 1));
+        ArrayList<Patients> listepat = new ArrayList<Patients>();
+        listepat = patd.findipp(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length() - 1));
+        System.out.println(listepat.size());
 
-        patient=listepat.get(0);
-        
+        patient = listepat.get(0);
+
         /* System.out.println("****************************** TEST *****************");
             System.out.println(phr.getFonction());
                         System.out.println("/n)");
@@ -343,7 +337,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
             System.out.println("****************************** TEST *****************");
 
-        */
+         */
         for (int i = 0; i < infoPatient.size(); i++) {
             System.out.println(infoPatient.get(i) + " \t \n");
         }
@@ -365,25 +359,94 @@ public class RechercherPatient extends javax.swing.JFrame {
 
     private void jListpatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListpatientsMouseClicked
         // TODO add your handling code here:
+        RecherchePatient rp = new RecherchePatient();
+        String ipp = patient.getIpp().substring(1, patient.getIpp().length() - 1);
         
-        boolean x=true;
-         System.out.println(phr.getFonction());
+        DossierMedicalDAO dms = new DossierMedicalDAO(BDDconnection.getInstance());
+        ObservationsDAO obs = new ObservationsDAO(BDDconnection.getInstance());
+        PrescriptionsDAO presc = new PrescriptionsDAO(BDDconnection.getInstance());
+        OperationsDAO ope = new OperationsDAO(BDDconnection.getInstance());
+        ResultatsDAO res = new ResultatsDAO(BDDconnection.getInstance());
+
+        ArrayList<GestionBDD.Resultats> re = new ArrayList<GestionBDD.Resultats>();
+        ArrayList<GestionBDD.Observations> ob = new ArrayList<GestionBDD.Observations>();
+        ArrayList<GestionBDD.Prescriptions> pr = new ArrayList<GestionBDD.Prescriptions>();
+        ArrayList<GestionBDD.Operations> op = new ArrayList<GestionBDD.Operations>();
+        
+        ArrayList<GestionBDD.DossierMedical> resultat = new ArrayList<GestionBDD.DossierMedical>();
+        
+        
+        // ici on a pas encore de nosejour à ce stade donc faire une recherche uniquement avec ipp et service 
+
+        resultat = dms.findser(ipp, "180100001", phr.getService()); // ipp nosejour service
+        
+        re= res.find(ipp, "180100001");
+        ob=obs.findser(ipp, "180100001", phr.getService());
+        pr=presc.findser(ipp, "180100001", phr.getService());
+        op=ope.find(ipp, "180100001");
+
+        DefaultListModel prescriptions = new DefaultListModel();
+        DefaultListModel observations = new DefaultListModel();
+        DefaultListModel operations = new DefaultListModel();
+        DefaultListModel result = new DefaultListModel();
+        
+         for (GestionBDD.Prescriptions i : pr) {
+               prescriptions.addElement(i.getIdprescription() + "    " + i.getDateprescription());} // 4 espaces
+         
+          for (GestionBDD.Operations i : op) {
+               operations.addElement(i.getOperation() + "    " + i.getDateoperation());}
+          
+           for (GestionBDD.Observations i : ob) {
+               observations.addElement(i.getNomacte() + "    " + i.getDateObservation());}
+           
+            for (GestionBDD.Resultats i : re) {
+               result.addElement(i.getPrestationmt() + "    " + i.getDateResultat());}
+    
+            
+        boolean x = true;
+        System.out.println(phr.getFonction());
         if (x == true && "Secretaire medicale".equals(phr.getFonction())) {
             //JOptionPane.showMessageDialog(null, "Dossier médical existant");
-            
+
+
             ConsulterDM sadm = new ConsulterDM(phr, patient);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
             sadm.setVisible(true);
+            
+            sadm.getjListPrescriptions().setModel(prescriptions);
+            sadm.getjListOperations().setModel(operations);
+            sadm.getjListObservations().setModel(observations);
+            sadm.getjListResultats().setModel(result);
+
 
         } else if (x == true && "Administration".equals(phr.getFonction())) {
-          
+
+            DossierMedicoAdministratifDAO phd = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+            ArrayList<DossierMedicoAdministratif> resultats = new ArrayList <DossierMedicoAdministratif>();
+
+            resultats = phd.findser(ipp, "180100001", "Cardiologie"); // ici utiliser la bonne fonction avec uniquement ipp car la sa n'a pas de service et on veut afficher tous les séjours 
+
+            DefaultListModel num = new DefaultListModel();
+            DefaultListModel type = new DefaultListModel();
+            DefaultListModel date = new DefaultListModel();
+
+            for (DossierMedicoAdministratif i : resultats) {
+                num.addElement(i.getNosejour());
+                date.addElement(i.getDateentree());
+                type.addElement(i.getType());
+            }
+
             ConsulterDMA sadm = new ConsulterDMA(phr, patient);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
             sadm.setVisible(true);
+
+            sadm.getjListNoSejour().setModel(num);
+            sadm.getjListDate().setModel(date);
+            sadm.getjListType().setModel(type);
 
         } else if (x == true && "Interne".equals(phr.getFonction())) {
 
@@ -392,22 +455,33 @@ public class RechercherPatient extends javax.swing.JFrame {
             inte.setLocationRelativeTo(this);
             this.dispose();
             inte.setVisible(true);
+            
+            inte.getjListObservations().setModel(observations);
 
-        } else if (x == true&& "Infirmier".equals(phr.getFonction())) {
+
+        } else if (x == true && "Infirmier".equals(phr.getFonction())) {
 
             InfirmierAccueil inte = new InfirmierAccueil(phr, patient);
             inte.setSize(this.getSize());
             inte.setLocationRelativeTo(this);
             this.dispose();
             inte.setVisible(true);
+            
+            inte.getjListOperations().setModel(operations);
+            inte.getjListObservations().setModel(observations);
+            
         } else { // pH
-            if (x == true&& "Clinique".equals(phr.getService())) { // ajouter le .getType()
+            if (x == true && "Clinique".equals(phr.getService())) { // ajouter le .getType()
 
                 MedClinAccueil inte = new MedClinAccueil(phr, patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
+                 inte.getjListPrescriptions().setModel(prescriptions);
+            inte.getjListObservations().setModel(observations);
+            inte.getjListResultats().setModel(result);
+                
             } else if (x == true/* pH.service.getNom()=="Radiologie"*/) {
 
                 MedRadioAccueil inte = new MedRadioAccueil(phr, patient);
@@ -415,6 +489,9 @@ public class RechercherPatient extends javax.swing.JFrame {
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
+            inte.getjListObservations().setModel(observations);
+            inte.getjListResultats().setModel(result);
+                
             } else if (x == true/* pH.service.getNom()=="Anesthésie"*/) {
 
                 MedAnestAccueil inte = new MedAnestAccueil(phr, patient);
@@ -422,6 +499,10 @@ public class RechercherPatient extends javax.swing.JFrame {
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
+                
+                 inte.getjListPrescriptions().setModel(prescriptions);
+            inte.getjListObservations().setModel(observations);
+            inte.getjListResultats().setModel(result);
             } else if (x == true/* pH.service.getType()=="Médico-technique"*/) {
 
                 MedTechAccueil inte = new MedTechAccueil(phr, patient);
@@ -429,29 +510,14 @@ public class RechercherPatient extends javax.swing.JFrame {
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
+                
+            inte.getjListObservations().setModel(observations);
+            inte.getjListResultats().setModel(result);
             }
         }
 
-        
-        
-        
+
     }//GEN-LAST:event_jListpatientsMouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        boolean x = true;
-if (x == true && "Administration".equals(phr.getFonction())){
-    
-      System.out.println("****************************** TEST *****************");
-            System.out.println(phr.getFonction() +"/n");
-            System.out.println(patient.getNompatient() +"/n");
-            System.out.println(patient.getSexe() +"/n");
-            System.out.println("****************************** TEST *****************");
-
-        }
-       
-
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -499,7 +565,6 @@ if (x == true && "Administration".equals(phr.getFonction())){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelEnTeteMedTech;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JButton jButtonRechercher;

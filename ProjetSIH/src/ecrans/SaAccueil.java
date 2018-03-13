@@ -5,8 +5,11 @@
  */
 package ecrans;
 
+import GestionBDD.BDDconnection;
+import GestionBDD.DossierMedicoAdministratifDAO;
 import GestionBDD.Patients;
 import GestionBDD.PersonnelHospitalier;
+import GestionBDD.RecherchePatient;
 import java.util.ArrayList;
 import projetsih.Patient;
 import projetsih.SAdm;

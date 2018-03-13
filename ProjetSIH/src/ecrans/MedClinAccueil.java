@@ -18,6 +18,27 @@ import projetsih.Patient;
 public class MedClinAccueil extends javax.swing.JFrame {
 
     /**
+     * @return the jListObservations
+     */
+    public javax.swing.JList<String> getjListObservations() {
+        return jListObservations;
+    }
+
+    /**
+     * @return the jListPrescriptions
+     */
+    public javax.swing.JList<String> getjListPrescriptions() {
+        return jListPrescriptions;
+    }
+
+    /**
+     * @return the jListResultats
+     */
+    public javax.swing.JList<String> getjListResultats() {
+        return jListResultats;
+    }
+
+    /**
      * Creates new form MedClinAccueil
      */
      private static PersonnelHospitalier employe;
@@ -84,13 +105,16 @@ public class MedClinAccueil extends javax.swing.JFrame {
         ajouterObservation = new javax.swing.JButton();
         consulterObservation = new javax.swing.JButton();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
+        jListObservations = new javax.swing.JList<>();
         jPanel4Prescriptions = new javax.swing.JPanel();
         jScrollPane2ListePrescription = new javax.swing.JScrollPane();
+        jListPrescriptions = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
         Prescriptio = new javax.swing.JLabel();
         ajouterPrescription = new javax.swing.JButton();
         jPanel7Resultat = new javax.swing.JPanel();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
+        jListResultats = new javax.swing.JList<>();
         consulterResultat = new javax.swing.JButton();
         Prescriptio2 = new javax.swing.JLabel();
 
@@ -317,6 +341,18 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jListObservations.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListObservations.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListObservationsMouseClicked(evt);
+            }
+        });
+        jScrollPane1ListeObservations.setViewportView(jListObservations);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -368,6 +404,13 @@ public class MedClinAccueil extends javax.swing.JFrame {
         );
 
         jPanel4Prescriptions.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jListPrescriptions.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2ListePrescription.setViewportView(jListPrescriptions);
 
         Prescriptio.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Prescriptio.setText("Prescriptions");
@@ -427,6 +470,18 @@ public class MedClinAccueil extends javax.swing.JFrame {
         );
 
         jPanel7Resultat.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jListResultats.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListResultats.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListResultatsMouseClicked(evt);
+            }
+        });
+        jScrollPane3ListeResultats.setViewportView(jListResultats);
 
         consulterResultat.setBackground(new java.awt.Color(228, 241, 254));
         consulterResultat.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
@@ -553,21 +608,31 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
         // TODO add your handling code here:
+        
+    }//GEN-LAST:event_consulterObservationActionPerformed
+
+    private void consulterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterResultatActionPerformed
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_consulterResultatActionPerformed
+
+    private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
+        // TODO add your handling code here:
          ConsulterObservation obs = new ConsulterObservation(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
         obs.setVisible(true);
-    }//GEN-LAST:event_consulterObservationActionPerformed
+    }//GEN-LAST:event_jListObservationsMouseClicked
 
-    private void consulterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterResultatActionPerformed
+    private void jListResultatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListResultatsMouseClicked
         // TODO add your handling code here:
-         ConsulterResultat obs = new ConsulterResultat(employe,patient);
+           ConsulterResultat obs = new ConsulterResultat(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
         obs.setVisible(true);
-    }//GEN-LAST:event_consulterResultatActionPerformed
+    }//GEN-LAST:event_jListResultatsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -630,6 +695,9 @@ public class MedClinAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JLabel jLabelPrenom;
     private javax.swing.JLabel jLabelService;
+    private javax.swing.JList<String> jListObservations;
+    private javax.swing.JList<String> jListPrescriptions;
+    private javax.swing.JList<String> jListResultats;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1Observations;
     private javax.swing.JPanel jPanel3;

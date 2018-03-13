@@ -26,6 +26,8 @@ import projetsih.Patient;
  */
 public class ConsulterDM extends javax.swing.JFrame {
 
+   
+
     private static PersonnelHospitalier employe;
     private static Patients patient;
     private  ArrayList<String> test; // ici ce sont les infos du patient
@@ -60,15 +62,9 @@ public class ConsulterDM extends javax.swing.JFrame {
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());
+        jLabel5ServiceP.setText(employe.getService());
 
-        /*test.add("Rdio du poumon gauche");
-        test.add("Echographiede l'abdomen");
-        DefaultListModel modele = new DefaultListModel();
-        for (String i : test) {
-                modele.addElement(i);
-            }
-         jListObservation.setModel(modele);
-         jListPrescription.setModel(modele);*/
+      
 
     }
 
@@ -99,18 +95,20 @@ public class ConsulterDM extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         Operations = new javax.swing.JLabel();
         jScrollPane1ListeOperations = new javax.swing.JScrollPane();
+        jListOperations = new javax.swing.JList<>();
         jPanel7Resultat = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         Prescriptio2 = new javax.swing.JLabel();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
+        jListResultats = new javax.swing.JList<>();
         jPanel1Observations = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         Observations = new javax.swing.JLabel();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
-        jListObservation = new javax.swing.JList<String>();
+        jListObservations = new javax.swing.JList<>();
         jPanel4Prescriptions = new javax.swing.JPanel();
         jScrollPane2ListePrescription = new javax.swing.JScrollPane();
-        jListPrescription = new javax.swing.JList<String>();
+        jListPrescriptions = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
         Prescriptio = new javax.swing.JLabel();
 
@@ -245,6 +243,13 @@ public class ConsulterDM extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jListOperations.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1ListeOperations.setViewportView(jListOperations);
+
         javax.swing.GroupLayout jPanelOperationsLayout = new javax.swing.GroupLayout(jPanelOperations);
         jPanelOperations.setLayout(jPanelOperationsLayout);
         jPanelOperationsLayout.setHorizontalGroup(
@@ -286,6 +291,13 @@ public class ConsulterDM extends javax.swing.JFrame {
                 .addComponent(Prescriptio2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        jListResultats.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3ListeResultats.setViewportView(jListResultats);
 
         javax.swing.GroupLayout jPanel7ResultatLayout = new javax.swing.GroupLayout(jPanel7Resultat);
         jPanel7Resultat.setLayout(jPanel7ResultatLayout);
@@ -330,12 +342,12 @@ public class ConsulterDM extends javax.swing.JFrame {
         jScrollPane1ListeObservations.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListObservation.setModel(new javax.swing.AbstractListModel() {
+        jListObservations.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1ListeObservations.setViewportView(jListObservation);
+        jScrollPane1ListeObservations.setViewportView(jListObservations);
 
         javax.swing.GroupLayout jPanel1ObservationsLayout = new javax.swing.GroupLayout(jPanel1Observations);
         jPanel1Observations.setLayout(jPanel1ObservationsLayout);
@@ -360,12 +372,12 @@ public class ConsulterDM extends javax.swing.JFrame {
 
         jPanel4Prescriptions.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListPrescription.setModel(new javax.swing.AbstractListModel() {
+        jListPrescriptions.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2ListePrescription.setViewportView(jListPrescription);
+        jScrollPane2ListePrescription.setViewportView(jListPrescriptions);
 
         Prescriptio.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Prescriptio.setText("Prescriptions");
@@ -495,8 +507,10 @@ public class ConsulterDM extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3Sexep;
     private javax.swing.JLabel jLabel4DateP;
     private javax.swing.JLabel jLabel5ServiceP;
-    private javax.swing.JList<String> jListObservation;
-    private javax.swing.JList<String> jListPrescription;
+    private javax.swing.JList<String> jListObservations;
+    private javax.swing.JList<String> jListOperations;
+    private javax.swing.JList<String> jListPrescriptions;
+    private javax.swing.JList<String> jListResultats;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1Observations;
     private javax.swing.JPanel jPanel3;
@@ -512,4 +526,32 @@ public class ConsulterDM extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2ListePrescription;
     private javax.swing.JScrollPane jScrollPane3ListeResultats;
     // End of variables declaration//GEN-END:variables
+
+ /**
+     * @return the jListOperations
+     */
+    public javax.swing.JList<String> getjListOperations() {
+        return jListOperations;
+    }
+
+    /**
+     * @return the jListResultats
+     */
+    public javax.swing.JList<String> getjListResultats() {
+        return jListResultats;
+    }
+
+    /**
+     * @return the jListObservation
+     */
+    public javax.swing.JList<String> getjListObservations() {
+        return jListObservations;
+    }
+
+    /**
+     * @return the jListPrescription
+     */
+    public javax.swing.JList<String> getjListPrescriptions() {
+        return jListPrescriptions;
+    }
 }

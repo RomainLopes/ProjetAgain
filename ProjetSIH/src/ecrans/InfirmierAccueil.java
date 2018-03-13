@@ -97,11 +97,13 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         ajouterObservation = new javax.swing.JButton();
         consulterObservation = new javax.swing.JButton();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
+        jListObservations = new javax.swing.JList<>();
         jPanelOperations = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         Operations = new javax.swing.JLabel();
         ajouterOperation = new javax.swing.JButton();
         jScrollPane1ListeOperations = new javax.swing.JScrollPane();
+        jListOperations = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -349,6 +351,18 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jListObservations.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListObservations.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListObservationsMouseClicked(evt);
+            }
+        });
+        jScrollPane1ListeObservations.setViewportView(jListObservations);
+
         javax.swing.GroupLayout jPanel1ObservationsLayout = new javax.swing.GroupLayout(jPanel1Observations);
         jPanel1Observations.setLayout(jPanel1ObservationsLayout);
         jPanel1ObservationsLayout.setHorizontalGroup(
@@ -407,6 +421,18 @@ public class InfirmierAccueil extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ajouterOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jListOperations.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListOperations.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListOperationsMouseClicked(evt);
+            }
+        });
+        jScrollPane1ListeOperations.setViewportView(jListOperations);
 
         javax.swing.GroupLayout jPanelOperationsLayout = new javax.swing.GroupLayout(jPanelOperations);
         jPanelOperations.setLayout(jPanelOperationsLayout);
@@ -487,11 +513,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
         // TODO add your handling code here:
-              ConsulterObservation obs = new ConsulterObservation(employe,patient);
-        obs.setSize(this.getSize());
-        obs.setLocationRelativeTo(this);
-        this.dispose();
-        obs.setVisible(true);
+            
 
        /* jPanel1Observations.setLayout(new GridLayout(50, 1));
         jPanel1Observations.add(new JLabel("L'opération s'est bien déroulée. Cependant, le patiant présente des signes d'infection de la peau."));
@@ -513,6 +535,20 @@ public class InfirmierAccueil extends javax.swing.JFrame {
                 inte.setVisible(true);*/
 
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
+
+    private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
+        // TODO add your handling code here:
+          ConsulterObservation obs = new ConsulterObservation(employe,patient);
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
+    }//GEN-LAST:event_jListObservationsMouseClicked
+
+    private void jListOperationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListOperationsMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jListOperationsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -580,6 +616,8 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPrenomInf;
     private javax.swing.JLabel jLabelService;
     private javax.swing.JLabel jLabelSexePatient;
+    private javax.swing.JList<String> jListObservations;
+    private javax.swing.JList<String> jListOperations;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1Observations;
     private javax.swing.JPanel jPanel2;
@@ -609,4 +647,19 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     public String getJLabelService() {
         return jLabelService.getText();
     }
+
+    /**
+     * @return the jListObservations
+     */
+    public javax.swing.JList<String> getjListObservations() {
+        return jListObservations;
+    }
+
+    /**
+     * @return the jListOperations
+     */
+    public javax.swing.JList<String> getjListOperations() {
+        return jListOperations;
+    }
+    
 }

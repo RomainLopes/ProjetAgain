@@ -20,32 +20,29 @@ import projetsih.Patient;
  */
 public class ConsulterDMA extends javax.swing.JFrame {
 
-       private static PersonnelHospitalier employe;
+    private static PersonnelHospitalier employe;
     private static Patients patient;
 
     /**
      * Creates new form DossierMedicoAdministratif
      */
-
     // si ca ouvre la ^page sans considérer les données modifier le constructeur en bas
-
-    public ConsulterDMA(PersonnelHospitalier personnel, Patients patient ) {
+    public ConsulterDMA(PersonnelHospitalier personnel, Patients patient) {
         initComponents();
-        employe=personnel;
-        this.patient=patient;
-        
+        employe = personnel;
+        this.patient = patient;
+
         jLabelNomPmed.setText(personnel.getNomph());
         jLabelPrenomPmed.setText(personnel.getPrenomph());
         jLabelFonction.setText(personnel.getFonction());
-        jLabelService.setText(personnel.getService()); 
-        
+        jLabelService.setText(personnel.getService());
+
         jLabel1Nomp.setText(patient.getNompatient());
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());
-        
-         RecherchePatient rp = new RecherchePatient();
-         
+
+        RecherchePatient rp = new RecherchePatient();
 
     }
 
@@ -68,14 +65,14 @@ public class ConsulterDMA extends javax.swing.JFrame {
         DMA = new javax.swing.JPanel();
         listech = new javax.swing.JLabel();
         jScrollPane1ListeSejour = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jListNoSejour = new javax.swing.JList<>();
         jLabel1Nosejour = new javax.swing.JLabel();
         jLabel2Type = new javax.swing.JLabel();
         jLabel3Date = new javax.swing.JLabel();
         jScrollPane2ListeType = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        jListType = new javax.swing.JList<>();
         jScrollPane3ListeDate = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<>();
+        jListDate = new javax.swing.JList<>();
         jLabel1Prenom = new javax.swing.JLabel();
         jLabel2DateDeNaissance = new javax.swing.JLabel();
         jLabel2PrenomP = new javax.swing.JLabel();
@@ -175,15 +172,20 @@ public class ConsulterDMA extends javax.swing.JFrame {
         DMA.add(listech);
         listech.setBounds(12, 99, 350, 41);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jListNoSejour.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1ListeSejour.setViewportView(jList1);
+        jListNoSejour.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListNoSejourMouseClicked(evt);
+            }
+        });
+        jScrollPane1ListeSejour.setViewportView(jListNoSejour);
 
         DMA.add(jScrollPane1ListeSejour);
-        jScrollPane1ListeSejour.setBounds(30, 196, 111, 92);
+        jScrollPane1ListeSejour.setBounds(30, 196, 190, 90);
 
         jLabel1Nosejour.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel1Nosejour.setText("N° de séjour ");
@@ -200,25 +202,35 @@ public class ConsulterDMA extends javax.swing.JFrame {
         DMA.add(jLabel3Date);
         jLabel3Date.setBounds(420, 160, 86, 27);
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        jListType.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2ListeType.setViewportView(jList2);
+        jListType.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListTypeMouseClicked(evt);
+            }
+        });
+        jScrollPane2ListeType.setViewportView(jListType);
 
         DMA.add(jScrollPane2ListeType);
-        jScrollPane2ListeType.setBounds(224, 196, 111, 92);
+        jScrollPane2ListeType.setBounds(224, 196, 190, 90);
 
-        jList3.setModel(new javax.swing.AbstractListModel<String>() {
+        jListDate.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3ListeDate.setViewportView(jList3);
+        jListDate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListDateMouseClicked(evt);
+            }
+        });
+        jScrollPane3ListeDate.setViewportView(jListDate);
 
         DMA.add(jScrollPane3ListeDate);
-        jScrollPane3ListeDate.setBounds(419, 196, 111, 92);
+        jScrollPane3ListeDate.setBounds(419, 196, 170, 92);
 
         jLabel1Prenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1Prenom.setText("Prénom : ");
@@ -285,6 +297,33 @@ public class ConsulterDMA extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
+    private void jListNoSejourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListNoSejourMouseClicked
+        // TODO add your handling code here:
+        NoSejour id = new NoSejour(employe, patient);
+        id.setSize(this.getSize());
+        id.setLocationRelativeTo(this);
+        id.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jListNoSejourMouseClicked
+
+    private void jListTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListTypeMouseClicked
+        // TODO add your handling code here:
+        NoSejour id = new NoSejour(employe, patient);
+        id.setSize(this.getSize());
+        id.setLocationRelativeTo(this);
+        id.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jListTypeMouseClicked
+
+    private void jListDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListDateMouseClicked
+        // TODO add your handling code here:
+        NoSejour id = new NoSejour(employe, patient);
+        id.setSize(this.getSize());
+        id.setLocationRelativeTo(this);
+        id.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jListDateMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -316,7 +355,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsulterDMA(employe,patient).setVisible(true);
+                new ConsulterDMA(employe, patient).setVisible(true);
             }
         });
     }
@@ -342,12 +381,55 @@ public class ConsulterDMA extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNomPmed;
     private javax.swing.JLabel jLabelPrenomPmed;
     private javax.swing.JLabel jLabelService;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JList<String> jList3;
+    private javax.swing.JList<String> jListDate;
+    private javax.swing.JList<String> jListNoSejour;
+    private javax.swing.JList<String> jListType;
     private javax.swing.JScrollPane jScrollPane1ListeSejour;
     private javax.swing.JScrollPane jScrollPane2ListeType;
     private javax.swing.JScrollPane jScrollPane3ListeDate;
     private javax.swing.JLabel listech;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the jListDate
+     */
+    public javax.swing.JList<String> getjListDate() {
+        return jListDate;
+    }
+
+    /**
+     * @param jListDate the jListDate to set
+     */
+    public void setjListDate(javax.swing.JList<String> jListDate) {
+        this.jListDate = jListDate;
+    }
+
+    /**
+     * @return the jListNoSejour
+     */
+    public javax.swing.JList<String> getjListNoSejour() {
+        return jListNoSejour;
+    }
+
+    /**
+     * @param jListNoSejour the jListNoSejour to set
+     */
+    public void setjListNoSejour(javax.swing.JList<String> jListNoSejour) {
+        this.jListNoSejour = jListNoSejour;
+    }
+
+    /**
+     * @return the jListType
+     */
+    public javax.swing.JList<String> getjListType() {
+        return jListType;
+    }
+
+    /**
+     * @param jListType the jListType to set
+     */
+    public void setjListType(javax.swing.JList<String> jListType) {
+        this.jListType = jListType;
+    }
+
 }
