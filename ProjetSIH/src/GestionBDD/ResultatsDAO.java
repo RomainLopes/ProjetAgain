@@ -39,6 +39,25 @@ public class ResultatsDAO extends DAO<Resultats> {
             return false;
         }
     }
+    
+    public boolean updateIpp(String ippgarde, String ippsuppr) {
+        String Query = new String();
+        Query = "UPDATE resultat"
+                + "SET ipp = '{" + ippgarde + "}'"
+                + "WHERE ipp = '{" + ippsuppr + "}' ";
+
+        try {
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            System.out.println(Query);
+            int result = state.executeUpdate(Query);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
 
     @Override
     public boolean delete(Resultats obj) {
