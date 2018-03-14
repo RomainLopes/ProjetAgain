@@ -730,10 +730,12 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabelCorrespondance" min="-2" pref="22" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ConsulterDM" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
-                      <Component id="ConsulterDMA" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jComboBoxCorrespondance" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ConsulterDM" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
+                          <Component id="ConsulterDMA" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
