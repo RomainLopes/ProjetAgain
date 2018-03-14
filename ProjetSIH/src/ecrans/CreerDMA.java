@@ -368,7 +368,8 @@ public class CreerDMA extends javax.swing.JFrame {
         // TODO add your handling code here:
         DossierMedicoAdministratif dma;
         PatientsDAO patd = new PatientsDAO(BDDconnection.getInstance());
-       this.patient= new Patients(jTextField1Nom.getText(), jTextField4Prenom.getText(),jTextField4DDN1.getText(), jTextField4Localisation.getText(),jTextFieldadresse.getText(),jTextField4Sexe.getText());
+        // ici utiliser la fonction qui récupère le dernier ipp pour créer lenouveau et faire patient.setIpp(newIpp)
+       this.patient= new Patients(patient.getIpp(), jTextField1Nom.getText(), jTextField4Prenom.getText(),jTextField4DDN1.getText(), jTextField4Localisation.getText(),jTextFieldadresse.getText(),jTextField4Sexe.getText());
        patd.create(patient);
         
         //String ipp,String dateentree,String idph,String type,String service
