@@ -59,16 +59,6 @@ public class Patients {
         this.sexe=sexe;
     }
     
-    public Patients ( String nompatient, String prenompatient,String dateDeNaissance,String localisation,String adresse,String sexe ){
-        this.nompatient=nompatient;
-        this.prenompatient=prenompatient;
-        this.dateDeNaissance=dateDeNaissance;
-        this.localisation=localisation;
-        this.adresse=adresse;
-        this.sexe=sexe;
-    }
-    
-    
     public Patients () {}
     
     /**

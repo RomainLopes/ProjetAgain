@@ -45,13 +45,6 @@ public class DossierMedicoAdministratif {
         this.service=service;
     }
     
-     public DossierMedicoAdministratif (String ipp,String dateentree,String idph,String type,String service ){
-        this.ipp=ipp;
-        this.dateentree=dateentree;
-        this.idph=idph;
-        this.type=type;
-        this.service=service;
-    }
     
      public DossierMedicoAdministratif (){}
     

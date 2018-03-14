@@ -82,7 +82,7 @@ public class Identification extends javax.swing.JFrame {
             .addGroup(jPanelEnTeteLayout.createSequentialGroup()
                 .addGap(249, 249, 249)
                 .addComponent(jLabelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(278, Short.MAX_VALUE))
+                .addContainerGap(522, Short.MAX_VALUE))
         );
         jPanelEnTeteLayout.setVerticalGroup(
             jPanelEnTeteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,7 +93,7 @@ public class Identification extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanelEnTete);
-        jPanelEnTete.setBounds(0, 0, 746, 140);
+        jPanelEnTete.setBounds(0, 0, 990, 140);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(200, 200));
@@ -162,7 +162,7 @@ public class Identification extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelMdp)
                     .addComponent(jTextFieldMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addComponent(jButtonValider)
                 .addGap(30, 30, 30)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,7 +170,7 @@ public class Identification extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(300, 150, 700, 650);
+        jPanel1.setBounds(290, 140, 710, 660);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
