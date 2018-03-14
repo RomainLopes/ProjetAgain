@@ -48,7 +48,7 @@ public class NoSejour extends javax.swing.JFrame {
         jLabel1LettreSortiep = new javax.swing.JLabel();
         jLabel4LettreSortie = new javax.swing.JLabel();
         jScrollPane1ListePrestaMT = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<String>();
+        jList1 = new javax.swing.JList<>();
         jLabel5PrestaMT = new javax.swing.JLabel();
         jPanel3InfoPatient = new javax.swing.JPanel();
         jLabel1Prenom = new javax.swing.JLabel();
@@ -89,10 +89,10 @@ public class NoSejour extends javax.swing.JFrame {
         jLabel4LettreSortie.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4LettreSortie.setText("Lettre de sortie ");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1ListePrestaMT.setViewportView(jList1);
 

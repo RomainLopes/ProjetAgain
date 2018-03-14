@@ -143,7 +143,7 @@ public class SaAccueil extends javax.swing.JFrame {
         jButtonConsulterDMA.setBackground(new java.awt.Color(228, 241, 254));
         jButtonConsulterDMA.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jButtonConsulterDMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
-        jButtonConsulterDMA.setText("Consulter DMA");
+        jButtonConsulterDMA.setText("Nouveau Séjour");
         jButtonConsulterDMA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonConsulterDMAActionPerformed(evt);

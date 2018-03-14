@@ -33,6 +33,7 @@ public class CreerDMA extends javax.swing.JFrame {
       private static PersonnelHospitalier employe;
     private  Patients patient;
     private static ArrayList<String> listMed;
+    private String typeSejour;
 
 
     public CreerDMA(PersonnelHospitalier employe) {
@@ -57,7 +58,7 @@ public class CreerDMA extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1ListePrestaMT = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<String>();
+        jList1 = new javax.swing.JList<>();
         jPanel2 = new javax.swing.JPanel();
         jPanel3InfoPatient = new javax.swing.JPanel();
         jLabel1Prenom = new javax.swing.JLabel();
@@ -77,18 +78,18 @@ public class CreerDMA extends javax.swing.JFrame {
         jLabel1NoSejour = new javax.swing.JLabel();
         jTextField1NoSejour = new javax.swing.JTextField();
         jLabel3Type = new javax.swing.JLabel();
-        jComboBoxPH = new javax.swing.JComboBox<String>();
+        jComboBoxPH = new javax.swing.JComboBox<>();
         jLabel2NomPH = new javax.swing.JLabel();
-        jComboBoxTypeSejour = new javax.swing.JComboBox<String>();
+        jComboBoxTypeSejour = new javax.swing.JComboBox<>();
         jButtonValider = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButtonPrecedent2 = new javax.swing.JButton();
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1ListePrestaMT.setViewportView(jList1);
 
@@ -231,7 +232,7 @@ public class CreerDMA extends javax.swing.JFrame {
         jLabel3Type.setText("Type :");
         jPanel2CreationDMA.add(jLabel3Type);
 
-        jComboBoxPH.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxPH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxPH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxPHActionPerformed(evt);
@@ -243,7 +244,7 @@ public class CreerDMA extends javax.swing.JFrame {
         jLabel2NomPH.setText("Nom du Praticien Hospitalier responsable :");
         jPanel2CreationDMA.add(jLabel2NomPH);
 
-        jComboBoxTypeSejour.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxTypeSejour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxTypeSejour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxTypeSejourActionPerformed(evt);
@@ -358,7 +359,7 @@ public class CreerDMA extends javax.swing.JFrame {
 
     private void jComboBoxPHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPHActionPerformed
         // TODO add your handling code here:
-          String spe = jComboBoxPH.getSelectedItem().toString();
+          this.typeSejour = jComboBoxPH.getSelectedItem().toString();
         
         
         
@@ -372,8 +373,8 @@ public class CreerDMA extends javax.swing.JFrame {
        this.patient= new Patients(patient.getIpp(), jTextField1Nom.getText(), jTextField4Prenom.getText(),jTextField4DDN1.getText(), jTextField4Localisation.getText(),jTextFieldadresse.getText(),jTextField4Sexe.getText());
        patd.create(patient);
         
-        //String ipp,String dateentree,String idph,String type,String service
-        dma = new DossierMedicoAdministratif(patient.getIpp(), "180100002","01-05-2018",employe.getId() ,"Consultation","Cardiologie");
+        //creer fonction qui crée le num de sejour 
+        dma = new DossierMedicoAdministratif(patient.getIpp(), "num de sejour","date du jour",employe.getId() ,"Consultation","Cardiologie");
         DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         DossierMedicoAdministratifDAO.create(dma);
         
