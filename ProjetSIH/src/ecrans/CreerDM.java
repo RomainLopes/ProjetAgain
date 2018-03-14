@@ -75,6 +75,10 @@ public class CreerDM extends javax.swing.JFrame {
             jLabel2.setText("jLabel2");
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+            setMinimumSize(new java.awt.Dimension(200, 200));
+            setPreferredSize(new java.awt.Dimension(1000, 1000));
+            setResizable(false);
+            getContentPane().setLayout(null);
 
             jPanel1CreationDM.setLayout(null);
 
@@ -101,24 +105,22 @@ public class CreerDM extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(24, 24, 24)
                     .addComponent(jButtonPrecedent2)
-                    .addGap(81, 81, 81)
+                    .addGap(206, 206, 206)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(155, Short.MAX_VALUE))
+                    .addContainerGap(370, Short.MAX_VALUE))
             );
             jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(20, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap())
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jButtonPrecedent2)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonPrecedent2))
+                    .addContainerGap(20, Short.MAX_VALUE))
             );
 
             jPanel1CreationDM.add(jPanel1);
-            jPanel1.setBounds(-10, 0, 720, 100);
+            jPanel1.setBounds(-10, 0, 1060, 100);
 
             jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -242,33 +244,23 @@ public class CreerDM extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(177, 177, 177)
                 .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(231, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(158, Short.MAX_VALUE)
                 .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(82, 82, 82))
         );
 
         jPanel1CreationDM.add(jPanel3);
-        jPanel3.setBounds(0, 100, 790, 310);
+        jPanel3.setBounds(0, 100, 1050, 520);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1CreationDM, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1CreationDM, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1CreationDM);
+        jPanel1CreationDM.setBounds(0, 0, 1050, 616);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

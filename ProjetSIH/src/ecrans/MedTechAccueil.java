@@ -108,8 +108,10 @@ public class MedTechAccueil extends javax.swing.JFrame {
         jListPrescriptions3 = new javax.swing.JList<String>();
         jPanel9 = new javax.swing.JPanel();
         Prescriptio4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         JPanelEnTeteMedTech.setBackground(new java.awt.Color(65, 131, 215));
         JPanelEnTeteMedTech.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -500,6 +502,10 @@ public class MedTechAccueil extends javax.swing.JFrame {
         jPanel2.add(jPanel4Prescriptions3);
         jPanel4Prescriptions3.setBounds(50, 218, 309, 230);
 
+        jButton1.setText("Afficher les numéros de séjours précédents");
+        jPanel2.add(jButton1);
+        jButton1.setBounds(80, 100, 270, 90);
+
         jPanel1.add(jPanel2);
         jPanel2.setBounds(-10, 0, 1010, 530);
 
@@ -627,15 +633,14 @@ public class MedTechAccueil extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelEnTeteMedTech;
     private javax.swing.JLabel Observations;
-    private javax.swing.JLabel Prescriptio1;
     private javax.swing.JLabel Prescriptio2;
-    private javax.swing.JLabel Prescriptio3;
     private javax.swing.JLabel Prescriptio4;
     private javax.swing.JLabel Sa;
     private javax.swing.JButton ajouterObservation1;
     private javax.swing.JButton ajouterResultat;
     private javax.swing.JButton consulterObservation;
     private javax.swing.JButton consulterResultat;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JLabel jLabel1InfoPatients;
@@ -651,8 +656,6 @@ public class MedTechAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelService;
     private javax.swing.JLabel jLabelSexePatient;
     private javax.swing.JList<String> jListObservations;
-    private javax.swing.JList<String> jListPrescriptions1;
-    private javax.swing.JList<String> jListPrescriptions2;
     private javax.swing.JList<String> jListPrescriptions3;
     private javax.swing.JList<String> jListResultats;
     private javax.swing.JPanel jPanel1;
@@ -660,17 +663,11 @@ public class MedTechAccueil extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel3InfoPatient;
-    private javax.swing.JPanel jPanel4Prescriptions1;
-    private javax.swing.JPanel jPanel4Prescriptions2;
     private javax.swing.JPanel jPanel4Prescriptions3;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel7Resultat;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1ListeObservations;
-    private javax.swing.JScrollPane jScrollPane2ListePrescription1;
-    private javax.swing.JScrollPane jScrollPane2ListePrescription2;
     private javax.swing.JScrollPane jScrollPane2ListePrescription3;
     private javax.swing.JScrollPane jScrollPane3ListeResultats;
     // End of variables declaration//GEN-END:variables
