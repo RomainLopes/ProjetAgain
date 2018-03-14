@@ -538,7 +538,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
     private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
         // TODO add your handling code here:
-          ConsulterObservation obs = new ConsulterObservation(employe,patient);
+          ConsulterObservation obs = new ConsulterObservation(employe,patient,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

@@ -490,7 +490,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
         // TODO add your handling code here:
-        ConsulterObservation obs = new ConsulterObservation(employe,patient);
+        ConsulterObservation obs = new ConsulterObservation(employe,patient, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

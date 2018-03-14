@@ -65,7 +65,7 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
         return pre;
     }
     
-    public ArrayList<Prescriptions> findsipp(String ipp) {
+    public ArrayList<Prescriptions> findipp(String ipp) {
         ArrayList<Prescriptions> pre = new ArrayList<Prescriptions>();
         String Query = new String();
         Query = "select * from prescription where ipp = '{" + ipp

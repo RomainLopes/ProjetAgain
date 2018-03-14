@@ -5,7 +5,12 @@
  */
 package ecrans;
 
+import GestionBDD.BDDconnection;
+import GestionBDD.DAO;
+import GestionBDD.DossierMedicoAdministratif;
+import GestionBDD.DossierMedicoAdministratifDAO;
 import GestionBDD.Patients;
+import GestionBDD.PatientsDAO;
 import GestionBDD.PersonnelHospitalier;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,16 +31,16 @@ public class CreerDMA extends javax.swing.JFrame {
      * Creates new form CreerDMA
      */
       private static PersonnelHospitalier employe;
-    private static Patients patient;
+    private  Patients patient;
     private static ArrayList<String> listMed;
 
 
     public CreerDMA(PersonnelHospitalier employe) {
         initComponents();
         this.employe = employe;
-       /* jComboBoxTypeSejour.addItem("Hospitalisation");
+        jComboBoxTypeSejour.addItem("Hospitalisation");
         jComboBoxTypeSejour.addItem("Consultation");
-        for (String j: listMed){
+       /* for (String j: listMed){
             jComboBoxPH.addItem(j);
         }*/
         
@@ -270,7 +275,7 @@ public class CreerDMA extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2CreationDMA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,7 +288,7 @@ public class CreerDMA extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 93, 772, 410);
+        jPanel2.setBounds(0, 93, 833, 410);
 
         jPanel1.setBackground(new java.awt.Color(65, 131, 215));
         jPanel1.setToolTipText("");
@@ -344,21 +349,35 @@ public class CreerDMA extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1NoSejourActionPerformed
 
-    private void jComboBoxTypeSejourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTypeSejourActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxTypeSejourActionPerformed
-
     private void jButtonPrecedent2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedent2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonPrecedent2ActionPerformed
 
     private void jComboBoxPHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPHActionPerformed
         // TODO add your handling code here:
+          String spe = jComboBoxPH.getSelectedItem().toString();
+        
+        
+        
     }//GEN-LAST:event_jComboBoxPHActionPerformed
 
     private void jButtonValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonValiderMouseClicked
         // TODO add your handling code here:
+        DossierMedicoAdministratif dma;
+        PatientsDAO patd = new PatientsDAO(BDDconnection.getInstance());
+       this.patient= new Patients(jTextField1Nom.getText(), jTextField4Prenom.getText(),jTextField4DDN1.getText(), jTextField4Localisation.getText(),jTextFieldadresse.getText(),jTextField4Sexe.getText());
+       patd.create(patient);
+        
+        //String ipp,String dateentree,String idph,String type,String service
+        dma = new DossierMedicoAdministratif(patient.getIpp(), "180100002","01-05-2018",employe.getId() ,"Consultation","Cardiologie");
+        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        DossierMedicoAdministratifDAO.create(dma);
+        
     }//GEN-LAST:event_jButtonValiderMouseClicked
+
+    private void jComboBoxTypeSejourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTypeSejourActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxTypeSejourActionPerformed
 
     /**
      * @param args the command line arguments

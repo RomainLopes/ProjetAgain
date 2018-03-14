@@ -5,6 +5,7 @@
  */
 package projetsih;
 import java.sql.*;
+import java.util.Calendar;
 import static java.util.Objects.isNull;
 /**
  *
@@ -14,7 +15,7 @@ public class ProjetSIH {
 
 	public static void main(String[] args) {
 		
-		try {
+		/*try {
 			Class.forName("org.postgresql.Driver");
 			
                         
@@ -65,7 +66,10 @@ public class ProjetSIH {
                         
 		} catch (Exception e) {
 			e.printStackTrace();
-		}	
+		}*/
+                
+                Calendar c = Calendar.getInstance ();
+ System.out.println ( c.getTime ().getDate() +"-"+ c.getTime ().getDay() + "-"+ c.getTime ().getMonth());
 
 	}
 }

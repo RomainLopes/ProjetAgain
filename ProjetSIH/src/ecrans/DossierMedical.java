@@ -85,10 +85,10 @@ public class DossierMedical extends javax.swing.JFrame {
         ajouterObservation = new javax.swing.JButton();
         consulterObservation = new javax.swing.JButton();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
-        jListListeObservation = new javax.swing.JList<String>();
+        jListListeObservation = new javax.swing.JList<>();
         jPanel4Prescriptions = new javax.swing.JPanel();
         jScrollPane2ListePrescription = new javax.swing.JScrollPane();
-        jListListePrescription = new javax.swing.JList<String>();
+        jListListePrescription = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
         Prescriptio = new javax.swing.JLabel();
         ajouterPrescription = new javax.swing.JButton();
@@ -97,14 +97,14 @@ public class DossierMedical extends javax.swing.JFrame {
         Operations = new javax.swing.JLabel();
         ajouterOperation = new javax.swing.JButton();
         jScrollPane1ListeOperations = new javax.swing.JScrollPane();
-        jListListeOperation = new javax.swing.JList<String>();
+        jListListeOperation = new javax.swing.JList<>();
         jPanel7Resultat = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         Prescriptio2 = new javax.swing.JLabel();
         ajouterResultat = new javax.swing.JButton();
         consulterResultat = new javax.swing.JButton();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
-        jListListResultat = new javax.swing.JList<String>();
+        jListListResultat = new javax.swing.JList<>();
         JPanelEnTeteMedTech = new javax.swing.JPanel();
         jLabelFonction = new javax.swing.JLabel();
         jLabelNom1 = new javax.swing.JLabel();
@@ -185,10 +185,10 @@ public class DossierMedical extends javax.swing.JFrame {
 
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListListeObservation.setModel(new javax.swing.AbstractListModel() {
+        jListListeObservation.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1ListeObservations.setViewportView(jListListeObservation);
 
@@ -217,10 +217,10 @@ public class DossierMedical extends javax.swing.JFrame {
 
         jPanel4Prescriptions.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListListePrescription.setModel(new javax.swing.AbstractListModel() {
+        jListListePrescription.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2ListePrescription.setViewportView(jListListePrescription);
 
@@ -317,10 +317,10 @@ public class DossierMedical extends javax.swing.JFrame {
                 .addComponent(ajouterOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jListListeOperation.setModel(new javax.swing.AbstractListModel() {
+        jListListeOperation.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1ListeOperations.setViewportView(jListListeOperation);
 
@@ -400,10 +400,10 @@ public class DossierMedical extends javax.swing.JFrame {
                     .addComponent(consulterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jListListResultat.setModel(new javax.swing.AbstractListModel() {
+        jListListResultat.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane3ListeResultats.setViewportView(jListListResultat);
 
@@ -741,7 +741,7 @@ public class DossierMedical extends javax.swing.JFrame {
 
     private void consulterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterResultatActionPerformed
         // TODO add your handling code here:
-         ConsulterResultat obs = new ConsulterResultat(employe,patient);
+         ConsulterResultat obs = new ConsulterResultat(employe,patient,this);
                     obs.setSize(this.getSize());
                     obs.setLocationRelativeTo(this);
                     this.dispose();
@@ -750,7 +750,7 @@ public class DossierMedical extends javax.swing.JFrame {
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
         // TODO add your handling code here:
-        ConsulterObservation obs = new ConsulterObservation(employe,patient);
+        ConsulterObservation obs = new ConsulterObservation(employe,patient,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

@@ -376,14 +376,14 @@ public class RechercherPatient extends javax.swing.JFrame {
         ArrayList<GestionBDD.DossierMedical> resultat = new ArrayList<GestionBDD.DossierMedical>();
         
         
-        // ici on a pas encore de nosejour à ce stade donc faire une recherche uniquement avec ipp et service 
+        // ici on a pas encore de nosejour à ce stade donc réfléchir comment choisir le sejour
 
         resultat = dms.findser(ipp, "180100001", phr.getService()); // ipp nosejour service
         
-        re= res.find(ipp, "180100001");
-        ob=obs.findser(ipp, "180100001", phr.getService());
-        pr=presc.findser(ipp, "180100001", phr.getService());
-        op=ope.find(ipp, "180100001");
+        re= res.findipp(ipp);
+        ob=obs.findipp(ipp);
+        pr=presc.findipp(ipp);
+        op=ope.findipp(ipp);
 
         DefaultListModel prescriptions = new DefaultListModel();
         DefaultListModel observations = new DefaultListModel();

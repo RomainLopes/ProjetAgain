@@ -619,7 +619,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
     private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
         // TODO add your handling code here:
-         ConsulterObservation obs = new ConsulterObservation(employe,patient);
+         ConsulterObservation obs = new ConsulterObservation(employe,patient,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -628,7 +628,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
     private void jListResultatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListResultatsMouseClicked
         // TODO add your handling code here:
-           ConsulterResultat obs = new ConsulterResultat(employe,patient);
+           ConsulterResultat obs = new ConsulterResultat(employe,patient,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

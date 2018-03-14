@@ -5,6 +5,8 @@
  */
 package ecrans;
 
+import GestionBDD.BDDconnection;
+import GestionBDD.DossierMedicalDAO;
 import GestionBDD.Patients;
 import GestionBDD.PersonnelHospitalier;
 import java.text.ParseException;
@@ -29,8 +31,9 @@ public class CreerDM extends javax.swing.JFrame {
     /**
      * Creates new form CreerDM
      */
-    public CreerDM ( PersonnelHospitalier employe) {
+    public CreerDM(PersonnelHospitalier employe) {
         initComponents();
+        //patient = new Patients();
 
         this.employe = employe;
 
@@ -279,6 +282,13 @@ public class CreerDM extends javax.swing.JFrame {
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         // TODO add your handling code here:
+        RecherchePatient rp = new RecherchePatient();
+        DossierMedicalDAO dms = new DossierMedicalDAO(BDDconnection.getInstance());
+        
+        
+        
+
+        /*
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String s = jFormattedTextFieldDateDeNaissance.getText();
         Date d = new Date();
@@ -301,8 +311,7 @@ public class CreerDM extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Exception");
-        }
-
+        }*/
 
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
