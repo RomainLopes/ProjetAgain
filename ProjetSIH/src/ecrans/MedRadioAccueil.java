@@ -73,7 +73,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
 
         jPanel4Prescriptions = new javax.swing.JPanel();
         jScrollPane2ListePrescription = new javax.swing.JScrollPane();
-        jListPrescriptions = new javax.swing.JList<String>();
+        jListPrescriptions = new javax.swing.JList<>();
         jPanel5 = new javax.swing.JPanel();
         Prescriptio = new javax.swing.JLabel();
         ajouterPrescription = new javax.swing.JButton();
@@ -100,7 +100,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         jPanel1Observations = new javax.swing.JPanel();
         jPanel7Resultat = new javax.swing.JPanel();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
-        jListResultats = new javax.swing.JList<String>();
+        jListResultats = new javax.swing.JList<>();
         jPanel8 = new javax.swing.JPanel();
         Prescriptio2 = new javax.swing.JLabel();
         ajouterResultat = new javax.swing.JButton();
@@ -111,19 +111,19 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         ajouterObservation1 = new javax.swing.JButton();
         consulterObservation3 = new javax.swing.JButton();
         jScrollPane1ListeObservations1 = new javax.swing.JScrollPane();
-        jListObservations = new javax.swing.JList<String>();
+        jListObservations = new javax.swing.JList<>();
         jPanel4Prescriptions1 = new javax.swing.JPanel();
         jScrollPane2ListePrescription1 = new javax.swing.JScrollPane();
-        jListPrescriptions1 = new javax.swing.JList<String>();
+        jListPrescriptions1 = new javax.swing.JList<>();
         jPanel6 = new javax.swing.JPanel();
         Prescriptio1 = new javax.swing.JLabel();
 
         jPanel4Prescriptions.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListPrescriptions.setModel(new javax.swing.AbstractListModel() {
+        jListPrescriptions.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2ListePrescription.setViewportView(jListPrescriptions);
 
@@ -185,8 +185,6 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(200, 200));
-        setPreferredSize(new java.awt.Dimension(1000, 1000));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -239,11 +237,11 @@ public class MedRadioAccueil extends javax.swing.JFrame {
                         .addGap(205, 205, 205)
                         .addComponent(jLabelFonction))
                     .addComponent(jLabelPrenom))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
                 .addComponent(jLabelService)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(26, 26, 26)
                 .addComponent(jButtonDeconnexion)
-                .addGap(103, 103, 103))
+                .addContainerGap())
         );
         JPanelEnTeteMedTechLayout.setVerticalGroup(
             JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,10 +383,10 @@ public class MedRadioAccueil extends javax.swing.JFrame {
 
         jPanel7Resultat.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListResultats.setModel(new javax.swing.AbstractListModel() {
+        jListResultats.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListResultats.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -493,10 +491,10 @@ public class MedRadioAccueil extends javax.swing.JFrame {
 
         jScrollPane1ListeObservations1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListObservations.setModel(new javax.swing.AbstractListModel() {
+        jListObservations.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListObservations.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -552,10 +550,10 @@ public class MedRadioAccueil extends javax.swing.JFrame {
 
         jPanel4Prescriptions1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListPrescriptions1.setModel(new javax.swing.AbstractListModel() {
+        jListPrescriptions1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2ListePrescription1.setViewportView(jListPrescriptions1);
 

@@ -79,7 +79,6 @@ public class CreerDM extends javax.swing.JFrame {
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
             setMinimumSize(new java.awt.Dimension(200, 200));
-            setPreferredSize(new java.awt.Dimension(1000, 1000));
             setResizable(false);
             getContentPane().setLayout(null);
 
