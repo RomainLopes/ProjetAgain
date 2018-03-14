@@ -84,7 +84,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
         ajouterObservation1 = new javax.swing.JButton();
         consulterObservation = new javax.swing.JButton();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
-        jListObservations = new javax.swing.JList<>();
+        jListObservations = new javax.swing.JList<String>();
         Observations = new javax.swing.JLabel();
         jPanel7Resultat = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -92,7 +92,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
         ajouterResultat = new javax.swing.JButton();
         consulterResultat = new javax.swing.JButton();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
-        jListResultats = new javax.swing.JList<>();
+        jListResultats = new javax.swing.JList<String>();
         jPanel3InfoPatient = new javax.swing.JPanel();
         jLabel1Prenom = new javax.swing.JLabel();
         jLabel2Nom = new javax.swing.JLabel();
@@ -103,9 +103,15 @@ public class MedTechAccueil extends javax.swing.JFrame {
         jLabelSexePatient = new javax.swing.JLabel();
         jLabel2dateDeNAissancePatient = new javax.swing.JLabel();
         jLabel1InfoPatients = new javax.swing.JLabel();
+        jPanel4Prescriptions3 = new javax.swing.JPanel();
+        jScrollPane2ListePrescription3 = new javax.swing.JScrollPane();
+        jListPrescriptions3 = new javax.swing.JList<String>();
+        jPanel9 = new javax.swing.JPanel();
+        Prescriptio4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        setResizable(false);
 
         JPanelEnTeteMedTech.setBackground(new java.awt.Color(65, 131, 215));
         JPanelEnTeteMedTech.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -184,12 +190,10 @@ public class MedTechAccueil extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        getContentPane().add(JPanelEnTeteMedTech);
-        JPanelEnTeteMedTech.setBounds(2, 4, 850, 120);
-
         jPanel1.setLayout(null);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
 
         jPanel1Observations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -233,10 +237,10 @@ public class MedTechAccueil extends javax.swing.JFrame {
 
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListObservations.setModel(new javax.swing.AbstractListModel<String>() {
+        jListObservations.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jListObservations.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -257,7 +261,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
                 .addGroup(jPanel1ObservationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1ObservationsLayout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 20, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1ListeObservations, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
             .addGroup(jPanel1ObservationsLayout.createSequentialGroup()
@@ -275,6 +279,9 @@ public class MedTechAccueil extends javax.swing.JFrame {
                 .addComponent(jScrollPane1ListeObservations, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(207, 207, 207))
         );
+
+        jPanel2.add(jPanel1Observations);
+        jPanel1Observations.setBounds(390, 215, 307, 239);
 
         jPanel7Resultat.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -306,12 +313,14 @@ public class MedTechAccueil extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Prescriptio2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(ajouterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                        .addComponent(consulterResultat)))
-                .addGap(19, 19, 19))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addComponent(consulterResultat)
+                        .addGap(19, 19, 19))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(Prescriptio2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,10 +333,10 @@ public class MedTechAccueil extends javax.swing.JFrame {
                     .addComponent(ajouterResultat, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
         );
 
-        jListResultats.setModel(new javax.swing.AbstractListModel<String>() {
+        jListResultats.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jListResultats.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -342,25 +351,23 @@ public class MedTechAccueil extends javax.swing.JFrame {
             jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7ResultatLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3ListeResultats, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                .addGroup(jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3ListeResultats)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel7ResultatLayout.createSequentialGroup()
-                    .addGap(15, 15, 15)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
         jPanel7ResultatLayout.setVerticalGroup(
             jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7ResultatLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addGap(5, 5, 5)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3ListeResultats, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel7ResultatLayout.createSequentialGroup()
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 160, Short.MAX_VALUE)))
         );
+
+        jPanel2.add(jPanel7Resultat);
+        jPanel7Resultat.setBounds(703, 214, 297, 240);
 
         jPanel3InfoPatient.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -437,38 +444,89 @@ public class MedTechAccueil extends javax.swing.JFrame {
                         .addComponent(jLabel2dateDeNAissancePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jPanel1Observations, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                .addComponent(jPanel7Resultat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(200, 200, 200))
+        jPanel2.add(jPanel3InfoPatient);
+        jPanel3InfoPatient.setBounds(373, 50, 437, 93);
+
+        jPanel4Prescriptions3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jListPrescriptions3.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2ListePrescription3.setViewportView(jListPrescriptions3);
+
+        Prescriptio4.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        Prescriptio4.setText("Prescriptions");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(Prescriptio4)
+                .addContainerGap(93, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1Observations, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel7Resultat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(75, Short.MAX_VALUE))
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Prescriptio4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        javax.swing.GroupLayout jPanel4Prescriptions3Layout = new javax.swing.GroupLayout(jPanel4Prescriptions3);
+        jPanel4Prescriptions3.setLayout(jPanel4Prescriptions3Layout);
+        jPanel4Prescriptions3Layout.setHorizontalGroup(
+            jPanel4Prescriptions3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Prescriptions3Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Prescriptions3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2ListePrescription3, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel4Prescriptions3Layout.setVerticalGroup(
+            jPanel4Prescriptions3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Prescriptions3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addComponent(jScrollPane2ListePrescription3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
+        );
+
+        jPanel2.add(jPanel4Prescriptions3);
+        jPanel4Prescriptions3.setBounds(50, 218, 309, 230);
+
+        jButton1.setText("Afficher les numéros de séjours précédents");
+        jPanel2.add(jButton1);
+        jButton1.setBounds(80, 100, 270, 90);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(-20, -20, 850, 530);
+        jPanel2.setBounds(-10, 0, 1010, 530);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 130, 832, 510);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(2, 2, 2)
+                .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -519,7 +577,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
 
     private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
         // TODO add your handling code here:
-            ConsulterObservation obs = new ConsulterObservation(employe,patient);
+            ConsulterObservation obs = new ConsulterObservation(employe,patient,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -528,7 +586,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
 
     private void jListResultatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListResultatsMouseClicked
         // TODO add your handling code here:
-            ConsulterResultat obs = new ConsulterResultat(employe,patient);
+            ConsulterResultat obs = new ConsulterResultat(employe,patient, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -576,11 +634,13 @@ public class MedTechAccueil extends javax.swing.JFrame {
     private javax.swing.JPanel JPanelEnTeteMedTech;
     private javax.swing.JLabel Observations;
     private javax.swing.JLabel Prescriptio2;
+    private javax.swing.JLabel Prescriptio4;
     private javax.swing.JLabel Sa;
     private javax.swing.JButton ajouterObservation1;
     private javax.swing.JButton ajouterResultat;
     private javax.swing.JButton consulterObservation;
     private javax.swing.JButton consulterResultat;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JLabel jLabel1InfoPatients;
@@ -596,15 +656,19 @@ public class MedTechAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelService;
     private javax.swing.JLabel jLabelSexePatient;
     private javax.swing.JList<String> jListObservations;
+    private javax.swing.JList<String> jListPrescriptions3;
     private javax.swing.JList<String> jListResultats;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1Observations;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel3InfoPatient;
+    private javax.swing.JPanel jPanel4Prescriptions3;
     private javax.swing.JPanel jPanel7Resultat;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1ListeObservations;
+    private javax.swing.JScrollPane jScrollPane2ListePrescription3;
     private javax.swing.JScrollPane jScrollPane3ListeResultats;
     // End of variables declaration//GEN-END:variables
 }

@@ -293,6 +293,7 @@ jList2.setModel(modele);
         //</editor-fold>
 
         /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new discution().setVisible(true);
