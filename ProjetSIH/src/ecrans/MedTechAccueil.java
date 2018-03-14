@@ -84,7 +84,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
         ajouterObservation1 = new javax.swing.JButton();
         consulterObservation = new javax.swing.JButton();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
-        jListObservations = new javax.swing.JList<String>();
+        jListObservations = new javax.swing.JList<>();
         Observations = new javax.swing.JLabel();
         jPanel7Resultat = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -92,7 +92,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
         ajouterResultat = new javax.swing.JButton();
         consulterResultat = new javax.swing.JButton();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
-        jListResultats = new javax.swing.JList<String>();
+        jListResultats = new javax.swing.JList<>();
         jPanel3InfoPatient = new javax.swing.JPanel();
         jLabel1Prenom = new javax.swing.JLabel();
         jLabel2Nom = new javax.swing.JLabel();
@@ -105,10 +105,10 @@ public class MedTechAccueil extends javax.swing.JFrame {
         jLabel1InfoPatients = new javax.swing.JLabel();
         jPanel4Prescriptions3 = new javax.swing.JPanel();
         jScrollPane2ListePrescription3 = new javax.swing.JScrollPane();
-        jListPrescriptions3 = new javax.swing.JList<String>();
+        jListPrescriptions3 = new javax.swing.JList<>();
         jPanel9 = new javax.swing.JPanel();
         Prescriptio4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonaffichernosejours = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -237,10 +237,10 @@ public class MedTechAccueil extends javax.swing.JFrame {
 
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListObservations.setModel(new javax.swing.AbstractListModel() {
+        jListObservations.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListObservations.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -333,10 +333,10 @@ public class MedTechAccueil extends javax.swing.JFrame {
                     .addComponent(ajouterResultat, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
         );
 
-        jListResultats.setModel(new javax.swing.AbstractListModel() {
+        jListResultats.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListResultats.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -445,14 +445,14 @@ public class MedTechAccueil extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel3InfoPatient);
-        jPanel3InfoPatient.setBounds(373, 50, 437, 93);
+        jPanel3InfoPatient.setBounds(50, 50, 437, 93);
 
         jPanel4Prescriptions3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListPrescriptions3.setModel(new javax.swing.AbstractListModel() {
+        jListPrescriptions3.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2ListePrescription3.setViewportView(jListPrescriptions3);
 
@@ -502,9 +502,14 @@ public class MedTechAccueil extends javax.swing.JFrame {
         jPanel2.add(jPanel4Prescriptions3);
         jPanel4Prescriptions3.setBounds(50, 218, 309, 230);
 
-        jButton1.setText("Afficher les numéros de séjours précédents");
-        jPanel2.add(jButton1);
-        jButton1.setBounds(80, 100, 270, 90);
+        jButtonaffichernosejours.setText("Afficher les séjours précédents");
+        jButtonaffichernosejours.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonaffichernosejoursActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonaffichernosejours);
+        jButtonaffichernosejours.setBounds(590, 50, 270, 90);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(-10, 0, 1010, 530);
@@ -516,7 +521,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(2, 2, 2)
                 .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(142, 169, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -525,7 +530,8 @@ public class MedTechAccueil extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         pack();
@@ -593,6 +599,10 @@ public class MedTechAccueil extends javax.swing.JFrame {
         obs.setVisible(true);
     }//GEN-LAST:event_jListResultatsMouseClicked
 
+    private void jButtonaffichernosejoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonaffichernosejoursActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonaffichernosejoursActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -640,9 +650,9 @@ public class MedTechAccueil extends javax.swing.JFrame {
     private javax.swing.JButton ajouterResultat;
     private javax.swing.JButton consulterObservation;
     private javax.swing.JButton consulterResultat;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDeconnexion;
+    private javax.swing.JButton jButtonaffichernosejours;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1Prenom;
     private javax.swing.JLabel jLabel2DateDeNaissance;

@@ -58,7 +58,6 @@ public class SaAccueil extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(200, 200));
-        setPreferredSize(new java.awt.Dimension(1000, 1000));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -143,7 +142,7 @@ public class SaAccueil extends javax.swing.JFrame {
         jButtonConsulterDMA.setBackground(new java.awt.Color(228, 241, 254));
         jButtonConsulterDMA.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jButtonConsulterDMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
-        jButtonConsulterDMA.setText("Nouveau Séjour");
+        jButtonConsulterDMA.setText("Créer un séjour");
         jButtonConsulterDMA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonConsulterDMAActionPerformed(evt);

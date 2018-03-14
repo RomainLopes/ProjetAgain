@@ -27,7 +27,7 @@
           <Group type="102" attributes="0">
               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
               <Component id="JPanelEnTeteMedTech" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="142" max="32767" attributes="0"/>
+              <EmptySpace min="142" pref="169" max="32767" attributes="0"/>
           </Group>
           <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
       </Group>
@@ -39,6 +39,7 @@
               <Component id="JPanelEnTeteMedTech" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" pref="510" max="-2" attributes="0"/>
+              <EmptySpace pref="118" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -500,7 +501,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="373" y="50" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="50" y="50" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
 
@@ -731,13 +732,16 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="jButtonaffichernosejours">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Afficher les num&#xe9;ros de s&#xe9;jours pr&#xe9;c&#xe9;dents"/>
+                <Property name="text" type="java.lang.String" value="Afficher les s&#xe9;jours pr&#xe9;c&#xe9;dents"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonaffichernosejoursActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="80" y="100" width="270" height="90"/>
+                  <AbsoluteConstraints x="590" y="50" width="270" height="90"/>
                 </Constraint>
               </Constraints>
             </Component>
