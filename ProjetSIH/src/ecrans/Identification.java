@@ -31,7 +31,7 @@ public class Identification extends javax.swing.JFrame {
     public Identification() {
         initComponents();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setPreferredSize(new Dimension(639, 473));
+        //this.setPreferredSize(new Dimension(639, 473));
         //this.setResizable(false);
         PersonnelHospitalier ph = new PersonnelHospitalier();
         jTextFieldMdp.setText("");
@@ -53,24 +53,23 @@ public class Identification extends javax.swing.JFrame {
         jPanelEnTete = new javax.swing.JPanel();
         jLabelTitle = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        logoHopital = new javax.swing.JLabel();
         jTextFieldIdentifiant = new javax.swing.JTextField();
         jLabelMdp = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        logoHIR = new javax.swing.JLabel();
         jLabelIdentifiant = new javax.swing.JLabel();
         jButtonValider = new javax.swing.JButton();
         jTextFieldMdp = new javax.swing.JPasswordField();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setMinimumSize(new java.awt.Dimension(200, 200));
-        setPreferredSize(new java.awt.Dimension(1000, 1000));
-        setResizable(false);
-        getContentPane().setLayout(null);
+        setMinimumSize(new java.awt.Dimension(250, 250));
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanelEnTete.setBackground(new java.awt.Color(65, 131, 215));
         jPanelEnTete.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanelEnTete.setAlignmentX(0.0F);
+        jPanelEnTete.setAlignmentY(0.0F);
 
         jLabelTitle.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
         jLabelTitle.setText("Identification");
@@ -87,17 +86,19 @@ public class Identification extends javax.swing.JFrame {
         jPanelEnTeteLayout.setVerticalGroup(
             jPanelEnTeteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelEnTeteLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
                 .addComponent(jLabelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGap(0, 1, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelEnTete);
         jPanelEnTete.setBounds(0, 0, 990, 140);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setMinimumSize(new java.awt.Dimension(200, 200));
+        jPanel1.setAlignmentX(0.0F);
+        jPanel1.setAlignmentY(0.0F);
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 1000));
+
+        logoHopital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plainsboro blanc.PNG"))); // NOI18N
 
         jTextFieldIdentifiant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +109,7 @@ public class Identification extends javax.swing.JFrame {
         jLabelMdp.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelMdp.setText("Mot de passe :");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
+        logoHIR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
 
         jLabelIdentifiant.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelIdentifiant.setText("Identifiant : ");
@@ -130,26 +131,26 @@ public class Identification extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(logoHopital)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabelIdentifiant)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabelMdp)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(242, 242, 242)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextFieldIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jLabelMdp)))
+                                    .addComponent(jButtonValider)
+                                    .addComponent(jTextFieldMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 57, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(268, 268, 268)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonValider))))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(logoHIR)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,17 +181,14 @@ public class Identification extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 290, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanelEnTete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
-
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 520, 290, 270);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plainsboro blanc.PNG"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 120, 300, 420);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -293,16 +291,15 @@ public class Identification extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonValider;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelIdentifiant;
     private javax.swing.JLabel jLabelMdp;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelEnTete;
     private javax.swing.JTextField jTextFieldIdentifiant;
     private javax.swing.JPasswordField jTextFieldMdp;
+    private javax.swing.JLabel logoHIR;
+    private javax.swing.JLabel logoHopital;
     // End of variables declaration//GEN-END:variables
 
     public ArrayList<String> getEmploye() {
