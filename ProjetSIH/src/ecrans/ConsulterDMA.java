@@ -65,14 +65,14 @@ public class ConsulterDMA extends javax.swing.JFrame {
         DMA = new javax.swing.JPanel();
         listech = new javax.swing.JLabel();
         jScrollPane1ListeSejour = new javax.swing.JScrollPane();
-        jListNoSejour = new javax.swing.JList<>();
+        jListNoSejour = new javax.swing.JList<String>();
         jLabel1Nosejour = new javax.swing.JLabel();
         jLabel2Type = new javax.swing.JLabel();
         jLabel3Date = new javax.swing.JLabel();
         jScrollPane2ListeType = new javax.swing.JScrollPane();
-        jListType = new javax.swing.JList<>();
+        jListType = new javax.swing.JList<String>();
         jScrollPane3ListeDate = new javax.swing.JScrollPane();
-        jListDate = new javax.swing.JList<>();
+        jListDate = new javax.swing.JList<String>();
         jLabel1Prenom = new javax.swing.JLabel();
         jLabel2DateDeNaissance = new javax.swing.JLabel();
         jLabel2PrenomP = new javax.swing.JLabel();
@@ -84,6 +84,9 @@ public class ConsulterDMA extends javax.swing.JFrame {
         jLabel1InfoPatients = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(200, 200));
+        setPreferredSize(new java.awt.Dimension(1000, 1000));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         JPanelEnTeteMedTech.setBackground(new java.awt.Color(65, 131, 215));
@@ -134,11 +137,11 @@ public class ConsulterDMA extends javax.swing.JFrame {
                         .addComponent(jLabelNomPmed)
                         .addGap(146, 146, 146)
                         .addComponent(jLabelFonction)))
-                .addGap(137, 137, 137)
+                .addGap(353, 353, 353)
                 .addComponent(jLabelService)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGap(229, 229, 229))
         );
         JPanelEnTeteMedTechLayout.setVerticalGroup(
             JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,7 +150,6 @@ public class ConsulterDMA extends javax.swing.JFrame {
                 .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
                         .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelService)
                             .addComponent(jLabelFonction, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelNomPmed))
                         .addGap(18, 18, 18)
@@ -155,13 +157,14 @@ public class ConsulterDMA extends javax.swing.JFrame {
                     .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabelService))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
         getContentPane().add(JPanelEnTeteMedTech);
-        JPanelEnTeteMedTech.setBounds(0, 0, 700, 113);
+        JPanelEnTeteMedTech.setBounds(0, 0, 1190, 113);
 
         DMA.setBackground(new java.awt.Color(255, 255, 255));
         DMA.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -170,12 +173,12 @@ public class ConsulterDMA extends javax.swing.JFrame {
         listech.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         listech.setText("Listes des consultations et des hospitalisations ");
         DMA.add(listech);
-        listech.setBounds(12, 99, 350, 41);
+        listech.setBounds(280, 140, 350, 41);
 
-        jListNoSejour.setModel(new javax.swing.AbstractListModel<String>() {
+        jListNoSejour.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jListNoSejour.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -185,27 +188,27 @@ public class ConsulterDMA extends javax.swing.JFrame {
         jScrollPane1ListeSejour.setViewportView(jListNoSejour);
 
         DMA.add(jScrollPane1ListeSejour);
-        jScrollPane1ListeSejour.setBounds(30, 196, 190, 90);
+        jScrollPane1ListeSejour.setBounds(40, 260, 190, 90);
 
         jLabel1Nosejour.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel1Nosejour.setText("N° de séjour ");
         DMA.add(jLabel1Nosejour);
-        jLabel1Nosejour.setBounds(30, 160, 86, 27);
+        jLabel1Nosejour.setBounds(40, 220, 86, 27);
 
         jLabel2Type.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel2Type.setText("Type");
         DMA.add(jLabel2Type);
-        jLabel2Type.setBounds(230, 160, 86, 27);
+        jLabel2Type.setBounds(400, 220, 86, 27);
 
         jLabel3Date.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel3Date.setText("Date");
         DMA.add(jLabel3Date);
-        jLabel3Date.setBounds(420, 160, 86, 27);
+        jLabel3Date.setBounds(750, 220, 86, 27);
 
-        jListType.setModel(new javax.swing.AbstractListModel<String>() {
+        jListType.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jListType.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -215,12 +218,12 @@ public class ConsulterDMA extends javax.swing.JFrame {
         jScrollPane2ListeType.setViewportView(jListType);
 
         DMA.add(jScrollPane2ListeType);
-        jScrollPane2ListeType.setBounds(224, 196, 190, 90);
+        jScrollPane2ListeType.setBounds(400, 260, 190, 90);
 
-        jListDate.setModel(new javax.swing.AbstractListModel<String>() {
+        jListDate.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jListDate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -230,51 +233,51 @@ public class ConsulterDMA extends javax.swing.JFrame {
         jScrollPane3ListeDate.setViewportView(jListDate);
 
         DMA.add(jScrollPane3ListeDate);
-        jScrollPane3ListeDate.setBounds(419, 196, 170, 92);
+        jScrollPane3ListeDate.setBounds(750, 260, 170, 92);
 
         jLabel1Prenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1Prenom.setText("Prénom : ");
         DMA.add(jLabel1Prenom);
-        jLabel1Prenom.setBounds(12, 79, 55, 14);
+        jLabel1Prenom.setBounds(80, 90, 55, 14);
 
         jLabel2DateDeNaissance.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2DateDeNaissance.setText("Date de Naissance : ");
         DMA.add(jLabel2DateDeNaissance);
-        jLabel2DateDeNaissance.setBounds(321, 74, 106, 24);
+        jLabel2DateDeNaissance.setBounds(550, 80, 106, 24);
 
         jLabel2PrenomP.setText("jLabel1");
         DMA.add(jLabel2PrenomP);
-        jLabel2PrenomP.setBounds(129, 79, 77, 14);
+        jLabel2PrenomP.setBounds(250, 90, 77, 14);
 
         jLabel4DateP.setText("jLabel1");
         DMA.add(jLabel4DateP);
-        jLabel4DateP.setBounds(450, 80, 77, 14);
+        jLabel4DateP.setBounds(720, 80, 77, 14);
 
         jLabel2Nom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2Nom.setText("Nom : ");
         DMA.add(jLabel2Nom);
-        jLabel2Nom.setBounds(12, 49, 55, 24);
+        jLabel2Nom.setBounds(80, 60, 55, 24);
 
         jLabel1Nomp.setText("jLabel1");
         DMA.add(jLabel1Nomp);
-        jLabel1Nomp.setBounds(129, 54, 77, 14);
+        jLabel1Nomp.setBounds(250, 60, 77, 14);
 
         jLabel2Sexe.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2Sexe.setText("Sexe :");
         DMA.add(jLabel2Sexe);
-        jLabel2Sexe.setBounds(321, 44, 43, 24);
+        jLabel2Sexe.setBounds(550, 50, 43, 24);
 
         jLabel3Sexep.setText("jLabel1");
         DMA.add(jLabel3Sexep);
-        jLabel3Sexep.setBounds(450, 50, 77, 14);
+        jLabel3Sexep.setBounds(720, 50, 77, 14);
 
         jLabel1InfoPatients.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         jLabel1InfoPatients.setText("Informations du patient ");
         DMA.add(jLabel1InfoPatients);
-        jLabel1InfoPatients.setBounds(10, 20, 180, 17);
+        jLabel1InfoPatients.setBounds(320, 20, 180, 17);
 
         getContentPane().add(DMA);
-        DMA.setBounds(0, 110, 780, 340);
+        DMA.setBounds(0, 110, 1190, 650);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

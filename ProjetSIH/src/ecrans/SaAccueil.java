@@ -54,10 +54,12 @@ public class SaAccueil extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButtonConsulterDMA = new javax.swing.JButton();
         jButtonCreeDMA = new javax.swing.JButton();
-        jButtonTransfereDMA = new javax.swing.JButton();
         jButtonFusionnerDMA = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(200, 200));
+        setPreferredSize(new java.awt.Dimension(1000, 1000));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         JPanelEnTeteSa.setBackground(new java.awt.Color(65, 131, 215));
@@ -102,27 +104,29 @@ public class SaAccueil extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
+                        .addComponent(jLabelPrenom)
+                        .addContainerGap(871, Short.MAX_VALUE))
+                    .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
                         .addComponent(jLabelNom)
                         .addGap(143, 143, 143)
-                        .addComponent(Sa))
-                    .addComponent(jLabelPrenom))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                .addComponent(jButtonDeconnexion)
-                .addContainerGap())
+                        .addComponent(Sa)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonDeconnexion)
+                        .addGap(113, 113, 113))))
         );
         JPanelEnTeteSaLayout.setVerticalGroup(
             JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
                 .addGroup(JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabelNom))
+                        .addGap(13, 13, 13)
+                        .addGroup(JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelNom)
+                            .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
                                 .addComponent(Sa, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
@@ -131,7 +135,7 @@ public class SaAccueil extends javax.swing.JFrame {
         );
 
         getContentPane().add(JPanelEnTeteSa);
-        JPanelEnTeteSa.setBounds(0, 0, 894, 113);
+        JPanelEnTeteSa.setBounds(0, 0, 1090, 113);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -156,16 +160,6 @@ public class SaAccueil extends javax.swing.JFrame {
             }
         });
 
-        jButtonTransfereDMA.setBackground(new java.awt.Color(228, 241, 254));
-        jButtonTransfereDMA.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jButtonTransfereDMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/TransfererDossier2.PNG"))); // NOI18N
-        jButtonTransfereDMA.setText("Transférer DMA");
-        jButtonTransfereDMA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonTransfereDMAActionPerformed(evt);
-            }
-        });
-
         jButtonFusionnerDMA.setBackground(new java.awt.Color(228, 241, 254));
         jButtonFusionnerDMA.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jButtonFusionnerDMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fusion.png"))); // NOI18N
@@ -181,39 +175,32 @@ public class SaAccueil extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButtonFusionnerDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(229, 229, 229)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonCreeDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonTransfereDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addGap(271, 271, 271)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCreeDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonFusionnerDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(342, Short.MAX_VALUE))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonConsulterDMA, jButtonCreeDMA, jButtonTransfereDMA});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonConsulterDMA, jButtonCreeDMA});
 
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addContainerGap(124, Short.MAX_VALUE)
                 .addComponent(jButtonConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addGap(101, 101, 101)
                 .addComponent(jButtonCreeDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(jButtonTransfereDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(103, 103, 103)
                 .addComponent(jButtonFusionnerDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addGap(148, 148, 148))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonConsulterDMA, jButtonCreeDMA, jButtonTransfereDMA});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonConsulterDMA, jButtonCreeDMA});
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 112, 910, 420);
+        jPanel2.setBounds(0, 112, 1090, 610);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -264,11 +251,6 @@ public class SaAccueil extends javax.swing.JFrame {
         fusion.setVisible(true);
     }//GEN-LAST:event_jButtonFusionnerDMAActionPerformed
 
-    private void jButtonTransfereDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTransfereDMAActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButtonTransfereDMAActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -318,7 +300,6 @@ public class SaAccueil extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCreeDMA;
     private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JButton jButtonFusionnerDMA;
-    private javax.swing.JButton jButtonTransfereDMA;
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JLabel jLabelPrenom;
     private javax.swing.JPanel jPanel2;

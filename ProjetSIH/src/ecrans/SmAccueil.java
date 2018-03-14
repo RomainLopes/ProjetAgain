@@ -61,9 +61,11 @@ public class SmAccueil extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButtonConsulterDM = new javax.swing.JButton();
         jButtonCreeDM = new javax.swing.JButton();
-        jButtonTransfereDM = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(200, 200));
+        setPreferredSize(new java.awt.Dimension(1000, 1000));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         JPanelEnTeteSm.setBackground(new java.awt.Color(65, 131, 215));
@@ -110,18 +112,18 @@ public class SmAccueil extends javax.swing.JFrame {
                 .addComponent(jButtonAccueil)
                 .addGroup(JPanelEnTeteSmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelEnTeteSmLayout.createSequentialGroup()
-                        .addGap(221, 221, 221)
-                        .addComponent(jLabelSm))
-                    .addGroup(JPanelEnTeteSmLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addGroup(JPanelEnTeteSmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelPrenom)
-                            .addComponent(jLabelNom))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 455, Short.MAX_VALUE)
-                        .addComponent(jLabelService)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonDeconnexion)
-                .addGap(22, 22, 22))
+                            .addComponent(jLabelNom)))
+                    .addGroup(JPanelEnTeteSmLayout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(jLabelSm)
+                        .addGap(160, 160, 160)
+                        .addComponent(jLabelService)
+                        .addGap(53, 53, 53)
+                        .addComponent(jButtonDeconnexion)))
+                .addGap(22, 218, Short.MAX_VALUE))
         );
         JPanelEnTeteSmLayout.setVerticalGroup(
             JPanelEnTeteSmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,20 +132,21 @@ public class SmAccueil extends javax.swing.JFrame {
                 .addGroup(JPanelEnTeteSmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JPanelEnTeteSmLayout.createSequentialGroup()
-                        .addComponent(jLabelSm, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(JPanelEnTeteSmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelSm, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(JPanelEnTeteSmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabelService)
+                                .addComponent(jButtonDeconnexion)))
                         .addGap(4, 4, 4)
                         .addComponent(jLabelNom)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(JPanelEnTeteSmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(JPanelEnTeteSmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabelService)
-                                .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addComponent(jLabelPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         getContentPane().add(JPanelEnTeteSm);
-        JPanelEnTeteSm.setBounds(0, 0, 858, 113);
+        JPanelEnTeteSm.setBounds(0, 0, 1170, 113);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -168,37 +171,29 @@ public class SmAccueil extends javax.swing.JFrame {
             }
         });
 
-        jButtonTransfereDM.setBackground(new java.awt.Color(228, 241, 254));
-        jButtonTransfereDM.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jButtonTransfereDM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/TransfererDossier2.PNG"))); // NOI18N
-        jButtonTransfereDM.setText("Transférer DM");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(157, 157, 157)
+                .addGap(222, 222, 222)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonTransfereDM, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCreeDM, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(224, Short.MAX_VALUE))
+                    .addComponent(jButtonConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCreeDM, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(481, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
+                .addGap(174, 174, 174)
                 .addComponent(jButtonConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(160, 160, 160)
                 .addComponent(jButtonCreeDM, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jButtonTransfereDM, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(323, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 106, 858, 460);
+        jPanel2.setBounds(0, 106, 1180, 740);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -281,7 +276,6 @@ public class SmAccueil extends javax.swing.JFrame {
     private javax.swing.JButton jButtonConsulterDM;
     private javax.swing.JButton jButtonCreeDM;
     private javax.swing.JButton jButtonDeconnexion;
-    private javax.swing.JButton jButtonTransfereDM;
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JLabel jLabelPrenom;
     private javax.swing.JLabel jLabelService;
