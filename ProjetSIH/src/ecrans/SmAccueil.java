@@ -61,7 +61,6 @@ public class SmAccueil extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButtonConsulterDM = new javax.swing.JButton();
         jButtonCreeDM = new javax.swing.JButton();
-        jButtonTransfereDM = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -168,11 +167,6 @@ public class SmAccueil extends javax.swing.JFrame {
             }
         });
 
-        jButtonTransfereDM.setBackground(new java.awt.Color(228, 241, 254));
-        jButtonTransfereDM.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jButtonTransfereDM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/TransfererDossier2.PNG"))); // NOI18N
-        jButtonTransfereDM.setText("Transférer DM");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -180,7 +174,6 @@ public class SmAccueil extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(157, 157, 157)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonTransfereDM, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonCreeDM, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(224, Short.MAX_VALUE))
@@ -192,9 +185,7 @@ public class SmAccueil extends javax.swing.JFrame {
                 .addComponent(jButtonConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jButtonCreeDM, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jButtonTransfereDM, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(272, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2);
@@ -281,7 +272,6 @@ public class SmAccueil extends javax.swing.JFrame {
     private javax.swing.JButton jButtonConsulterDM;
     private javax.swing.JButton jButtonCreeDM;
     private javax.swing.JButton jButtonDeconnexion;
-    private javax.swing.JButton jButtonTransfereDM;
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JLabel jLabelPrenom;
     private javax.swing.JLabel jLabelService;

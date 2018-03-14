@@ -106,13 +106,14 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         jLabel2Sexe = new javax.swing.JLabel();
         jLabel2DateDeNaissance = new javax.swing.JLabel();
         jLabel1InfoPatients = new javax.swing.JLabel();
-        ServiceCorrespondance = new javax.swing.JButton();
         ConsulterDM = new javax.swing.JButton();
         jLabel1Nomp = new javax.swing.JLabel();
         jLabel2PrenomP = new javax.swing.JLabel();
         jLabel3Sexep = new javax.swing.JLabel();
         jLabel4DateP = new javax.swing.JLabel();
         ConsulterDMA = new javax.swing.JButton();
+        jComboBoxCorrespondance = new javax.swing.JComboBox<>();
+        jLabelCorrespondance = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -498,15 +499,6 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         jLabel1InfoPatients.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         jLabel1InfoPatients.setText("Informations du patient ");
 
-        ServiceCorrespondance.setBackground(new java.awt.Color(228, 241, 254));
-        ServiceCorrespondance.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        ServiceCorrespondance.setText("Service : correspondance");
-        ServiceCorrespondance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ServiceCorrespondanceActionPerformed(evt);
-            }
-        });
-
         ConsulterDM.setBackground(new java.awt.Color(228, 241, 254));
         ConsulterDM.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         ConsulterDM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
@@ -534,6 +526,10 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                 ConsulterDMAActionPerformed(evt);
             }
         });
+
+        jComboBoxCorrespondance.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabelCorrespondance.setText("Correspondance : ");
 
         javax.swing.GroupLayout jPanel3InfoPatientLayout = new javax.swing.GroupLayout(jPanel3InfoPatient);
         jPanel3InfoPatient.setLayout(jPanel3InfoPatientLayout);
@@ -567,14 +563,16 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                         .addGap(72, 72, 72)
                         .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(ConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ServiceCorrespondance, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBoxCorrespondance, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCorrespondance))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel3InfoPatientLayout.setVerticalGroup(
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createSequentialGroup()
+            .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1InfoPatients)
                 .addGap(25, 25, 25)
@@ -592,10 +590,12 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                 .addGap(0, 12, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelCorrespondance, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ServiceCorrespondance, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxCorrespondance, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -622,10 +622,6 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                     this.dispose();
                     sadm.setVisible(true);
     }//GEN-LAST:event_ConsulterDMAActionPerformed
-
-    private void ServiceCorrespondanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServiceCorrespondanceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ServiceCorrespondanceActionPerformed
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
         // TODO add your handling code here:
@@ -742,7 +738,6 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel Observations;
     private javax.swing.JLabel Prescriptio;
     private javax.swing.JLabel Prescriptio2;
-    private javax.swing.JButton ServiceCorrespondance;
     private javax.swing.JButton ajouterObservations;
     private javax.swing.JButton ajouterPrescription;
     private javax.swing.JButton ajouterResultat;
@@ -750,6 +745,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     private javax.swing.JButton consulterResultat;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDeconnexion;
+    private javax.swing.JComboBox<String> jComboBoxCorrespondance;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1Nomp;
     private javax.swing.JLabel jLabel1Prenom;
@@ -759,6 +755,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2Sexe;
     private javax.swing.JLabel jLabel3Sexep;
     private javax.swing.JLabel jLabel4DateP;
+    private javax.swing.JLabel jLabelCorrespondance;
     private javax.swing.JLabel jLabelFonction;
     private javax.swing.JLabel jLabelNomPmed;
     private javax.swing.JLabel jLabelPrenomPmed;

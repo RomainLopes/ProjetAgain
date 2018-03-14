@@ -98,6 +98,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
         jLabel2PrenomP = new javax.swing.JLabel();
         jLabel3Sexep = new javax.swing.JLabel();
         jLabel4DateP = new javax.swing.JLabel();
+        ConsulterDM1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel1Observations = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -117,6 +118,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
         jListResultats = new javax.swing.JList<>();
         consulterResultat = new javax.swing.JButton();
         Prescriptio2 = new javax.swing.JLabel();
+        ConsulterDM = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -246,6 +248,16 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
         jLabel4DateP.setText("jLabel1");
 
+        ConsulterDM1.setBackground(new java.awt.Color(228, 241, 254));
+        ConsulterDM1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        ConsulterDM1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
+        ConsulterDM1.setText("Consulter DM");
+        ConsulterDM1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsulterDM1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3InfoPatientLayout = new javax.swing.GroupLayout(jPanel3InfoPatient);
         jPanel3InfoPatient.setLayout(jPanel3InfoPatientLayout);
         jPanel3InfoPatientLayout.setHorizontalGroup(
@@ -276,7 +288,9 @@ public class MedClinAccueil extends javax.swing.JFrame {
                                 .addComponent(jLabel2DateDeNaissance)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel4DateP, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 217, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addComponent(ConsulterDM1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(EcrireLettreSortie1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -307,7 +321,8 @@ public class MedClinAccueil extends javax.swing.JFrame {
                 .addContainerGap(54, Short.MAX_VALUE)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EcrireLettreSortie1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EcrireLettreSortie1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsulterDM1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -550,6 +565,18 @@ public class MedClinAccueil extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(2, 231, 1030, 490);
 
+        ConsulterDM.setBackground(new java.awt.Color(228, 241, 254));
+        ConsulterDM.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        ConsulterDM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
+        ConsulterDM.setText("Consulter DM");
+        ConsulterDM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsulterDMActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ConsulterDM);
+        ConsulterDM.setBounds(0, 0, 137, 35);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -634,6 +661,24 @@ public class MedClinAccueil extends javax.swing.JFrame {
         obs.setVisible(true);
     }//GEN-LAST:event_jListResultatsMouseClicked
 
+    private void ConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMActionPerformed
+        // TODO add your handling code here:
+        ConsulterDM dm = new ConsulterDM(employe,patient);
+        dm.setSize(this.getSize());
+        dm.setLocationRelativeTo(this);
+        this.dispose();
+        dm.setVisible(true);
+    }//GEN-LAST:event_ConsulterDMActionPerformed
+
+    private void ConsulterDM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDM1ActionPerformed
+        // TODO add your handling code here:
+        ConsulterDM dm = new ConsulterDM(employe,patient);
+        dm.setSize(this.getSize());
+        dm.setLocationRelativeTo(this);
+        this.dispose();
+        dm.setVisible(true);
+    }//GEN-LAST:event_ConsulterDM1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -670,6 +715,8 @@ public class MedClinAccueil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ConsulterDM;
+    private javax.swing.JButton ConsulterDM1;
     private javax.swing.JButton ConsulterDMA;
     private javax.swing.JButton EcrireLettreSortie1;
     private javax.swing.JPanel JPanelEnTeteMedTech;
