@@ -23,7 +23,7 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
     @Override
     public boolean create(Tracabilite obj) {
         String Query = new String();
-        Query = "insert into Tracabilite (ipp,idph,dateconnexion) "
+        Query = "insert into tracabilite (ipp,idph,dateconnexion) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getIdph() + "','"
                 + obj.getDateconnection() + "')";
         try {
@@ -68,6 +68,25 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
         return tra;
     }
 
+    public boolean updateIpp(String ippgarde, String ippsuppr) {
+        String Query = new String();
+        Query = "UPDATE tracabilite"
+                + "SET ipp = '{" + ippgarde + "}'"
+                + "WHERE ipp = '{" + ippsuppr + "}' ";
+
+        try {
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            System.out.println(Query);
+            int result = state.executeUpdate(Query);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+    
     @Override
     public boolean delete(Tracabilite obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -66,7 +66,51 @@ public class ObservationsDAO extends DAO<Observations> {
         }
         return obs;
     }
+    
+    public ArrayList<Observations> findipp(String ipp) {
+        ArrayList<Observations> obs = new ArrayList<Observations>();
+        String Query = new String();
+        Query = "select * from observation where ipp = '{" + ipp
+                + "}'";
 
+        try {
+
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet result = state.executeQuery(Query);
+
+            while (result.next()) {
+                obs.add(new Observations(result.getString("ipp"), result.getString("nosejour"), result.getString("idph"), result.getString("dateObservation"), result.getString("service"), result.getString("nomacte"), result.getString("resume")));
+                result.close();
+                state.close();
+                return obs;
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return obs;
+    }
+
+    public boolean updateIpp(String ippgarde, String ippsuppr) {
+        String Query = new String();
+        Query = "UPDATE observation"
+                + "SET ipp = '{" + ippgarde + "}'"
+                + "WHERE ipp = '{" + ippsuppr + "}' ";
+
+        try {
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            System.out.println(Query);
+            int result = state.executeUpdate(Query);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+    
     @Override
     public boolean delete(Observations obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

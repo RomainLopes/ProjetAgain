@@ -40,8 +40,7 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
 
     }
 
-  
-    public ArrayList<DossierMedical> findser(String ipp, String nosejour,String service) {
+    public ArrayList<DossierMedical> findser(String ipp, String nosejour, String service) {
         ArrayList<DossierMedical> dm = new ArrayList<DossierMedical>();
         String Query = new String();
         Query = "select * from dossiermedical where ipp = '{" + ipp
@@ -63,7 +62,7 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         return dm;
     }
 
@@ -72,9 +71,23 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public boolean update(DossierMedical obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean updateIpp(String ippgarde, String ippsuppr) {
+        String Query = new String();
+        Query = "UPDATE dossiermedical"
+                + "SET ipp = '{" + ippgarde + "}'"
+                + "WHERE ipp = '{" + ippsuppr + "}' ";
+
+        try {
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            System.out.println(Query);
+            int result = state.executeUpdate(Query);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -82,5 +95,9 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
+    @Override
+    public boolean update(DossierMedical obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
