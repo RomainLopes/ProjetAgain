@@ -152,9 +152,9 @@
                           </Group>
                           <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField3" min="-2" pref="162" max="-2" attributes="0"/>
-                              <Component id="jTextField2" min="-2" pref="162" max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" pref="162" max="-2" attributes="0"/>
+                              <Component id="jTextFieldDate" min="-2" pref="162" max="-2" attributes="0"/>
+                              <Component id="jTextFieldNature" min="-2" pref="162" max="-2" attributes="0"/>
+                              <Component id="jTextFieldResultat" min="-2" pref="162" max="-2" attributes="0"/>
                               <Component id="jButton1Creer1" min="-2" pref="161" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -171,16 +171,16 @@
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3Date" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldDate" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldNature" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3Date1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTextField1" min="-2" pref="211" max="-2" attributes="0"/>
+                      <Component id="jTextFieldResultat" min="-2" pref="211" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -191,7 +191,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="jTextFieldDate">
           <Properties>
             <Property name="text" type="java.lang.String" value="jTextField3"/>
           </Properties>
@@ -204,7 +204,7 @@
             <Property name="text" type="java.lang.String" value="Date :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="jTextFieldNature">
           <Properties>
             <Property name="text" type="java.lang.String" value="jTextField2"/>
           </Properties>
@@ -217,7 +217,7 @@
             <Property name="text" type="java.lang.String" value="Nature de la prestation : "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="jTextFieldResultat">
           <Properties>
             <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>

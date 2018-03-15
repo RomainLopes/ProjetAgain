@@ -10,6 +10,7 @@ import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
 import projetsih.PHospitalier;
 import projetsih.Patient;
+import ecrans.RechercherPatient;
 
 /**
  *
@@ -82,7 +83,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel4Prescriptions = new javax.swing.JPanel();
         jScrollPane2ListePrescription = new javax.swing.JScrollPane();
-        jListPrescriptions = new javax.swing.JList<String>();
+        jListPrescriptions = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
         Prescriptio = new javax.swing.JLabel();
         ajouterPrescription = new javax.swing.JButton();
@@ -92,14 +93,14 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         consulterObservation = new javax.swing.JButton();
         ajouterObservations = new javax.swing.JButton();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
-        jListObservations = new javax.swing.JList<String>();
+        jListObservations = new javax.swing.JList<>();
         jPanel7Resultat = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         Prescriptio2 = new javax.swing.JLabel();
         ajouterResultat = new javax.swing.JButton();
         consulterResultat = new javax.swing.JButton();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
-        jListResultats = new javax.swing.JList<String>();
+        jListResultats = new javax.swing.JList<>();
         jPanel3InfoPatient = new javax.swing.JPanel();
         jLabel1Prenom = new javax.swing.JLabel();
         jLabel2Nom = new javax.swing.JLabel();
@@ -112,7 +113,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         jLabel3Sexep = new javax.swing.JLabel();
         jLabel4DateP = new javax.swing.JLabel();
         ConsulterDMA = new javax.swing.JButton();
-        jComboBoxCorrespondance = new javax.swing.JComboBox<String>();
+        jComboBoxCorrespondance = new javax.swing.JComboBox<>();
         jLabelCorrespondance = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -207,10 +208,10 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
         jPanel4Prescriptions.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListPrescriptions.setModel(new javax.swing.AbstractListModel() {
+        jListPrescriptions.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2ListePrescription.setViewportView(jListPrescriptions);
 
@@ -320,10 +321,10 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListObservations.setModel(new javax.swing.AbstractListModel() {
+        jListObservations.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListObservations.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -376,10 +377,10 @@ public class MedAnestAccueil extends javax.swing.JFrame {
             }
         });
 
-        jListResultats.setModel(new javax.swing.AbstractListModel() {
+        jListResultats.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListResultats.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -523,7 +524,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxCorrespondance.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxCorrespondance.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabelCorrespondance.setText("Correspondance : ");
 
@@ -636,7 +637,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
     private void ConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMActionPerformed
         // TODO add your handling code here:
-        ConsulterDM dm = new ConsulterDM(employe,patient);
+        ConsulterDM dm = new ConsulterDM (employe, patient /*RechercherPatient previous*/);
                     dm.setSize(this.getSize());
                     dm.setLocationRelativeTo(this);
                     this.dispose();

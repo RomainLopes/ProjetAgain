@@ -108,16 +108,16 @@ public class MedClinAccueil extends javax.swing.JFrame {
         ajouterObservation = new javax.swing.JButton();
         consulterObservation = new javax.swing.JButton();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
-        jListObservations = new javax.swing.JList<String>();
+        jListObservations = new javax.swing.JList<>();
         jPanel4Prescriptions = new javax.swing.JPanel();
         jScrollPane2ListePrescription = new javax.swing.JScrollPane();
-        jListPrescriptions = new javax.swing.JList<String>();
+        jListPrescriptions = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
         Prescriptio = new javax.swing.JLabel();
         ajouterPrescription = new javax.swing.JButton();
         jPanel7Resultat = new javax.swing.JPanel();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
-        jListResultats = new javax.swing.JList<String>();
+        jListResultats = new javax.swing.JList<>();
         consulterResultat = new javax.swing.JButton();
         Prescriptio2 = new javax.swing.JLabel();
         ConsulterDM = new javax.swing.JButton();
@@ -369,10 +369,10 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListObservations.setModel(new javax.swing.AbstractListModel() {
+        jListObservations.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListObservations.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -433,10 +433,10 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
         jPanel4Prescriptions.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListPrescriptions.setModel(new javax.swing.AbstractListModel() {
+        jListPrescriptions.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2ListePrescription.setViewportView(jListPrescriptions);
 
@@ -497,10 +497,10 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
         jPanel7Resultat.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListResultats.setModel(new javax.swing.AbstractListModel() {
+        jListResultats.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListResultats.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

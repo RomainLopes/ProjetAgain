@@ -5,6 +5,8 @@
  */
 package projetsih;
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 import static java.util.Objects.isNull;
 /**
@@ -69,7 +71,10 @@ public class ProjetSIH {
 		}*/
                 
                 Calendar c = Calendar.getInstance ();
- System.out.println ( c.getTime ().getDate() +"-"+ c.getTime ().getDay() + "-"+ c.getTime ().getMonth());
+ System.out.println ( c.getTime ().getDate()+ "-"+ c.getTime ().getMonth()+"-"+ c.getTime ().getYear());
+  System.out.println ( c.getTime ().toString());
+  
+  System.out.println (c.getCalendarType());
 
-	}
+        }
 }

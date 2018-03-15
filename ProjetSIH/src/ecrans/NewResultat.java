@@ -5,9 +5,15 @@
  */
 package ecrans;
 
+import GestionBDD.BDDconnection;
+import GestionBDD.DAO;
+import GestionBDD.DossierMedicoAdministratif;
 import GestionBDD.Patients;
 import GestionBDD.PersonnelHospitalier;
+import GestionBDD.Resultats;
+import GestionBDD.ResultatsDAO;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +22,7 @@ import java.util.ArrayList;
 public class NewResultat extends javax.swing.JFrame {
    private static PersonnelHospitalier employe;
     private static Patients patient;
+    private DossierMedicoAdministratif dma;
 
 
     /**
@@ -44,11 +51,11 @@ public class NewResultat extends javax.swing.JFrame {
         jLabel4Service = new javax.swing.JLabel();
         jButtonPrecedent = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jTextField3 = new javax.swing.JTextField();
+        jTextFieldDate = new javax.swing.JTextField();
         jLabel3Date = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldNature = new javax.swing.JTextField();
         jLabel3Date1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldResultat = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton1Creer1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -123,17 +130,17 @@ public class NewResultat extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField3.setText("jTextField3");
+        jTextFieldDate.setText("jTextField3");
 
         jLabel3Date.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3Date.setText("Date :");
 
-        jTextField2.setText("jTextField2");
+        jTextFieldNature.setText("jTextField2");
 
         jLabel3Date1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3Date1.setText("Nature de la prestation : ");
 
-        jTextField1.setText("jTextField1");
+        jTextFieldResultat.setText("jTextField1");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2.setText("Résultat : ");
@@ -238,9 +245,9 @@ public class NewResultat extends javax.swing.JFrame {
                             .addComponent(jLabel3Date, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(107, 107, 107)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldDate, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNature, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1Creer1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(373, 373, 373))
         );
@@ -252,14 +259,14 @@ public class NewResultat extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3Date, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3Date1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1Creer1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -274,6 +281,16 @@ public class NewResultat extends javax.swing.JFrame {
 
     private void jButton1Creer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1Creer1ActionPerformed
         // TODO add your handling code here:
+        Resultats result = new Resultats();
+        //String ipp,String nosejour,String idPrescription,String service,String prestationmt,String dateResultat,String resultat
+        result = new Resultats(patient.getIpp(), dma.getNosejour(), "id_prescription", employe.getService(), jTextFieldNature.getText(), jTextFieldDate.getText(),jTextFieldResultat.getText());
+        DAO<Resultats> ResultatsDAO = new ResultatsDAO(BDDconnection.getInstance());
+        
+         if (ResultatsDAO.create(result)){
+                               JOptionPane.showMessageDialog(null, "La nouvelle opér&tion a bien été créée");
+       }else {
+            JOptionPane.showMessageDialog(null, " La nouvelle opération n'a pas pu être créée. Veillez recommencer.");
+       }
     }//GEN-LAST:event_jButton1Creer1ActionPerformed
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
@@ -336,8 +353,8 @@ public class NewResultat extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextFieldDate;
+    private javax.swing.JTextField jTextFieldNature;
+    private javax.swing.JTextField jTextFieldResultat;
     // End of variables declaration//GEN-END:variables
 }

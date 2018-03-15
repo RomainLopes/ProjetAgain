@@ -5,9 +5,15 @@
  */
 package ecrans;
 
+import GestionBDD.BDDconnection;
+import GestionBDD.DAO;
+import GestionBDD.DossierMedicoAdministratif;
+import GestionBDD.Observations;
+import GestionBDD.ObservationsDAO;
 import GestionBDD.Patients;
 import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +22,7 @@ import java.util.ArrayList;
 public class NewObservations extends javax.swing.JFrame {
       private static PersonnelHospitalier employe;
     private static Patients patient;
+    private static DossierMedicoAdministratif dma;
 
 
     /**
@@ -307,6 +314,16 @@ public class NewObservations extends javax.swing.JFrame {
 
     private void jButton1CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1CreerActionPerformed
         // TODO add your handling code here:
+         Observations obs ;
+        // String ipp, String nosejour, String idph, String dateObservation, String service, String nomacte, String resume) {
+        obs = new Observations(patient.getIpp(), dma.getNosejour(),dma.getIdph(),jTextFieldDateP.getText(),employe.getService(),jTextFieldNomObservationP.getText(),jTextFieldObservationP.getText());
+        DAO<Observations> ObservationsDAO = new ObservationsDAO(BDDconnection.getInstance());
+        
+        if (ObservationsDAO.create(obs)){
+                               JOptionPane.showMessageDialog(null, "La nouvelle observation a bien été créée");
+       }else {
+            JOptionPane.showMessageDialog(null, " La nouvelle observation n'a pas pu être créée. Veillez recommencer.");
+       }
     }//GEN-LAST:event_jButton1CreerActionPerformed
 
     private void jTextFieldDatePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDatePActionPerformed

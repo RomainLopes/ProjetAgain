@@ -12,9 +12,11 @@ import GestionBDD.DossierMedicoAdministratifDAO;
 import GestionBDD.Patients;
 import GestionBDD.PatientsDAO;
 import GestionBDD.PersonnelHospitalier;
+import GestionBDD.PersonnelHospitalierDAO;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import projetsih.PHospitalier;
 import projetsih.Patient;
@@ -34,16 +36,17 @@ public class CreerDMA extends javax.swing.JFrame {
     private  Patients patient;
     private static ArrayList<String> listMed;
     private String typeSejour;
+    private PersonnelHospitalier phRespo; // à rechercher et renseigner en bas 
 
 
     public CreerDMA(PersonnelHospitalier employe) {
         initComponents();
         this.employe = employe;
-        jComboBoxTypeSejour.addItem("Hospitalisation");
-        jComboBoxTypeSejour.addItem("Consultation");
-       /* for (String j: listMed){
-            jComboBoxPH.addItem(j);
-        }*/
+        DefaultComboBoxModel modele = new DefaultComboBoxModel();
+        modele.addElement("Hospitalisation");
+        modele.addElement("Consultation");
+        jComboBoxTypeSejour.setModel(modele);
+      
         
 
     }
@@ -78,9 +81,9 @@ public class CreerDMA extends javax.swing.JFrame {
         jLabel1NoSejour = new javax.swing.JLabel();
         jTextField1NoSejour = new javax.swing.JTextField();
         jLabel3Type = new javax.swing.JLabel();
-        jComboBoxPH = new javax.swing.JComboBox<>();
-        jLabel2NomPH = new javax.swing.JLabel();
         jComboBoxTypeSejour = new javax.swing.JComboBox<>();
+        jLabel2NomPH = new javax.swing.JLabel();
+        jComboBoxPH = new javax.swing.JComboBox<>();
         jButtonValider = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -231,25 +234,25 @@ public class CreerDMA extends javax.swing.JFrame {
         jLabel3Type.setText("Type :");
         jPanel2CreationDMA.add(jLabel3Type);
 
-        jComboBoxPH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxPH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxPHActionPerformed(evt);
-            }
-        });
-        jPanel2CreationDMA.add(jComboBoxPH);
-
-        jLabel2NomPH.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2NomPH.setText("Nom du Praticien Hospitalier responsable :");
-        jPanel2CreationDMA.add(jLabel2NomPH);
-
-        jComboBoxTypeSejour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxTypeSejour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
         jComboBoxTypeSejour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxTypeSejourActionPerformed(evt);
             }
         });
         jPanel2CreationDMA.add(jComboBoxTypeSejour);
+
+        jLabel2NomPH.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel2NomPH.setText("Nom du Praticien Hospitalier responsable :");
+        jPanel2CreationDMA.add(jLabel2NomPH);
+
+        jComboBoxPH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ""}));
+        jComboBoxPH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxPHActionPerformed(evt);
+            }
+        });
+        jPanel2CreationDMA.add(jComboBoxPH);
 
         jButtonValider.setBackground(new java.awt.Color(228, 241, 254));
         jButtonValider.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
@@ -358,32 +361,51 @@ public class CreerDMA extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonPrecedent2ActionPerformed
 
-    private void jComboBoxPHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPHActionPerformed
+    private void jComboBoxTypeSejourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTypeSejourActionPerformed
         // TODO add your handling code here:
-          this.typeSejour = jComboBoxPH.getSelectedItem().toString();
+          //this.typeSejour = jComboBoxTypeSejour.getSelectedItem().toString();
         
         
         
-    }//GEN-LAST:event_jComboBoxPHActionPerformed
+    }//GEN-LAST:event_jComboBoxTypeSejourActionPerformed
 
     private void jButtonValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonValiderMouseClicked
         // TODO add your handling code here:
         DossierMedicoAdministratif dma;
-        PatientsDAO patd = new PatientsDAO(BDDconnection.getInstance());
-        // ici utiliser la fonction qui récupère le dernier ipp pour créer lenouveau et faire patient.setIpp(newIpp)
-       this.patient= new Patients(patient.getIpp(), jTextField1Nom.getText(), jTextField4Prenom.getText(),jTextField4DDN1.getText(), jTextField4Localisation.getText(),jTextFieldadresse.getText(),jTextField4Sexe.getText());
-       patd.create(patient);
+       DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
+
+        // ipp= YoYoxxxxx pour créer lenouveau et faire patient.setIpp(newIpp)
         
-        //creer fonction qui crée le num de sejour 
-        dma = new DossierMedicoAdministratif(patient.getIpp(), "num de sejour","date du jour",employe.getId() ,"Consultation","Cardiologie");
+       this.patient= new Patients("1800010", jTextField1Nom.getText(), jTextField4Prenom.getText(),jTextField4DDN1.getText(), jTextField4Localisation.getText(),jTextFieldadresse.getText(),jTextField4Sexe.getText());
+       if(PatientsDAO.create(patient)){
+                       JOptionPane.showMessageDialog(null, "Le patient a bien été créé");
+
+       } else { 
+           JOptionPane.showMessageDialog(null, "Le patient n'a pas pu être créé. Veillez recommencer.");
+       }
+
+       // ici faire un rechercher ph (nom, prenom)  /*phd.find("nomph", "prenomph");*/
+        dma = new DossierMedicoAdministratif(patient.getIpp(), "180344445","03-14-2018","PH0001" ,jComboBoxTypeSejour.getSelectedItem().toString(),"Cardiologie");
+
+        //dma = new DossierMedicoAdministratif(patient.getIpp(), "YYMMxxxxx","date du jour",phRespo.getId() ,jComboBoxTypeSejour.getSelectedItem().toString(),phRespo.getService());
         DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-        DossierMedicoAdministratifDAO.create(dma);
+        if(DossierMedicoAdministratifDAO.create(dma)){
+                        JOptionPane.showMessageDialog(null, "Le DMA a bien été créé");
+
+        } else {
+                        JOptionPane.showMessageDialog(null, "Le DMA n'a pas pu être créé. Veillez recommencer.");
+
+        }
+        
+
+        
+        
         
     }//GEN-LAST:event_jButtonValiderMouseClicked
 
-    private void jComboBoxTypeSejourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTypeSejourActionPerformed
+    private void jComboBoxPHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPHActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxTypeSejourActionPerformed
+    }//GEN-LAST:event_jComboBoxPHActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,12 +5,14 @@
  */
 package ecrans;
 
+import GestionBDD.DossierMedicoAdministratif;
 import GestionBDD.Patients;
 import GestionBDD.PersonnelHospitalier;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -31,6 +33,10 @@ public class ConsulterDM extends javax.swing.JFrame {
     private static PersonnelHospitalier employe;
     private static Patients patient;
     private  ArrayList<String> test; // ici ce sont les infos du patient
+    private JFrame fenetrePrecedente;
+        private static DossierMedicoAdministratif dmaCourrant;
+
+
 
 
     /* public ConsulterDM() {
@@ -53,10 +59,16 @@ public class ConsulterDM extends javax.swing.JFrame {
        // DM dmPat =p.getDpi().getMyDM();
        // dmPat.getResultats().toString();
     }*/
-    public ConsulterDM(PersonnelHospitalier employe, Patients patient) {
+    public ConsulterDM( PersonnelHospitalier employe,Patients patient/*   JFrame previous*/) {
         initComponents();
-        this.patient = patient;
-        this.employe = employe;
+         this.employe = employe/*previous.getEmploye()*/;
+      /*   if(employe.getFonction== "")
+        RechercherPatient name = (RechercherPatient) previous;
+        this.fenetrePrecedente= previous;
+        ConsulterDM.dmaCourrant=  name.getDmaCourrant();
+        this.patient = name.getPatient();*/
+      this.patient= patient;
+       
 
         jLabel1Nomp.setText(patient.getNompatient());
         jLabel2PrenomP.setText(patient.getPrenompatient());
@@ -95,20 +107,20 @@ public class ConsulterDM extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         Operations = new javax.swing.JLabel();
         jScrollPane1ListeOperations = new javax.swing.JScrollPane();
-        jListOperations = new javax.swing.JList<String>();
+        jListOperations = new javax.swing.JList<>();
         jPanel7Resultat = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         Prescriptio2 = new javax.swing.JLabel();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
-        jListResultats = new javax.swing.JList<String>();
+        jListResultats = new javax.swing.JList<>();
         jPanel1Observations = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         Observations = new javax.swing.JLabel();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
-        jListObservations = new javax.swing.JList<String>();
+        jListObservations = new javax.swing.JList<>();
         jPanel4Prescriptions = new javax.swing.JPanel();
         jScrollPane2ListePrescription = new javax.swing.JScrollPane();
-        jListPrescriptions = new javax.swing.JList<String>();
+        jListPrescriptions = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
         Prescriptio = new javax.swing.JLabel();
 
@@ -250,10 +262,10 @@ public class ConsulterDM extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jListOperations.setModel(new javax.swing.AbstractListModel() {
+        jListOperations.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1ListeOperations.setViewportView(jListOperations);
 
@@ -300,10 +312,10 @@ public class ConsulterDM extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jListResultats.setModel(new javax.swing.AbstractListModel() {
+        jListResultats.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane3ListeResultats.setViewportView(jListResultats);
 
@@ -352,10 +364,10 @@ public class ConsulterDM extends javax.swing.JFrame {
         jScrollPane1ListeObservations.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListObservations.setModel(new javax.swing.AbstractListModel() {
+        jListObservations.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1ListeObservations.setViewportView(jListObservations);
 
@@ -383,10 +395,10 @@ public class ConsulterDM extends javax.swing.JFrame {
         jPanel4Prescriptions.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel4Prescriptions.setPreferredSize(new java.awt.Dimension(282, 425));
 
-        jListPrescriptions.setModel(new javax.swing.AbstractListModel() {
+        jListPrescriptions.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2ListePrescription.setViewportView(jListPrescriptions);
 
@@ -469,12 +481,12 @@ public class ConsulterDM extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+   // public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -494,12 +506,12 @@ public class ConsulterDM extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+       /* java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ConsulterDM(employe, patient).setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Observations;
