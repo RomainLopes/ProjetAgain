@@ -6,7 +6,6 @@
 package GestionBDD;
 
 import java.sql.Connection;
-import GestionBDD.BDDconnection.*;
 import java.util.ArrayList;
 
 public abstract class DAO<T> {

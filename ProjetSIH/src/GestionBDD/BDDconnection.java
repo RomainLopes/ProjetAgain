@@ -8,23 +8,21 @@ package GestionBDD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.*;
-import org.postgresql.Driver;
 
 public class BDDconnection {
 
     /**
      * URL de connection
      */
-    private static String url = "jdbc:postgresql://horton.elephantsql.com:5432/htdxinqp";
+    private static final String url = "jdbc:postgresql://horton.elephantsql.com:5432/htdxinqp";
     /**
      * Nom du user
      */
-    private static String user = "htdxinqp";
+    private static final String user = "htdxinqp";
     /**
      * Mot de passe du user
      */    
-    private static String passwd = "l_YgqQRD-oDOxOC9h4732glCwj_tfSzs";
+    private static final String passwd = "l_YgqQRD-oDOxOC9h4732glCwj_tfSzs";
     /**
      * Objet Connection
      */
@@ -35,9 +33,8 @@ public class BDDconnection {
     }
 
     /**
-     * Méthode qui va nous retourner notre instance et la créer si elle n'existe
-     * pas...
-     *
+     * Méthode qui va retourner notre unique instance de connexion et la créer 
+     * si elle n'existe pas
      * @return
      */
     public static Connection getInstance() {

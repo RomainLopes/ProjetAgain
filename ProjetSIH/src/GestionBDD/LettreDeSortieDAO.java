@@ -7,6 +7,7 @@ package GestionBDD;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -32,8 +33,7 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
             System.out.println(Query);
             int result = state.executeUpdate(Query);
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return false;
         }
 
@@ -52,8 +52,7 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
             System.out.println(Query);
             int result = state.executeUpdate(Query);
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return false;
         }
         return true;
@@ -79,8 +78,7 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
                 return lds;
 
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
         }
         return lds;
     }
