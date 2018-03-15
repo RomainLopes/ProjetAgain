@@ -23,13 +23,15 @@ public class MedAnestAccueil extends javax.swing.JFrame {
       private static PersonnelHospitalier employe;
     private static Patients patient;
     private  ArrayList<Observations> observation;
+        private ArrayList<Resultats> resultat;
+
 
     /**
      * Creates new form MedAnestAccueil
      */
     
   
-    public MedAnestAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs ) {
+    public MedAnestAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs, ArrayList<Resultats> res ) {
         initComponents();
         employe=personnel;
         this.patient= patient;
@@ -44,6 +46,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         jLabel3Sexep.setText(patient.getSexe());
         jLabel4DateP.setText(patient.getDateDeNaissance());
         observation = obs;
+        resultat=res;
 
     }
 
@@ -670,8 +673,8 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jListObservationsMouseClicked
 
     private void jListResultatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListResultatsMouseClicked
-        // TODO add your handling code here:
-          ConsulterResultat obs = new ConsulterResultat(employe,patient,this);
+      int index = jListResultats.getSelectedIndex();
+          ConsulterResultat obs = new ConsulterResultat(employe,patient,this,resultat.get(index));
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

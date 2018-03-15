@@ -387,7 +387,7 @@ public class RechercherPatient extends javax.swing.JFrame {
         } else { // pH
             if (x == true && "Clinique".equals(phr.getService())) { // ajouter le .getType()
 
-                MedClinAccueil inte = new MedClinAccueil(phr, lipat.get(index));
+                MedClinAccueil inte = new MedClinAccueil(phr, lipat.get(index),ob,re);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
@@ -398,7 +398,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
             } else if (x == true/* pH.service.getNom()=="Radiologie"*/) {
 
-                MedRadioAccueil inte = new MedRadioAccueil(phr, lipat.get(index));
+                MedRadioAccueil inte = new MedRadioAccueil(phr, lipat.get(index),ob,re);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
@@ -408,7 +408,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
             } else if (x == true/* pH.service.getNom()=="Anesthésie"*/) {
 
-                MedAnestAccueil inte = new MedAnestAccueil(phr, lipat.get(index));
+                MedAnestAccueil inte = new MedAnestAccueil(phr, lipat.get(index),ob,re);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
@@ -419,7 +419,7 @@ public class RechercherPatient extends javax.swing.JFrame {
                 inte.getjListResultats().setModel(result);
             } else if (x == true/* pH.service.getType()=="Médico-technique"*/) {
 
-                MedTechAccueil inte = new MedTechAccueil(phr, lipat.get(index));
+                MedTechAccueil inte = new MedTechAccueil(phr, lipat.get(index),ob,re);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
@@ -428,6 +428,7 @@ public class RechercherPatient extends javax.swing.JFrame {
                 inte.getjListObservations().setModel(observations);
                 inte.getjListResultats().setModel(result);
             }
+            
         }
 
 

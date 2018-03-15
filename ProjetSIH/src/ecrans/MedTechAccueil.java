@@ -23,8 +23,10 @@ public class MedTechAccueil extends javax.swing.JFrame {
      private static PersonnelHospitalier employe;
     private static Patients patient;
     private ArrayList<Observations> observation;
+        private ArrayList<Resultats> resultat;
+
     
-    public MedTechAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs ) {
+    public MedTechAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs,  ArrayList<Resultats> res ) {
         initComponents();
         employe=personnel;
         this.patient=patient;
@@ -39,6 +41,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
         jLabel2Sexe.setText(patient.getSexe());
         
        observation= obs;
+       resultat=res;
     
     }
 
@@ -573,7 +576,8 @@ public class MedTechAccueil extends javax.swing.JFrame {
 
     private void jListResultatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListResultatsMouseClicked
         // TODO add your handling code here:
-            ConsulterResultat obs = new ConsulterResultat(employe,patient, this);
+    int index = jListResultats.getSelectedIndex();
+          ConsulterResultat obs = new ConsulterResultat(employe,patient,this,resultat.get(index));
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

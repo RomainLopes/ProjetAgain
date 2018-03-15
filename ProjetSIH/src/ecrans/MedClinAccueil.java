@@ -21,8 +21,10 @@ public class MedClinAccueil extends javax.swing.JFrame {
      private static PersonnelHospitalier employe;
     private static Patients patient;
     private ArrayList<Observations> observation;
+        private ArrayList<Resultats> resultat;
+
     
-    public MedClinAccueil(PersonnelHospitalier personnel, Patients patient,ArrayList<Observations> obs ) {
+    public MedClinAccueil(PersonnelHospitalier personnel, Patients patient,ArrayList<Observations> obs ,ArrayList<Resultats> res) {
         initComponents();
         employe=personnel;
         this.patient=patient;
@@ -36,16 +38,8 @@ public class MedClinAccueil extends javax.swing.JFrame {
         jLabel3Sexep.setText(patient.getSexe());
         jLabel4DateP.setText(patient.getDateDeNaissance());
         observation=obs;
-        
-        
-       /* jLabelPrenom.setText(employe.getPrenom());
-        jLabelNom.setText(employe.getNom());
-        jLabelService.setText(employe.getService().toString());
-
-        jTextField1Nom.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
-        jTextField2Prenom.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
-        jTextField3Sexe.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
-        jTextField4DDN.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());*/
+        resultat=res;
+       
     }
     
 
@@ -643,8 +637,8 @@ public class MedClinAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jListObservationsMouseClicked
 
     private void jListResultatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListResultatsMouseClicked
-        // TODO add your handling code here:
-           ConsulterResultat obs = new ConsulterResultat(employe,patient,this);
+  int index = jListResultats.getSelectedIndex();
+          ConsulterResultat obs = new ConsulterResultat(employe,patient,this,resultat.get(index));
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

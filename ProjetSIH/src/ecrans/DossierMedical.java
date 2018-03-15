@@ -49,21 +49,10 @@ public class DossierMedical extends javax.swing.JFrame {
             }
          jListListeObservation.setModel(modele);
          jListListePrescription.setModel(modele);
-         jListListResultat.setModel(modele);
+         jListResultats.setModel(modele);
          jListListeOperation.setModel(modele);
         
-       // ArrayList infoPatient = new ArrayList();
-        
-        
-      /*  jTextField1NomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
-        jTextField4PrenomPat.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
-        jTextField4SexePat.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
-        jTextField4DDNPat.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());
-       
-        jLabelNom.setText(((RechercherPatient) fenetrePrecedente).getEmploye().getNom());
-        jLabelPrenom.setText(((RechercherPatient) fenetrePrecedente).getEmploye().getPrenom());
-        jLabelService.setText(((RechercherPatient) fenetrePrecedente).getEmploye().getService().toString());*/
-
+     
       
     }
 
@@ -104,7 +93,7 @@ public class DossierMedical extends javax.swing.JFrame {
         ajouterResultat = new javax.swing.JButton();
         consulterResultat = new javax.swing.JButton();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
-        jListListResultat = new javax.swing.JList<>();
+        jListResultats = new javax.swing.JList<>();
         JPanelEnTeteMedTech = new javax.swing.JPanel();
         jLabelFonction = new javax.swing.JLabel();
         jLabelNom1 = new javax.swing.JLabel();
@@ -405,12 +394,12 @@ public class DossierMedical extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
         );
 
-        jListListResultat.setModel(new javax.swing.AbstractListModel<String>() {
+        jListResultats.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3ListeResultats.setViewportView(jListListResultat);
+        jScrollPane3ListeResultats.setViewportView(jListResultats);
 
         javax.swing.GroupLayout jPanel7ResultatLayout = new javax.swing.GroupLayout(jPanel7Resultat);
         jPanel7Resultat.setLayout(jPanel7ResultatLayout);
@@ -743,11 +732,7 @@ public class DossierMedical extends javax.swing.JFrame {
 
     private void consulterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterResultatActionPerformed
         // TODO add your handling code here:
-         ConsulterResultat obs = new ConsulterResultat(employe,patient,this);
-                    obs.setSize(this.getSize());
-                    obs.setLocationRelativeTo(this);
-                    this.dispose();
-                    obs.setVisible(true);
+        
     }//GEN-LAST:event_consulterResultatActionPerformed
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
@@ -794,10 +779,10 @@ public class DossierMedical extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNom1;
     private javax.swing.JLabel jLabelPrenom;
     private javax.swing.JLabel jLabelService;
-    private javax.swing.JList<String> jListListResultat;
     private javax.swing.JList<String> jListListeObservation;
     private javax.swing.JList<String> jListListeOperation;
     private javax.swing.JList<String> jListListePrescription;
+    private javax.swing.JList<String> jListResultats;
     private javax.swing.JPanel jPanel1Observations;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel3InfoPatient;

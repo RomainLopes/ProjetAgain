@@ -35,8 +35,9 @@ public class MedRadioAccueil extends javax.swing.JFrame {
    private static PersonnelHospitalier employe;
     private static Patients patient;
     private ArrayList<Observations> observation;
-    
-    public MedRadioAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs ) {
+        private ArrayList<Resultats> resultat;
+
+    public MedRadioAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs,ArrayList<Resultats> res ) {
         initComponents();
         employe=personnel;
         this.patient=patient;
@@ -51,6 +52,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         jLabel3Sexep.setText(patient.getSexe());
         
        observation=obs;
+       resultat=res;
    
     }
     
@@ -651,7 +653,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsulterDMActionPerformed
 
     private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
-        // TODO add your handling code here:
+
          NewPrescription obs = new NewPrescription(employe,patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
@@ -697,8 +699,8 @@ public class MedRadioAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jListObservationsMouseClicked
 
     private void jListResultatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListResultatsMouseClicked
-        // TODO add your handling code here:
-         ConsulterResultat obs = new ConsulterResultat(employe,patient,this);
+  int index = jListResultats.getSelectedIndex();
+          ConsulterResultat obs = new ConsulterResultat(employe,patient,this,resultat.get(index));
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
