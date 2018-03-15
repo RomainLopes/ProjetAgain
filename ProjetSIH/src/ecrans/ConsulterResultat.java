@@ -5,8 +5,7 @@
  */
 package ecrans;
 
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 
@@ -18,13 +17,13 @@ public class ConsulterResultat extends javax.swing.JFrame {
 
     private static PersonnelHospitalier employe;
     private static Patients patient;
-    private ArrayList<String> test;
+    private ArrayList<Resultats> resultat;
     private JFrame fenetrePrecedente;
 
     /**
      * Creates new form ConsulterResultat
      */
-    public ConsulterResultat(PersonnelHospitalier employe, Patients patient, JFrame previous) {
+    public ConsulterResultat(PersonnelHospitalier employe, Patients patient, JFrame previous,Resultats resultat) {
         initComponents();
         this.employe = employe;
         this.patient = patient;
@@ -33,11 +32,10 @@ public class ConsulterResultat extends javax.swing.JFrame {
         // mettre l'indice qui correspond à chaque information
         jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(employe.getService());
-        jLabelResultatP.setText(test.get(0));
-        jLabelNaturePrestaP.setText(test.get(0));
-        //jLabelDateP.setText(previous.get.get(0));
-        
-        
+        jLabelResultatP.setText(resultat.getResultat());
+        jLabelNaturePrestaP.setText(resultat.getPrestationmt());
+         jLabelDateP.setText(resultat.getDateResultat());
+       
     }
 
     /**

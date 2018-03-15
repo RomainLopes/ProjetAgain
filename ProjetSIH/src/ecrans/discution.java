@@ -50,6 +50,7 @@ public class discution extends javax.swing.JFrame {
         patients.add("patient n°1");
         patients.add("patient n°2");
         patients.add("patient n°3");
+        
 
 
         /*JPanel panEvent = new JPanel(); //Panel où on place tous les événements
@@ -238,6 +239,8 @@ jList2.setModel(modele);
         ia.setLocationRelativeTo(this);
         this.dispose();
         ia.setVisible(true);
+        
+        System.out.println(jList1.getSelectedValue());
         
     }//GEN-LAST:event_jList1MouseClicked
 

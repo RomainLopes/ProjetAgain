@@ -5,8 +5,7 @@
  */
 package ecrans;
 
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JButton;
@@ -15,10 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
-import projetsih.Infirmier;
-import projetsih.PHospitalier;
-import projetsih.Patient;
-import projetsih.SMed;
+
 
 /**
  *
@@ -28,23 +24,15 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
       private static PersonnelHospitalier employe;
     private static Patients patient;
+    private ArrayList<Observations> observation;
+        private ArrayList<Operations> operation;
+
 
     /**
      * Creates new form InfirmierAccueil
      */
-    /*  public InfirmierAccueil() {
-        initComponents();
-
-        jPanelOperations.setLayout(new GridLayout(50, 1));
-
-        jPanelOperations.add(new JLabel("25/01/2017    Pose de cathéter"));
-        jPanel1Observations.setLayout(new GridLayout(50, 1));
-        jPanel1Observations.add(new JLabel("L'opération s'est bien déroulée."));
-            jPanel1Observations.setVisible(false);
-        jLabelPrenomInf.setText(employe.getPrenom());
-        jLabelNomInf.setText(employe.getNom());
-    }*/
-    public InfirmierAccueil(PersonnelHospitalier personnel, Patients patient) {
+   
+    public InfirmierAccueil(PersonnelHospitalier personnel, Patients patient,ArrayList<Observations> obs, ArrayList<Operations> op) {
         initComponents();
         employe = personnel;
         this.patient = patient;
@@ -58,6 +46,11 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         jLabel4PrenomPatient.setText(patient.getPrenompatient());
         jLabel2dateDeNAissancePatient.setText(patient.getDateDeNaissance());
         jLabelSexePatient.setText(patient.getSexe()); 
+        
+        // on garde en mémoire les operations et observations 
+        
+      observation=obs;
+      operation = op;
 
 
     }
@@ -97,12 +90,12 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         ajouterObservation = new javax.swing.JButton();
         consulterObservation = new javax.swing.JButton();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
-        jListObservations = new javax.swing.JList<String>();
+        jListObservations = new javax.swing.JList<>();
         jPanelOperations = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         ajouterOperation = new javax.swing.JButton();
         jScrollPane1ListeOperations = new javax.swing.JScrollPane();
-        jListOperations = new javax.swing.JList<String>();
+        jListOperations = new javax.swing.JList<>();
         Operations = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -354,10 +347,10 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListObservations.setModel(new javax.swing.AbstractListModel() {
+        jListObservations.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListObservations.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -416,10 +409,10 @@ public class InfirmierAccueil extends javax.swing.JFrame {
                 .addComponent(ajouterOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jListOperations.setModel(new javax.swing.AbstractListModel() {
+        jListOperations.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListOperations.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -536,8 +529,8 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
     private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
-        // TODO add your handling code here:
-          ConsulterObservation obs = new ConsulterObservation(employe,patient,this);
+        int index = jListObservations.getSelectedIndex();
+          ConsulterObservation obs = new ConsulterObservation(employe,patient,this,observation.get(index));
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -545,53 +538,8 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jListObservationsMouseClicked
 
     private void jListOperationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListOperationsMouseClicked
-        // TODO add your handling code here:
 
     }//GEN-LAST:event_jListOperationsMouseClicked
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InfirmierAccueil.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InfirmierAccueil.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InfirmierAccueil.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InfirmierAccueil.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-                new InfirmierAccueil(employe, patient).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelEnTeteMedTech;

@@ -5,8 +5,7 @@
  */
 package ecrans;
 
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
 import java.util.ArrayList;
 
 /**
@@ -20,8 +19,10 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
      */
      private static PersonnelHospitalier employe;
     private static Patients patient;
+     private   ArrayList<Observations> observation;
 
-    public MedUrgenceAccueil(PersonnelHospitalier employe, Patients patient) {
+
+    public MedUrgenceAccueil(PersonnelHospitalier employe, Patients patient, ArrayList<Observations> obs) {
         initComponents();
         this.employe = employe;
         this.patient = patient;
@@ -34,6 +35,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel2DateDeNaissance.setText(patient.getDateDeNaissance());
         jLabel2Sexe.setText(patient.getSexe());
+observation = obs;
     }
 
     /**
@@ -71,6 +73,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
         ajouterObservation1 = new javax.swing.JButton();
         consulterObservation = new javax.swing.JButton();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
+        jListObservations = new javax.swing.JList<>();
         Observations = new javax.swing.JLabel();
         jPanel4Prescriptions = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -310,6 +313,18 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
 
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jListObservations.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListObservations.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListObservationsMouseClicked(evt);
+            }
+        });
+        jScrollPane1ListeObservations.setViewportView(jListObservations);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -488,12 +503,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_ajouterObservation1ActionPerformed
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
-        // TODO add your handling code here:
-        ConsulterObservation obs = new ConsulterObservation(employe,patient, this);
-        obs.setSize(this.getSize());
-        obs.setLocationRelativeTo(this);
-        this.dispose();
-        obs.setVisible(true);
+
     }//GEN-LAST:event_consulterObservationActionPerformed
 
     private void ajouterPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescriptionActionPerformed
@@ -514,41 +524,16 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
         obs.setVisible(true);
     }//GEN-LAST:event_ConsulterDMAActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MedUrgenceAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MedUrgenceAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MedUrgenceAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MedUrgenceAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
+         int index = jListObservations.getSelectedIndex();
+          ConsulterObservation obs = new ConsulterObservation(employe,patient,this,observation.get(index));
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
+    }//GEN-LAST:event_jListObservationsMouseClicked
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MedUrgenceAccueil(employe, patient).setVisible(true);
-            }
-        });
-    }
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConsulterDM;
@@ -575,6 +560,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNomPmed;
     private javax.swing.JLabel jLabelPrenomPmed;
     private javax.swing.JLabel jLabelService;
+    private javax.swing.JList<String> jListObservations;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1Observations;
     private javax.swing.JPanel jPanel3;
