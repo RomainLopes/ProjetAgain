@@ -83,7 +83,8 @@ public class CreerDMA extends javax.swing.JFrame {
         jLabel3Type = new javax.swing.JLabel();
         jComboBoxTypeSejour = new javax.swing.JComboBox<>();
         jLabel2NomPH = new javax.swing.JLabel();
-        jComboBoxPH = new javax.swing.JComboBox<>();
+        jTextFieldNomph = new javax.swing.JTextField();
+        jTextFieldPrenomph = new javax.swing.JTextField();
         jButtonValider = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -243,16 +244,14 @@ public class CreerDMA extends javax.swing.JFrame {
         jPanel2CreationDMA.add(jComboBoxTypeSejour);
 
         jLabel2NomPH.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2NomPH.setText("Nom du Praticien Hospitalier responsable :");
+        jLabel2NomPH.setText("Praticien Hospitalier responsable :");
         jPanel2CreationDMA.add(jLabel2NomPH);
 
-        jComboBoxPH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ""}));
-        jComboBoxPH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxPHActionPerformed(evt);
-            }
-        });
-        jPanel2CreationDMA.add(jComboBoxPH);
+        jTextFieldNomph.setText("jTextField1");
+        jPanel2CreationDMA.add(jTextFieldNomph);
+
+        jTextFieldPrenomph.setText("jTextField1");
+        jPanel2CreationDMA.add(jTextFieldPrenomph);
 
         jButtonValider.setBackground(new java.awt.Color(228, 241, 254));
         jButtonValider.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
@@ -403,10 +402,6 @@ public class CreerDMA extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonValiderMouseClicked
 
-    private void jComboBoxPHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPHActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxPHActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -445,7 +440,6 @@ public class CreerDMA extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPrecedent2;
     private javax.swing.JButton jButtonValider;
-    private javax.swing.JComboBox<String> jComboBoxPH;
     private javax.swing.JComboBox<String> jComboBoxTypeSejour;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1InfoPatients;
@@ -470,6 +464,8 @@ public class CreerDMA extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4Localisation;
     private javax.swing.JTextField jTextField4Prenom;
     private javax.swing.JTextField jTextField4Sexe;
+    private javax.swing.JTextField jTextFieldNomph;
+    private javax.swing.JTextField jTextFieldPrenomph;
     private javax.swing.JTextField jTextFieldadresse;
     // End of variables declaration//GEN-END:variables
 }

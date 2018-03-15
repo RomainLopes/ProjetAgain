@@ -5,8 +5,7 @@
  */
 package ecrans;
 
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 
@@ -23,7 +22,7 @@ public class ConsulterObservation extends javax.swing.JFrame {
     /**
      * Creates new form ConsulterObservation
      */
-    public ConsulterObservation(PersonnelHospitalier employe , Patients patient, JFrame previous) {
+    public ConsulterObservation(PersonnelHospitalier employe , Patients patient, JFrame previous,Observations observation) {
         initComponents();
         this.employe=employe;
         this.patient=patient;
@@ -34,6 +33,8 @@ public class ConsulterObservation extends javax.swing.JFrame {
         jLabelNomObservationP.setText(test.get(0)) ;
         jLabelDateP.setText(test.get(0));
         jLabel4Service.setText(employe.getService());
+        
+       jLabelNomObservationP.setText(observation.getNomacte());
     }
 
     /**

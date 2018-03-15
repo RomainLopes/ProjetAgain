@@ -5,11 +5,9 @@
  */
 package ecrans;
 
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
 import java.util.ArrayList;
-import projetsih.PHospitalier;
-import projetsih.Patient;
+
 
 /**
  *
@@ -36,8 +34,9 @@ public class MedRadioAccueil extends javax.swing.JFrame {
      */
    private static PersonnelHospitalier employe;
     private static Patients patient;
+    private ArrayList<Observations> observation;
     
-    public MedRadioAccueil(PersonnelHospitalier personnel, Patients patient ) {
+    public MedRadioAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs ) {
         initComponents();
         employe=personnel;
         this.patient=patient;
@@ -51,15 +50,8 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());
         
-        
-       /* jLabelPrenom.setText(employe.getPrenom());
-        jLabelNom.setText(employe.getNom());
-        jLabelService.setText(employe.getService().toString());
-
-        jTextField1Nom.setText(((RechercherPatient) fenetrePrecedente).getP().getNom());
-        jTextField2Prenom.setText(((RechercherPatient) fenetrePrecedente).getP().getPrenom());
-        jTextField3Sexe.setText(((RechercherPatient) fenetrePrecedente).getP().getSexe());
-        jTextField4DDN.setText(((RechercherPatient) fenetrePrecedente).getP().getDateNaissance().toString());*/
+       observation=obs;
+   
     }
     
     /**
@@ -696,8 +688,8 @@ public class MedRadioAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_consulterResultatActionPerformed
 
     private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
-        // TODO add your handling code here:
-          ConsulterObservation obs = new ConsulterObservation(employe,patient,this);
+        int index = jListObservations.getSelectedIndex();
+          ConsulterObservation obs = new ConsulterObservation(employe,patient,this,observation.get(index));
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -722,40 +714,6 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         obs.setVisible(true);
     }//GEN-LAST:event_ajouterPrescriptionActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MedRadioAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MedRadioAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MedRadioAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MedRadioAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MedRadioAccueil(employe,patient).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConsulterDM;

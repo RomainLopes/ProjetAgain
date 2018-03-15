@@ -5,12 +5,9 @@
  */
 package ecrans;
 
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
 import java.util.ArrayList;
-import projetsih.PHospitalier;
-import projetsih.Patient;
-import ecrans.RechercherPatient;
+
 
 /**
  *
@@ -21,32 +18,18 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     /**
      * @return the jListObservations
      */
-    public javax.swing.JList<String> getjListObservations() {
-        return jListObservations;
-    }
-
-    /**
-     * @return the jListPrescriptions
-     */
-    public javax.swing.JList<String> getjListPrescriptions() {
-        return jListPrescriptions;
-    }
-
-    /**
-     * @return the jListResultats
-     */
-    public javax.swing.JList<String> getjListResultats() {
-        return jListResultats;
-    }
+   
+    
       private static PersonnelHospitalier employe;
     private static Patients patient;
+    private  ArrayList<Observations> observation;
 
     /**
      * Creates new form MedAnestAccueil
      */
     
   
-    public MedAnestAccueil(PersonnelHospitalier personnel, Patients patient ) {
+    public MedAnestAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs ) {
         initComponents();
         employe=personnel;
         this.patient= patient;
@@ -60,6 +43,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel3Sexep.setText(patient.getSexe());
         jLabel4DateP.setText(patient.getDateDeNaissance());
+        observation = obs;
 
     }
 
@@ -677,8 +661,8 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_consulterResultatActionPerformed
 
     private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
-        // TODO add your handling code here:
-        ConsulterObservation obs = new ConsulterObservation(employe,patient,this);
+       int index = jListObservations.getSelectedIndex();
+          ConsulterObservation obs = new ConsulterObservation(employe,patient,this,observation.get(index));
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -694,41 +678,24 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         obs.setVisible(true);
     }//GEN-LAST:event_jListResultatsMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MedAnestAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MedAnestAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MedAnestAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MedAnestAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MedAnestAccueil(employe, patient).setVisible(true);
-            }
-        });
+  public javax.swing.JList<String> getjListObservations() {
+        return jListObservations;
     }
 
+    /**
+     * @return the jListPrescriptions
+     */
+    public javax.swing.JList<String> getjListPrescriptions() {
+        return jListPrescriptions;
+    }
+
+    /**
+     * @return the jListResultats
+     */
+    public javax.swing.JList<String> getjListResultats() {
+        return jListResultats;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConsulterDM;
     private javax.swing.JButton ConsulterDMA;
