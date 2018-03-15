@@ -8,7 +8,6 @@ package ecrans;
 import GestionBDD.BDDconnection;
 import GestionBDD.PersonnelHospitalier;
 import GestionBDD.PersonnelHospitalierDAO;
-import java.util.ArrayList;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JOptionPane;
 
@@ -19,9 +18,6 @@ import javax.swing.JOptionPane;
 public class Identification extends javax.swing.JFrame {
 
     private PersonnelHospitalier ph;
-
-    private ArrayList<String> p;
-    private ArrayList<String> phs;
 
     /**
      * Creates new form Connexion
@@ -93,12 +89,6 @@ public class Identification extends javax.swing.JFrame {
 
         logoHopital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plainsboro blanc.PNG"))); // NOI18N
 
-        jTextFieldIdentifiant.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldIdentifiantActionPerformed(evt);
-            }
-        });
-
         jLabelMdp.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelMdp.setText("Mot de passe :");
 
@@ -149,12 +139,11 @@ public class Identification extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logoHopital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(logoHopital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelIdentifiant)
                             .addComponent(jTextFieldIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -194,10 +183,6 @@ public class Identification extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldIdentifiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdentifiantActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIdentifiantActionPerformed
-
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         //RecherchePatient rp = new RecherchePatient();
         PersonnelHospitalierDAO phd = new PersonnelHospitalierDAO(BDDconnection.getInstance());
@@ -209,26 +194,23 @@ public class Identification extends javax.swing.JFrame {
         } else {
             if (!ph.getId().isEmpty()) {
 
-                boolean x = true;
-                // System.out.println(ph.getFonction());
-
-                if (x == true && "Secretaire medicale".equals(ph.getFonction())) {
+                if ( "Secretaire medicale".equals(ph.getFonction())) {
 
                     SmAccueil smed = new SmAccueil(ph);
                     smed.setSize(this.getSize());
                     smed.setLocationRelativeTo(this);
                     this.dispose();
                     smed.setVisible(true);
-                } else if (x == true && "Administration".equals(ph.getFonction())) {
+                    
+                } else if ( "Administration".equals(ph.getFonction())) {
 
                     SaAccueil sadm = new SaAccueil(ph);
-
                     sadm.setSize(this.getSize());
                     sadm.setLocationRelativeTo(this);
                     this.dispose();
                     sadm.setVisible(true);
+                    
                 } else {
-                    //Fonction fonction=  Fonction.Interne; // remplacer fonction par nPS.get(3)
 
                     RechercherPatient rechercher = new RechercherPatient(ph);
                     rechercher.setSize(this.getSize());
@@ -241,7 +223,6 @@ public class Identification extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe incorrect");
             }
         }
-        //rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
     /**

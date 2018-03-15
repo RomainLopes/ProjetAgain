@@ -4,26 +4,11 @@
  * and open the template in the editor.
  */
 package ecrans;
-
-import GestionBDD.BDDconnection;
-import GestionBDD.DAO;
-import GestionBDD.DossierMedicalDAO;
-import GestionBDD.DossierMedicoAdministratif;
-import GestionBDD.DossierMedicoAdministratifDAO;
-import GestionBDD.ObservationsDAO;
-import GestionBDD.OperationsDAO;
-import GestionBDD.Patients;
-import GestionBDD.PatientsDAO;
-import GestionBDD.PersonnelHospitalier;
-import GestionBDD.PrescriptionsDAO;
+import GestionBDD.*;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-//import projetsih.Patient;
-
 import GestionBDD.ResultatsDAO;
 import javax.swing.JFrame;
-//import projetsih.SAdm;
-//import projetsih.SMed;
 
 /**
  *
@@ -32,17 +17,11 @@ import javax.swing.JFrame;
 public class RechercherPatient extends javax.swing.JFrame {
 
     /**
-     * @return the dmaCurrent
-     */
-    /**
      * Creates new form RechercherPatient
      */
     private static PersonnelHospitalier phr;
-    private static ArrayList<String> med;
-    private static ArrayList<String> p;
-    private static DossierMedicoAdministratif dmaCourrant;
-    private JFrame fenetrePrecedente;
-    private static Patients patient;
+    //private static Patients patient;
+    
     DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
     ArrayList<Patients> lipat;
 
@@ -295,38 +274,44 @@ public class RechercherPatient extends javax.swing.JFrame {
 
     private void jListpatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListpatientsMouseClicked
         int index = jListpatients.getSelectedIndex();
-
+        String ipp = lipat.get(index).getIpp().substring(1, lipat.get(index).getIpp().length() - 1);
+        
+        //Déclaration variables -----
         DossierMedicoAdministratifDAO dmad = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-
         ArrayList<DossierMedicoAdministratif> allDMA = new ArrayList<DossierMedicoAdministratif>();
+
+        DossierMedicalDAO dms = new DossierMedicalDAO(BDDconnection.getInstance());
+        ArrayList<DossierMedical> dm = new ArrayList<DossierMedical>();
+        
+        ObservationsDAO obs = new ObservationsDAO(BDDconnection.getInstance());
+        ArrayList<Observations> ob = new ArrayList<Observations>();
+        ob = obs.findIpp(ipp);
+        DefaultListModel observations = new DefaultListModel();
+        for (Observations i : ob) {
+            observations.addElement(i.getNomacte() + "    " + i.getDateObservation());
+        }
+        
+        PrescriptionsDAO presc = new PrescriptionsDAO(BDDconnection.getInstance());
+        ArrayList<Prescriptions> pr = new ArrayList<Prescriptions>();
+
+        OperationsDAO ope = new OperationsDAO(BDDconnection.getInstance());
+        ArrayList<Operations> op = new ArrayList<Operations>();
+
+        ResultatsDAO res = new ResultatsDAO(BDDconnection.getInstance());
+        ArrayList<Resultats> re = new ArrayList<Resultats>();
+
+        //Instanciation des listes d'objet -----
+        
         allDMA = dmad.findSer(lipat.get(index).getIpp(), "nosejour", "service"); // remplacer par la fonction findlast(ipp)
         // et on aura dmaCurrent= dmad.findlast(ipp)
 
-        String ipp = lipat.get(index).getIpp().substring(1, lipat.get(index).getIpp().length() - 1);
-
-        DossierMedicalDAO dms = new DossierMedicalDAO(BDDconnection.getInstance());
-        ObservationsDAO obs = new ObservationsDAO(BDDconnection.getInstance());
-        PrescriptionsDAO presc = new PrescriptionsDAO(BDDconnection.getInstance());
-        OperationsDAO ope = new OperationsDAO(BDDconnection.getInstance());
-        ResultatsDAO res = new ResultatsDAO(BDDconnection.getInstance());
-
-        ArrayList<GestionBDD.Resultats> re = new ArrayList<GestionBDD.Resultats>();
-        ArrayList<GestionBDD.Observations> ob = new ArrayList<GestionBDD.Observations>();
-        ArrayList<GestionBDD.Prescriptions> pr = new ArrayList<GestionBDD.Prescriptions>();
-        ArrayList<GestionBDD.Operations> op = new ArrayList<GestionBDD.Operations>();
-
-        ArrayList<GestionBDD.DossierMedical> resultat = new ArrayList<GestionBDD.DossierMedical>();
-
-        // ici on a pas encore de nosejour à ce stade donc réfléchir comment choisir le sejour
-        resultat = dms.findSer(ipp, "180100001", phr.getService()); // ipp nosejour service
-
         re = res.findIpp(ipp);
-        ob = obs.findIpp(ipp);
+        
         pr = presc.findIpp(ipp);
         op = ope.findIpp(ipp);
 
         DefaultListModel prescriptions = new DefaultListModel();
-        DefaultListModel observations = new DefaultListModel();
+        
         DefaultListModel operations = new DefaultListModel();
         DefaultListModel result = new DefaultListModel();
 
@@ -338,9 +323,6 @@ public class RechercherPatient extends javax.swing.JFrame {
             operations.addElement(i.getOperation() + "    " + i.getDateoperation());
         }
 
-        for (GestionBDD.Observations i : ob) {
-            observations.addElement(i.getNomacte() + "    " + i.getDateObservation());
-        }
 
         for (GestionBDD.Resultats i : re) {
             result.addElement(i.getPrestationmt() + "    " + i.getDateResultat());
@@ -492,22 +474,6 @@ public class RechercherPatient extends javax.swing.JFrame {
                 new RechercherPatient(phr).setVisible(true);
             }
         });
-    }
-
-    public ArrayList<String> getP() {
-        return this.p;
-    }
-
-    public ArrayList<String> getMed() {
-        return this.med;
-    }
-
-    public static DossierMedicoAdministratif getDmaCourrant() {
-        return dmaCourrant;
-    }
-
-    public static Patients getPatient() {
-        return patient;
     }
 
     public static PersonnelHospitalier getEmploye() {
