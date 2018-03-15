@@ -193,12 +193,6 @@ public class RechercherPatient extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jListpatients);
 
-        jTextFieldPrenom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPrenomActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1RecherchePatientLayout = new javax.swing.GroupLayout(jPanel1RecherchePatient);
         jPanel1RecherchePatient.setLayout(jPanel1RecherchePatientLayout);
         jPanel1RecherchePatientLayout.setHorizontalGroup(
@@ -298,10 +292,6 @@ public class RechercherPatient extends javax.swing.JFrame {
         this.dispose();
         iden.setVisible(true);
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
-
-    private void jTextFieldPrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrenomActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPrenomActionPerformed
 
     private void jListpatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListpatientsMouseClicked
         int index = jListpatients.getSelectedIndex();

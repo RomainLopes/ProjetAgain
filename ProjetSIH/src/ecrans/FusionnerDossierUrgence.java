@@ -7,11 +7,7 @@ package ecrans;
 
 import GestionBDD.Patients;
 import GestionBDD.PersonnelHospitalier;
-import GestionBDD.RecherchePatient;
 import java.util.ArrayList;
-import javax.swing.DefaultListModel;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author lisad
