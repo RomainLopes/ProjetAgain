@@ -36,7 +36,6 @@ public class Identification extends javax.swing.JFrame {
         //this.setResizable(false);
         PersonnelHospitalier ph = new PersonnelHospitalier();
         jTextFieldMdp.setText("");
-        
 
         pack();
         setVisible(true);
@@ -206,27 +205,18 @@ public class Identification extends javax.swing.JFrame {
         //RecherchePatient rp = new RecherchePatient();
         PersonnelHospitalierDAO phd = new PersonnelHospitalierDAO(BDDconnection.getInstance());
         ph = phd.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-        
-        
+
         if (jTextFieldIdentifiant.getText().equals("") | jTextFieldMdp.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe non renseigné");
 
         } else {
             if (!ph.getId().isEmpty()) {
 
-                //ph = phd.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-                //ArrayList<String> nPS = new ArrayList<String>();
-                //nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-                // nPS est une liste de string renvoyant en indice 0 le nom, en indice 1 le prénom et 
-                // en indice 2 le service, en 3 la fonction du personnel se connectant
-                //phs = nPS; // pour garder en mémoire les infos du personnel nom prenom service fonction
-
                 boolean x = true;
-               // System.out.println(ph.getFonction());
-                
+                // System.out.println(ph.getFonction());
+
                 if (x == true && "Secretaire medicale".equals(ph.getFonction())) {
 
-                    //employe = new SMed(nPS.get(0), nPS.get(1), nPS.get(2),nPS.get(2) );
                     SmAccueil smed = new SmAccueil(ph);
                     smed.setSize(this.getSize());
                     smed.setLocationRelativeTo(this);
@@ -234,9 +224,8 @@ public class Identification extends javax.swing.JFrame {
                     smed.setVisible(true);
                 } else if (x == true && "Administration".equals(ph.getFonction())) {
 
-                    //sa = new SAdm(nPS.get(0), nPS.get(1));
                     SaAccueil sadm = new SaAccueil(ph);
-                    
+
                     sadm.setSize(this.getSize());
                     sadm.setLocationRelativeTo(this);
                     this.dispose();
@@ -244,7 +233,6 @@ public class Identification extends javax.swing.JFrame {
                 } else {
                     //Fonction fonction=  Fonction.Interne; // remplacer fonction par nPS.get(3)
 
-                    //employe = new PMedical( nPS.get(0), nPS.get(1), nPS.get(2), nPS.get(3));
                     RechercherPatient rechercher = new RechercherPatient(ph);
                     rechercher.setSize(this.getSize());
                     rechercher.setLocationRelativeTo(this);
@@ -252,10 +240,9 @@ public class Identification extends javax.swing.JFrame {
                     rechercher.setVisible(true);
                 }
 
-            }
-            /*else {
+            } else {
                 JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe incorrect");
-            }*/
+            }
         }
         //rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
     }//GEN-LAST:event_jButtonValiderActionPerformed
@@ -308,19 +295,4 @@ public class Identification extends javax.swing.JFrame {
     private javax.swing.JLabel logoHIR;
     private javax.swing.JLabel logoHopital;
     // End of variables declaration//GEN-END:variables
-
-    public ArrayList<String> getEmploye() {
-        return this.phs;
-    }
-
 }
-
-/*if(jTextFieldIdentifiant.getText()=="" && jTextFieldMdp.getText() == ""){// bien prendre les bonnes valeurs  pour la sadmin
-                 MedAnestAccueil accueilAnest = new MedAnestAccueil();
-
-                accueilAnest.setSize(this.getSize());
-                accueilAnest.setLocationRelativeTo(this);
-
-                this.dispose();
-                accueilAnest.setVisible(true);
-            }*/

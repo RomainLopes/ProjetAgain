@@ -63,6 +63,7 @@ public class RecherchePatient {
     */
 
     // liste des infos de l'employé concerné
+    /*
     public ArrayList<String> enTete(String id, String mdp) {
         ArrayList<String> nomPrenonService = new ArrayList<String>();
         String QueryId = new String();
@@ -83,9 +84,10 @@ public class RecherchePatient {
             e.printStackTrace();
         }
         return nomPrenonService;
-    }
+    }*/
     
     //liste des infos du patient concerné
+    /*
     public ArrayList<String> enTetePatient(String ipp) {
         ArrayList<String> listeInfo = new ArrayList<String>();
         String QueryId = new String();
@@ -105,7 +107,7 @@ public class RecherchePatient {
             e.printStackTrace();
         }
         return listeInfo;
-    }
+    }*/
 
     // liste des patients
     

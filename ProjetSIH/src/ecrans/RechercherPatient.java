@@ -14,7 +14,6 @@ import GestionBDD.ObservationsDAO;
 import GestionBDD.OperationsDAO;
 import GestionBDD.Patients;
 import GestionBDD.PatientsDAO;
-import GestionBDD.PatientsDAO.*;
 import GestionBDD.PersonnelHospitalier;
 import GestionBDD.PrescriptionsDAO;
 import java.util.ArrayList;
@@ -35,8 +34,6 @@ public class RechercherPatient extends javax.swing.JFrame {
     /**
      * @return the dmaCurrent
      */
-   
-
     /**
      * Creates new form RechercherPatient
      */
@@ -46,10 +43,10 @@ public class RechercherPatient extends javax.swing.JFrame {
     private static DossierMedicoAdministratif dmaCourrant;
     private JFrame fenetrePrecedente;
     private static Patients patient;
+    DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
+    ArrayList<Patients> lipat;
 
     public RechercherPatient(PersonnelHospitalier ph) {
-        //RecherchePatient rp = new RecherchePatient();
-        //med = nps;
         initComponents();
         phr = ph;
 
@@ -59,30 +56,6 @@ public class RechercherPatient extends javax.swing.JFrame {
         jLabelService.setText(ph.getService());
     }
 
-    /* public RechercherPatient(Identification fenetre) {
-        RecherchePatient rp = new RecherchePatient();
-        this.fenetrePrePh=fenetre;
-        initComponents();
-        employe= fenetrePrePh.getEmploye();
-        jLabelNom.setText(employe.getNom());
-        jLabelPrenom.setText(employe.getPrenom());
-        jLabelFonction.setText(employe.getFonction().toString());
-        jLabelService.setText(employe.getService().toString()); 
-    }
-    
-     public RechercherPatient(SaAccueil fenetre) {
-        RecherchePatient rp = new RecherchePatient();
-        this.fenetrePreSa=fenetre;
-        initComponents();
-        this.sa= fenetrePreSa.getSa();
-        jLabelNom.setText(employe.getNom());
-        jLabelPrenom.setText(employe.getPrenom());
-        jLabelFonction.setText(employe.getFonction().toString());
-        jLabelService.setText(employe.getService().toString()); 
-    }*/
- /* public RechercherPatient() {
-        initComponents();
-    }*/
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -301,71 +274,24 @@ public class RechercherPatient extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
-        PatientsDAO patd = new PatientsDAO(BDDconnection.getInstance());
-
-        ArrayList<Patients> lpat = new ArrayList<Patients>();
-        ArrayList<String> resultatRecherche = new ArrayList<String>();
         ArrayList<String> resultatAffiche = new ArrayList<String>();
-        /*
-        System.out.println(" avant recheche");
-         */
-        DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
-        ArrayList<Patients> lipat;
+
         lipat = PatientsDAO.findPatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
-        
-        //lpat = rp.recherchePatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
+
         for (int i = 0; i < lipat.size(); i++) {
             resultatAffiche.add(lipat.get(i).getNompatient() + "  " + lipat.get(i).getPrenompatient() + "   " + lipat.get(i).getDateDeNaissance());
         }
-        /*
-        System.out.println("test de recherche");
-        for (String i : resultatRecherche) {
-            System.out.println(i);
-        }
-        */
-        /*
-        System.out.println(" après recherche ");
-         */
+
         DefaultListModel modele = new DefaultListModel();
         for (String i : resultatAffiche) {
             modele.addElement(i);
         }
         jListpatients.setModel(modele);
-/*
-        //ArrayList<String> infoPatient = new ArrayList<String>();
-        //infoPatient = rp.enTetePatient(resultatRecherche.get(1));
-        //p = infoPatient;
-        int ipp = Integer.parseInt(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length() - 1));
-        ArrayList<Patients> listepat = new ArrayList<Patients>();
-        listepat = patd.findIpp(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length() - 1));
-        System.out.println(listepat.size());
 
-        patient = listepat.get(0);
-*/
-        /* System.out.println("****************************** TEST *****************");
-            System.out.println(phr.getFonction());
-                        System.out.println("/n)");
-
-            System.out.println(patient.getNompatient());
-                                    System.out.println("/n)");
-
-            System.out.println(patient.getSexe());
-                                    System.out.println("/n)");
-
-            System.out.println("****************************** TEST *****************");
-
-         */
-        /*
-        for (int i = 0; i < infoPatient.size(); i++) {
-            System.out.println(infoPatient.get(i) + " \t \n");
-        }
-        */
-        
-
+        //int ipp = Integer.parseInt(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length() - 1));
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
-        // TODO add your handling code here:
         Identification iden = new Identification();
         iden.setSize(this.getSize());
         iden.setLocationRelativeTo(this);
@@ -378,17 +304,16 @@ public class RechercherPatient extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPrenomActionPerformed
 
     private void jListpatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListpatientsMouseClicked
-        // TODO add your handling code here:
-         DossierMedicoAdministratifDAO dmad = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        int index = jListpatients.getSelectedIndex();
+
+        DossierMedicoAdministratifDAO dmad = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
 
         ArrayList<DossierMedicoAdministratif> allDMA = new ArrayList<DossierMedicoAdministratif>();
-                allDMA= dmad.findSer(patient.getIpp(), "nosejour", "service"); // remplacer par la fonction findlast(ipp)
+        allDMA = dmad.findSer(lipat.get(index).getIpp(), "nosejour", "service"); // remplacer par la fonction findlast(ipp)
         // et on aura dmaCurrent= dmad.findlast(ipp)
-        
-        
-        //RecherchePatient rp = new RecherchePatient(); // utiliser la connexion de personnelhospitalier
-        String ipp = patient.getIpp().substring(1, patient.getIpp().length() - 1);
-        
+
+        String ipp = lipat.get(index).getIpp().substring(1, lipat.get(index).getIpp().length() - 1);
+
         DossierMedicalDAO dms = new DossierMedicalDAO(BDDconnection.getInstance());
         ObservationsDAO obs = new ObservationsDAO(BDDconnection.getInstance());
         PrescriptionsDAO presc = new PrescriptionsDAO(BDDconnection.getInstance());
@@ -399,61 +324,60 @@ public class RechercherPatient extends javax.swing.JFrame {
         ArrayList<GestionBDD.Observations> ob = new ArrayList<GestionBDD.Observations>();
         ArrayList<GestionBDD.Prescriptions> pr = new ArrayList<GestionBDD.Prescriptions>();
         ArrayList<GestionBDD.Operations> op = new ArrayList<GestionBDD.Operations>();
-        
-        ArrayList<GestionBDD.DossierMedical> resultat = new ArrayList<GestionBDD.DossierMedical>();
-        
-        
-        // ici on a pas encore de nosejour à ce stade donc réfléchir comment choisir le sejour
 
+        ArrayList<GestionBDD.DossierMedical> resultat = new ArrayList<GestionBDD.DossierMedical>();
+
+        // ici on a pas encore de nosejour à ce stade donc réfléchir comment choisir le sejour
         resultat = dms.findSer(ipp, "180100001", phr.getService()); // ipp nosejour service
-        
-        re= res.findIpp(ipp);
-        ob=obs.findIpp(ipp);
-        pr=presc.findIpp(ipp);
-        op=ope.findIpp(ipp);
+
+        re = res.findIpp(ipp);
+        ob = obs.findIpp(ipp);
+        pr = presc.findIpp(ipp);
+        op = ope.findIpp(ipp);
 
         DefaultListModel prescriptions = new DefaultListModel();
         DefaultListModel observations = new DefaultListModel();
         DefaultListModel operations = new DefaultListModel();
         DefaultListModel result = new DefaultListModel();
-        
-         for (GestionBDD.Prescriptions i : pr) {
-               prescriptions.addElement(i.getIdprescription() + "    " + i.getDateprescription());} // 4 espaces
-         
-          for (GestionBDD.Operations i : op) {
-               operations.addElement(i.getOperation() + "    " + i.getDateoperation());}
-          
-           for (GestionBDD.Observations i : ob) {
-               observations.addElement(i.getNomacte() + "    " + i.getDateObservation());}
-           
-            for (GestionBDD.Resultats i : re) {
-               result.addElement(i.getPrestationmt() + "    " + i.getDateResultat());}
-    
-            
+
+        for (GestionBDD.Prescriptions i : pr) {
+            prescriptions.addElement(i.getIdprescription() + "    " + i.getDateprescription());
+        } // 4 espaces
+
+        for (GestionBDD.Operations i : op) {
+            operations.addElement(i.getOperation() + "    " + i.getDateoperation());
+        }
+
+        for (GestionBDD.Observations i : ob) {
+            observations.addElement(i.getNomacte() + "    " + i.getDateObservation());
+        }
+
+        for (GestionBDD.Resultats i : re) {
+            result.addElement(i.getPrestationmt() + "    " + i.getDateResultat());
+        }
+
         boolean x = true;
         System.out.println(phr.getFonction());
         if (x == true && "Secretaire medicale".equals(phr.getFonction())) {
             //JOptionPane.showMessageDialog(null, "Dossier médical existant");
 
-
-            ConsulterDM sadm = new ConsulterDM(phr, patient /*this*/ );
+            ConsulterDM sadm = new ConsulterDM(phr, lipat.get(index) /*this*/);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
             sadm.setVisible(true);
-            
+
             sadm.getjListPrescriptions().setModel(prescriptions);
             sadm.getjListOperations().setModel(operations);
             sadm.getjListObservations().setModel(observations);
             sadm.getjListResultats().setModel(result);
 
-
         } else if (x == true && "Administration".equals(phr.getFonction())) {
 
             DossierMedicoAdministratifDAO phd = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-            ArrayList<DossierMedicoAdministratif> resultats = new ArrayList <DossierMedicoAdministratif>();
+            ArrayList<DossierMedicoAdministratif> resultats = new ArrayList<DossierMedicoAdministratif>();
 
-          /*  resultats = phd.findser(ipp, "180100001", "Cardiologie"); // ici utiliser la bonne fonction avec uniquement ipp car la sa n'a pas de service et on veut afficher tous les séjours 
+            /*  resultats = phd.findser(ipp, "180100001", "Cardiologie"); // ici utiliser la bonne fonction avec uniquement ipp car la sa n'a pas de service et on veut afficher tous les séjours 
 
             DefaultListModel num = new DefaultListModel();
             DefaultListModel type = new DefaultListModel();
@@ -465,82 +389,79 @@ public class RechercherPatient extends javax.swing.JFrame {
                 type.addElement(i.getType());
           
             }*/
-
-            CreerNosejour sadm = new CreerNosejour(phr, patient);
+            CreerNosejour sadm = new CreerNosejour(phr, lipat.get(index));
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
             sadm.setVisible(true);
 
-           /* sadm.getjListNoSejour().setModel(num);
+            /* sadm.getjListNoSejour().setModel(num);
             sadm.getjListDate().setModel(date);
             sadm.getjListType().setModel(type);*/
-
         } else if (x == true && "Interne".equals(phr.getFonction())) {
 
-            InterneAccueil inte = new InterneAccueil(phr, patient);
+            InterneAccueil inte = new InterneAccueil(phr, lipat.get(index));
             inte.setSize(this.getSize());
             inte.setLocationRelativeTo(this);
             this.dispose();
             inte.setVisible(true);
-            
-            inte.getjListObservations().setModel(observations);
 
+            inte.getjListObservations().setModel(observations);
 
         } else if (x == true && "Infirmier".equals(phr.getFonction())) {
 
-            InfirmierAccueil inte = new InfirmierAccueil(phr, patient);
+            InfirmierAccueil inte = new InfirmierAccueil(phr, lipat.get(index));
             inte.setSize(this.getSize());
             inte.setLocationRelativeTo(this);
             this.dispose();
             inte.setVisible(true);
-            
+
             inte.getjListOperations().setModel(operations);
             inte.getjListObservations().setModel(observations);
-            
+
         } else { // pH
             if (x == true && "Clinique".equals(phr.getService())) { // ajouter le .getType()
 
-                MedClinAccueil inte = new MedClinAccueil(phr, patient);
+                MedClinAccueil inte = new MedClinAccueil(phr, lipat.get(index));
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
-                 inte.getjListPrescriptions().setModel(prescriptions);
-            inte.getjListObservations().setModel(observations);
-            inte.getjListResultats().setModel(result);
-                
+                inte.getjListPrescriptions().setModel(prescriptions);
+                inte.getjListObservations().setModel(observations);
+                inte.getjListResultats().setModel(result);
+
             } else if (x == true/* pH.service.getNom()=="Radiologie"*/) {
 
-                MedRadioAccueil inte = new MedRadioAccueil(phr, patient);
+                MedRadioAccueil inte = new MedRadioAccueil(phr, lipat.get(index));
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
-            inte.getjListObservations().setModel(observations);
-            inte.getjListResultats().setModel(result);
-                
+                inte.getjListObservations().setModel(observations);
+                inte.getjListResultats().setModel(result);
+
             } else if (x == true/* pH.service.getNom()=="Anesthésie"*/) {
 
-                MedAnestAccueil inte = new MedAnestAccueil(phr, patient);
+                MedAnestAccueil inte = new MedAnestAccueil(phr, lipat.get(index));
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
-                
-                 inte.getjListPrescriptions().setModel(prescriptions);
-            inte.getjListObservations().setModel(observations);
-            inte.getjListResultats().setModel(result);
+
+                inte.getjListPrescriptions().setModel(prescriptions);
+                inte.getjListObservations().setModel(observations);
+                inte.getjListResultats().setModel(result);
             } else if (x == true/* pH.service.getType()=="Médico-technique"*/) {
 
-                MedTechAccueil inte = new MedTechAccueil(phr, patient);
+                MedTechAccueil inte = new MedTechAccueil(phr, lipat.get(index));
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
-                
-            inte.getjListObservations().setModel(observations);
-            inte.getjListResultats().setModel(result);
+
+                inte.getjListObservations().setModel(observations);
+                inte.getjListResultats().setModel(result);
             }
         }
 
@@ -590,13 +511,16 @@ public class RechercherPatient extends javax.swing.JFrame {
     public ArrayList<String> getMed() {
         return this.med;
     }
-     public static DossierMedicoAdministratif getDmaCourrant() {
+
+    public static DossierMedicoAdministratif getDmaCourrant() {
         return dmaCourrant;
     }
-      public static Patients getPatient() {
+
+    public static Patients getPatient() {
         return patient;
     }
-      public static PersonnelHospitalier getEmploye() {
+
+    public static PersonnelHospitalier getEmploye() {
         return phr;
     }
 
