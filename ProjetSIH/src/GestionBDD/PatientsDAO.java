@@ -105,12 +105,10 @@ public class PatientsDAO extends DAO<Patients> {
     }
 
     @Override
-    public ArrayList<Patients> find(String ipp, String service) {
+    public ArrayList<Patients> findIpp(String ipp) {
         ArrayList<Patients> pat = new ArrayList<Patients>();
         String Query = new String();
-        Query = "SELECT patients.* FROM patients INNER JOIN dossiermedical "
-                + "ON patients.ipp = dossiermedical.ipp  WHERE patients.ipp = '{" + ipp + "}' "
-                + "and (dossiermedical.service = '" + service + "' or dossiermedical.correspondance = '" + service + "' )";
+        Query = "SELECT * FROM patients WHERE patients.ipp = '{" + ipp + "}' ";
 
         try {
 
@@ -131,10 +129,12 @@ public class PatientsDAO extends DAO<Patients> {
     }
 
     @Override
-    public ArrayList<Patients> findIpp(String ipp) {
+    public ArrayList<Patients> find(String ipp, String service) {
         ArrayList<Patients> pat = new ArrayList<Patients>();
         String Query = new String();
-        Query = "SELECT * FROM patients WHERE patients.ipp = '{" + ipp + "}' ";
+        Query = "SELECT patients.* FROM patients INNER JOIN dossiermedical "
+                + "ON patients.ipp = dossiermedical.ipp  WHERE patients.ipp = '{" + ipp + "}' "
+                + "and (dossiermedical.service = '" + service + "' or dossiermedical.correspondance = '" + service + "' )";
 
         try {
 
