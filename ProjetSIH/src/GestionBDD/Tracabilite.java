@@ -60,8 +60,8 @@ public class Tracabilite {
         this.nompatient = nompatient;
         this.prenompatient = prenompatient;
         this.nomph = nomph;
-        this.nompatient = prenomph;
-        this.prenompatient = fonction;
+        this.prenomph = prenomph;
+        this.fonction = fonction;
         this.dateconnection = dateconnection;
     }
     
