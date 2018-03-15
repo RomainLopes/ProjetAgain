@@ -39,6 +39,7 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
 
     }
 
+    @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
         String Query = new String();
         Query = "UPDATE tracabilite"
@@ -58,6 +59,7 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
         return true;
     }
 
+    @Override
     public ArrayList<Tracabilite> findIpp(String ipp) {
         ArrayList<Tracabilite> tra = new ArrayList<Tracabilite>();
         String Query = new String();
@@ -93,12 +95,12 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
     }
 
     @Override
-    public boolean update(Tracabilite obj) {
+    public ArrayList<Tracabilite> find(String id, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public ArrayList<Tracabilite> find(String id, String service) {
+    public ArrayList<Tracabilite> findSer(String ipp, String nosejour, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

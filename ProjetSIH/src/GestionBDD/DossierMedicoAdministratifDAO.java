@@ -41,6 +41,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
 
     }
 
+    @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
         String Query = new String();
         Query = "UPDATE dma "
@@ -60,6 +61,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
         return true;
     }
 
+    @Override
     public ArrayList<DossierMedicoAdministratif> findSer(String ipp, String nosejour, String service) {
         ArrayList<DossierMedicoAdministratif> dma = new ArrayList<DossierMedicoAdministratif>();
         String Query = new String();
@@ -92,12 +94,12 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
     }
 
     @Override
-    public boolean update(DossierMedicoAdministratif obj) {
+    public ArrayList<DossierMedicoAdministratif> find(String id, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public ArrayList<DossierMedicoAdministratif> find(String id, String service) {
+    public ArrayList<DossierMedicoAdministratif> findIpp(String ipp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

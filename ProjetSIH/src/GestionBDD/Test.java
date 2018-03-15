@@ -185,7 +185,7 @@ public class Test {
         
         DossierMedicoAdministratifDAO dmdao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         dmdao.updateIpp("123456789", "180000001");
-        ArrayList<DossierMedicoAdministratif> dm = dmdao.findser("123456789", "180100001", "Cardiologie");// à modif
+        ArrayList<DossierMedicoAdministratif> dm = dmdao.findSer("123456789", "180100001", "Cardiologie");// à modif
         System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getService());
         dmdao.updateIpp("180000001", "123456789");
 

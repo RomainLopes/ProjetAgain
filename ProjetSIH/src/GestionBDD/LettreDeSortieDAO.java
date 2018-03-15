@@ -39,6 +39,7 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
 
     }
 
+    @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
         String Query = new String();
         Query = "UPDATE lettredesortie "
@@ -58,6 +59,7 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
         return true;
     }
 
+    @Override
     public ArrayList<LettreDeSortie> find(String ipp, String nosejour) {
         ArrayList<LettreDeSortie> lds = new ArrayList<LettreDeSortie>();
         String Query = new String();
@@ -89,7 +91,12 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
     }
 
     @Override
-    public boolean update(LettreDeSortie obj) {
+    public ArrayList<LettreDeSortie> findIpp(String ipp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<LettreDeSortie> findSer(String ipp, String nosejour, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

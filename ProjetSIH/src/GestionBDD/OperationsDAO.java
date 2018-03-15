@@ -40,6 +40,7 @@ public class OperationsDAO extends DAO<Operations> {
 
     }
 
+    @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
         String Query = new String();
         Query = "UPDATE operation "
@@ -59,6 +60,7 @@ public class OperationsDAO extends DAO<Operations> {
         return true;
     }
 
+    @Override
     public ArrayList<Operations> findIpp(String ipp) {
         ArrayList<Operations> ope = new ArrayList<Operations>();
         String Query = new String();
@@ -84,6 +86,7 @@ public class OperationsDAO extends DAO<Operations> {
         return ope;
     }
 
+    @Override
     public ArrayList<Operations> find(String ipp, String nosejour) {
         ArrayList<Operations> ope = new ArrayList<Operations>();
         String Query = new String();
@@ -115,7 +118,7 @@ public class OperationsDAO extends DAO<Operations> {
     }
 
     @Override
-    public boolean update(Operations obj) {
+    public ArrayList<Operations> findSer(String ipp, String nosejour, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -40,13 +40,14 @@ public class ObservationsDAO extends DAO<Observations> {
         }
 
     }
-    
+
+    @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
         String Query = new String();
         Query = "UPDATE observation "
                 + "SET ipp = '{" + ippgarde + "}' "
                 + "WHERE ipp = '{" + ippsuppr + "}' ";
-       
+
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -60,6 +61,7 @@ public class ObservationsDAO extends DAO<Observations> {
         return true;
     }
 
+    @Override
     public ArrayList<Observations> findSer(String ipp, String nosejour, String service) {
         ArrayList<Observations> obs = new ArrayList<Observations>();
         String Query = new String();
@@ -85,7 +87,8 @@ public class ObservationsDAO extends DAO<Observations> {
         }
         return obs;
     }
-    
+
+    @Override
     public ArrayList<Observations> findIpp(String ipp) {
         ArrayList<Observations> obs = new ArrayList<Observations>();
         String Query = new String();
@@ -111,15 +114,8 @@ public class ObservationsDAO extends DAO<Observations> {
         return obs;
     }
 
-    
-    
     @Override
     public boolean delete(Observations obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean update(Observations obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

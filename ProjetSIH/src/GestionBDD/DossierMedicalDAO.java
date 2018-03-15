@@ -100,12 +100,12 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
     }
 
     @Override
-    public boolean update(DossierMedical obj) {
+    public boolean delete(DossierMedical obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean delete(DossierMedical obj) {
+    public ArrayList<DossierMedical> findIpp(String ipp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

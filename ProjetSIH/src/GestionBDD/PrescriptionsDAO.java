@@ -39,6 +39,7 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
         }
     }
 
+    @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
         String Query = new String();
         Query = "UPDATE prescription "
@@ -58,6 +59,7 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
         return true;
     }
 
+    @Override
     public ArrayList<Prescriptions> findIpp(String ipp) {
         ArrayList<Prescriptions> pre = new ArrayList<Prescriptions>();
         String Query = new String();
@@ -83,6 +85,7 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
         return pre;
     }
 
+    @Override
     public ArrayList<Prescriptions> findSer(String ipp, String nosejour, String service) {
         ArrayList<Prescriptions> pre = new ArrayList<Prescriptions>();
         String Query = new String();
@@ -111,11 +114,6 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
 
     @Override
     public boolean delete(Prescriptions obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean update(Prescriptions obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

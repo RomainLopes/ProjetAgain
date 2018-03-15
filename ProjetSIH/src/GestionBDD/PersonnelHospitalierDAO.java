@@ -77,12 +77,22 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
     }
 
     @Override
-    public boolean update(PersonnelHospitalier obj) {
+    public ArrayList<PersonnelHospitalier> find(String id, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public ArrayList<PersonnelHospitalier> find(String id, String service) {
+    public boolean updateIpp(String ippremplace, String ipprecherche) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<PersonnelHospitalier> findIpp(String ipp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<PersonnelHospitalier> findSer(String ipp, String nosejour, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

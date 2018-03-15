@@ -22,6 +22,7 @@ public class PatientsDAO extends DAO<Patients> {
         super(conn);
     }
 
+    @Override
     public boolean create(Patients obj) {
         Patients pat = new Patients();
         String Query = new String();
@@ -42,6 +43,12 @@ public class PatientsDAO extends DAO<Patients> {
 
     }
 
+    /**
+     * Méthode de mise à jour d'un patient pour la fusion en cas de doublon
+     * lié au services des urgences
+     * @param obj
+     * @return 
+     */
     public boolean update(Patients obj) {
         Patients pat = new Patients();
         String Query = new String();
@@ -60,6 +67,7 @@ public class PatientsDAO extends DAO<Patients> {
 
     }
 
+    @Override
     public ArrayList<Patients> find(String ipp, String service) {
         ArrayList<Patients> pat = new ArrayList<Patients>();
         String Query = new String();
@@ -86,6 +94,7 @@ public class PatientsDAO extends DAO<Patients> {
         return pat;
     }
 
+    @Override
     public ArrayList<Patients> findIpp(String ipp) {
         ArrayList<Patients> pat = new ArrayList<Patients>();
         String Query = new String();
@@ -110,6 +119,7 @@ public class PatientsDAO extends DAO<Patients> {
         return pat;
     }
 
+    @Override
     public boolean delete(Patients obj) {
         return false;
     }
@@ -117,6 +127,16 @@ public class PatientsDAO extends DAO<Patients> {
     public Patients find(int ipp) {
         Patients pat = new Patients();
         return pat;
+    }
+
+    @Override
+    public boolean updateIpp(String ippremplace, String ipprecherche) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<Patients> findSer(String ipp, String nosejour, String service) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
