@@ -6,6 +6,7 @@
 package ecrans;
 
 import GestionBDD.BDDconnection;
+import GestionBDD.DAO;
 import GestionBDD.PersonnelHospitalier;
 import GestionBDD.PersonnelHospitalierDAO;
 import GestionBDD.RecherchePatient;
@@ -202,16 +203,18 @@ public class Identification extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldIdentifiantActionPerformed
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
-        RecherchePatient rp = new RecherchePatient();
+        //RecherchePatient rp = new RecherchePatient();
         PersonnelHospitalierDAO phd = new PersonnelHospitalierDAO(BDDconnection.getInstance());
-
+        ph = phd.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
+        
+        
         if (jTextFieldIdentifiant.getText().equals("") | jTextFieldMdp.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe non renseigné");
 
         } else {
-            if (rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText())) {
+            if (!ph.getId().isEmpty()) {
 
-                ph = phd.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
+                //ph = phd.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
                 //ArrayList<String> nPS = new ArrayList<String>();
                 //nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
                 // nPS est une liste de string renvoyant en indice 0 le nom, en indice 1 le prénom et 

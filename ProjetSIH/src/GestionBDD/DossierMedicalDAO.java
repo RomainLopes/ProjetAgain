@@ -48,6 +48,7 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
      * @param service
      * @return
      */
+    @Override
     public ArrayList<DossierMedical> findSer(String ipp, String nosejour, String service) {
         ArrayList<DossierMedical> dm = new ArrayList<DossierMedical>();
         String Query = new String();
@@ -74,6 +75,7 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
         return dm;
     }
 
+    @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
         String Query = new String();
         Query = "UPDATE dossiermedical "

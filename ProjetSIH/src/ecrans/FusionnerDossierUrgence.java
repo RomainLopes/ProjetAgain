@@ -48,20 +48,20 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
         jButtonRechercher = new javax.swing.JButton();
         jTextFieldNom1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListpatients = new javax.swing.JList<String>();
+        jListpatients = new javax.swing.JList<>();
         jTextFieldPrenom1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jButtonFusionner = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<String>();
+        jList1 = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<String>();
+        jList2 = new javax.swing.JList<>();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<String>();
+        jList3 = new javax.swing.JList<>();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -118,10 +118,10 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
             }
         });
 
-        jListpatients.setModel(new javax.swing.AbstractListModel() {
+        jListpatients.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListpatients.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -161,10 +161,10 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
             }
         });
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2.setViewportView(jList1);
 
@@ -172,17 +172,17 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
 
         jLabel3.setText("Dossier à fusionner (va disparaitre)");
 
-        jList2.setModel(new javax.swing.AbstractListModel() {
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane3.setViewportView(jList2);
 
-        jList3.setModel(new javax.swing.AbstractListModel() {
+        jList3.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane4.setViewportView(jList3);
 
@@ -322,25 +322,23 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonFusionnerActionPerformed
 
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
-        // TODO add your handling code here:
+        /*        
+// TODO add your handling code here:
         RecherchePatient rp = new RecherchePatient();
 
         ArrayList<String> resultatRecherche = new ArrayList<String>();
         ArrayList<String> resultatAffiche = new ArrayList<String>();
-        /*
-        System.out.println(" avant recheche");
-         */
-        resultatRecherche = rp.recherchePatientNomPrenom(jTextFieldNom1.getText(), jTextFieldPrenom1.getText());
+     
+        resultatRecherche = rp.recherchePatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
         for (int i = 0; i < resultatRecherche.size(); i += 2) {
             resultatAffiche.add(resultatRecherche.get(i));
         }
-        /*
-        System.out.println(" après recherche ");
-         */
+      
         DefaultListModel modele = new DefaultListModel();
         for (String i : resultatAffiche) {
             modele.addElement(i);
         }
+        JList jListpatients= new JList();
         jListpatients.setModel(modele);
 
         ArrayList<String> infoPatient = new ArrayList<String>();
@@ -355,9 +353,8 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
         /*nPS = rp.douille(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
         for (int i = 1; i <= nPS.size(); i++) {
             System.out.println(nPS.get(i) + " \t \n");
-        }*/
-
- /*
+        }
+        
         boolean x = false;
         if (x == true/* fonction == Fonction.Secretaire_Médicale) {
             Identification f = new Identification();
@@ -367,17 +364,15 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
             //SMed employe= new SMed(fenetrePrecedente.getEmploye().getNom(),fenetrePrecedente.getEmploye().getPrenom(),fenetrePrecedente.getEmploye().getService())
             //  this.employe= fenetrePrecedente.getEmploye();
             JOptionPane.showMessageDialog(null, "Dossier médical existant");
-            
-            ConsulterDM sadm = new ConsulterDM(med,p);
+            ConsulterDM sadm = new ConsulterDM(employe,patient);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
             sadm.setVisible(true);
-            
 
         } else if (x == true/* fonction == Fonction.Secretaire_admin) {
 
-            ConsulterDMA sadm = new ConsulterDMA(med,p);
+            ConsulterDMA sadm = new ConsulterDMA(employe,patient);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
@@ -385,7 +380,7 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
 
         } else if (x == true/* fonction == Fonction.Interne) {
 
-            InterneAccueil inte = new InterneAccueil(med,p);
+            InterneAccueil inte = new InterneAccueil(employe,patient);
             inte.setSize(this.getSize());
             inte.setLocationRelativeTo(this);
             this.dispose();
@@ -393,7 +388,7 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
 
         } else if (x == true/* fonction == Fonction.Infirmier) {
 
-            InfirmierAccueil inte = new InfirmierAccueil(med,p);
+            InfirmierAccueil inte = new InfirmierAccueil(employe,patient);
             inte.setSize(this.getSize());
             inte.setLocationRelativeTo(this);
             this.dispose();
@@ -401,35 +396,35 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
         } else { // pH
             if (x == true/* pH.service.getType()=="Clinique") {
 
-                MedClinAccueil inte = new MedClinAccueil(med,p);
+                MedClinAccueil inte = new MedClinAccueil(employe,patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
             } else if (x == true/* pH.service.getNom()=="Radiologie") {
 
-                MedRadioAccueil inte = new MedRadioAccueil(med,p);
+                MedRadioAccueil inte = new MedRadioAccueil(employe,patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
             } else if (x == true/* pH.service.getNom()=="Anesthésie") {
 
-                MedAnestAccueil inte = new MedAnestAccueil(med,p);
+                MedAnestAccueil inte = new MedAnestAccueil(employe,patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
             } else if (x == true/* pH.service.getType()=="Médico-technique") {
 
-                MedTechAccueil inte = new MedTechAccueil(med,p);
+                MedTechAccueil inte = new MedTechAccueil(employe,patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
             }
-         */
-
+        }
+        */
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 
     private void jListpatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListpatientsMouseClicked

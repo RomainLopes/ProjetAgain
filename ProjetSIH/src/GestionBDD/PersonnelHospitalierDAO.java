@@ -40,13 +40,8 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
 
     }
 
-    /**
-     * Méthode de connexion aux informations d'un unique personnel hospitalier 
-     * via son identifiant et son mot de passe
-     * @param id
-     * @param mdp
-     * @return 
-     */
+
+    @Override
     public PersonnelHospitalier connex(String id, String mdp) {
         PersonnelHospitalier ph = new PersonnelHospitalier();
         String QueryId = new String();

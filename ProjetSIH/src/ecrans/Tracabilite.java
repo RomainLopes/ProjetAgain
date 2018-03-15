@@ -54,7 +54,7 @@ public class Tracabilite extends javax.swing.JFrame {
         jButtonDeconnexion = new javax.swing.JButton();
         jButtonAccueil = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<String>();
+        jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(200, 200));
@@ -156,10 +156,10 @@ public class Tracabilite extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
 
@@ -215,21 +215,18 @@ public class Tracabilite extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPrenomActionPerformed
 
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
-        // TODO add your handling code here:
+/*        
+// TODO add your handling code here:
         RecherchePatient rp = new RecherchePatient();
 
         ArrayList<String> resultatRecherche = new ArrayList<String>();
         ArrayList<String> resultatAffiche = new ArrayList<String>();
-        /*
-        System.out.println(" avant recheche");
-        */
+     
         resultatRecherche = rp.recherchePatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
         for (int i = 0; i < resultatRecherche.size(); i += 2) {
             resultatAffiche.add(resultatRecherche.get(i));
         }
-        /*
-        System.out.println(" après recherche ");
-        */
+      
         DefaultListModel modele = new DefaultListModel();
         for (String i : resultatAffiche) {
             modele.addElement(i);
@@ -249,9 +246,10 @@ public class Tracabilite extends javax.swing.JFrame {
         /*nPS = rp.douille(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
         for (int i = 1; i <= nPS.size(); i++) {
             System.out.println(nPS.get(i) + " \t \n");
-        }*/
+        }
+        
         boolean x = false;
-        if (x == true/* fonction == Fonction.Secretaire_Médicale*/) {
+        if (x == true/* fonction == Fonction.Secretaire_Médicale) {
             Identification f = new Identification();
             //this.fenetrePrecedente= new SmAccueil(f);
 
@@ -265,7 +263,7 @@ public class Tracabilite extends javax.swing.JFrame {
             this.dispose();
             sadm.setVisible(true);
 
-        } else if (x == true/* fonction == Fonction.Secretaire_admin*/) {
+        } else if (x == true/* fonction == Fonction.Secretaire_admin) {
 
             ConsulterDMA sadm = new ConsulterDMA(employe,patient);
             sadm.setSize(this.getSize());
@@ -273,7 +271,7 @@ public class Tracabilite extends javax.swing.JFrame {
             this.dispose();
             sadm.setVisible(true);
 
-        } else if (x == true/* fonction == Fonction.Interne*/) {
+        } else if (x == true/* fonction == Fonction.Interne) {
 
             InterneAccueil inte = new InterneAccueil(employe,patient);
             inte.setSize(this.getSize());
@@ -281,7 +279,7 @@ public class Tracabilite extends javax.swing.JFrame {
             this.dispose();
             inte.setVisible(true);
 
-        } else if (x == true/* fonction == Fonction.Infirmier*/) {
+        } else if (x == true/* fonction == Fonction.Infirmier) {
 
             InfirmierAccueil inte = new InfirmierAccueil(employe,patient);
             inte.setSize(this.getSize());
@@ -289,28 +287,28 @@ public class Tracabilite extends javax.swing.JFrame {
             this.dispose();
             inte.setVisible(true);
         } else { // pH
-            if (x == true/* pH.service.getType()=="Clinique"*/) {
+            if (x == true/* pH.service.getType()=="Clinique") {
 
                 MedClinAccueil inte = new MedClinAccueil(employe,patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
-            } else if (x == true/* pH.service.getNom()=="Radiologie"*/) {
+            } else if (x == true/* pH.service.getNom()=="Radiologie") {
 
                 MedRadioAccueil inte = new MedRadioAccueil(employe,patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
-            } else if (x == true/* pH.service.getNom()=="Anesthésie"*/) {
+            } else if (x == true/* pH.service.getNom()=="Anesthésie") {
 
                 MedAnestAccueil inte = new MedAnestAccueil(employe,patient);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
-            } else if (x == true/* pH.service.getType()=="Médico-technique"*/) {
+            } else if (x == true/* pH.service.getType()=="Médico-technique") {
 
                 MedTechAccueil inte = new MedTechAccueil(employe,patient);
                 inte.setSize(this.getSize());
@@ -319,6 +317,7 @@ public class Tracabilite extends javax.swing.JFrame {
                 inte.setVisible(true);
             }
         }
+        */
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed

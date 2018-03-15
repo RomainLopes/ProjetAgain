@@ -44,11 +44,13 @@ public class PatientsDAO extends DAO<Patients> {
     }
 
     /**
-     * Méthode de mise à jour d'un patient pour la fusion en cas de doublon
-     * lié au services des urgences
+     * Méthode de mise à jour d'un patient pour la fusion en cas de doublon lié
+     * au services des urgences
+     *
      * @param obj
-     * @return 
+     * @return
      */
+    @Override
     public boolean update(Patients obj) {
         Patients pat = new Patients();
         String Query = new String();
@@ -65,6 +67,52 @@ public class PatientsDAO extends DAO<Patients> {
             return false;
         }
 
+    }
+
+    /**
+     * Méthode de recherche de patient en utilisant son nom et son prénom
+     * @param nom
+     * @param prenom
+     * @return 
+     */
+    @Override
+    public ArrayList<Patients> findPatientNomPrenom(String nom, String prenom) {
+        /*
+        ArrayList<String> resultatRecherche = new ArrayList<String>();
+        resultatRecherche.add("patient inexistant");
+        String Query = new String();
+         */
+        ArrayList<Patients> pat = new ArrayList<Patients>();
+        String Query = new String();
+
+        if (nom.equals("")) {
+            Query = "SELECT * FROM patients WHERE patients.prenompatient = '" + prenom + "'";
+            //System.out.println("nom null");
+        } else if (prenom.equals("")) {
+            //System.out.println("prenom null");
+            Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'";
+        } else {
+            //System.out.println("rien de null");
+            Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'" + " AND patients.prenompatient = '" + prenom + "'";
+        }
+
+        try {
+
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet result = state.executeQuery(Query);
+
+            while (result.next()) {
+                pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));
+                result.close();
+                state.close();
+                return pat;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return pat;
     }
 
     @Override
@@ -122,11 +170,6 @@ public class PatientsDAO extends DAO<Patients> {
     @Override
     public boolean delete(Patients obj) {
         return false;
-    }
-
-    public Patients find(int ipp) {
-        Patients pat = new Patients();
-        return pat;
     }
 
     @Override

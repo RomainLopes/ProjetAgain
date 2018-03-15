@@ -14,16 +14,13 @@ import GestionBDD.ObservationsDAO;
 import GestionBDD.OperationsDAO;
 import GestionBDD.Patients;
 import GestionBDD.PatientsDAO;
+import GestionBDD.PatientsDAO.*;
 import GestionBDD.PersonnelHospitalier;
 import GestionBDD.PrescriptionsDAO;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import javax.swing.JFrame;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import projetsih.PHospitalier;
 //import projetsih.Patient;
-import GestionBDD.RecherchePatient;
+
 import GestionBDD.ResultatsDAO;
 //import projetsih.SAdm;
 //import projetsih.SMed;
@@ -292,23 +289,28 @@ public class RechercherPatient extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
-        // TODO add your handling code here:
-        RecherchePatient rp = new RecherchePatient();
         PatientsDAO patd = new PatientsDAO(BDDconnection.getInstance());
 
+        ArrayList<Patients> lpat = new ArrayList<Patients>();
         ArrayList<String> resultatRecherche = new ArrayList<String>();
         ArrayList<String> resultatAffiche = new ArrayList<String>();
         /*
         System.out.println(" avant recheche");
          */
-        resultatRecherche = rp.recherchePatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
-        for (int i = 0; i < resultatRecherche.size(); i += 2) {
-            resultatAffiche.add(resultatRecherche.get(i));
+        DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
+        ArrayList<Patients> lipat;
+        lipat = PatientsDAO.findPatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
+        
+        //lpat = rp.recherchePatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
+        for (int i = 0; i < lipat.size(); i++) {
+            resultatAffiche.add(lipat.get(i).getNompatient() + "  " + lipat.get(i).getPrenompatient() + "   " + lipat.get(i).getDateDeNaissance());
         }
+        /*
         System.out.println("test de recherche");
         for (String i : resultatRecherche) {
             System.out.println(i);
         }
+        */
         /*
         System.out.println(" après recherche ");
          */
@@ -341,9 +343,12 @@ public class RechercherPatient extends javax.swing.JFrame {
             System.out.println("****************************** TEST *****************");
 
          */
+        /*
         for (int i = 0; i < infoPatient.size(); i++) {
             System.out.println(infoPatient.get(i) + " \t \n");
         }
+        */
+        
 
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 
@@ -362,7 +367,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
     private void jListpatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListpatientsMouseClicked
         // TODO add your handling code here:
-        RecherchePatient rp = new RecherchePatient();
+        //RecherchePatient rp = new RecherchePatient();
         String ipp = patient.getIpp().substring(1, patient.getIpp().length() - 1);
         
         DossierMedicalDAO dms = new DossierMedicalDAO(BDDconnection.getInstance());

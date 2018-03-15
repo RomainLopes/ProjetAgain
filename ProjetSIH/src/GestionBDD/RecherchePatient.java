@@ -19,12 +19,14 @@ import java.sql.*;
 public class RecherchePatient {
 // permet la connexion des employés
 
+    /*
     public boolean connex(String id, String mdp) {
         String QueryId = new String();
         QueryId = "SELECT * FROM personnelhospitalier WHERE personnelhospitalier.id = '" + id + "'"; // WHERE personnelmedical.id = '" + id + "'
         /*
         System.out.println(QueryId);    
          */
+    /*
         try {
 
             Connection conn = BDDconnection.getInstance();
@@ -36,18 +38,20 @@ public class RecherchePatient {
                 System.out.println("y a au moins un résultat");
                 System.out.println("id et mdp du résulat : " + result.getString("id")+result.getString("mdp"));
                  */
-
+/*
                 if ((result.getString("id").equals(id)) && (result.getString("mdp").equals(mdp))) {
                     /*
                     System.out.println(result.getString("id")  + result.getString("mdp") );
                     System.out.println("roulement id mdp");
                      */
+    /*
                     return true;
                 }
             } else {
                 /*
                 System.out.println("il n'y a pas de résultat");
                  */
+    /*
                 return false;
             }
 
@@ -56,6 +60,7 @@ public class RecherchePatient {
         }
         return false;
     }
+    */
 
     // liste des infos de l'employé concerné
     public ArrayList<String> enTete(String id, String mdp) {
@@ -103,48 +108,8 @@ public class RecherchePatient {
     }
 
     // liste des patients
-    public ArrayList<String> recherchePatientNomPrenom(String nom, String prenom) {
-        ArrayList<String> resultatRecherche = new ArrayList<String>();
-        resultatRecherche.add("patient inexistant");
-        String Query = new String();
-
-        if (nom.equals("")) {
-            Query = "SELECT * FROM patients WHERE patients.prenompatient = '" + prenom + "'";
-            //System.out.println("nom null");
-        } else if (prenom.equals("")) {
-            //System.out.println("prenom null");
-            Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'";
-        } else {
-            //System.out.println("rien de null");
-            Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'" + " AND patients.prenompatient = '" + prenom + "'";
-        }
-
-        try {
-
-            Connection conn = BDDconnection.getInstance();
-            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet result = state.executeQuery(Query);
-
-            if (result.next()) {
-                resultatRecherche.remove(0);
-                int i = 0;
-                result.beforeFirst();
-                while (result.next()) {
-                    resultatRecherche.add(i, result.getString("nompatient") + "   " + result.getString("prenompatient") + "    " + result.getString("datedenaissance"));
-                    resultatRecherche.add(i+1, result.getString("ipp"));
-                    i=i+2;
-                }
-                result.close();
-                state.close();
-                return resultatRecherche;
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return resultatRecherche;
-    }
-
+    
+/*
     public ArrayList<String> creerPatient(String nom, String prenom, String ddn, String localisation, String adresse, int IPP) {
         ArrayList<String> resultatRecherche = new ArrayList<String>();
         String Query = new String();
@@ -161,7 +126,7 @@ public class RecherchePatient {
             //System.out.println("rien de null");
             //Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'" + " AND patients.prenompatient = '" + prenom + "'";
         }*/
-
+/*
         try {
 
             Connection conn = BDDconnection.getInstance();
@@ -174,7 +139,7 @@ public class RecherchePatient {
             e.printStackTrace();
         }
         return resultatRecherche;
-    }
+    }*/
     
     public static void main(String[] args) {
 
