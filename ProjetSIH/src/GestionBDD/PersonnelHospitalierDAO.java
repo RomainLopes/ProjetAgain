@@ -7,6 +7,7 @@ package GestionBDD;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -33,8 +34,7 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
             System.out.println(Query);
             int result = state.executeUpdate(Query);
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return false;
         }
 
@@ -60,8 +60,7 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
                 return ph;
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
         }
         return ph;
     }

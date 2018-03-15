@@ -7,8 +7,7 @@ package GestionBDD;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import GestionBDD.Patients;
-import GestionBDD.DAO;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -36,8 +35,7 @@ public class PatientsDAO extends DAO<Patients> {
             System.out.println(Query);
             int result = state.executeUpdate(Query);
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return false;
         }
 
@@ -62,8 +60,7 @@ public class PatientsDAO extends DAO<Patients> {
             ResultSet result = state.executeQuery(Query);
             return true;
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return false;
         }
 
@@ -71,28 +68,21 @@ public class PatientsDAO extends DAO<Patients> {
 
     /**
      * Méthode de recherche de patient en utilisant son nom et son prénom
+     *
      * @param nom
      * @param prenom
-     * @return 
+     * @return
      */
     @Override
     public ArrayList<Patients> findPatientNomPrenom(String nom, String prenom) {
-        /*
-        ArrayList<String> resultatRecherche = new ArrayList<String>();
-        resultatRecherche.add("patient inexistant");
-        String Query = new String();
-         */
         ArrayList<Patients> pat = new ArrayList<Patients>();
         String Query = new String();
 
         if (nom.equals("")) {
             Query = "SELECT * FROM patients WHERE patients.prenompatient = '" + prenom + "'";
-            //System.out.println("nom null");
         } else if (prenom.equals("")) {
-            //System.out.println("prenom null");
             Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'";
         } else {
-            //System.out.println("rien de null");
             Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'" + " AND patients.prenompatient = '" + prenom + "'";
         }
 
@@ -109,8 +99,7 @@ public class PatientsDAO extends DAO<Patients> {
                 return pat;
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
         }
         return pat;
     }
@@ -136,8 +125,7 @@ public class PatientsDAO extends DAO<Patients> {
                 return pat;
 
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
         }
         return pat;
     }
@@ -161,8 +149,7 @@ public class PatientsDAO extends DAO<Patients> {
                 return pat;
 
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
         }
         return pat;
     }

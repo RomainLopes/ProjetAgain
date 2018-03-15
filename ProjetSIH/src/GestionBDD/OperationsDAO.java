@@ -7,6 +7,7 @@ package GestionBDD;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -33,8 +34,7 @@ public class OperationsDAO extends DAO<Operations> {
             System.out.println(Query);
             int result = state.executeUpdate(Query);
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return false;
         }
 
@@ -53,8 +53,7 @@ public class OperationsDAO extends DAO<Operations> {
             System.out.println(Query);
             int result = state.executeUpdate(Query);
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return false;
         }
         return true;
@@ -80,8 +79,7 @@ public class OperationsDAO extends DAO<Operations> {
                 return ope;
 
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
         }
         return ope;
     }
@@ -106,8 +104,7 @@ public class OperationsDAO extends DAO<Operations> {
                 return ope;
 
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
         }
         return ope;
     }

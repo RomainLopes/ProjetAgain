@@ -29,7 +29,7 @@ public class RechercherPatient extends javax.swing.JFrame {
     public RechercherPatient(PersonnelHospitalier ph) {
         initComponents();
         phr = ph;
-
+     
         jLabelNom.setText(ph.getNomph());
         jLabelPrenom.setText(ph.getPrenomph());
         jLabelFonction.setText(ph.getFonction());

@@ -7,6 +7,7 @@ package GestionBDD;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -34,8 +35,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
             System.out.println(Query);
             int result = state.executeUpdate(Query);
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return false;
         }
 
@@ -54,8 +54,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
             System.out.println(Query);
             int result = state.executeUpdate(Query);
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return false;
         }
         return true;
@@ -81,8 +80,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
                 return dma;
 
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
         }
         return dma;
     }
@@ -108,8 +106,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
                 return dma;
 
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
         }
         return dma;
     }
