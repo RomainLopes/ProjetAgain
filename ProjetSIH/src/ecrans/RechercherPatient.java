@@ -22,6 +22,7 @@ import javax.swing.DefaultListModel;
 //import projetsih.Patient;
 
 import GestionBDD.ResultatsDAO;
+import javax.swing.JFrame;
 //import projetsih.SAdm;
 //import projetsih.SMed;
 
@@ -43,7 +44,7 @@ public class RechercherPatient extends javax.swing.JFrame {
     private static ArrayList<String> med;
     private static ArrayList<String> p;
     private static DossierMedicoAdministratif dmaCourrant;
-private JFrame fenetrePrecedente;
+    private JFrame fenetrePrecedente;
     private static Patients patient;
 
     public RechercherPatient(PersonnelHospitalier ph) {
@@ -105,14 +106,11 @@ private JFrame fenetrePrecedente;
         jButtonRechercher = new javax.swing.JButton();
         jTextFieldNom = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListpatients = new javax.swing.JList<String>();
+        jListpatients = new javax.swing.JList<>();
         jTextFieldPrenom = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(200, 200));
-        setPreferredSize(new java.awt.Dimension(1000, 1000));
-        setResizable(false);
-        getContentPane().setLayout(null);
 
         JPanelEnTeteMedTech.setBackground(new java.awt.Color(65, 131, 215));
         JPanelEnTeteMedTech.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -163,7 +161,7 @@ private JFrame fenetrePrecedente;
                         .addGap(104, 104, 104)
                         .addComponent(jLabelFonction))
                     .addComponent(jLabelPrenom))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 371, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 373, Short.MAX_VALUE)
                 .addComponent(jLabelService)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonDeconnexion)
@@ -189,9 +187,6 @@ private JFrame fenetrePrecedente;
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        getContentPane().add(JPanelEnTeteMedTech);
-        JPanelEnTeteMedTech.setBounds(0, 0, 1080, 108);
-
         jPanel1RecherchePatient.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1RecherchePatient.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
@@ -213,10 +208,10 @@ private JFrame fenetrePrecedente;
             }
         });
 
-        jListpatients.setModel(new javax.swing.AbstractListModel() {
+        jListpatients.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListpatients.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -279,8 +274,20 @@ private JFrame fenetrePrecedente;
                 .addGap(145, 145, 145))
         );
 
-        getContentPane().add(jPanel1RecherchePatient);
-        jPanel1RecherchePatient.setBounds(0, 104, 1080, 610);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1RecherchePatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(jPanel1RecherchePatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -324,17 +331,17 @@ private JFrame fenetrePrecedente;
             modele.addElement(i);
         }
         jListpatients.setModel(modele);
-
-        ArrayList<String> infoPatient = new ArrayList<String>();
-        infoPatient = rp.enTetePatient(resultatRecherche.get(1));
-        p = infoPatient;
+/*
+        //ArrayList<String> infoPatient = new ArrayList<String>();
+        //infoPatient = rp.enTetePatient(resultatRecherche.get(1));
+        //p = infoPatient;
         int ipp = Integer.parseInt(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length() - 1));
         ArrayList<Patients> listepat = new ArrayList<Patients>();
         listepat = patd.findIpp(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length() - 1));
         System.out.println(listepat.size());
 
         patient = listepat.get(0);
-
+*/
         /* System.out.println("****************************** TEST *****************");
             System.out.println(phr.getFonction());
                         System.out.println("/n)");
@@ -375,11 +382,11 @@ private JFrame fenetrePrecedente;
          DossierMedicoAdministratifDAO dmad = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
 
         ArrayList<DossierMedicoAdministratif> allDMA = new ArrayList<DossierMedicoAdministratif>();
-                allDMA= dmad.findser(patient.getIpp(), "nosejour", "service"); // remplacer par la fonction findlast(ipp)
+                allDMA= dmad.findSer(patient.getIpp(), "nosejour", "service"); // remplacer par la fonction findlast(ipp)
         // et on aura dmaCurrent= dmad.findlast(ipp)
         
         
-        RecherchePatient rp = new RecherchePatient(); // utiliser la connexion de personnelhospitalier
+        //RecherchePatient rp = new RecherchePatient(); // utiliser la connexion de personnelhospitalier
         String ipp = patient.getIpp().substring(1, patient.getIpp().length() - 1);
         
         DossierMedicalDAO dms = new DossierMedicalDAO(BDDconnection.getInstance());
