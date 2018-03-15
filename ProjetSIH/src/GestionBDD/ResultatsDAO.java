@@ -26,7 +26,7 @@ public class ResultatsDAO extends DAO<Resultats> {
         Query = "insert into resultat (ipp,nosejour,idPrescription,service,prestationmt,dateResultat,resultat) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getIdPrescription() + "','" + obj.getService() + "','"
-                + obj.getPrestationmt() + "','" + obj.getDateResultat() 
+                + obj.getPrestationmt() + "','" + obj.getDateResultat()
                 + "','" + obj.getResultat() + "')";
         try {
             Connection conn = this.connect;
@@ -39,11 +39,11 @@ public class ResultatsDAO extends DAO<Resultats> {
             return false;
         }
     }
-    
+
     public boolean updateIpp(String ippgarde, String ippsuppr) {
         String Query = new String();
-        Query = "UPDATE resultat"
-                + "SET ipp = '{" + ippgarde + "}'"
+        Query = "UPDATE resultat "
+                + "SET ipp = '{" + ippgarde + "}' "
                 + "WHERE ipp = '{" + ippsuppr + "}' ";
 
         try {
@@ -59,7 +59,7 @@ public class ResultatsDAO extends DAO<Resultats> {
         return true;
     }
 
-     public ArrayList<Resultats> findipp(String ipp) {
+    public ArrayList<Resultats> findIpp(String ipp) {
         ArrayList<Resultats> res = new ArrayList<Resultats>();
         String Query = new String();
         Query = "select * from resultat where ipp = '{" + ipp
@@ -82,16 +82,6 @@ public class ResultatsDAO extends DAO<Resultats> {
             e.printStackTrace();
         }
         return res;
-    }
-    
-    @Override
-    public boolean delete(Resultats obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean update(Resultats obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -118,6 +108,16 @@ public class ResultatsDAO extends DAO<Resultats> {
             e.printStackTrace();
         }
         return res;
+    }
+
+    @Override
+    public boolean delete(Resultats obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean update(Resultats obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

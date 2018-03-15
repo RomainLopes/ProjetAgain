@@ -4,13 +4,18 @@
  * and open the template in the editor.
  */
 package ecrans;
-
+import GestionBDD.BDDconnection;
+import GestionBDD.DAO;
+import GestionBDD.DossierMedicoAdministratif;
+import GestionBDD.Patients;
+import GestionBDD.PatientsDAO;
 /**
  *
  * @author lisad
  */
 public class CreerNosejour extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form CreerNosejour
      */

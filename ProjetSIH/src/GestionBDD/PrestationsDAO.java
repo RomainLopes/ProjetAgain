@@ -41,8 +41,8 @@ public class PrestationsDAO extends DAO<Prestations> {
 
     public boolean updateIpp(String ippgarde, String ippsuppr) {
         String Query = new String();
-        Query = "UPDATE prestation"
-                + "SET ipp = '{" + ippgarde + "}'"
+        Query = "UPDATE prestation "
+                + "SET ipp = '{" + ippgarde + "}' "
                 + "WHERE ipp = '{" + ippsuppr + "}' ";
 
         try {
@@ -56,16 +56,6 @@ public class PrestationsDAO extends DAO<Prestations> {
             return false;
         }
         return true;
-    }
-    
-    @Override
-    public boolean delete(Prestations obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean update(Prestations obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -92,6 +82,16 @@ public class PrestationsDAO extends DAO<Prestations> {
             e.printStackTrace();
         }
         return pre;
+    }
+
+    @Override
+    public boolean delete(Prestations obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean update(Prestations obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

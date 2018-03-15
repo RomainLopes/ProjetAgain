@@ -40,11 +40,19 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
 
     }
 
-    public ArrayList<DossierMedical> findser(String ipp, String nosejour, String service) {
+    /**
+     * Méthode de recherche retournant une liste vide, ou non de l'objet
+     *
+     * @param ipp
+     * @param nosejour
+     * @param service
+     * @return
+     */
+    public ArrayList<DossierMedical> findSer(String ipp, String nosejour, String service) {
         ArrayList<DossierMedical> dm = new ArrayList<DossierMedical>();
         String Query = new String();
         Query = "select * from dossiermedical where ipp = '{" + ipp
-                + "}' and nosejour = '" + nosejour + "' and service = '"
+                + "}' and nosejour = '{" + nosejour + "}' and service = '"
                 + service + "'";
 
         try {
@@ -66,16 +74,12 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
         return dm;
     }
 
-    @Override
-    public boolean delete(DossierMedical obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public boolean updateIpp(String ippgarde, String ippsuppr) {
         String Query = new String();
-        Query = "UPDATE dossiermedical"
-                + "SET ipp = '{" + ippgarde + "}'"
+        Query = "UPDATE dossiermedical "
+                + "SET ipp = '{" + ippgarde + "}' "
                 + "WHERE ipp = '{" + ippsuppr + "}' ";
+        //UPDATE dossiermedical SET ipp = '{180000001}' WHERE ipp = '{123456789}'
 
         try {
             Connection conn = this.connect;
@@ -97,6 +101,11 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
 
     @Override
     public boolean update(DossierMedical obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean delete(DossierMedical obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

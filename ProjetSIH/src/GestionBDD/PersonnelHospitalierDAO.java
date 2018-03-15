@@ -40,6 +40,13 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
 
     }
 
+    /**
+     * Méthode de connexion aux informations d'un unique personnel hospitalier 
+     * via son identifiant et son mot de passe
+     * @param id
+     * @param mdp
+     * @return 
+     */
     public PersonnelHospitalier connex(String id, String mdp) {
         PersonnelHospitalier ph = new PersonnelHospitalier();
         String QueryId = new String();
@@ -64,32 +71,6 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
         return ph;
     }
     
-    /*
-    public PersonnelHospitalier findser(String ipp, String nosejour,String service) {
-        PersonnelHospitalier ph = new PersonnelHospitalier();
-        String Query = new String();
-        Query = "select * from personnelhospitalier where ipp = '{" + ipp
-                + "}' and nosejour = '{" + nosejour + "}' and service = '"
-                + service + "'";
-
-        try {
-
-            Connection conn = this.connect;
-            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet result = state.executeQuery(Query);
-
-            if (result.next()) {
-                ph = new PersonnelHospitalier(result.getString("nomph"), result.getString("prenomph"), result.getString("id"), result.getString("mdp"), result.getString("service"), result.getString("fonction"));
-                result.close();
-                state.close();
-                return ph;
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return ph;
-    }*/
     @Override
     public boolean delete(PersonnelHospitalier obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
