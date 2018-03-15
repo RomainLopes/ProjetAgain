@@ -21,7 +21,7 @@ public abstract class DAO<T> {
         }
         
         /**
-         * Méthode de création
+         * Méthode de création de l'objet
          * @param obj
          * @return
          */
@@ -44,5 +44,5 @@ public abstract class DAO<T> {
          * @param service
          * @return
          */
-        public abstract ArrayList<T> find(String id, String service);
+        public abstract ArrayList<T> find(String ipp, String nosejour);
 }

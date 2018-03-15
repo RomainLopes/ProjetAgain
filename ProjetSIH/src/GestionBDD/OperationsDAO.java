@@ -40,7 +40,28 @@ public class OperationsDAO extends DAO<Operations> {
 
     }
 
-    public ArrayList<Operations> findipp(String ipp) {
+    @Override
+    public boolean updateIpp(String ippgarde, String ippsuppr) {
+        String Query = new String();
+        Query = "UPDATE operation "
+                + "SET ipp = '{" + ippgarde + "}' "
+                + "WHERE ipp = '{" + ippsuppr + "}' ";
+
+        try {
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            System.out.println(Query);
+            int result = state.executeUpdate(Query);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public ArrayList<Operations> findIpp(String ipp) {
         ArrayList<Operations> ope = new ArrayList<Operations>();
         String Query = new String();
         Query = "select * from operation where ipp = '{" + ipp
@@ -64,7 +85,8 @@ public class OperationsDAO extends DAO<Operations> {
         }
         return ope;
     }
-    
+
+    @Override
     public ArrayList<Operations> find(String ipp, String nosejour) {
         ArrayList<Operations> ope = new ArrayList<Operations>();
         String Query = new String();
@@ -90,32 +112,13 @@ public class OperationsDAO extends DAO<Operations> {
         return ope;
     }
 
-    public boolean updateIpp(String ippgarde, String ippsuppr) {
-        String Query = new String();
-        Query = "UPDATE operation"
-                + "SET ipp = '{" + ippgarde + "}'"
-                + "WHERE ipp = '{" + ippsuppr + "}' ";
-
-        try {
-            Connection conn = this.connect;
-            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            System.out.println(Query);
-            int result = state.executeUpdate(Query);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
-    
     @Override
     public boolean delete(Operations obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean update(Operations obj) {
+    public ArrayList<Operations> findSer(String ipp, String nosejour, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

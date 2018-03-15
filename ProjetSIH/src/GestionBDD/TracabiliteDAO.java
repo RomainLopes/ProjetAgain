@@ -39,7 +39,28 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
 
     }
 
-    public ArrayList<Tracabilite> findser(String ipp) {
+    @Override
+    public boolean updateIpp(String ippgarde, String ippsuppr) {
+        String Query = new String();
+        Query = "UPDATE tracabilite"
+                + "SET ipp = '{" + ippgarde + "}'"
+                + "WHERE ipp = '{" + ippsuppr + "}' ";
+
+        try {
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            System.out.println(Query);
+            int result = state.executeUpdate(Query);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public ArrayList<Tracabilite> findIpp(String ipp) {
         ArrayList<Tracabilite> tra = new ArrayList<Tracabilite>();
         String Query = new String();
         Query = "SELECT patients.nompatient, patients.prenompatient, personnelhospitalier.nomph, personnelhospitalier.prenomph, personnelhospitalier.fonction, tracabilite.dateconnexion"
@@ -68,37 +89,18 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
         return tra;
     }
 
-    public boolean updateIpp(String ippgarde, String ippsuppr) {
-        String Query = new String();
-        Query = "UPDATE tracabilite"
-                + "SET ipp = '{" + ippgarde + "}'"
-                + "WHERE ipp = '{" + ippsuppr + "}' ";
-
-        try {
-            Connection conn = this.connect;
-            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            System.out.println(Query);
-            int result = state.executeUpdate(Query);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
-    
     @Override
     public boolean delete(Tracabilite obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean update(Tracabilite obj) {
+    public ArrayList<Tracabilite> find(String id, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public ArrayList<Tracabilite> find(String id, String service) {
+    public ArrayList<Tracabilite> findSer(String ipp, String nosejour, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

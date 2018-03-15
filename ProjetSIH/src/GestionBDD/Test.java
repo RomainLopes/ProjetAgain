@@ -22,7 +22,7 @@ public class Test {
     public static void main(String[] args) {
         // TODO code application logic here
 
-        //Tests unitaire de création
+        //Tests unitaire de création--------------------------------------------------
         /*
         // Creation 
         
@@ -92,7 +92,7 @@ public class Test {
         DAO<Tracabilite> TracabiliteDAO = new TracabiliteDAO(BDDconnection.getInstance());
         TracabiliteDAO.create(pat);
          */
-        //Tests unitaire de recherche
+        //Tests unitaire de recherche-------------------------------------------------
         /*
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
         ArrayList<Patients> patients = PatientsDAO.find("180000001", "Cardiologie");
@@ -135,6 +135,11 @@ public class Test {
         }
          */
  /*
+        DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
+        ArrayList<Patients> patients = PatientsDAO.find("180000001", "Cardiologie");
+        System.out.println(patients.get(0).getNompatient() +"   " + patients.get(0).getPrenompatient());
+         */
+ /*
         PrescriptionsDAO dmadao = new PrescriptionsDAO(BDDconnection.getInstance());
         ArrayList<Prescriptions> dm = dmadao.findser("180000005","180200005","Urologie");
         if (!dm.isEmpty()){
@@ -170,6 +175,29 @@ public class Test {
             System.out.println("is empty");
         }
          */
+        //Tests unitaire d'update-------------------------------------------------
+        /*
+        DossierMedicalDAO dmdao = new DossierMedicalDAO(BDDconnection.getInstance());
+        dmdao.updateIpp("123456789", "180000001");
+        ArrayList<DossierMedical> dm = dmdao.findser("123456789", "180100001", "Cardiologie");
+        System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getService());
+        dmdao.updateIpp("180000001", "123456789");
+*/
+        
+        
+        DossierMedicoAdministratifDAO dmdao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        dmdao.updateIpp("123456789", "180000001");
+        ArrayList<DossierMedicoAdministratif> dm = dmdao.findSer("123456789", "180100001", "Cardiologie");// à modif
+        System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getService());
+        dmdao.updateIpp("180000001", "123456789");
+
+        
+        LettreDeSortieDAO ldsdao = new LettreDeSortieDAO(BDDconnection.getInstance());
+        dmdao.updateIpp("123456789", "180000001");
+        ArrayList<LettreDeSortie> lds = ldsdao.find("123456789", "180100001");// a modif
+        System.out.println(lds.get(0).getIpp() + "   " + lds.get(0).getLettre());
+        dmdao.updateIpp("180000001", "123456789");
+        
     }
 
 }

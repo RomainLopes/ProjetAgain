@@ -26,7 +26,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
         Query = "insert into dma (ipp,nosejour,dateentree,idph,type,service) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getDateentree() + "','" + obj.getIdph()
-                + "','" + obj.getType() + "','" + obj.getService()  
+                + "','" + obj.getType() + "','" + obj.getService()
                 + "')";
         try {
             Connection conn = this.connect;
@@ -41,38 +41,11 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
 
     }
 
-    public ArrayList<DossierMedicoAdministratif> findser(String ipp, String nosejour, String service) {
-        ArrayList<DossierMedicoAdministratif> dma = new ArrayList<DossierMedicoAdministratif>();
-        String Query = new String();
-        Query = "select * from dma where ipp = '{" + ipp
-                + "}' and nosejour = '" + nosejour + "' and service = '"
-                + service + "'";
-
-        try {
-
-            Connection conn = this.connect;
-            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet result = state.executeQuery(Query);
-
-            while (result.next()) {
-                dma.add(new DossierMedicoAdministratif(result.getString("ipp"), result.getString("nosejour"), result.getString("dateentree"), result.getString("idph"),result.getString("type"),result.getString("service")));
-                result.close();
-                state.close();
-                return dma;
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return dma;
-    }{
-    
-}
-
+    @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
         String Query = new String();
-        Query = "UPDATE dma"
-                + "SET ipp = '{" + ippgarde + "}'"
+        Query = "UPDATE dma "
+                + "SET ipp = '{" + ippgarde + "}' "
                 + "WHERE ipp = '{" + ippsuppr + "}' ";
 
         try {
@@ -87,14 +60,36 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
         }
         return true;
     }
-    
+
     @Override
-    public boolean delete(DossierMedicoAdministratif obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<DossierMedicoAdministratif> findSer(String ipp, String nosejour, String service) {
+        ArrayList<DossierMedicoAdministratif> dma = new ArrayList<DossierMedicoAdministratif>();
+        String Query = new String();
+        Query = "select * from dma where ipp = '{" + ipp
+                + "}' and nosejour = '" + nosejour + "' and service = '"
+                + service + "'";
+
+        try {
+
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet result = state.executeQuery(Query);
+
+            while (result.next()) {
+                dma.add(new DossierMedicoAdministratif(result.getString("ipp"), result.getString("nosejour"), result.getString("dateentree"), result.getString("idph"), result.getString("type"), result.getString("service")));
+                result.close();
+                state.close();
+                return dma;
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dma;
     }
 
     @Override
-    public boolean update(DossierMedicoAdministratif obj) {
+    public boolean delete(DossierMedicoAdministratif obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -103,5 +98,9 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
+    @Override
+    public ArrayList<DossierMedicoAdministratif> findIpp(String ipp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

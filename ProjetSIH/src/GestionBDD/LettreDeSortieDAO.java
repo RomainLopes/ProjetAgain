@@ -39,6 +39,27 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
 
     }
 
+    @Override
+    public boolean updateIpp(String ippgarde, String ippsuppr) {
+        String Query = new String();
+        Query = "UPDATE lettredesortie "
+                + "SET ipp = '{" + ippgarde + "}' "
+                + "WHERE ipp = '{" + ippsuppr + "}' ";
+
+        try {
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            System.out.println(Query);
+            int result = state.executeUpdate(Query);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    @Override
     public ArrayList<LettreDeSortie> find(String ipp, String nosejour) {
         ArrayList<LettreDeSortie> lds = new ArrayList<LettreDeSortie>();
         String Query = new String();
@@ -64,32 +85,18 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
         return lds;
     }
 
-    public boolean updateIpp(String ippgarde, String ippsuppr) {
-        String Query = new String();
-        Query = "UPDATE lettredesortie"
-                + "SET ipp = '{" + ippgarde + "}'"
-                + "WHERE ipp = '{" + ippsuppr + "}' ";
-
-        try {
-            Connection conn = this.connect;
-            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            System.out.println(Query);
-            int result = state.executeUpdate(Query);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
-    
     @Override
     public boolean delete(LettreDeSortie obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean update(LettreDeSortie obj) {
+    public ArrayList<LettreDeSortie> findIpp(String ipp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<LettreDeSortie> findSer(String ipp, String nosejour, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

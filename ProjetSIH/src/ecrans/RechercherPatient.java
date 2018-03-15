@@ -328,7 +328,7 @@ private JFrame fenetrePrecedente;
         p = infoPatient;
         int ipp = Integer.parseInt(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length() - 1));
         ArrayList<Patients> listepat = new ArrayList<Patients>();
-        listepat = patd.findipp(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length() - 1));
+        listepat = patd.findIpp(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length() - 1));
         System.out.println(listepat.size());
 
         patient = listepat.get(0);
@@ -393,12 +393,12 @@ private JFrame fenetrePrecedente;
         
         // ici on a pas encore de nosejour à ce stade donc réfléchir comment choisir le sejour
 
-        resultat = dms.findser(ipp, "180100001", phr.getService()); // ipp nosejour service
+        resultat = dms.findSer(ipp, "180100001", phr.getService()); // ipp nosejour service
         
-        re= res.findipp(ipp);
-        ob=obs.findipp(ipp);
-        pr=presc.findipp(ipp);
-        op=ope.findipp(ipp);
+        re= res.findIpp(ipp);
+        ob=obs.findIpp(ipp);
+        pr=presc.findIpp(ipp);
+        op=ope.findIpp(ipp);
 
         DefaultListModel prescriptions = new DefaultListModel();
         DefaultListModel observations = new DefaultListModel();
