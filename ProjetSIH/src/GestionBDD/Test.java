@@ -24,12 +24,14 @@ public class Test {
 
         //Tests unitaire de création--------------------------------------------------
         /*
+        // Creation 
+        
         DossierMedical pat = new DossierMedical();
         pat = new DossierMedical("180000006", "180100002","Urologie ","");
         DAO<DossierMedical> DossierMedicalDAO = new DossierMedicalDAO(BDDconnection.getInstance());
         DossierMedicalDAO.create(pat);
          */
- /*
+ /* 
         DossierMedicoAdministratif pat = new DossierMedicoAdministratif();
         pat = new DossierMedicoAdministratif("180000006", "180100002","01-05-2018","PH0001","Consultation","Cardiologie");
         DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());

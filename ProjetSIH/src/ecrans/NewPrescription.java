@@ -5,9 +5,15 @@
  */
 package ecrans;
 
+import GestionBDD.BDDconnection;
+import GestionBDD.DAO;
+import GestionBDD.DossierMedicoAdministratif;
 import GestionBDD.Patients;
 import GestionBDD.PersonnelHospitalier;
+import GestionBDD.Prescriptions;
+import GestionBDD.PrescriptionsDAO;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +22,7 @@ import java.util.ArrayList;
 public class NewPrescription extends javax.swing.JFrame {
    private static PersonnelHospitalier employe;
     private static Patients patient;
+    private DossierMedicoAdministratif dma;
 
 
     /**
@@ -45,9 +52,9 @@ public class NewPrescription extends javax.swing.JFrame {
         jLabel4Service = new javax.swing.JLabel();
         jButtonPrecedent = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldDate = new javax.swing.JTextField();
         jLabel1Date = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldPrescription = new javax.swing.JTextField();
         jLabel2Prescription = new javax.swing.JLabel();
         jButton1Creer = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -129,12 +136,12 @@ public class NewPrescription extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField1.setText("jTextField1");
+        jTextFieldDate.setText("jTextField1");
 
         jLabel1Date.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1Date.setText("Date : ");
 
-        jTextField2.setText("jTextField2");
+        jTextFieldPrescription.setText("jTextField2");
 
         jLabel2Prescription.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2Prescription.setText("Prescription : ");
@@ -236,11 +243,11 @@ public class NewPrescription extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(jLabel2Prescription)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldPrescription, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(jLabel1Date, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(76, 76, 76)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jTextFieldDate, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(428, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -250,11 +257,11 @@ public class NewPrescription extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1Date, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPrescription, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2Prescription))
                 .addGap(46, 46, 46)
                 .addComponent(jButton1Creer, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -269,6 +276,17 @@ public class NewPrescription extends javax.swing.JFrame {
 
     private void jButton1CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1CreerActionPerformed
         // TODO add your handling code here:
+         Prescriptions presc = new Prescriptions();
+         //String ipp,String nosejour,String idprescription,String dateprescription,String prescription,String service
+        presc = new Prescriptions(patient.getIpp(), dma.getNosejour(),"idPrescription",jTextFieldDate.getText(),jTextFieldPrescription.getText(),employe.getService());
+        DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
+        
+         if (PrescriptionsDAO.create(presc)){
+                               JOptionPane.showMessageDialog(null, "La nouvelle prescription a bien été créée");
+                               
+       }else {
+            JOptionPane.showMessageDialog(null, " La nouvelle prescription n'a pas pu être créée. Veillez recommencer.");
+       }
     }//GEN-LAST:event_jButton1CreerActionPerformed
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
@@ -331,7 +349,7 @@ public class NewPrescription extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextFieldDate;
+    private javax.swing.JTextField jTextFieldPrescription;
     // End of variables declaration//GEN-END:variables
 }

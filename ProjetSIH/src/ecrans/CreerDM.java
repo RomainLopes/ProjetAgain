@@ -6,6 +6,7 @@
 package ecrans;
 
 import GestionBDD.BDDconnection;
+import GestionBDD.DAO;
 import GestionBDD.DossierMedicalDAO;
 import GestionBDD.Patients;
 import GestionBDD.PersonnelHospitalier;
@@ -18,6 +19,9 @@ import javax.swing.text.MaskFormatter;
 import projetsih.PHospitalier;
 import projetsih.Patient;
 import GestionBDD.RecherchePatient;
+import GestionBDD.DossierMedical;
+import GestionBDD.DossierMedicoAdministratif;
+
 
 /**
  *
@@ -27,13 +31,16 @@ public class CreerDM extends javax.swing.JFrame {
 
     private static PersonnelHospitalier employe;
     private static Patients patient;
+    private PersonnelHospitalier phRespo;
+        private static DossierMedicoAdministratif dma;
+
 
     /**
      * Creates new form CreerDM
      */
-    public CreerDM(PersonnelHospitalier employe) {
+    public CreerDM(PersonnelHospitalier employe,Patients patient) {
         initComponents();
-        //patient = new Patients();
+        this.patient = patient;
 
         this.employe = employe;
 
@@ -273,11 +280,16 @@ public class CreerDM extends javax.swing.JFrame {
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         // TODO add your handling code here:
-        RecherchePatient rp = new RecherchePatient();
-        DossierMedicalDAO dms = new DossierMedicalDAO(BDDconnection.getInstance());
-        
-        
-        
+        //String ipp, String nosejour, String service, String correspondance 
+        // Recuperer le no sejour 
+                DossierMedical dm = new DossierMedical(patient.getIpp(), dma.getNosejour(),jTextField1Service.getText(),"");
+                
+        DAO<DossierMedical> DossierMedicalDAO = new DossierMedicalDAO(BDDconnection.getInstance());
+        if (        DossierMedicalDAO.create(dm)){
+                               JOptionPane.showMessageDialog(null, "Le dossier médical a bien été créé");
+       }else {
+            JOptionPane.showMessageDialog(null, " Le dossier médical n'a pas pu être créé. Veillez recommencer.");
+       }
 
         /*
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
@@ -341,7 +353,7 @@ public class CreerDM extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
 
-                new CreerDM(employe).setVisible(true);
+                new CreerDM(employe,patient).setVisible(true);
             }
         });
     }

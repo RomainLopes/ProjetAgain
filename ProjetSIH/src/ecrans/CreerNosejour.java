@@ -4,23 +4,39 @@
  * and open the template in the editor.
  */
 package ecrans;
+
 import GestionBDD.BDDconnection;
 import GestionBDD.DAO;
 import GestionBDD.DossierMedicoAdministratif;
+import GestionBDD.DossierMedicoAdministratifDAO;
 import GestionBDD.Patients;
 import GestionBDD.PatientsDAO;
+import GestionBDD.PersonnelHospitalier;
+import GestionBDD.PersonnelHospitalierDAO;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author lisad
  */
 public class CreerNosejour extends javax.swing.JFrame {
+       private static PersonnelHospitalier employe;
+    private static Patients patient;
+           private  PersonnelHospitalier phRespo;
 
-    
+
     /**
      * Creates new form CreerNosejour
      */
-    public CreerNosejour() {
+    public CreerNosejour(PersonnelHospitalier employe, Patients patient) {
         initComponents();
+         this.employe = employe;
+         this.patient= patient;
+        DefaultComboBoxModel modele = new DefaultComboBoxModel();
+        modele.addElement("Hospitalisation");
+        modele.addElement("Consultation");
+        jComboBoxTypeSejour.setModel(modele);
     }
 
     /**
@@ -50,9 +66,9 @@ public class CreerNosejour extends javax.swing.JFrame {
         jLabel1NoSejour = new javax.swing.JLabel();
         jTextField1NoSejour = new javax.swing.JTextField();
         jLabel3Type = new javax.swing.JLabel();
-        jComboBoxPH = new javax.swing.JComboBox<>();
-        jLabel2NomPH = new javax.swing.JLabel();
         jComboBoxTypeSejour = new javax.swing.JComboBox<>();
+        jLabel2NomPH = new javax.swing.JLabel();
+        jComboBoxPH = new javax.swing.JComboBox<>();
         jButtonValider = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -191,20 +207,20 @@ public class CreerNosejour extends javax.swing.JFrame {
         jLabel3Type.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3Type.setText("Type :");
 
-        jComboBoxPH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxPH.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxTypeSejour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxTypeSejour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxPHActionPerformed(evt);
+                jComboBoxTypeSejourActionPerformed(evt);
             }
         });
 
         jLabel2NomPH.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2NomPH.setText("Nom du Praticien Hospitalier responsable :");
 
-        jComboBoxTypeSejour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxTypeSejour.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxPH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxPH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTypeSejourActionPerformed(evt);
+                jComboBoxPHActionPerformed(evt);
             }
         });
 
@@ -248,11 +264,11 @@ public class CreerNosejour extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3Type)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBoxPH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBoxTypeSejour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2NomPH)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBoxTypeSejour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jComboBoxPH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -279,11 +295,11 @@ public class CreerNosejour extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3Type)
-                    .addComponent(jComboBoxPH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxTypeSejour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2NomPH)
-                    .addComponent(jComboBoxTypeSejour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxPH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonValider)
                 .addContainerGap(31, Short.MAX_VALUE))
@@ -304,43 +320,51 @@ public class CreerNosejour extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1NoSejourActionPerformed
 
-    private void jComboBoxPHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPHActionPerformed
-        // TODO add your handling code here:
-        String spe = jComboBoxPH.getSelectedItem().toString();
-
-    }//GEN-LAST:event_jComboBoxPHActionPerformed
-
     private void jComboBoxTypeSejourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTypeSejourActionPerformed
         // TODO add your handling code here:
+        String spe = jComboBoxTypeSejour.getSelectedItem().toString();
+
     }//GEN-LAST:event_jComboBoxTypeSejourActionPerformed
+
+    private void jComboBoxPHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxPHActionPerformed
 
     private void jButtonValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonValiderMouseClicked
         // TODO add your handling code here:
-        DossierMedicoAdministratif dma;
-        PatientsDAO patd = new PatientsDAO(BDDconnection.getInstance());
-        this.patient= new Patients(jTextField1Nom.getText(), jTextField4Prenom.getText(),jTextField4DDN1.getText(), jTextField4Localisation.getText(),jTextFieldadresse.getText(),jTextField4Sexe.getText());
-        patd.create(patient);
-
-        //String ipp,String dateentree,String idph,String type,String service
-        dma = new DossierMedicoAdministratif(patient.getIpp(), "180100002","01-05-2018",employe.getId() ,"Consultation","Cardiologie");
-        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-        DossierMedicoAdministratifDAO.create(dma);
+       
 
     }//GEN-LAST:event_jButtonValiderMouseClicked
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         // TODO add your handling code here:
+        DossierMedicoAdministratif dma;
+
+        // ici faire un rechercher ph (nom, prenom)  /*phd.find("nomph", "prenomph");*/
+
+        dma = new DossierMedicoAdministratif(patient.getIpp(), "180344444","03-14-2018","PH0001" ,jComboBoxTypeSejour.getSelectedItem().toString(),"Cardiologie");
+
+        //dma = new DossierMedicoAdministratif(patient.getIpp(), "YYMMxxxxx","date du jour",phRespo.getId() ,jComboBoxTypeSejour.getSelectedItem().toString(),phRespo.getService());
+        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+       if (DossierMedicoAdministratifDAO.create(dma)){
+                               JOptionPane.showMessageDialog(null, "Nouveau séjour créé");
+       }else {
+            JOptionPane.showMessageDialog(null, " Le nouveau séjour n'a pas pu être créé. Veillez recommencer.");
+       }
+        
+
+        
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+  //  public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -360,12 +384,12 @@ public class CreerNosejour extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+       /* java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CreerNosejour().setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPrecedent2;

@@ -5,9 +5,15 @@
  */
 package ecrans;
 
+import GestionBDD.BDDconnection;
+import GestionBDD.DAO;
+import GestionBDD.DossierMedicoAdministratif;
+import GestionBDD.Operations;
+import GestionBDD.OperationsDAO;
 import GestionBDD.Patients;
 import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +22,7 @@ import java.util.ArrayList;
 public class NewOperation extends javax.swing.JFrame {
     private static PersonnelHospitalier employe;
     private static Patients patient;
+    private DossierMedicoAdministratif dma;
 
     /**
      * Creates new form NewOperation
@@ -44,9 +51,9 @@ public class NewOperation extends javax.swing.JFrame {
         jLabel4Service = new javax.swing.JLabel();
         jButtonPrecedent = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jTextField3 = new javax.swing.JTextField();
+        jTextFieldDate = new javax.swing.JTextField();
         jLabel3Date = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldOperation = new javax.swing.JTextField();
         jLabel3Date1 = new javax.swing.JLabel();
         jButton1Creer = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -122,15 +129,15 @@ public class NewOperation extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField3.setText("jTextField3");
+        jTextFieldDate.setText("jTextField3");
 
         jLabel3Date.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3Date.setText("Date :");
 
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldOperation.setText("jTextField1");
+        jTextFieldOperation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextFieldOperationActionPerformed(evt);
             }
         });
 
@@ -234,8 +241,8 @@ public class NewOperation extends javax.swing.JFrame {
                             .addComponent(jLabel3Date, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(97, 97, 97)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
-                            .addComponent(jTextField3)
+                            .addComponent(jTextFieldOperation, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
+                            .addComponent(jTextFieldDate)
                             .addComponent(jButton1Creer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(259, 259, 259)
@@ -249,11 +256,11 @@ public class NewOperation extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3Date, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldOperation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3Date1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(101, 101, 101)
                 .addComponent(jButton1Creer, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -266,12 +273,21 @@ public class NewOperation extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextFieldOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOperationActionPerformed
         // cest une enum normalement ici
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextFieldOperationActionPerformed
 
     private void jButton1CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1CreerActionPerformed
         // TODO add your handling code here:
+        Operations ope;
+        ope = new Operations(patient.getIpp(), dma.getNosejour(),dma.getIdph(),jTextFieldDate.getText(),jTextFieldOperation.getText());
+        DAO<Operations> OperationsDAO = new OperationsDAO(BDDconnection.getInstance());
+        
+         if (OperationsDAO.create(ope)){
+                               JOptionPane.showMessageDialog(null, "La nouvelle opér&tion a bien été créée");
+       }else {
+            JOptionPane.showMessageDialog(null, " La nouvelle opération n'a pas pu être créée. Veillez recommencer.");
+       }
     }//GEN-LAST:event_jButton1CreerActionPerformed
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
@@ -333,7 +349,7 @@ public class NewOperation extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextFieldDate;
+    private javax.swing.JTextField jTextFieldOperation;
     // End of variables declaration//GEN-END:variables
 }

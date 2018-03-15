@@ -32,13 +32,18 @@ import GestionBDD.ResultatsDAO;
 public class RechercherPatient extends javax.swing.JFrame {
 
     /**
+     * @return the dmaCurrent
+     */
+   
+
+    /**
      * Creates new form RechercherPatient
      */
     private static PersonnelHospitalier phr;
     private static ArrayList<String> med;
     private static ArrayList<String> p;
-    private static DossierMedicoAdministratif dma;
-
+    private static DossierMedicoAdministratif dmaCourrant;
+private JFrame fenetrePrecedente;
     private static Patients patient;
 
     public RechercherPatient(PersonnelHospitalier ph) {
@@ -367,7 +372,14 @@ public class RechercherPatient extends javax.swing.JFrame {
 
     private void jListpatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListpatientsMouseClicked
         // TODO add your handling code here:
-        //RecherchePatient rp = new RecherchePatient();
+         DossierMedicoAdministratifDAO dmad = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+
+        ArrayList<DossierMedicoAdministratif> allDMA = new ArrayList<DossierMedicoAdministratif>();
+                allDMA= dmad.findser(patient.getIpp(), "nosejour", "service"); // remplacer par la fonction findlast(ipp)
+        // et on aura dmaCurrent= dmad.findlast(ipp)
+        
+        
+        RecherchePatient rp = new RecherchePatient(); // utiliser la connexion de personnelhospitalier
         String ipp = patient.getIpp().substring(1, patient.getIpp().length() - 1);
         
         DossierMedicalDAO dms = new DossierMedicalDAO(BDDconnection.getInstance());
@@ -417,7 +429,7 @@ public class RechercherPatient extends javax.swing.JFrame {
             //JOptionPane.showMessageDialog(null, "Dossier médical existant");
 
 
-            ConsulterDM sadm = new ConsulterDM(phr, patient);
+            ConsulterDM sadm = new ConsulterDM(phr, patient /*this*/ );
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
@@ -434,7 +446,7 @@ public class RechercherPatient extends javax.swing.JFrame {
             DossierMedicoAdministratifDAO phd = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
             ArrayList<DossierMedicoAdministratif> resultats = new ArrayList <DossierMedicoAdministratif>();
 
-            resultats = phd.findSer(ipp, "180100001", "Cardiologie"); // ici utiliser la bonne fonction avec uniquement ipp car la sa n'a pas de service et on veut afficher tous les séjours 
+          /*  resultats = phd.findser(ipp, "180100001", "Cardiologie"); // ici utiliser la bonne fonction avec uniquement ipp car la sa n'a pas de service et on veut afficher tous les séjours 
 
             DefaultListModel num = new DefaultListModel();
             DefaultListModel type = new DefaultListModel();
@@ -444,17 +456,18 @@ public class RechercherPatient extends javax.swing.JFrame {
                 num.addElement(i.getNosejour());
                 date.addElement(i.getDateentree());
                 type.addElement(i.getType());
-            }
+          
+            }*/
 
-            ConsulterDMA sadm = new ConsulterDMA(phr, patient);
+            CreerNosejour sadm = new CreerNosejour(phr, patient);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
             sadm.setVisible(true);
 
-            sadm.getjListNoSejour().setModel(num);
+           /* sadm.getjListNoSejour().setModel(num);
             sadm.getjListDate().setModel(date);
-            sadm.getjListType().setModel(type);
+            sadm.getjListType().setModel(type);*/
 
         } else if (x == true && "Interne".equals(phr.getFonction())) {
 
@@ -569,6 +582,15 @@ public class RechercherPatient extends javax.swing.JFrame {
 
     public ArrayList<String> getMed() {
         return this.med;
+    }
+     public static DossierMedicoAdministratif getDmaCourrant() {
+        return dmaCourrant;
+    }
+      public static Patients getPatient() {
+        return patient;
+    }
+      public static PersonnelHospitalier getEmploye() {
+        return phr;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
