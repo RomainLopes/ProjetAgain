@@ -6,12 +6,8 @@
 package ecrans;
 
 import GestionBDD.BDDconnection;
-import GestionBDD.DAO;
 import GestionBDD.PersonnelHospitalier;
 import GestionBDD.PersonnelHospitalierDAO;
-import GestionBDD.RecherchePatient;
-import java.awt.Dimension;
-import java.util.ArrayList;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JOptionPane;
 
@@ -23,9 +19,6 @@ public class Identification extends javax.swing.JFrame {
 
     private PersonnelHospitalier ph;
 
-    private ArrayList<String> p;
-    private ArrayList<String> phs;
-
     /**
      * Creates new form Connexion
      */
@@ -36,7 +29,6 @@ public class Identification extends javax.swing.JFrame {
         //this.setResizable(false);
         PersonnelHospitalier ph = new PersonnelHospitalier();
         jTextFieldMdp.setText("");
-        
 
         pack();
         setVisible(true);
@@ -97,12 +89,6 @@ public class Identification extends javax.swing.JFrame {
 
         logoHopital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plainsboro blanc.PNG"))); // NOI18N
 
-        jTextFieldIdentifiant.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldIdentifiantActionPerformed(evt);
-            }
-        });
-
         jLabelMdp.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelMdp.setText("Mot de passe :");
 
@@ -153,12 +139,11 @@ public class Identification extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logoHopital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(logoHopital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelIdentifiant)
                             .addComponent(jTextFieldIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -198,53 +183,35 @@ public class Identification extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldIdentifiantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdentifiantActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIdentifiantActionPerformed
-
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         //RecherchePatient rp = new RecherchePatient();
         PersonnelHospitalierDAO phd = new PersonnelHospitalierDAO(BDDconnection.getInstance());
         ph = phd.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-        
-        
+
         if (jTextFieldIdentifiant.getText().equals("") | jTextFieldMdp.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe non renseigné");
 
         } else {
             if (!ph.getId().isEmpty()) {
 
-                //ph = phd.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-                //ArrayList<String> nPS = new ArrayList<String>();
-                //nPS = rp.enTete(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-                // nPS est une liste de string renvoyant en indice 0 le nom, en indice 1 le prénom et 
-                // en indice 2 le service, en 3 la fonction du personnel se connectant
-                //phs = nPS; // pour garder en mémoire les infos du personnel nom prenom service fonction
+                if ( "Secretaire medicale".equals(ph.getFonction())) {
 
-                boolean x = true;
-               // System.out.println(ph.getFonction());
-                
-                if (x == true && "Secretaire medicale".equals(ph.getFonction())) {
-
-                    //employe = new SMed(nPS.get(0), nPS.get(1), nPS.get(2),nPS.get(2) );
                     SmAccueil smed = new SmAccueil(ph);
                     smed.setSize(this.getSize());
                     smed.setLocationRelativeTo(this);
                     this.dispose();
                     smed.setVisible(true);
-                } else if (x == true && "Administration".equals(ph.getFonction())) {
-
-                    //sa = new SAdm(nPS.get(0), nPS.get(1));
-                    SaAccueil sadm = new SaAccueil(ph);
                     
+                } else if ( "Administration".equals(ph.getFonction())) {
+
+                    SaAccueil sadm = new SaAccueil(ph);
                     sadm.setSize(this.getSize());
                     sadm.setLocationRelativeTo(this);
                     this.dispose();
                     sadm.setVisible(true);
+                    
                 } else {
-                    //Fonction fonction=  Fonction.Interne; // remplacer fonction par nPS.get(3)
 
-                    //employe = new PMedical( nPS.get(0), nPS.get(1), nPS.get(2), nPS.get(3));
                     RechercherPatient rechercher = new RechercherPatient(ph);
                     rechercher.setSize(this.getSize());
                     rechercher.setLocationRelativeTo(this);
@@ -252,12 +219,10 @@ public class Identification extends javax.swing.JFrame {
                     rechercher.setVisible(true);
                 }
 
-            }
-            /*else {
+            } else {
                 JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe incorrect");
-            }*/
+            }
         }
-        //rp.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
     /**
@@ -308,19 +273,4 @@ public class Identification extends javax.swing.JFrame {
     private javax.swing.JLabel logoHIR;
     private javax.swing.JLabel logoHopital;
     // End of variables declaration//GEN-END:variables
-
-    public ArrayList<String> getEmploye() {
-        return this.phs;
-    }
-
 }
-
-/*if(jTextFieldIdentifiant.getText()=="" && jTextFieldMdp.getText() == ""){// bien prendre les bonnes valeurs  pour la sadmin
-                 MedAnestAccueil accueilAnest = new MedAnestAccueil();
-
-                accueilAnest.setSize(this.getSize());
-                accueilAnest.setLocationRelativeTo(this);
-
-                this.dispose();
-                accueilAnest.setVisible(true);
-            }*/

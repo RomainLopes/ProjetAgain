@@ -5,14 +5,8 @@
  */
 package ecrans;
 
-import GestionBDD.BDDconnection;
 import GestionBDD.Patients;
-import GestionBDD.PatientsDAO;
 import GestionBDD.PersonnelHospitalier;
-import GestionBDD.RecherchePatient;
-import java.util.ArrayList;
-import projetsih.PHospitalier;
-import projetsih.Patient;
 
 /**
  *
@@ -42,8 +36,6 @@ public class ConsulterDMA extends javax.swing.JFrame {
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());
 
-        RecherchePatient rp = new RecherchePatient();
-
     }
 
     /**
@@ -65,14 +57,14 @@ public class ConsulterDMA extends javax.swing.JFrame {
         DMA = new javax.swing.JPanel();
         listech = new javax.swing.JLabel();
         jScrollPane1ListeSejour = new javax.swing.JScrollPane();
-        jListNoSejour = new javax.swing.JList<String>();
+        jListNoSejour = new javax.swing.JList<>();
         jLabel1Nosejour = new javax.swing.JLabel();
         jLabel2Type = new javax.swing.JLabel();
         jLabel3Date = new javax.swing.JLabel();
         jScrollPane2ListeType = new javax.swing.JScrollPane();
-        jListType = new javax.swing.JList<String>();
+        jListType = new javax.swing.JList<>();
         jScrollPane3ListeDate = new javax.swing.JScrollPane();
-        jListDate = new javax.swing.JList<String>();
+        jListDate = new javax.swing.JList<>();
         jLabel1Prenom = new javax.swing.JLabel();
         jLabel2DateDeNaissance = new javax.swing.JLabel();
         jLabel2PrenomP = new javax.swing.JLabel();
@@ -175,10 +167,10 @@ public class ConsulterDMA extends javax.swing.JFrame {
         DMA.add(listech);
         listech.setBounds(280, 140, 350, 41);
 
-        jListNoSejour.setModel(new javax.swing.AbstractListModel() {
+        jListNoSejour.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListNoSejour.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -205,10 +197,10 @@ public class ConsulterDMA extends javax.swing.JFrame {
         DMA.add(jLabel3Date);
         jLabel3Date.setBounds(750, 220, 86, 27);
 
-        jListType.setModel(new javax.swing.AbstractListModel() {
+        jListType.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListType.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -220,10 +212,10 @@ public class ConsulterDMA extends javax.swing.JFrame {
         DMA.add(jScrollPane2ListeType);
         jScrollPane2ListeType.setBounds(400, 260, 190, 90);
 
-        jListDate.setModel(new javax.swing.AbstractListModel() {
+        jListDate.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jListDate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -62,6 +62,32 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
     }
 
     @Override
+    public ArrayList<DossierMedicoAdministratif> find(String ipp, String nosejour) {
+        ArrayList<DossierMedicoAdministratif> dma = new ArrayList<DossierMedicoAdministratif>();
+        String Query = new String();
+        Query = "select * from dma where ipp = '{" + ipp
+                + "}' and nosejour = '" + nosejour + "'";
+
+        try {
+
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet result = state.executeQuery(Query);
+
+            while (result.next()) {
+                dma.add(new DossierMedicoAdministratif(result.getString("ipp"), result.getString("nosejour"), result.getString("dateentree"), result.getString("idph"), result.getString("type"), result.getString("service")));
+                result.close();
+                state.close();
+                return dma;
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dma;
+    }
+
+    @Override
     public ArrayList<DossierMedicoAdministratif> findSer(String ipp, String nosejour, String service) {
         ArrayList<DossierMedicoAdministratif> dma = new ArrayList<DossierMedicoAdministratif>();
         String Query = new String();
@@ -90,11 +116,6 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
 
     @Override
     public boolean delete(DossierMedicoAdministratif obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ArrayList<DossierMedicoAdministratif> find(String id, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
