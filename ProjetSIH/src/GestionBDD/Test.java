@@ -137,7 +137,7 @@ public class Test {
  
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
         ArrayList<Patients> patients = PatientsDAO.find("180000006", "Cardiologie");
-        System.out.println(patients.get(0).getNompatient() + patients.get(0).getPrenompatient());
+        System.out.println(patients.get(0).getIpp() + patients.get(0).getPrenompatient());
          
  /*
         PrescriptionsDAO dmadao = new PrescriptionsDAO(BDDconnection.getInstance());
