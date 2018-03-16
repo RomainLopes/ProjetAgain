@@ -66,7 +66,7 @@ observation = obs;
         jLabel2PrenomP = new javax.swing.JLabel();
         jLabel3Sexep = new javax.swing.JLabel();
         jLabel4DateP = new javax.swing.JLabel();
-        ConsulterDM1 = new javax.swing.JButton();
+        CreerDMA = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel1Observations = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -80,6 +80,7 @@ observation = obs;
         Prescriptio = new javax.swing.JLabel();
         ajouterPrescription = new javax.swing.JButton();
         jScrollPane2ListePrescription = new javax.swing.JScrollPane();
+        jListPrescriptions = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(200, 200));
@@ -215,13 +216,13 @@ observation = obs;
 
         jLabel4DateP.setText("jLabel1");
 
-        ConsulterDM1.setBackground(new java.awt.Color(228, 241, 254));
-        ConsulterDM1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        ConsulterDM1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
-        ConsulterDM1.setText("Création DMA temporaire");
-        ConsulterDM1.addActionListener(new java.awt.event.ActionListener() {
+        CreerDMA.setBackground(new java.awt.Color(228, 241, 254));
+        CreerDMA.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        CreerDMA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
+        CreerDMA.setText("Création DMA temporaire");
+        CreerDMA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsulterDM1ActionPerformed(evt);
+                CreerDMAActionPerformed(evt);
             }
         });
 
@@ -254,7 +255,7 @@ observation = obs;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel4DateP, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ConsulterDM1)
+                        .addComponent(CreerDMA)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -282,7 +283,7 @@ observation = obs;
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsulterDM, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConsulterDM1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CreerDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -388,6 +389,13 @@ observation = obs;
             }
         });
 
+        jListPrescriptions.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2ListePrescription.setViewportView(jListPrescriptions);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -484,14 +492,14 @@ observation = obs;
         dm.setVisible(true);
     }//GEN-LAST:event_ConsulterDMActionPerformed
 
-    private void ConsulterDM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDM1ActionPerformed
+    private void CreerDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreerDMAActionPerformed
         // TODO add your handling code here:
         CreationDMAtemporaire obs = new CreationDMAtemporaire(employe);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
         obs.setVisible(true);
-    }//GEN-LAST:event_ConsulterDM1ActionPerformed
+    }//GEN-LAST:event_CreerDMAActionPerformed
 
     private void ajouterObservation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservation1ActionPerformed
         // TODO add your handling code here:
@@ -525,7 +533,7 @@ observation = obs;
     }//GEN-LAST:event_ConsulterDMAActionPerformed
 
     private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
-         int index = jListObservations.getSelectedIndex();
+         int index = getjListObservations().getSelectedIndex();
           ConsulterObservation obs = new ConsulterObservation(employe,patient,this,observation.get(index));
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
@@ -537,8 +545,8 @@ observation = obs;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConsulterDM;
-    private javax.swing.JButton ConsulterDM1;
     private javax.swing.JButton ConsulterDMA;
+    private javax.swing.JButton CreerDMA;
     private javax.swing.JPanel JPanelEnTeteMedTech;
     private javax.swing.JLabel Observations;
     private javax.swing.JLabel Prescriptio;
@@ -561,6 +569,7 @@ observation = obs;
     private javax.swing.JLabel jLabelPrenomPmed;
     private javax.swing.JLabel jLabelService;
     private javax.swing.JList<String> jListObservations;
+    private javax.swing.JList<String> jListPrescriptions;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1Observations;
     private javax.swing.JPanel jPanel3;
@@ -570,4 +579,19 @@ observation = obs;
     private javax.swing.JScrollPane jScrollPane1ListeObservations;
     private javax.swing.JScrollPane jScrollPane2ListePrescription;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the jListObservations
+     */
+    public javax.swing.JList<String> getjListObservations() {
+        return jListObservations;
+    }
+
+    /**
+     * @return the jListPrescriptions
+     */
+    public javax.swing.JList<String> getjListPrescriptions() {
+        return jListPrescriptions;
+    }
+
 }

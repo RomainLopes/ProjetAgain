@@ -5,57 +5,54 @@
  */
 package ecrans;
 
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import projetsih.PHospitalier;
-import projetsih.Patient;
 
 /**
  *
  * @author lisad
  */
 public class DossierMedical extends javax.swing.JFrame {
-     private static PersonnelHospitalier employe;
-    private static Patients patient;
-        private static ArrayList<String> test;
 
+    private static PersonnelHospitalier employe;
+    private static Patients patient;
+    private static ArrayList<String> test;
+    private static ArrayList<Observations> observation;
+    private static ArrayList<Resultats> resultat;
 
     /**
      * Creates new form DossierMedical
      */
-
-    public DossierMedical(PersonnelHospitalier personnel, Patients patient ) {
+    public DossierMedical(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs, ArrayList<Resultats> res) {
         initComponents();
-        
-        employe=personnel;
-        this.patient=patient;
+
+        employe = personnel;
+        this.patient = patient;
         jLabelNom.setText(personnel.getNomph());
         jLabelPrenom.setText(personnel.getPrenomph());
         jLabelFonction.setText(personnel.getFonction());
-        jLabelService.setText(personnel.getService()); 
-        
+        jLabelService.setText(personnel.getService());
+
         jLabel1Nomp.setText(patient.getNompatient());
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel3Sexep.setText(patient.getSexe());
         jLabel4DateP.setText(patient.getDateDeNaissance());
-        
+        observation = obs;
+        resultat = res;
+
         test.add("Rdio du poumon gauche");
         test.add("Echographiede l'abdomen");
         DefaultListModel modele = new DefaultListModel();
         for (String i : test) {
-                modele.addElement(i);
-            }
-         jListListeObservation.setModel(modele);
-         jListListePrescription.setModel(modele);
-         jListResultats.setModel(modele);
-         jListListeOperation.setModel(modele);
-        
-     
-      
-    }
+            modele.addElement(i);
+        }
+        jListObservations.setModel(modele);
+        jListListePrescription.setModel(modele);
+        jListResultats.setModel(modele);
+        jListListeOperation.setModel(modele);
 
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,7 +71,7 @@ public class DossierMedical extends javax.swing.JFrame {
         ajouterObservation = new javax.swing.JButton();
         consulterObservation = new javax.swing.JButton();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
-        jListListeObservation = new javax.swing.JList<>();
+        jListObservations = new javax.swing.JList<>();
         jPanel4Prescriptions = new javax.swing.JPanel();
         jScrollPane2ListePrescription = new javax.swing.JScrollPane();
         jListListePrescription = new javax.swing.JList<>();
@@ -120,7 +117,6 @@ public class DossierMedical extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(200, 200));
-        setPreferredSize(new java.awt.Dimension(1000, 1000));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -180,17 +176,17 @@ public class DossierMedical extends javax.swing.JFrame {
 
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListListeObservation.setModel(new javax.swing.AbstractListModel<String>() {
+        jListObservations.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jListListeObservation.addMouseListener(new java.awt.event.MouseAdapter() {
+        jListObservations.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jListListeObservationMouseClicked(evt);
+                jListObservationsMouseClicked(evt);
             }
         });
-        jScrollPane1ListeObservations.setViewportView(jListListeObservation);
+        jScrollPane1ListeObservations.setViewportView(jListObservations);
 
         javax.swing.GroupLayout jPanel1ObservationsLayout = new javax.swing.GroupLayout(jPanel1Observations);
         jPanel1Observations.setLayout(jPanel1ObservationsLayout);
@@ -398,6 +394,11 @@ public class DossierMedical extends javax.swing.JFrame {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
+        });
+        jListResultats.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListResultatsMouseClicked(evt);
+            }
         });
         jScrollPane3ListeResultats.setViewportView(jListResultats);
 
@@ -658,63 +659,63 @@ public class DossierMedical extends javax.swing.JFrame {
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
         Identification id = new Identification();
         id.setSize(this.getSize());
-            id.setLocationRelativeTo(this);
+        id.setLocationRelativeTo(this);
         id.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
         // TODO add your handling code here:
-          NewObservations obs = new NewObservations(employe,patient);
-                    obs.setSize(this.getSize());
-                    obs.setLocationRelativeTo(this);
-                    this.dispose();
-                    obs.setVisible(true);
+        NewObservations obs = new NewObservations(employe, patient);
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_ajouterObservationActionPerformed
 
     private void ajouterPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescriptionActionPerformed
         // TODO add your handling code here:
-        NewPrescription obs = new NewPrescription(employe,patient);
-                    obs.setSize(this.getSize());
-                    obs.setLocationRelativeTo(this);
-                    this.dispose();
-                    obs.setVisible(true);
+        NewPrescription obs = new NewPrescription(employe, patient);
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_ajouterPrescriptionActionPerformed
 
     private void ajouterOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterOperationActionPerformed
         // TODO add your handling code here:
-         NewOperation obs = new NewOperation(employe,patient);
-                    obs.setSize(this.getSize());
-                    obs.setLocationRelativeTo(this);
-                    this.dispose();
-                    obs.setVisible(true);
+        NewOperation obs = new NewOperation(employe, patient);
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_ajouterOperationActionPerformed
 
     private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
         // TODO add your handling code here:
-        NewResultat obs = new NewResultat(employe,patient);
-                    obs.setSize(this.getSize());
-                    obs.setLocationRelativeTo(this);
-                    this.dispose();
-                    obs.setVisible(true);
+        NewResultat obs = new NewResultat(employe, patient);
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
     }//GEN-LAST:event_ajouterResultatActionPerformed
 
     private void ConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMAActionPerformed
         // TODO add your handling code here:
-        ConsulterDMA sadm = new ConsulterDMA(employe,patient);
-            sadm.setSize(this.getSize());
-            sadm.setLocationRelativeTo(this);
-            this.dispose();
-            sadm.setVisible(true);
+        ConsulterDMA sadm = new ConsulterDMA(employe, patient);
+        sadm.setSize(this.getSize());
+        sadm.setLocationRelativeTo(this);
+        this.dispose();
+        sadm.setVisible(true);
     }//GEN-LAST:event_ConsulterDMAActionPerformed
 
     private void EcrireLettreSortie1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EcrireLettreSortie1ActionPerformed
         // TODO add your handling code here:
-        LettreDeSortie lettre = new LettreDeSortie(employe,patient);
-            lettre.setSize(this.getSize());
-            lettre.setLocationRelativeTo(this);
-            this.dispose();
-            lettre.setVisible(true);
+        LettreDeSortie lettre = new LettreDeSortie(employe, patient);
+        lettre.setSize(this.getSize());
+        lettre.setLocationRelativeTo(this);
+        this.dispose();
+        lettre.setVisible(true);
     }//GEN-LAST:event_EcrireLettreSortie1ActionPerformed
 
     private void ServiceCorrespondanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServiceCorrespondanceActionPerformed
@@ -732,20 +733,32 @@ public class DossierMedical extends javax.swing.JFrame {
 
     private void consulterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterResultatActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_consulterResultatActionPerformed
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_consulterObservationActionPerformed
 
-    private void jListListeObservationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListListeObservationMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jListListeObservationMouseClicked
+    private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
+        int index = jListObservations.getSelectedIndex();
+        ConsulterObservation obs = new ConsulterObservation(employe, patient, this, observation.get(index));
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
+    }//GEN-LAST:event_jListObservationsMouseClicked
 
-   
+    private void jListResultatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListResultatsMouseClicked
+        int index = jListResultats.getSelectedIndex();
+        ConsulterResultat obs = new ConsulterResultat(employe, patient, this, resultat.get(index));
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
+    }//GEN-LAST:event_jListResultatsMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConsulterDMA;
@@ -779,9 +792,9 @@ public class DossierMedical extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNom1;
     private javax.swing.JLabel jLabelPrenom;
     private javax.swing.JLabel jLabelService;
-    private javax.swing.JList<String> jListListeObservation;
     private javax.swing.JList<String> jListListeOperation;
     private javax.swing.JList<String> jListListePrescription;
+    private javax.swing.JList<String> jListObservations;
     private javax.swing.JList<String> jListResultats;
     private javax.swing.JPanel jPanel1Observations;
     private javax.swing.JPanel jPanel3;

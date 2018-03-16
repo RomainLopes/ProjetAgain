@@ -624,7 +624,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
     private void ConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMActionPerformed
         // TODO add your handling code here:
-        ConsulterDM dm = new ConsulterDM (employe, patient /*RechercherPatient previous*/);
+        ConsulterDM dm = new ConsulterDM (employe, patient );
                     dm.setSize(this.getSize());
                     dm.setLocationRelativeTo(this);
                     this.dispose();

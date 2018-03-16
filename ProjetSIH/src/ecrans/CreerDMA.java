@@ -362,7 +362,6 @@ public class CreerDMA extends javax.swing.JFrame {
 
     private void jComboBoxTypeSejourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTypeSejourActionPerformed
         // TODO add your handling code here:
-          //this.typeSejour = jComboBoxTypeSejour.getSelectedItem().toString();
         
         
         

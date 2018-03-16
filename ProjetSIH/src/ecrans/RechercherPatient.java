@@ -29,7 +29,7 @@ public class RechercherPatient extends javax.swing.JFrame {
     public RechercherPatient(PersonnelHospitalier ph) {
         initComponents();
         phr = ph;
-     
+
         jLabelNom.setText(ph.getNomph());
         jLabelPrenom.setText(ph.getPrenomph());
         jLabelFonction.setText(ph.getFonction());
@@ -283,7 +283,6 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         DossierMedicalDAO dms = new DossierMedicalDAO(BDDconnection.getInstance());
         ArrayList<DossierMedical> dm;
-        
 
         ObservationsDAO obs = new ObservationsDAO(BDDconnection.getInstance());
         ArrayList<Observations> ob;
@@ -294,7 +293,7 @@ public class RechercherPatient extends javax.swing.JFrame {
         }
 
         PrescriptionsDAO presc = new PrescriptionsDAO(BDDconnection.getInstance());
-        ArrayList<Prescriptions> pr ;
+        ArrayList<Prescriptions> pr;
         pr = presc.findIpp(ipp);
         DefaultListModel prescriptions = new DefaultListModel();
         for (GestionBDD.Prescriptions i : pr) {
@@ -302,7 +301,7 @@ public class RechercherPatient extends javax.swing.JFrame {
         } // 4 espaces
 
         OperationsDAO ope = new OperationsDAO(BDDconnection.getInstance());
-        ArrayList<Operations> op ;
+        ArrayList<Operations> op;
         op = ope.findIpp(ipp);
         DefaultListModel operations = new DefaultListModel();
         for (GestionBDD.Operations i : op) {
@@ -354,7 +353,7 @@ public class RechercherPatient extends javax.swing.JFrame {
                 type.addElement(i.getType());
           
             }*/
-           CreerNosejour sadm = new CreerNosejour(phr, lipat.get(index));
+            CreerNosejour sadm = new CreerNosejour(phr, lipat.get(index));
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
@@ -365,7 +364,7 @@ public class RechercherPatient extends javax.swing.JFrame {
             sadm.getjListType().setModel(type);*/
         } else if (x == true && "Interne".equals(phr.getFonction())) {
 
-            InterneAccueil inte = new InterneAccueil(phr, lipat.get(index),ob);
+            InterneAccueil inte = new InterneAccueil(phr, lipat.get(index), ob);
             inte.setSize(this.getSize());
             inte.setLocationRelativeTo(this);
             this.dispose();
@@ -385,9 +384,49 @@ public class RechercherPatient extends javax.swing.JFrame {
             inte.getjListObservations().setModel(observations);
 
         } else { // pH
-            if (x == true && "Clinique".equals(phr.getService())) { // ajouter le .getType()
+            if (x == true && "Urgence".equals(phr.getService())) { // ajouter le .getType()
 
-                MedClinAccueil inte = new MedClinAccueil(phr, lipat.get(index),ob,re);
+                MedUrgenceAccueil inte = new MedUrgenceAccueil(phr, lipat.get(index), ob);
+                inte.setSize(this.getSize());
+                inte.setLocationRelativeTo(this);
+                this.dispose();
+                inte.setVisible(true);
+                inte.getjListPrescriptions().setModel(prescriptions);
+                inte.getjListObservations().setModel(observations);
+            } else if (x == true && "Radiologie".equals(phr.getService())) {
+
+                MedRadioAccueil inte = new MedRadioAccueil(phr, lipat.get(index), ob, re);
+                inte.setSize(this.getSize());
+                inte.setLocationRelativeTo(this);
+                this.dispose();
+                inte.setVisible(true);
+                inte.getjListObservations().setModel(observations);
+                inte.getjListResultats().setModel(result);
+
+            } else if (x == true && "Anesthesie".equals(phr.getService())) {
+
+                MedAnestAccueil inte = new MedAnestAccueil(phr, lipat.get(index), ob, re);
+                inte.setSize(this.getSize());
+                inte.setLocationRelativeTo(this);
+                this.dispose();
+                inte.setVisible(true);
+
+                inte.getjListPrescriptions().setModel(prescriptions);
+                inte.getjListObservations().setModel(observations);
+                inte.getjListResultats().setModel(result);
+            } else if (x == true && phr.getService() == "Laboratoire d'analyse" || phr.getService() == "Hematologie" || phr.getService() == "Anapathologie") {
+
+                MedTechAccueil inte = new MedTechAccueil(phr, lipat.get(index), ob, re);
+                inte.setSize(this.getSize());
+                inte.setLocationRelativeTo(this);
+                this.dispose();
+                inte.setVisible(true);
+
+                inte.getjListPrescriptions().setModel(prescriptions);
+                inte.getjListObservations().setModel(observations);
+                inte.getjListResultats().setModel(result);
+            } else {
+                MedClinAccueil inte = new MedClinAccueil(phr, lipat.get(index), ob, re);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
@@ -396,79 +435,12 @@ public class RechercherPatient extends javax.swing.JFrame {
                 inte.getjListObservations().setModel(observations);
                 inte.getjListResultats().setModel(result);
 
-            } else if (x == true/* pH.service.getNom()=="Radiologie"*/) {
-
-                MedRadioAccueil inte = new MedRadioAccueil(phr, lipat.get(index),ob,re);
-                inte.setSize(this.getSize());
-                inte.setLocationRelativeTo(this);
-                this.dispose();
-                inte.setVisible(true);
-                inte.getjListObservations().setModel(observations);
-                inte.getjListResultats().setModel(result);
-
-            } else if (x == true/* pH.service.getNom()=="Anesthésie"*/) {
-
-                MedAnestAccueil inte = new MedAnestAccueil(phr, lipat.get(index),ob,re);
-                inte.setSize(this.getSize());
-                inte.setLocationRelativeTo(this);
-                this.dispose();
-                inte.setVisible(true);
-
-                inte.getjListPrescriptions().setModel(prescriptions);
-                inte.getjListObservations().setModel(observations);
-                inte.getjListResultats().setModel(result);
-            } else if (x == true/* pH.service.getType()=="Médico-technique"*/) {
-
-                MedTechAccueil inte = new MedTechAccueil(phr, lipat.get(index),ob,re);
-                inte.setSize(this.getSize());
-                inte.setLocationRelativeTo(this);
-                this.dispose();
-                inte.setVisible(true);
-
-                inte.getjListObservations().setModel(observations);
-                inte.getjListResultats().setModel(result);
             }
-            
         }
 
 
     }//GEN-LAST:event_jListpatientsMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RechercherPatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RechercherPatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RechercherPatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RechercherPatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RechercherPatient(phr).setVisible(true);
-            }
-        });
-    }
 
     public static PersonnelHospitalier getEmploye() {
         return phr;
