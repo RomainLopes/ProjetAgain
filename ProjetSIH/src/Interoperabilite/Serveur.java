@@ -35,6 +35,7 @@ public class Serveur {
             }
         }
         this.messageHL7 = str;
+        
         String messageHL7final = "";
         for (int i = 0; i < messageHL7.length(); i++) {
             char ch = messageHL7.charAt(i);
@@ -45,11 +46,15 @@ public class Serveur {
             }
         }
         this.messageHL7lisible = messageHL7final;
+        
         this.ps = this.serveur.getPatient();
         Date ddn = this.ps.getBirth();
+        
         System.out.println("Test : "+ ddn);
+        
         Calendar c = Calendar.getInstance();
         c.setTime(ddn);
+        
         int annee = c.get(Calendar.YEAR) - 1900;
         int mois = c.get(Calendar.MONTH) - 1;
         int jour = c.get(Calendar.DAY_OF_MONTH);

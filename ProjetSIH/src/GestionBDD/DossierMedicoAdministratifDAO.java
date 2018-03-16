@@ -10,6 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -21,6 +24,53 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
         super(conn);
     }
 
+    @Override
+    public String createNumeroSejour() {
+        
+        String Query;
+        
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(new Date());
+        
+        int annee = calendar.get(Calendar.YEAR);
+        String anneestr = String.valueOf(annee).substring(2, 4);
+        
+        int mois = calendar.get(Calendar.MONTH);
+        String moisstr;
+        if (String.valueOf(mois).length() == 1){
+            moisstr = "0" + String.valueOf(mois);
+        }else{
+            moisstr = String.valueOf(mois);
+        }
+        
+        String nosejour = anneestr + moisstr + "00000";
+
+        Query = "select max(nosejour) from dma where nosejour >= '" + nosejour + "'";
+
+        try {
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet result = state.executeQuery(Query);
+
+            if (result.next()) {
+                int intNosejour;
+                nosejour = result.getString(1);
+
+                intNosejour = Integer.parseInt(nosejour); 
+                intNosejour++;
+                
+                nosejour = String.valueOf(intNosejour);
+
+                result.close();
+                state.close();
+                return nosejour;
+            }
+            return nosejour;
+        } catch (SQLException e) {
+            return nosejour;
+        }
+    }
+    
     @Override
     public boolean create(DossierMedicoAdministratif obj) {
         String Query = new String();

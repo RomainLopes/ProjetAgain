@@ -25,7 +25,7 @@ public class Identification extends javax.swing.JFrame {
     public Identification() {
         initComponents();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        //this.setPreferredSize(new Dimension(639, 473));
+        this.setExtendedState(MAXIMIZED_BOTH);
         //this.setResizable(false);
         PersonnelHospitalier ph = new PersonnelHospitalier();
         jTextFieldMdp.setText("");
