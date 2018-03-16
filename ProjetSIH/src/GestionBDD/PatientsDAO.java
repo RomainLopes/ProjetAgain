@@ -23,8 +23,7 @@ public class PatientsDAO extends DAO<Patients> {
 
     @Override
     public boolean create(Patients obj) {
-        Patients pat = new Patients();
-        String Query = new String();
+        String Query;
         Query = "insert into patients (ipp,nompatient,prenompatient,datedenaissance,localisation,adresse,sexe) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNompatient() + "','" + obj.getPrenompatient()
                 + "','" + obj.getDateDeNaissance() + "','" + obj.getLocalisation() + "','" + obj.getAdresse()
@@ -43,8 +42,7 @@ public class PatientsDAO extends DAO<Patients> {
 
     @Override
     public boolean update(Patients obj) {
-        Patients pat = new Patients();
-        String Query = new String();
+        String Query;
         Query = "UPDATE patients SET nompatient='" + obj.getNompatient() + "', prenompatient = '" + obj.getPrenompatient() + "', datedenaissance = '" + obj.getDateDeNaissance() + "', localisation ='" + obj.getLocalisation() + "', adresse ='" + obj.getAdresse() + "', sexe ='" + obj.getSexe() + "'  WHERE ipp = '{" + obj.getIpp() + "}'";
 
         try {
@@ -58,12 +56,11 @@ public class PatientsDAO extends DAO<Patients> {
         }
 
     }
-   
 
     @Override
     public ArrayList<Patients> findPatientNomPrenom(String nom, String prenom) {
         ArrayList<Patients> pat = new ArrayList<Patients>();
-        String Query = new String();
+        String Query;
 
         if (nom.equals("")) {
             Query = "SELECT * FROM patients WHERE patients.prenompatient = '" + prenom + "'";
@@ -90,7 +87,8 @@ public class PatientsDAO extends DAO<Patients> {
         }
         return pat;
     }
-        @Override 
+
+    @Override
     public ArrayList<Patients> findPatientNomPrenomService(String nom, String prenom, String service) {
         ArrayList<Patients> pat = new ArrayList<Patients>();
         String Query = new String();
@@ -108,13 +106,13 @@ public class PatientsDAO extends DAO<Patients> {
         } else {
             Query = "SELECT patients.* FROM patients INNER JOIN dossiermedical "
                     + "ON patients.ipp = dossiermedical.ipp "
-                    + "WHERE patients.nompatient = '" + nom + "' " 
+                    + "WHERE patients.nompatient = '" + nom + "' "
                     + "AND patients.prenompatient = '" + prenom + "' "
                     + "AND (dossiermedical.service = '" + service + "' or dossiermedical.correspondance = '" + service + "' )";
         }
 
         try {
-          
+
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet result = state.executeQuery(Query);
@@ -134,7 +132,7 @@ public class PatientsDAO extends DAO<Patients> {
     @Override
     public ArrayList<Patients> findIpp(String ipp) {
         ArrayList<Patients> pat = new ArrayList<Patients>();
-        String Query = new String();
+        String Query;
         Query = "SELECT * FROM patients WHERE patients.ipp = '{" + ipp + "}' ";
 
         try {
