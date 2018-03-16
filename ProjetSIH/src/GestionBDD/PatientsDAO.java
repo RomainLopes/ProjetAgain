@@ -73,7 +73,37 @@ public class PatientsDAO extends DAO<Patients> {
      * @param prenom
      * @return
      */
-    @Override
+    
+    public ArrayList<Patients> findPatientNomPrenom(String nom, String prenom) {
+        ArrayList<Patients> pat = new ArrayList<Patients>();
+        String Query = new String();
+
+        if (nom.equals("")) {
+            Query = "SELECT * FROM patients WHERE patients.prenompatient = '" + prenom + "'";
+        } else if (prenom.equals("")) {
+            Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'";
+        } else {
+            Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'" + " AND patients.prenompatient = '" + prenom + "'";
+        }
+
+        try {
+
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet result = state.executeQuery(Query);
+
+            while (result.next()) {
+                pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));
+                result.close();
+                state.close();
+                return pat;
+            }
+
+        } catch (SQLException e) {
+        }
+        return pat;
+    }
+        @Override 
     public ArrayList<Patients> findPatientNomPrenomService(String nom, String prenom, String service) {
         ArrayList<Patients> pat = new ArrayList<Patients>();
         String Query = new String();
