@@ -9,8 +9,6 @@ import GestionBDD.Patients;
 import GestionBDD.PersonnelHospitalier;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import projetsih.PHospitalier;
-import projetsih.Patient;
 
 /**
  *

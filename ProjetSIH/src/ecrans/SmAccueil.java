@@ -7,9 +7,6 @@ package ecrans;
 
 import GestionBDD.Patients;
 import GestionBDD.PersonnelHospitalier;
-import java.util.ArrayList;
-import projetsih.PHospitalier;
-import projetsih.Patient;
 
 /**
  *
