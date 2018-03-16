@@ -15,6 +15,8 @@ import java.util.ArrayList;
  */
 public class MedTechAccueil extends javax.swing.JFrame {
 
+  
+
 
 
     /**
@@ -89,7 +91,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
         jLabel1InfoPatients = new javax.swing.JLabel();
         jPanel4Prescriptions3 = new javax.swing.JPanel();
         jScrollPane2ListePrescription3 = new javax.swing.JScrollPane();
-        jListPrescriptions3 = new javax.swing.JList<>();
+        jListPrescriptions = new javax.swing.JList<>();
         jPanel9 = new javax.swing.JPanel();
         Prescriptio4 = new javax.swing.JLabel();
         jButtonaffichernosejours = new javax.swing.JButton();
@@ -433,12 +435,12 @@ public class MedTechAccueil extends javax.swing.JFrame {
 
         jPanel4Prescriptions3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jListPrescriptions3.setModel(new javax.swing.AbstractListModel<String>() {
+        jListPrescriptions.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2ListePrescription3.setViewportView(jListPrescriptions3);
+        jScrollPane2ListePrescription3.setViewportView(jListPrescriptions);
 
         Prescriptio4.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Prescriptio4.setText("Prescriptions");
@@ -614,7 +616,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelService;
     private javax.swing.JLabel jLabelSexePatient;
     private javax.swing.JList<String> jListObservations;
-    private javax.swing.JList<String> jListPrescriptions3;
+    private javax.swing.JList<String> jListPrescriptions;
     private javax.swing.JList<String> jListResultats;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1Observations;
@@ -641,5 +643,11 @@ public class MedTechAccueil extends javax.swing.JFrame {
      */
     public javax.swing.JList<String> getjListResultats() {
         return jListResultats;
+    }
+      /**
+     * @return the jListPrescriptions
+     */
+    public javax.swing.JList<String> getjListPrescriptions() {
+        return jListPrescriptions;
     }
 }

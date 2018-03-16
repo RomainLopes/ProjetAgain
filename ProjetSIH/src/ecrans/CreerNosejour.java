@@ -68,8 +68,9 @@ public class CreerNosejour extends javax.swing.JFrame {
         jLabel3Type = new javax.swing.JLabel();
         jComboBoxTypeSejour = new javax.swing.JComboBox<>();
         jLabel2NomPH = new javax.swing.JLabel();
-        jComboBoxPH = new javax.swing.JComboBox<>();
         jButtonValider = new javax.swing.JButton();
+        jTextFieldNomph = new javax.swing.JTextField();
+        jTextFieldPrenomph = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -215,31 +216,23 @@ public class CreerNosejour extends javax.swing.JFrame {
         });
 
         jLabel2NomPH.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2NomPH.setText("Nom du Praticien Hospitalier responsable :");
-
-        jComboBoxPH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxPH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxPHActionPerformed(evt);
-            }
-        });
+        jLabel2NomPH.setText("Praticien Hospitalier responsable :");
 
         jButtonValider.setBackground(new java.awt.Color(228, 241, 254));
         jButtonValider.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
         jButtonValider.setText("Valider");
         /*
-        jButtonValider.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonValiderMouseClicked(evt);
-            }
-        });
         jButtonValider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonValiderActionPerformed(evt);
             }
         });
         */
+
+        jTextFieldNomph.setText("jTextField1");
+
+        jTextFieldPrenomph.setText("jTextField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -268,7 +261,9 @@ public class CreerNosejour extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2NomPH)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBoxPH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jTextFieldNomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(42, 42, 42)
+                                .addComponent(jTextFieldPrenomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -299,7 +294,8 @@ public class CreerNosejour extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2NomPH)
-                    .addComponent(jComboBoxPH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPrenomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonValider)
                 .addContainerGap(31, Short.MAX_VALUE))
@@ -322,19 +318,8 @@ public class CreerNosejour extends javax.swing.JFrame {
 
     private void jComboBoxTypeSejourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTypeSejourActionPerformed
         // TODO add your handling code here:
-        String spe = jComboBoxTypeSejour.getSelectedItem().toString();
 
     }//GEN-LAST:event_jComboBoxTypeSejourActionPerformed
-
-    private void jComboBoxPHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPHActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxPHActionPerformed
-
-    private void jButtonValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonValiderMouseClicked
-        // TODO add your handling code here:
-       
-
-    }//GEN-LAST:event_jButtonValiderMouseClicked
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         // TODO add your handling code here:
@@ -394,7 +379,6 @@ public class CreerNosejour extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPrecedent2;
     private javax.swing.JButton jButtonValider;
-    private javax.swing.JComboBox<String> jComboBoxPH;
     private javax.swing.JComboBox<String> jComboBoxTypeSejour;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1InfoPatients;
@@ -414,5 +398,7 @@ public class CreerNosejour extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTextField1NoSejour;
     private javax.swing.JTextField jTextField4Localisation;
+    private javax.swing.JTextField jTextFieldNomph;
+    private javax.swing.JTextField jTextFieldPrenomph;
     // End of variables declaration//GEN-END:variables
 }
