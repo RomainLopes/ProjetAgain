@@ -1,4 +1,4 @@
-package projetsih;
+package GestionBDD;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;

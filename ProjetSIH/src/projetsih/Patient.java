@@ -1,5 +1,6 @@
 package projetsih;
 
+import GestionBDD.Date;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
