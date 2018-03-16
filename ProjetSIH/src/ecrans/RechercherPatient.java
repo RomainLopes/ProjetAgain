@@ -280,6 +280,13 @@ public class RechercherPatient extends javax.swing.JFrame {
     private void jListpatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListpatientsMouseClicked
         int index = jListpatients.getSelectedIndex();
         String ipp = lipat.get(index).getIpp().substring(1, lipat.get(index).getIpp().length() - 1);
+        String idPh = phr.getId().substring(1, phr.getId().length() - 1);
+
+        // Creation en mémoire de la tracabilité 
+        Tracabilite pat = new Tracabilite();
+        pat = new Tracabilite(ipp, idPh , "02-22-2018");
+        DAO<Tracabilite> TracabiliteDAO = new TracabiliteDAO(BDDconnection.getInstance());
+        TracabiliteDAO.create(pat);
 
         //Déclaration variables -----
         DossierMedicoAdministratifDAO dmad = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());

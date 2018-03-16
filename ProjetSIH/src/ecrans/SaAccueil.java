@@ -237,7 +237,7 @@ public class SaAccueil extends javax.swing.JFrame {
 
     private void jButtonFusionnerDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFusionnerDMAActionPerformed
         // TODO add your handling code here:
-        FusionnerDossierUrgence fusion = new FusionnerDossierUrgence();
+        FusionnerDossierUrgence fusion = new FusionnerDossierUrgence(employe);
         fusion.setSize(this.getSize());
         fusion.setLocationRelativeTo(this);
         this.dispose();
