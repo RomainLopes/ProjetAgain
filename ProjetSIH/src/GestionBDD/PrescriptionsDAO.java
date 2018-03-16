@@ -10,6 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -21,6 +24,62 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
         super(conn);
     }
 
+    @Override
+     public String createIdPrescription(String ipp) {
+        
+        String Query;
+        
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(new Date());
+        
+        int annee = calendar.get(Calendar.YEAR);
+        String anneestr = String.valueOf(annee).substring(2, 4);
+        
+        int mois = calendar.get(Calendar.MONTH);
+        String moisstr;
+        if (String.valueOf(mois).length() == 1){
+            moisstr = "0" + String.valueOf(mois);
+        }else{
+            moisstr = String.valueOf(mois);
+        }
+        
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        String daystr;
+        if (String.valueOf(day).length() == 1){
+            daystr = "0" + String.valueOf(day);
+        }else{
+            daystr = String.valueOf(day);
+        }
+        
+        String idPrescription = "P" + anneestr + moisstr + "0000";
+
+        Query = "select max(idprescription) from prescription where idprescription >= '" + idPrescription + "' and ipp = '{" + ipp + "}' ";
+
+        try {
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet result = state.executeQuery(Query);
+
+            if (result.next()) {
+        
+                int intIdPrescription;
+                idPrescription = result.getString(1).substring(1);
+
+                intIdPrescription = Integer.parseInt(idPrescription); 
+                intIdPrescription++;
+                
+                idPrescription = "P" + String.valueOf(intIdPrescription);
+
+                result.close();
+                state.close();
+                return idPrescription;
+            }
+            return idPrescription;
+        } catch (SQLException e) {
+            return idPrescription;
+        }
+    }
+    
     @Override
     public boolean create(Prescriptions obj) {
         String Query = new String();

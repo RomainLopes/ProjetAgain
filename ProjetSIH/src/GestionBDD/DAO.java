@@ -13,9 +13,8 @@ public abstract class DAO<T> {
     protected Connection connect = null;
 
     /**
-     * Constructeur
-     *
-     * @param conn
+     * 
+     * @param conn 
      */
     public DAO(Connection conn) {
         this.connect = conn;
@@ -123,5 +122,38 @@ public abstract class DAO<T> {
     public PersonnelHospitalier connex(String id, String mdp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    /**
+     * Méthode de création automatique de l'ipp via requête sql qui renvoie 
+     * le plus grand ipp de l'année en cours incrémenté de 1 ou l'ipp
+     * dû à l'année en cours
+     * @return 
+     */
+     public String createIpp() {
+         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     }
+     
+     /**
+     * Méthode de création automatique du numéro de séjour via requête sql 
+     * qui renvoie le plus grand numéro de séjour de l'année et du mois  
+     * en cours  pour le patient avec l'ipp entrée en paramètre incrémenté de 1 
+     * ou le numéro de séjour de l'année et du mois en cours
+     * @return 
+     */
+     public String createNumeroSejour() {
+          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     }
+     
+     /**
+     * Méthode de création automatique de l'id de prescription via requête sql 
+     * qui renvoie le plus grand numéro id de prescription de l'année, du mois et du jour 
+     * en cours  pour le patient avec l'ipp entrée en paramètre incrémenté de 1 
+     * ou l'id de prescription de l'année, du mois et du jour en cours
+     * @param ipp
+     * @return 
+     */
+     public String createIdPrescription(String ipp) {
+         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     }
 
 }

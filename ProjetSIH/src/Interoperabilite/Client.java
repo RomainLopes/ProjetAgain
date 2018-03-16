@@ -11,14 +11,16 @@ import library.interfaces.Patient;
 
 /**
  *
- * @author HIR
+ * @author SIHop coding team
  */
 public class Client {
     private final ClientHL7 client = new ClientHL7();
-
+ 
     private final Patient p;
 
-    public Client( String adresse, int portEnvoie) {
+    public Client(Patient p, String adresse, int portEnvoie) {
+ 
+        this.p = p;
         client.connexion(adresse, portEnvoie);
         client.admit(p);
     }
@@ -26,7 +28,6 @@ public class Client {
     public ClientHL7 getClient() {
         return client;
     }
-
 
     public Patient getP() {
         return p;

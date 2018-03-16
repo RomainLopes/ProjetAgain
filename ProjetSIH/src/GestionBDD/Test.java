@@ -9,6 +9,9 @@ import GestionBDD.Patients.*;
 import GestionBDD.PatientsDAO.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -31,7 +34,7 @@ public class Test {
         DAO<DossierMedical> DossierMedicalDAO = new DossierMedicalDAO(BDDconnection.getInstance());
         DossierMedicalDAO.create(pat);
          */
- /* 
+ /*
         DossierMedicoAdministratif pat = new DossierMedicoAdministratif();
         pat = new DossierMedicoAdministratif("180000006", "180100002","01-05-2018","PH0001","Consultation","Cardiologie");
         DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
@@ -134,11 +137,11 @@ public class Test {
         System.out.println("is empty");
         }
          */
- 
+ /*
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
         ArrayList<Patients> patients = PatientsDAO.find("180000006", "Cardiologie");
         System.out.println(patients.get(0).getIpp() + patients.get(0).getPrenompatient());
-         
+         */
  /*
         PrescriptionsDAO dmadao = new PrescriptionsDAO(BDDconnection.getInstance());
         ArrayList<Prescriptions> dm = dmadao.findser("180000005","180200005","Urologie");
@@ -182,9 +185,8 @@ public class Test {
         ArrayList<DossierMedical> dm = dmdao.findser("123456789", "180100001", "Cardiologie");
         System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getService());
         dmdao.updateIpp("180000001", "123456789");
-*/
-        
-        /*
+         */
+ /*
         DossierMedicoAdministratifDAO dmdao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         dmdao.updateIpp("123456789", "180000001");
         ArrayList<DossierMedicoAdministratif> dm = dmdao.findSer("123456789", "180100001", "Cardiologie");// à modif
@@ -197,7 +199,23 @@ public class Test {
         ArrayList<LettreDeSortie> lds = ldsdao.find("123456789", "180100001");// a modif
         System.out.println(lds.get(0).getIpp() + "   " + lds.get(0).getLettre());
         dmdao.updateIpp("180000001", "123456789");
+         */
+ 
+ //Tests création d'ipp, numéro de séjour, et idprescription -------------------------------------------------
+ /*
+        DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
+        System.out.println(PatientsDAO.createIpp());
         */
+ /*
+        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        System.out.println(DossierMedicoAdministratifDAO.createNumeroSejour());
+*/
+ /*
+        DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
+        System.out.println(PrescriptionsDAO.createIdPrescription("180000003"));
+        */
+ 
+        
     }
 
 }
