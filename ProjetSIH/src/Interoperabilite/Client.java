@@ -21,6 +21,7 @@ public class Client {
     public Client( String adresse, int portEnvoie) {
         client.connexion(adresse, portEnvoie);
         client.admit(p);
+        
     }
 
     public ClientHL7 getClient() {

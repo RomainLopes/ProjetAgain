@@ -18,7 +18,9 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        SwingUtilities.invokeLater(new Runnable() {
+
+        
+       SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 Identification pageDeCo = new Identification();

@@ -284,7 +284,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         // Creation en mémoire de la tracabilité 
         Tracabilite pat = new Tracabilite();
-        pat = new Tracabilite(ipp, idPh , "02-22-2018");
+        pat = new Tracabilite(ipp, idPh , "02-22-2018"); // date du jour
         DAO<Tracabilite> TracabiliteDAO = new TracabiliteDAO(BDDconnection.getInstance());
         TracabiliteDAO.create(pat);
 
