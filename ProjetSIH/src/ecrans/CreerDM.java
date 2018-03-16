@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 import GestionBDD.DossierMedical;
 import GestionBDD.DossierMedicoAdministratif;
+import javax.swing.DefaultComboBoxModel;
 
 
 /**
@@ -37,6 +38,16 @@ public class CreerDM extends javax.swing.JFrame {
         this.patient = patient;
 
         this.employe = employe;
+         DefaultComboBoxModel modele = new DefaultComboBoxModel();
+        modele.addElement("A F M O U");
+        modele.addElement("F");
+                modele.addElement("M");
+                        modele.addElement("O");
+                                modele.addElement("");
+
+
+
+        jComboBoxSexe.setModel(modele);
 
         /* jTextField1Nom.setText(((SmAccueil) fenetrePrecedente).getP().getNom());
         jTextField4Prenom.setText(((SmAccueil) fenetrePrecedente).getP().getPrenom());
@@ -67,7 +78,6 @@ public class CreerDM extends javax.swing.JFrame {
         jLabel1InfoPatients = new javax.swing.JLabel();
         jTextFieldNom = new javax.swing.JTextField();
         jTextFieldPrenom = new javax.swing.JTextField();
-        jTextFieldSexe = new javax.swing.JTextField();
         try{
 
             MaskFormatter tel2 = new MaskFormatter("##-##-####");
@@ -75,6 +85,7 @@ public class CreerDM extends javax.swing.JFrame {
             jLabel2Service = new javax.swing.JLabel();
             jTextField1Service = new javax.swing.JTextField();
             jButtonValider = new javax.swing.JButton();
+            jComboBoxSexe = new javax.swing.JComboBox<>();
 
             jLabel2.setText("jLabel2");
 
@@ -148,13 +159,6 @@ public class CreerDM extends javax.swing.JFrame {
 
             jTextFieldPrenom.setText("jTextField1");
 
-            jTextFieldSexe.setText("jTextField1");
-            jTextFieldSexe.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    jTextFieldSexeActionPerformed(evt);
-                }
-            });
-
             jFormattedTextFieldDateDeNaissance.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         }
         catch(ParseException e){e.printStackTrace();}
@@ -173,6 +177,8 @@ public class CreerDM extends javax.swing.JFrame {
                 jButtonValiderActionPerformed(evt);
             }
         });
+
+        jComboBoxSexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel3InfoPatientLayout = new javax.swing.GroupLayout(jPanel3InfoPatient);
         jPanel3InfoPatient.setLayout(jPanel3InfoPatientLayout);
@@ -198,18 +204,20 @@ public class CreerDM extends javax.swing.JFrame {
                                 .addGap(4, 4, 4)))
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(jLabel2DateDeNaissance)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jFormattedTextFieldDateDeNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addGap(150, 150, 150)
                                 .addComponent(jButtonValider, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addComponent(jTextFieldSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
+                                        .addGap(51, 51, 51)
+                                        .addComponent(jLabel2DateDeNaissance))
+                                    .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
+                                        .addGap(66, 66, 66)
+                                        .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBoxSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFormattedTextFieldDateDeNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 207, Short.MAX_VALUE))
                     .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                         .addComponent(jLabel1InfoPatients)
@@ -221,12 +229,11 @@ public class CreerDM extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(jLabel1InfoPatients)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextFieldSexe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1Prenom)
@@ -268,10 +275,6 @@ public class CreerDM extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldSexeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSexeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSexeActionPerformed
-
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         // TODO add your handling code here:
         //String ipp, String nosejour, String service, String correspondance 
@@ -286,7 +289,7 @@ public class CreerDM extends javax.swing.JFrame {
        }
 
         /*
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
         String s = jFormattedTextFieldDateDeNaissance.getText();
         Date d = new Date();
         try {
@@ -316,45 +319,11 @@ public class CreerDM extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonPrecedent2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreerDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreerDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreerDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreerDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-
-                new CreerDM(employe,patient).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPrecedent2;
     private javax.swing.JButton jButtonValider;
+    private javax.swing.JComboBox<String> jComboBoxSexe;
     private javax.swing.JFormattedTextField jFormattedTextFieldDateDeNaissance;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1InfoPatients;
@@ -371,6 +340,5 @@ public class CreerDM extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1Service;
     private javax.swing.JTextField jTextFieldNom;
     private javax.swing.JTextField jTextFieldPrenom;
-    private javax.swing.JTextField jTextFieldSexe;
     // End of variables declaration//GEN-END:variables
 }
