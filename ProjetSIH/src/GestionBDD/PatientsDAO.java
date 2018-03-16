@@ -41,13 +41,6 @@ public class PatientsDAO extends DAO<Patients> {
 
     }
 
-    /**
-     * Méthode de mise à jour d'un patient pour la fusion en cas de doublon lié
-     * au services des urgences
-     *
-     * @param obj
-     * @return
-     */
     @Override
     public boolean update(Patients obj) {
         Patients pat = new Patients();
@@ -66,14 +59,7 @@ public class PatientsDAO extends DAO<Patients> {
 
     }
 
-    /**
-     * Méthode de recherche de patient en utilisant son nom et son prénom
-     *
-     * @param nom
-     * @param prenom
-     * @return
-     */
-    
+    @Override
     public ArrayList<Patients> findPatientNomPrenom(String nom, String prenom) {
         ArrayList<Patients> pat = new ArrayList<Patients>();
         String Query = new String();
