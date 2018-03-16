@@ -5,8 +5,7 @@
  */
 package ecrans;
 
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
 import java.util.ArrayList;
 /**
  *
@@ -20,8 +19,9 @@ public class Tracabilite extends javax.swing.JFrame {
     /**
      * Creates new form Tracabilite
      */
-    public Tracabilite() {
+    public Tracabilite(PersonnelHospitalier employe) {
         initComponents();
+        this.employe= employe;
         p=new ArrayList<String>();
     }
 
