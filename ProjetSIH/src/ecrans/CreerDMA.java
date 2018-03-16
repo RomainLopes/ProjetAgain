@@ -39,6 +39,15 @@ public class CreerDMA extends javax.swing.JFrame {
         modele.addElement("Hospitalisation");
         modele.addElement("Consultation");
         jComboBoxTypeSejour.setModel(modele);
+        
+         DefaultComboBoxModel sexModele = new DefaultComboBoxModel();
+        modele.addElement("A");
+        modele.addElement("F");
+        modele.addElement("M");
+        modele.addElement("O");
+        modele.addElement("U");
+
+        jComboBoxSexe.setModel(sexModele);
       
         
 
@@ -63,13 +72,13 @@ public class CreerDMA extends javax.swing.JFrame {
         jLabel2DateDeNaissance = new javax.swing.JLabel();
         jLabel1InfoPatients = new javax.swing.JLabel();
         jTextField1Nom = new javax.swing.JTextField();
-        jTextField4Sexe = new javax.swing.JTextField();
         jTextField4DDN1 = new javax.swing.JTextField();
         jTextField4Prenom = new javax.swing.JTextField();
         jLabel2Adresse = new javax.swing.JLabel();
         jLabel2Localisation = new javax.swing.JLabel();
         jTextFieldadresse = new javax.swing.JTextField();
         jTextField4Localisation = new javax.swing.JTextField();
+        jComboBoxSexe = new javax.swing.JComboBox<>();
         jPanel2CreationDMA = new javax.swing.JPanel();
         jLabel1NoSejour = new javax.swing.JLabel();
         jTextField1NoSejour = new javax.swing.JTextField();
@@ -117,13 +126,6 @@ public class CreerDMA extends javax.swing.JFrame {
 
         jTextField1Nom.setText("jTextField1");
 
-        jTextField4Sexe.setText("jTextField1");
-        jTextField4Sexe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4SexeActionPerformed(evt);
-            }
-        });
-
         jTextField4DDN1.setText("jTextField1");
 
         jTextField4Prenom.setText("jTextField1");
@@ -147,6 +149,8 @@ public class CreerDMA extends javax.swing.JFrame {
                 jTextField4LocalisationActionPerformed(evt);
             }
         });
+
+        jComboBoxSexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel3InfoPatientLayout = new javax.swing.GroupLayout(jPanel3InfoPatient);
         jPanel3InfoPatient.setLayout(jPanel3InfoPatientLayout);
@@ -174,8 +178,8 @@ public class CreerDMA extends javax.swing.JFrame {
                                 .addComponent(jTextField4DDN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jComboBoxSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,9 +201,9 @@ public class CreerDMA extends javax.swing.JFrame {
                     .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1Nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2Adresse, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldadresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldadresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1Prenom)
@@ -333,10 +337,6 @@ public class CreerDMA extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField4SexeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4SexeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4SexeActionPerformed
-
     private void jTextFieldadresseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldadresseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldadresseActionPerformed
@@ -367,7 +367,7 @@ public class CreerDMA extends javax.swing.JFrame {
 
         // ipp= YoYoxxxxx pour créer lenouveau et faire patient.setIpp(newIpp)
         
-       this.patient= new Patients("1800010", jTextField1Nom.getText(), jTextField4Prenom.getText(),jTextField4DDN1.getText(), jTextField4Localisation.getText(),jTextFieldadresse.getText(),jTextField4Sexe.getText());
+       this.patient= new Patients("1800010", jTextField1Nom.getText(), jTextField4Prenom.getText(),jTextField4DDN1.getText(), jTextField4Localisation.getText(),jTextFieldadresse.getText(),jComboBoxSexe.getSelectedItem().toString());
        if(PatientsDAO.create(patient)){
                        JOptionPane.showMessageDialog(null, "Le patient a bien été créé");
 
@@ -398,6 +398,7 @@ public class CreerDMA extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPrecedent2;
     private javax.swing.JButton jButtonValider;
+    private javax.swing.JComboBox<String> jComboBoxSexe;
     private javax.swing.JComboBox<String> jComboBoxTypeSejour;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1InfoPatients;
@@ -421,7 +422,6 @@ public class CreerDMA extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4DDN1;
     private javax.swing.JTextField jTextField4Localisation;
     private javax.swing.JTextField jTextField4Prenom;
-    private javax.swing.JTextField jTextField4Sexe;
     private javax.swing.JTextField jTextFieldNomph;
     private javax.swing.JTextField jTextFieldPrenomph;
     private javax.swing.JTextField jTextFieldadresse;

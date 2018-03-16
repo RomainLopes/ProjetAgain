@@ -58,8 +58,8 @@ public class PatientsDAO extends DAO<Patients> {
         }
 
     }
+   
 
-    @Override
     public ArrayList<Patients> findPatientNomPrenom(String nom, String prenom) {
         ArrayList<Patients> pat = new ArrayList<Patients>();
         String Query = new String();

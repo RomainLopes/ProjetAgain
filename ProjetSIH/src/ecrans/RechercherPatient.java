@@ -8,7 +8,6 @@ package ecrans;
 import GestionBDD.*;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import GestionBDD.ResultatsDAO;
 import javax.swing.JFrame;
 
 /**
@@ -29,6 +28,7 @@ public class RechercherPatient extends javax.swing.JFrame {
     public RechercherPatient(PersonnelHospitalier ph) {
         initComponents();
         phr = ph;
+        lipat = new ArrayList<Patients>();
 
         jLabelNom.setText(ph.getNomph());
         jLabelPrenom.setText(ph.getPrenomph());
@@ -250,8 +250,12 @@ public class RechercherPatient extends javax.swing.JFrame {
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
         ArrayList<String> resultatAffiche = new ArrayList<String>();
 
-        lipat = PatientsDAO.findPatientNomPrenomService(jTextFieldNom.getText(), jTextFieldPrenom.getText(), jLabelService.getText());
+        if (phr.getService()== "Administration"){
+                    lipat = PatientsDAO.findPatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
 
+        } else{
+        lipat = PatientsDAO.findPatientNomPrenomService(jTextFieldNom.getText(), jTextFieldPrenom.getText(), jLabelService.getText());
+        }
         for (int i = 0; i < lipat.size(); i++) {
             resultatAffiche.add(lipat.get(i).getNompatient() + "  " + lipat.get(i).getPrenompatient() + "   " + lipat.get(i).getDateDeNaissance());
         }
