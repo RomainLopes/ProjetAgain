@@ -113,7 +113,7 @@ public class PatientsDAO extends DAO<Patients> {
         }
 
         try {
-            System.out.println(Query);
+          
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet result = state.executeQuery(Query);
