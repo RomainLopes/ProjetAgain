@@ -12,16 +12,9 @@ import GestionBDD.DossierMedicoAdministratifDAO;
 import GestionBDD.Patients;
 import GestionBDD.PatientsDAO;
 import GestionBDD.PersonnelHospitalier;
-import GestionBDD.PersonnelHospitalierDAO;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import projetsih.PHospitalier;
-import projetsih.Patient;
-//import projetsih.RecherchePatient;
-import projetsih.SAdm;
 
 /**
  *

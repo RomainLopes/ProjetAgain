@@ -74,20 +74,30 @@ public class PatientsDAO extends DAO<Patients> {
      * @return
      */
     @Override
-    public ArrayList<Patients> findPatientNomPrenom(String nom, String prenom) {
+    public ArrayList<Patients> findPatientNomPrenomService(String nom, String prenom, String service) {
         ArrayList<Patients> pat = new ArrayList<Patients>();
         String Query = new String();
 
         if (nom.equals("")) {
-            Query = "SELECT * FROM patients WHERE patients.prenompatient = '" + prenom + "'";
+            Query = "SELECT patients.* FROM patients INNER JOIN dossiermedical "
+                    + "ON patients.ipp = dossiermedical.ipp "
+                    + "WHERE patients.prenompatient = '" + prenom + "' "
+                    + "AND (dossiermedical.service = '" + service + "' or dossiermedical.correspondance = '" + service + "' )";
         } else if (prenom.equals("")) {
-            Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'";
+            Query = "SELECT patients.* FROM patients INNER JOIN dossiermedical "
+                    + "ON patients.ipp = dossiermedical.ipp "
+                    + "WHERE patients.nompatient = '" + nom + "' "
+                    + "AND (dossiermedical.service = '" + service + "' or dossiermedical.correspondance = '" + service + "' )";
         } else {
-            Query = "SELECT * FROM patients WHERE patients.nompatient = '" + nom + "'" + " AND patients.prenompatient = '" + prenom + "'";
+            Query = "SELECT patients.* FROM patients INNER JOIN dossiermedical "
+                    + "ON patients.ipp = dossiermedical.ipp "
+                    + "WHERE patients.nompatient = '" + nom + "' " 
+                    + "AND patients.prenompatient = '" + prenom + "' "
+                    + "AND (dossiermedical.service = '" + service + "' or dossiermedical.correspondance = '" + service + "' )";
         }
 
         try {
-
+            System.out.println(Query);
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet result = state.executeQuery(Query);
@@ -134,7 +144,7 @@ public class PatientsDAO extends DAO<Patients> {
         String Query = new String();
         Query = "SELECT patients.* FROM patients INNER JOIN dossiermedical "
                 + "ON patients.ipp = dossiermedical.ipp  WHERE patients.ipp = '{" + ipp + "}' "
-                + "and (dossiermedical.service = '" + service + "' or dossiermedical.correspondance = '" + service + "' )";
+                + "AND (dossiermedical.service = '" + service + "' or dossiermedical.correspondance = '" + service + "' )";
 
         try {
 

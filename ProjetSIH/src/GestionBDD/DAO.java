@@ -74,7 +74,7 @@ public abstract class DAO<T> {
          * @param prenom
          * @return 
          */
-    public ArrayList<T> findPatientNomPrenom(String nom, String prenom) {
+    public ArrayList<T> findPatientNomPrenomService(String nom, String prenom, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
