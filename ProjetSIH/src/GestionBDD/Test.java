@@ -134,11 +134,11 @@ public class Test {
         System.out.println("is empty");
         }
          */
- /*
+ 
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
-        ArrayList<Patients> patients = PatientsDAO.find("180000001", "Cardiologie");
-        System.out.println(patients.get(0).getNompatient() +"   " + patients.get(0).getPrenompatient());
-         */
+        ArrayList<Patients> patients = PatientsDAO.find("180000006", "Cardiologie");
+        System.out.println(patients.get(0).getNompatient() + patients.get(0).getPrenompatient());
+         
  /*
         PrescriptionsDAO dmadao = new PrescriptionsDAO(BDDconnection.getInstance());
         ArrayList<Prescriptions> dm = dmadao.findser("180000005","180200005","Urologie");
@@ -184,7 +184,7 @@ public class Test {
         dmdao.updateIpp("180000001", "123456789");
 */
         
-        
+        /*
         DossierMedicoAdministratifDAO dmdao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         dmdao.updateIpp("123456789", "180000001");
         ArrayList<DossierMedicoAdministratif> dm = dmdao.findSer("123456789", "180100001", "Cardiologie");// à modif
@@ -197,7 +197,7 @@ public class Test {
         ArrayList<LettreDeSortie> lds = ldsdao.find("123456789", "180100001");// a modif
         System.out.println(lds.get(0).getIpp() + "   " + lds.get(0).getLettre());
         dmdao.updateIpp("180000001", "123456789");
-        
+        */
     }
 
 }
