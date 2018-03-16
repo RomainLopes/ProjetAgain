@@ -17,7 +17,6 @@ import GestionBDD.DossierMedical;
 import GestionBDD.DossierMedicoAdministratif;
 import javax.swing.DefaultComboBoxModel;
 
-
 /**
  *
  * @author lisad
@@ -27,25 +26,22 @@ public class CreerDM extends javax.swing.JFrame {
     private static PersonnelHospitalier employe;
     private static Patients patient;
     private PersonnelHospitalier phRespo;
-        private static DossierMedicoAdministratif dma;
-
+    private static DossierMedicoAdministratif dma;
 
     /**
      * Creates new form CreerDM
      */
-    public CreerDM(PersonnelHospitalier employe,Patients patient) {
+    public CreerDM(PersonnelHospitalier employe, Patients patient) {
         initComponents();
         this.patient = patient;
 
         this.employe = employe;
-         DefaultComboBoxModel modele = new DefaultComboBoxModel();
-        modele.addElement("A F M O U");
+        DefaultComboBoxModel modele = new DefaultComboBoxModel();
+        modele.addElement("A");
         modele.addElement("F");
-                modele.addElement("M");
-                        modele.addElement("O");
-                                modele.addElement("");
-
-
+        modele.addElement("M");
+        modele.addElement("O");
+        modele.addElement("U");
 
         jComboBoxSexe.setModel(modele);
 
@@ -279,14 +275,14 @@ public class CreerDM extends javax.swing.JFrame {
         // TODO add your handling code here:
         //String ipp, String nosejour, String service, String correspondance 
         // Recuperer le no sejour 
-                DossierMedical dm = new DossierMedical(patient.getIpp(), dma.getNosejour(),jTextField1Service.getText(),"");
-                
+        DossierMedical dm = new DossierMedical(patient.getIpp(), dma.getNosejour(), jTextField1Service.getText(), "");
+
         DAO<DossierMedical> DossierMedicalDAO = new DossierMedicalDAO(BDDconnection.getInstance());
-        if (        DossierMedicalDAO.create(dm)){
-                               JOptionPane.showMessageDialog(null, "Le dossier médical a bien été créé");
-       }else {
+        if (DossierMedicalDAO.create(dm)) {
+            JOptionPane.showMessageDialog(null, "Le dossier médical a bien été créé");
+        } else {
             JOptionPane.showMessageDialog(null, " Le dossier médical n'a pas pu être créé. Veillez recommencer.");
-       }
+        }
 
         /*
         SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
