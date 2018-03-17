@@ -206,15 +206,18 @@ public class Test {
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
         System.out.println(PatientsDAO.createIpp());
         */
- /*
+ 
         DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(DossierMedicoAdministratifDAO.createNumeroSejour());
-*/
+
+ 
+        DAO<DossierMedicoAdministratif> nosejour = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        System.out.println(nosejour.getDernierNumeroSejour("180000001"));
+
  /*
         DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
         System.out.println(PrescriptionsDAO.createIdPrescription("180000003"));
         */
- 
         
     }
 

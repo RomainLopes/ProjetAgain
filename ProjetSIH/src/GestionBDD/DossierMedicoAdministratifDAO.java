@@ -25,24 +25,45 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
     }
 
     @Override
-    public String createNumeroSejour() {
-        
+    public String getDernierNumeroSejour(String ipp) {
+        String nosejour = "";
+
         String Query;
-        
+        Query = "SELECT max(nosejour) FROM dma WHERE ipp ='{" + ipp + "}'";
+
+        try {
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet result = state.executeQuery(Query);
+
+            if (result.next()) {
+                nosejour = result.getString(1);
+            }
+            return nosejour;
+        } catch (SQLException e) {
+            return nosejour;
+        }
+    }
+
+    @Override
+    public String createNumeroSejour() {
+
+        String Query;
+
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(new Date());
-        
+
         int annee = calendar.get(Calendar.YEAR);
         String anneestr = String.valueOf(annee).substring(2, 4);
-        
+
         int mois = calendar.get(Calendar.MONTH);
         String moisstr;
-        if (String.valueOf(mois).length() == 1){
+        if (String.valueOf(mois).length() == 1) {
             moisstr = "0" + String.valueOf(mois);
-        }else{
+        } else {
             moisstr = String.valueOf(mois);
         }
-        
+
         String nosejour = anneestr + moisstr + "00000";
 
         Query = "select max(nosejour) from dma where nosejour >= '" + nosejour + "'";
@@ -56,9 +77,9 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
                 int intNosejour;
                 nosejour = result.getString(1);
 
-                intNosejour = Integer.parseInt(nosejour); 
+                intNosejour = Integer.parseInt(nosejour);
                 intNosejour++;
-                
+
                 nosejour = String.valueOf(intNosejour);
 
                 result.close();
@@ -70,7 +91,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
             return nosejour;
         }
     }
-    
+
     @Override
     public boolean create(DossierMedicoAdministratif obj) {
         String Query = new String();

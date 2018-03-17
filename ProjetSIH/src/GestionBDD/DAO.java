@@ -155,5 +155,15 @@ public abstract class DAO<T> {
      public String createIdPrescription(String ipp) {
          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
      }
+     
+     /**
+      * Méthode qui renvoit le dernier numéro de séjour du patient identifié
+      * par son ipp
+      * @param ipp
+      * @return 
+      */
+      public String getDernierNumeroSejour(String ipp){
+          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      }
 
 }
