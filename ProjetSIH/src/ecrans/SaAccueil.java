@@ -210,7 +210,7 @@ public class SaAccueil extends javax.swing.JFrame {
     private void jButtonCreeDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreeDMAActionPerformed
         // TODO add your handling code here:
         
-        CreerDMA dma = new CreerDMA(employe);
+        CreerDMA dma = new CreerDMA(employe,this);
         dma.setSize(this.getSize());
         dma.setLocationRelativeTo(this);
         this.dispose();
@@ -237,7 +237,7 @@ public class SaAccueil extends javax.swing.JFrame {
 
     private void jButtonFusionnerDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFusionnerDMAActionPerformed
         // TODO add your handling code here:
-        FusionnerDossierUrgence fusion = new FusionnerDossierUrgence(employe);
+        FusionnerDossierUrgence fusion = new FusionnerDossierUrgence(employe,this);
         fusion.setSize(this.getSize());
         fusion.setLocationRelativeTo(this);
         this.dispose();

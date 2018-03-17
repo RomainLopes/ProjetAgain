@@ -9,6 +9,7 @@ import GestionBDD.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,16 +20,18 @@ public class CreerNosejour extends javax.swing.JFrame {
        private static PersonnelHospitalier employe;
     private static Patients patient;
            private  PersonnelHospitalier phRespo;
+           private JFrame fenetrePre;
    private String dateDuJour = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
 
 
     /**
      * Creates new form CreerNosejour
      */
-    public CreerNosejour(PersonnelHospitalier employe, Patients patient) {
+    public CreerNosejour(PersonnelHospitalier employe, Patients patient, JFrame fenetre) {
         initComponents();
          this.employe = employe;
          this.patient= patient;
+         fenetrePre=fenetre;
         DefaultComboBoxModel modele = new DefaultComboBoxModel();
         modele.addElement("Hospitalisation");
         modele.addElement("Consultation");
@@ -185,21 +188,11 @@ public class CreerNosejour extends javax.swing.JFrame {
         jLabel2Localisation.setText("Localisation :");
 
         jTextField4Localisation.setText("jTextField1");
-        jTextField4Localisation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4LocalisationActionPerformed(evt);
-            }
-        });
 
         jLabel1NoSejour.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1NoSejour.setText("Numéro de séjour : ");
 
         jTextField1NoSejour.setText("jTextField1");
-        jTextField1NoSejour.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1NoSejourActionPerformed(evt);
-            }
-        });
 
         jLabel3Type.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3Type.setText("Type :");
@@ -301,16 +294,11 @@ public class CreerNosejour extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonPrecedent2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedent2ActionPerformed
-        // TODO add your handling code here:
+             fenetrePre.setVisible(true);
+ fenetrePre.setSize(this.getSize());
+        fenetrePre.setLocationRelativeTo(this);
+        this.dispose();
     }//GEN-LAST:event_jButtonPrecedent2ActionPerformed
-
-    private void jTextField4LocalisationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4LocalisationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4LocalisationActionPerformed
-
-    private void jTextField1NoSejourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1NoSejourActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1NoSejourActionPerformed
 
     private void jComboBoxTypeSejourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTypeSejourActionPerformed
         // TODO add your handling code here:

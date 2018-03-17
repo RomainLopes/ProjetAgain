@@ -617,7 +617,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
     private void ajouterPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescriptionActionPerformed
         // TODO add your handling code here:
-         NewPrescription obs = new NewPrescription(employe,patient);
+         NewPrescription obs = new NewPrescription(employe,patient,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -626,7 +626,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
     private void ConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMActionPerformed
         // TODO add your handling code here:
-        ConsulterDM dm = new ConsulterDM (employe, patient );
+        ConsulterDM dm = new ConsulterDM (employe, patient, this );
                     dm.setSize(this.getSize());
                     dm.setLocationRelativeTo(this);
                     this.dispose();
@@ -636,7 +636,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
 int taille = prescription.size();
 String idPrescription= prescription.get(taille).getIdprescription();
-        NewResultat obs = new NewResultat(employe,patient,idPrescription);
+        NewResultat obs = new NewResultat(employe,patient,idPrescription,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -645,7 +645,7 @@ String idPrescription= prescription.get(taille).getIdprescription();
 
     private void ajouterObservationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationsActionPerformed
         // TODO add your handling code here:
-         NewObservations obs = new NewObservations(employe,patient);
+         NewObservations obs = new NewObservations(employe,patient,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

@@ -156,6 +156,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Pr&#xe9;c&#xe9;dent"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPrecedentActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel7">
 

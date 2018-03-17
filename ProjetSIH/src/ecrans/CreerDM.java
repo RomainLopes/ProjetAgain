@@ -5,11 +5,7 @@
  */
 package ecrans;
 
-import GestionBDD.BDDconnection;
-import GestionBDD.DAO;
-import GestionBDD.DossierMedicalDAO;
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
@@ -19,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
 
 /**
  *
@@ -31,15 +28,16 @@ public class CreerDM extends javax.swing.JFrame {
     private PersonnelHospitalier phRespo;
     private static DossierMedicoAdministratif dma;
     String dateDuJour = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
+    private final JFrame fenetrePre;
 
     /**
      * Creates new form CreerDM
      */
-    public CreerDM(PersonnelHospitalier employe, Patients patient) {
+    public CreerDM(PersonnelHospitalier employe, Patients patient, JFrame previous) {
         initComponents();
         this.patient = patient;
-
         this.employe = employe;
+        fenetrePre=previous;
         DefaultComboBoxModel modele = new DefaultComboBoxModel();
         modele.addElement("A");
         modele.addElement("F");
@@ -302,7 +300,10 @@ public class CreerDM extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
     private void jButtonPrecedent2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedent2ActionPerformed
-        // TODO add your handling code here:
+             fenetrePre.setVisible(true);
+ fenetrePre.setSize(this.getSize());
+        fenetrePre.setLocationRelativeTo(this);
+        this.dispose();
     }//GEN-LAST:event_jButtonPrecedent2ActionPerformed
 
 

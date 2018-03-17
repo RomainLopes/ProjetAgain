@@ -26,11 +26,13 @@ public class ConsulterDM extends javax.swing.JFrame {
     private ArrayList<String> test; // ici ce sont les infos du patient
     private JFrame fenetrePrecedente;
     private static DossierMedicoAdministratif dmaCourrant;
+    private final JFrame fenetre;
 
                                                                                                                                            
-    public ConsulterDM(PersonnelHospitalier employe, Patients patient/*   JFrame previous*/) {
+    public ConsulterDM(PersonnelHospitalier employe, Patients patient, JFrame previous) {
         initComponents();
         this.employe = employe/*previous.getEmploye()*/;
+        this.fenetre= previous;
         /*   if(employe.getFonction== "")
         RechercherPatient name = (RechercherPatient) previous;
         this.fenetrePrecedente= previous;
@@ -441,7 +443,10 @@ public class ConsulterDM extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
-        // TODO add your handling code here:
+fenetre.setVisible(true);
+        fenetre.setSize(this.getSize());
+        fenetre.setLocationRelativeTo(this);
+        this.dispose();        
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
 

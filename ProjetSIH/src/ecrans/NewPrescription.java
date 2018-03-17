@@ -7,6 +7,7 @@ package ecrans;
 
 import GestionBDD.*;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,17 +18,24 @@ public class NewPrescription extends javax.swing.JFrame {
    private static PersonnelHospitalier employe;
     private static Patients patient;
     private DossierMedicoAdministratif dma;
-
+private JFrame fenetre;
 
     /**
      * Creates new form NewPrescription
      */
-    public NewPrescription(PersonnelHospitalier personnel, Patients patient) {
+    public NewPrescription(PersonnelHospitalier personnel, Patients patient, JFrame fenetre) {
         initComponents();
         this.patient=patient;
         employe= personnel;
+        this.fenetre=fenetre;
+        
         jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(personnel.getService());
+        
+                jLabel1Nomp.setText(patient.getNompatient());
+        jLabel2PrenomP.setText(patient.getPrenompatient());
+        jLabel3Sexep.setText(patient.getSexe());
+        jLabel4DateP.setText(patient.getDateDeNaissance());
     }
 
     /**
@@ -282,9 +290,13 @@ public class NewPrescription extends javax.swing.JFrame {
         Prescriptions presc ;
          //String ipp,String nosejour,String idprescription,String dateprescription,String prescription,String service
         presc = new Prescriptions(patient.getIpp(), dma.getNosejour(),idPrescription,jTextFieldDate.getText(),jTextFieldPrescription.getText(),employe.getService());
-        
-         if (PrescriptionsDAO.create(presc)){
+        boolean ok =PrescriptionsDAO.create(presc) ;
+         if (ok){
                                JOptionPane.showMessageDialog(null, "La nouvelle prescription a bien été créée");
+                                fenetre.setSize(this.getSize());
+            fenetre.setLocationRelativeTo(this);
+            this.dispose();
+            fenetre.setVisible(true);
                                
        }else {
             JOptionPane.showMessageDialog(null, " La nouvelle prescription n'a pas pu être créée. Veillez recommencer.");
@@ -292,7 +304,11 @@ public class NewPrescription extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1CreerActionPerformed
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
-        // TODO add your handling code here:
+ fenetre.setVisible(true);
+        fenetre.setSize(this.getSize());
+            fenetre.setLocationRelativeTo(this);
+            this.dispose();
+           
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
 

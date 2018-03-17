@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,10 +28,12 @@ public class CreerDMA extends javax.swing.JFrame {
     private String typeSejour;
     private PersonnelHospitalier phRespo; // à rechercher et renseigner en bas 
     String dateDuJour = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
+    private JFrame fenetre;
 
-    public CreerDMA(PersonnelHospitalier employe) {
+    public CreerDMA(PersonnelHospitalier employe, JFrame fenetre) {
         initComponents();
         this.employe = employe;
+        this.fenetre= fenetre;
         DefaultComboBoxModel modele = new DefaultComboBoxModel();
         modele.addElement("Hospitalisation");
         modele.addElement("Consultation");
@@ -355,7 +358,10 @@ public class CreerDMA extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1NoSejourActionPerformed
 
     private void jButtonPrecedent2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedent2ActionPerformed
-        // TODO add your handling code here:
+fenetre.setVisible(true);
+ fenetre.setSize(this.getSize());
+        fenetre.setLocationRelativeTo(this);
+        this.dispose();
     }//GEN-LAST:event_jButtonPrecedent2ActionPerformed
 
     private void jComboBoxTypeSejourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTypeSejourActionPerformed

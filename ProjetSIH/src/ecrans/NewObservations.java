@@ -7,6 +7,7 @@ package ecrans;
 
 import GestionBDD.*;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,16 +19,26 @@ public class NewObservations extends javax.swing.JFrame {
     private static PersonnelHospitalier employe;
     private static Patients patient;
     private static DossierMedicoAdministratif dma;
+    JFrame fenetrePre;
 
     /**
      * Creates new form NewObservations
+     * @param personnel
+     * @param patient
+     * @param previous
      */
-    public NewObservations(PersonnelHospitalier personnel, Patients patient) {
+    public NewObservations(PersonnelHospitalier personnel, Patients patient, JFrame previous) {
         initComponents();
-        this.patient = patient;
+        NewObservations.patient = patient;
+        fenetrePre = previous;
         employe = personnel;
         jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(personnel.getService());
+
+        jLabel1Nomp.setText(patient.getNompatient());
+        jLabel2PrenomP.setText(patient.getPrenompatient());
+        jLabel3Sexep.setText(patient.getSexe());
+        jLabel4DateP.setText(patient.getDateDeNaissance());
     }
 
     /**
@@ -298,25 +309,35 @@ public class NewObservations extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1CreerActionPerformed
-DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-String noSejour=DossierMedicoAdministratifDAO.getDernierNumeroSejour(patient.getIpp());
-
-dma = DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).get(0);
+        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(patient.getIpp());
         System.out.println(DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).size());
+
+        DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).forEach((j) -> {
+            dma =j;
+        });
 
         Observations obs;
         obs = new Observations(patient.getIpp(), dma.getNosejour(), dma.getIdph(), jTextFieldDateP.getText(), employe.getService(), jTextFieldNomObservationP.getText(), jTextFieldObservationP.getText());
         DAO<Observations> ObservationsDAO = new ObservationsDAO(BDDconnection.getInstance());
-
-        if (ObservationsDAO.create(obs)) {
+        boolean ok = ObservationsDAO.create(obs);
+        if (ok) {
             JOptionPane.showMessageDialog(null, "La nouvelle observation a bien été créée");
+            fenetrePre.setVisible(true);
+            fenetrePre.setSize(this.getSize());
+            fenetrePre.setLocationRelativeTo(this);
+            this.dispose();
+            fenetrePre.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, " La nouvelle observation n'a pas pu être créée. Veillez recommencer.");
         }
     }//GEN-LAST:event_jButton1CreerActionPerformed
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
-        // TODO add your handling code here:
+      fenetrePre.setVisible(true);
+ fenetrePre.setSize(this.getSize());
+        fenetrePre.setLocationRelativeTo(this);
+        this.dispose();
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
     private void jTextFieldDatePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDatePActionPerformed

@@ -487,7 +487,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
-        NewObservations obs = new NewObservations(employe,patient);
+        NewObservations obs = new NewObservations(employe,patient,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -495,12 +495,11 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_ajouterObservationActionPerformed
 
     private void ajouterOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterOperationActionPerformed
-        // TODO add your handling code here:
-         NewObservations obs = new NewObservations(employe,patient);
-        obs.setSize(this.getSize());
-        obs.setLocationRelativeTo(this);
+         NewOperation ope = new NewOperation(employe,patient,this);
+        ope.setSize(this.getSize());
+        ope.setLocationRelativeTo(this);
         this.dispose();
-        obs.setVisible(true);
+        ope.setVisible(true);
     }//GEN-LAST:event_ajouterOperationActionPerformed
 
     private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed

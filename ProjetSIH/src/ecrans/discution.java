@@ -15,6 +15,7 @@ import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -34,12 +35,13 @@ public class discution extends javax.swing.JFrame {
      */
     ArrayList<String> pat = new ArrayList();
     ArrayList<String> patients = new ArrayList();
-    
-    String ja, jaN;
+    private final JFrame previous;
+            String ja, jaN;
     
 
-    public discution() {
+    public discution(JFrame previous) {
         initComponents();
+        this.previous=previous;
         ja= "{bonjour je m'appelle orphee}";
  jaN=ja.substring(1, ja.length()-1);
       /* for (int i=1; i< ja.length();i++){
@@ -257,7 +259,7 @@ jList2.setModel(modele);
 
     private void jButtonOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOkActionPerformed
         // TODO add your handling code here:
-        Date dates= new Date();
+     /*   Date dates= new Date();
 
        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String s = jFormattedTextField1.getText();
@@ -272,7 +274,11 @@ jList2.setModel(modele);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Exception");
-        }
+        }*/
+     previous.setVisible(true);
+          previous.setSize(this.getSize());
+        previous.setLocationRelativeTo(this);
+        this.dispose();
       
     }//GEN-LAST:event_jButtonOkActionPerformed
 
@@ -304,10 +310,11 @@ jList2.setModel(modele);
         //</editor-fold>
 
         /* Create and display the form */
+        JFrame fenetre= new JFrame();
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new discution().setVisible(true);
+                new discution(fenetre).setVisible(true);
             }
         });
     }

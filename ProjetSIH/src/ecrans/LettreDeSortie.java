@@ -6,6 +6,7 @@
 package ecrans;
 
 import GestionBDD.*;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,17 +17,18 @@ public class LettreDeSortie extends javax.swing.JFrame {
       private static PersonnelHospitalier employe;
     private static Patients patient;
         private DossierMedicoAdministratif dma;
+        private final JFrame fenetre;
 
 
 
     /**
      * Creates new form exemple
      */
-    public LettreDeSortie(PersonnelHospitalier personnel,Patients patient) {
+    public LettreDeSortie(PersonnelHospitalier personnel,Patients patient, JFrame fenetre) {
         initComponents();
         employe=personnel;
         this.patient=patient;
-       // JScrollPane je=new JScrollPane();
+        this.fenetre= fenetre;
   
     }
 
@@ -84,6 +86,11 @@ public class LettreDeSortie extends javax.swing.JFrame {
         jButtonPrecedent.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jButtonPrecedent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Bouton précedent.PNG"))); // NOI18N
         jButtonPrecedent.setText("Précédent");
+        jButtonPrecedent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPrecedentActionPerformed(evt);
+            }
+        });
 
         jLabel3Sexep4.setText("jLabel1");
 
@@ -234,61 +241,28 @@ public class LettreDeSortie extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
+             fenetre.setVisible(true);
+ fenetre.setSize(this.getSize());
+        fenetre.setLocationRelativeTo(this);
+        this.dispose();
+    }//GEN-LAST:event_jButtonPrecedentActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonPrecedent;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel1InfoPatients;
-    private javax.swing.JLabel jLabel1InfoPatients1;
-    private javax.swing.JLabel jLabel1InfoPatients2;
-    private javax.swing.JLabel jLabel1InfoPatients3;
     private javax.swing.JLabel jLabel1InfoPatients4;
-    private javax.swing.JLabel jLabel1Nomp;
-    private javax.swing.JLabel jLabel1Nomp1;
-    private javax.swing.JLabel jLabel1Nomp2;
-    private javax.swing.JLabel jLabel1Nomp3;
     private javax.swing.JLabel jLabel1Nomp4;
-    private javax.swing.JLabel jLabel1Prenom;
-    private javax.swing.JLabel jLabel1Prenom1;
-    private javax.swing.JLabel jLabel1Prenom2;
-    private javax.swing.JLabel jLabel1Prenom3;
     private javax.swing.JLabel jLabel1Prenom4;
-    private javax.swing.JLabel jLabel2DateDeNaissance;
-    private javax.swing.JLabel jLabel2DateDeNaissance1;
-    private javax.swing.JLabel jLabel2DateDeNaissance2;
-    private javax.swing.JLabel jLabel2DateDeNaissance3;
     private javax.swing.JLabel jLabel2DateDeNaissance4;
-    private javax.swing.JLabel jLabel2Nom;
-    private javax.swing.JLabel jLabel2Nom1;
-    private javax.swing.JLabel jLabel2Nom2;
-    private javax.swing.JLabel jLabel2Nom3;
     private javax.swing.JLabel jLabel2Nom4;
-    private javax.swing.JLabel jLabel2PrenomP;
-    private javax.swing.JLabel jLabel2PrenomP1;
-    private javax.swing.JLabel jLabel2PrenomP2;
-    private javax.swing.JLabel jLabel2PrenomP3;
     private javax.swing.JLabel jLabel2PrenomP4;
-    private javax.swing.JLabel jLabel2Sexe;
-    private javax.swing.JLabel jLabel2Sexe1;
-    private javax.swing.JLabel jLabel2Sexe2;
-    private javax.swing.JLabel jLabel2Sexe3;
     private javax.swing.JLabel jLabel2Sexe4;
-    private javax.swing.JLabel jLabel3Sexep;
-    private javax.swing.JLabel jLabel3Sexep1;
-    private javax.swing.JLabel jLabel3Sexep2;
-    private javax.swing.JLabel jLabel3Sexep3;
     private javax.swing.JLabel jLabel3Sexep4;
-    private javax.swing.JLabel jLabel4DateP;
-    private javax.swing.JLabel jLabel4DateP1;
-    private javax.swing.JLabel jLabel4DateP2;
-    private javax.swing.JLabel jLabel4DateP3;
     private javax.swing.JLabel jLabel4DateP4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaLettre;

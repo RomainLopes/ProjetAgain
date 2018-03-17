@@ -31,6 +31,7 @@ public class ConsulterObservation extends javax.swing.JFrame {
         jLabelNomObservationP.setText(observation.getNomacte()) ;
         jLabelDateP.setText(observation.getDateObservation());
         jLabel4Service.setText(employe.getService());
+       
         
     }
 
@@ -285,7 +286,10 @@ public class ConsulterObservation extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3IPPMouseClicked
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
-
+     fenetrePrecedente.setVisible(true);
+ fenetrePrecedente.setSize(this.getSize());
+        fenetrePrecedente.setLocationRelativeTo(this);
+        this.dispose();
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

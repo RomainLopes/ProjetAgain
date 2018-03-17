@@ -8,6 +8,7 @@ package ecrans;
 import GestionBDD.*;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 /**
  *
  * @author lisad
@@ -19,16 +20,18 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
     private static Patients patient;
            ArrayList<Patients> lipat ;
                DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
+               private final JFrame fenetrePre;
 
 
 
     /**
      * Creates new form FusionnerDossierUrgence
      */
-    public FusionnerDossierUrgence(PersonnelHospitalier employe) {
+    public FusionnerDossierUrgence(PersonnelHospitalier employe,JFrame fenetre) {
         initComponents();
         this.employe=employe;
         lipat = new ArrayList<Patients>();
+        fenetrePre= fenetre;
         
     }
 

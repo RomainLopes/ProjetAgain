@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,11 +26,12 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
 
     private static PersonnelHospitalier employe;
     private static Patients patient;
+    private final JFrame fenetrePrecedente;
     
-    public CreationDMAtemporaire(PersonnelHospitalier employe) {
+    public CreationDMAtemporaire(PersonnelHospitalier employe, JFrame previous) {
         initComponents();
         this.employe= employe;
-        
+        fenetrePrecedente = previous;
           DefaultComboBoxModel sexModele = new DefaultComboBoxModel();
         sexModele.addElement("A");
         sexModele.addElement("F");
@@ -270,6 +272,10 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
         // TODO add your handling code here:
+             fenetrePrecedente.setVisible(true);
+ fenetrePrecedente.setSize(this.getSize());
+        fenetrePrecedente.setLocationRelativeTo(this);
+        this.dispose();
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
     private void jButtonValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonValiderMouseClicked

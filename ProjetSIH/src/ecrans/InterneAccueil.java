@@ -391,7 +391,7 @@ public class InterneAccueil extends javax.swing.JFrame {
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
         // TODO add your handling code here:
-         NewObservations obs = new NewObservations(employe,patient);
+         NewObservations obs = new NewObservations(employe,patient,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

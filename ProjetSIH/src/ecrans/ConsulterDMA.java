@@ -296,7 +296,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
 
     private void jListNoSejourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListNoSejourMouseClicked
         // TODO add your handling code here:
-        NoSejour id = new NoSejour(employe, patient);
+        NoSejour id = new NoSejour(employe, patient,this);
         id.setSize(this.getSize());
         id.setLocationRelativeTo(this);
         id.setVisible(true);
@@ -305,7 +305,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
 
     private void jListTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListTypeMouseClicked
         // TODO add your handling code here:
-        NoSejour id = new NoSejour(employe, patient);
+        NoSejour id = new NoSejour(employe, patient,this);
         id.setSize(this.getSize());
         id.setLocationRelativeTo(this);
         id.setVisible(true);
@@ -314,7 +314,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
 
     private void jListDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListDateMouseClicked
         // TODO add your handling code here:
-        NoSejour id = new NoSejour(employe, patient);
+        NoSejour id = new NoSejour(employe, patient,this);
         id.setSize(this.getSize());
         id.setLocationRelativeTo(this);
         id.setVisible(true);

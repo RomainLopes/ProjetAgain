@@ -583,7 +583,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
     private void EcrireLettreSortie1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EcrireLettreSortie1ActionPerformed
         // TODO add your handling code here:
-         LettreDeSortie obs = new LettreDeSortie(employe,patient);
+         LettreDeSortie obs = new LettreDeSortie(employe,patient,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -592,7 +592,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
         // TODO add your handling code here:
-         NewObservations obs = new NewObservations(employe,patient);
+         NewObservations obs = new NewObservations(employe,patient,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -601,7 +601,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
     private void ajouterPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescriptionActionPerformed
         // TODO add your handling code here:
-         NewPrescription obs = new NewPrescription(employe,patient);
+         NewPrescription obs = new NewPrescription(employe,patient,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -647,7 +647,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
     private void ConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMActionPerformed
         // TODO add your handling code here:
-        ConsulterDM dm = new ConsulterDM(employe,patient);
+        ConsulterDM dm = new ConsulterDM(employe,patient,this);
         dm.setSize(this.getSize());
         dm.setLocationRelativeTo(this);
         this.dispose();
@@ -656,7 +656,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
     private void ConsulterDM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDM1ActionPerformed
         // TODO add your handling code here:
-        ConsulterDM dm = new ConsulterDM(employe,patient);
+        ConsulterDM dm = new ConsulterDM(employe,patient,this);
         dm.setSize(this.getSize());
         dm.setLocationRelativeTo(this);
         this.dispose();

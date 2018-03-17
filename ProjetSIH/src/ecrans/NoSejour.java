@@ -7,6 +7,7 @@ package ecrans;
 
 import GestionBDD.Patients;
 import GestionBDD.PersonnelHospitalier;
+import javax.swing.JFrame;
 
 /**
  *
@@ -15,14 +16,16 @@ import GestionBDD.PersonnelHospitalier;
 public class NoSejour extends javax.swing.JFrame {
       private static PersonnelHospitalier employe;
     private static Patients patient;
+    private JFrame fenetre;
 
     /**
      * Creates new form NoSejour
      */
-    public NoSejour(PersonnelHospitalier personnel, Patients patient) {
+    public NoSejour(PersonnelHospitalier personnel, Patients patient, JFrame fenetre) {
         initComponents();
         this.patient= patient;
         employe=personnel;
+        this.fenetre= fenetre;
         
           jLabel1Nomp.setText(patient.getNompatient());
         jLabel2PrenomP.setText(patient.getPrenompatient());
@@ -266,7 +269,10 @@ public class NoSejour extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
-        // TODO add your handling code here:
+fenetre.setVisible(true);
+        fenetre.setSize(this.getSize());
+            fenetre.setLocationRelativeTo(this);
+            this.dispose();
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
    

@@ -210,7 +210,7 @@ public class SmAccueil extends javax.swing.JFrame {
 
     private void jButtonCreeDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreeDMActionPerformed
         // TODO add your handling code here:
-        CreerDM rechercher = new CreerDM(employe,patient);
+        CreerDM rechercher = new CreerDM(employe,patient,this);
                     rechercher.setSize(this.getSize());
                     rechercher.setLocationRelativeTo(this);
                     this.dispose();

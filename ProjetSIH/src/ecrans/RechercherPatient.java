@@ -163,7 +163,7 @@ public class RechercherPatient extends javax.swing.JFrame {
         });
 
         jListpatients.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -340,7 +340,7 @@ public class RechercherPatient extends javax.swing.JFrame {
         if (x == true && "Secretaire medicale".equals(phr.getFonction())) {
             //JOptionPane.showMessageDialog(null, "Dossier médical existant");
 
-            ConsulterDM sadm = new ConsulterDM(phr, lipat.get(index));
+            ConsulterDM sadm = new ConsulterDM(phr, lipat.get(index),this);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();
@@ -368,7 +368,7 @@ public class RechercherPatient extends javax.swing.JFrame {
                 type.addElement(i.getType());
           
             }*/
-            CreerNosejour sadm = new CreerNosejour(phr, lipat.get(index));
+            CreerNosejour sadm = new CreerNosejour(phr, lipat.get(index),this);
             sadm.setSize(this.getSize());
             sadm.setLocationRelativeTo(this);
             this.dispose();

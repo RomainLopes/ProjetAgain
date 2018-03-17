@@ -7,6 +7,7 @@ package ecrans;
 
 import GestionBDD.*;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,22 +15,30 @@ import javax.swing.JOptionPane;
  * @author lisad
  */
 public class NewResultat extends javax.swing.JFrame {
-   private static PersonnelHospitalier employe;
+
+    private static PersonnelHospitalier employe;
     private static Patients patient;
     private DossierMedicoAdministratif dma;
     private String id;
-
+    private JFrame fenetre;
 
     /**
      * Creates new form NewResultat
      */
-    public NewResultat(PersonnelHospitalier personnel, Patients patient, String idPrescription) {
+    public NewResultat(PersonnelHospitalier personnel, Patients patient, String idPrescription, JFrame fenetre) {
         initComponents();
-        this.patient=patient;
-        employe= personnel;
+        this.patient = patient;
+        employe = personnel;
+        this.fenetre = fenetre;
+        id = idPrescription;
+
         jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(personnel.getService());
-        id= idPrescription;
+
+        jLabel1Nomp.setText(patient.getNompatient());
+        jLabel2PrenomP.setText(patient.getPrenompatient());
+        jLabel3Sexep.setText(patient.getSexe());
+        jLabel4DateP.setText(patient.getDateDeNaissance());
     }
 
     /**
@@ -288,26 +297,32 @@ public class NewResultat extends javax.swing.JFrame {
     private void jButton1Creer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1Creer1ActionPerformed
 
         DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-      String noSejour=DossierMedicoAdministratifDAO.getDernierNumeroSejour(patient.getIpp());
+        String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(patient.getIpp());
 
-        dma = DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).get(0); 
-      System.out.println(DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).size());
-         
+        dma = DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).get(0);
+        System.out.println(DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).size());
 
         Resultats result = new Resultats();
         //String ipp,String nosejour,String idPrescription,String service,String prestationmt,String dateResultat,String resultat
-        result = new Resultats(patient.getIpp(), dma.getNosejour(), id, employe.getService(), jTextFieldNature.getText(), jTextFieldDate.getText(),jTextFieldResultat.getText());
+        result = new Resultats(patient.getIpp(), dma.getNosejour(), id, employe.getService(), jTextFieldNature.getText(), jTextFieldDate.getText(), jTextFieldResultat.getText());
         DAO<Resultats> ResultatsDAO = new ResultatsDAO(BDDconnection.getInstance());
-        
-         if (ResultatsDAO.create(result)){
-                               JOptionPane.showMessageDialog(null, "La nouvelle opér&tion a bien été créée");
-       }else {
+boolean ok=ResultatsDAO.create(result);
+        if (ok) {
+            JOptionPane.showMessageDialog(null, "La nouvelle opér&tion a bien été créée");
+             fenetre.setSize(this.getSize());
+            fenetre.setLocationRelativeTo(this);
+            this.dispose();
+            fenetre.setVisible(true);
+        } else {
             JOptionPane.showMessageDialog(null, " La nouvelle opération n'a pas pu être créée. Veillez recommencer.");
-       }
+        }
     }//GEN-LAST:event_jButton1Creer1ActionPerformed
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
-        // TODO add your handling code here:
+fenetre.setVisible(true);
+        fenetre.setSize(this.getSize());
+            fenetre.setLocationRelativeTo(this);
+            this.dispose();
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
 

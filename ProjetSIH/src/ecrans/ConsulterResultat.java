@@ -269,7 +269,10 @@ public class ConsulterResultat extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3IPPMouseClicked
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
-        // TODO add your handling code here:
+             fenetrePrecedente.setVisible(true);
+ fenetrePrecedente.setSize(this.getSize());
+        fenetrePrecedente.setLocationRelativeTo(this);
+        this.dispose();
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
     /**
