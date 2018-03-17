@@ -5,13 +5,7 @@
  */
 package ecrans;
 
-import GestionBDD.BDDconnection;
-import GestionBDD.DAO;
-import GestionBDD.DossierMedicoAdministratif;
-import GestionBDD.Operations;
-import GestionBDD.OperationsDAO;
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -278,7 +272,12 @@ public class NewOperation extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldOperationActionPerformed
 
     private void jButton1CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1CreerActionPerformed
-        // TODO add your handling code here:
+ 
+        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+      dma = DossierMedicoAdministratifDAO.findSer(patient.getIpp(), "numero desejour actuel", employe.getService()).get(0); 
+      System.out.println(DossierMedicoAdministratifDAO.findSer(patient.getIpp(), "numero desejour actuel", employe.getService()).size());
+         
+        
         Operations ope;
         ope = new Operations(patient.getIpp(), dma.getNosejour(),dma.getIdph(),jTextFieldDate.getText(),jTextFieldOperation.getText());
         DAO<Operations> OperationsDAO = new OperationsDAO(BDDconnection.getInstance());

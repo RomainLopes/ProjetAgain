@@ -6,7 +6,9 @@
 package ecrans;
 
 import GestionBDD.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 
@@ -21,6 +23,7 @@ public class RechercherPatient extends javax.swing.JFrame {
      */
     private static PersonnelHospitalier phr;
     //private static Patients patient;
+    String dateDuJour = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
 
     DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
     ArrayList<Patients> lipat;
@@ -251,11 +254,13 @@ public class RechercherPatient extends javax.swing.JFrame {
         ArrayList<String> resultatAffiche = new ArrayList<String>();
 
         if (phr.getService() == "Administration") {
+            System.out.println("ok");
             lipat = PatientsDAO.findPatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
 
         } else {
             lipat = PatientsDAO.findPatientNomPrenomService(jTextFieldNom.getText(), jTextFieldPrenom.getText(), jLabelService.getText());
         }
+
         for (int i = 0; i < lipat.size(); i++) {
             resultatAffiche.add(lipat.get(i).getNompatient() + "  " + lipat.get(i).getPrenompatient() + "   " + lipat.get(i).getDateDeNaissance());
         }
@@ -280,11 +285,10 @@ public class RechercherPatient extends javax.swing.JFrame {
     private void jListpatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListpatientsMouseClicked
         int index = jListpatients.getSelectedIndex();
         String ipp = lipat.get(index).getIpp().substring(1, lipat.get(index).getIpp().length() - 1);
-        String idPh = phr.getId().substring(1, phr.getId().length() - 1);
 
         // Creation en mémoire de la tracabilité 
         Tracabilite pat = new Tracabilite();
-        pat = new Tracabilite(ipp, idPh , "02-22-2018"); // date du jour
+        pat = new Tracabilite(ipp, phr.getId(), dateDuJour); 
         DAO<Tracabilite> TracabiliteDAO = new TracabiliteDAO(BDDconnection.getInstance());
         TracabiliteDAO.create(pat);
 
@@ -406,7 +410,7 @@ public class RechercherPatient extends javax.swing.JFrame {
                 inte.getjListObservations().setModel(observations);
             } else if (x == true && "Radiologie".equals(phr.getService())) {
 
-                MedRadioAccueil inte = new MedRadioAccueil(phr, lipat.get(index), ob, re);
+                MedRadioAccueil inte = new MedRadioAccueil(phr, lipat.get(index), ob, re,pr);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
@@ -416,7 +420,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
             } else if (x == true && "Anesthesie".equals(phr.getService())) {
 
-                MedAnestAccueil inte = new MedAnestAccueil(phr, lipat.get(index), ob, re);
+                MedAnestAccueil inte = new MedAnestAccueil(phr, lipat.get(index), ob, re, pr);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
@@ -427,7 +431,7 @@ public class RechercherPatient extends javax.swing.JFrame {
                 inte.getjListResultats().setModel(result);
             } else if (x == true && phr.getService() == "Laboratoire d'analyse" || phr.getService() == "Hematologie" || phr.getService() == "Anapathologie") {
 
-                MedTechAccueil inte = new MedTechAccueil(phr, lipat.get(index), ob, re);
+                MedTechAccueil inte = new MedTechAccueil(phr, lipat.get(index), ob, re,pr);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();

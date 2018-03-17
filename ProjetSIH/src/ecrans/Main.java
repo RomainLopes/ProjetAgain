@@ -5,6 +5,9 @@
  */
 package ecrans;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.SwingUtilities;
 
 /**
@@ -18,15 +21,18 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-
+        Date c= new Date();
+      // System.out.println(c.getMonth() +"-"+c.getDate()+"-"+c.getYear()); 
+       String dateDuJour = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
+System.out.println(dateDuJour);
         
-       SwingUtilities.invokeLater(new Runnable() {
+      /* SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 Identification pageDeCo = new Identification();
 
             }
-        });
+        });*/
     }
     
 }

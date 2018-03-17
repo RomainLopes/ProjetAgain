@@ -493,7 +493,6 @@ observation = obs;
     }//GEN-LAST:event_ConsulterDMActionPerformed
 
     private void CreerDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreerDMAActionPerformed
-        // TODO add your handling code here:
         CreationDMAtemporaire obs = new CreationDMAtemporaire(employe);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);

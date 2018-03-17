@@ -24,6 +24,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     private static Patients patient;
     private  ArrayList<Observations> observation;
         private ArrayList<Resultats> resultat;
+         private ArrayList<Prescriptions> prescription;
 
 
     /**
@@ -31,7 +32,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
      */
     
   
-    public MedAnestAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs, ArrayList<Resultats> res ) {
+    public MedAnestAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs, ArrayList<Resultats> res, ArrayList<Prescriptions> prescription) {
         initComponents();
         employe=personnel;
         this.patient= patient;
@@ -47,6 +48,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         jLabel4DateP.setText(patient.getDateDeNaissance());
         observation = obs;
         resultat=res;
+        this.prescription=prescription;
 
     }
 
@@ -632,8 +634,9 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsulterDMActionPerformed
 
     private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
-        // TODO add your handling code here:
-         NewResultat obs = new NewResultat(employe,patient);
+int taille = prescription.size();
+String idPrescription= prescription.get(taille).getIdprescription();
+        NewResultat obs = new NewResultat(employe,patient,idPrescription);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -665,6 +668,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
     private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
        int index = jListObservations.getSelectedIndex();
+       
           ConsulterObservation obs = new ConsulterObservation(employe,patient,this,observation.get(index));
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);

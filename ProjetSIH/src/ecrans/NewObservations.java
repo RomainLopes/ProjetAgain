@@ -5,13 +5,7 @@
  */
 package ecrans;
 
-import GestionBDD.BDDconnection;
-import GestionBDD.DAO;
-import GestionBDD.DossierMedicoAdministratif;
-import GestionBDD.Observations;
-import GestionBDD.ObservationsDAO;
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -20,18 +14,18 @@ import javax.swing.JOptionPane;
  * @author lisad
  */
 public class NewObservations extends javax.swing.JFrame {
-      private static PersonnelHospitalier employe;
+
+    private static PersonnelHospitalier employe;
     private static Patients patient;
     private static DossierMedicoAdministratif dma;
-
 
     /**
      * Creates new form NewObservations
      */
     public NewObservations(PersonnelHospitalier personnel, Patients patient) {
         initComponents();
-        this.patient=patient;
-        employe= personnel;
+        this.patient = patient;
+        employe = personnel;
         jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(personnel.getService());
     }
@@ -55,7 +49,6 @@ public class NewObservations extends javax.swing.JFrame {
         jLabelNomObservation = new javax.swing.JLabel();
         jTextFieldDateP = new javax.swing.JTextField();
         jLabel3Date = new javax.swing.JLabel();
-        jTextFieldObservationP = new javax.swing.JTextField();
         jLabel5Observation = new javax.swing.JLabel();
         jButton1Creer = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -68,6 +61,8 @@ public class NewObservations extends javax.swing.JFrame {
         jLabel2PrenomP = new javax.swing.JLabel();
         jLabel1Prenom = new javax.swing.JLabel();
         jLabel1InfoPatients = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextFieldObservationP = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(200, 200));
@@ -140,16 +135,14 @@ public class NewObservations extends javax.swing.JFrame {
         jLabelNomObservation.setText("Nom de l'observation :  ");
 
         jTextFieldDateP.setText("jTextField3");
+        jTextFieldDateP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDatePActionPerformed(evt);
+            }
+        });
 
         jLabel3Date.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3Date.setText("Date :");
-
-        jTextFieldObservationP.setText("jTextField1");
-        jTextFieldObservationP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldObservationPActionPerformed(evt);
-            }
-        });
 
         jLabel5Observation.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel5Observation.setText("Observations :");
@@ -238,29 +231,36 @@ public class NewObservations extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
+        jTextFieldObservationP.setColumns(20);
+        jTextFieldObservationP.setRows(5);
+        jScrollPane1.setViewportView(jTextFieldObservationP);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3Date)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextFieldDateP, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabelNomObservation)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
-                        .addComponent(jTextFieldNomObservationP, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1Creer, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel3Date)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextFieldDateP, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabelNomObservation)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
+                                .addComponent(jTextFieldNomObservationP, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButton1Creer, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(172, 172, 172))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5Observation, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextFieldObservationP, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(172, 172, 172))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(130, 130, 130))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(255, 255, 255)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -279,11 +279,14 @@ public class NewObservations extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3Date, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldDateP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldObservationP, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5Observation, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel5Observation, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23)
                 .addComponent(jButton1Creer, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -294,29 +297,33 @@ public class NewObservations extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldObservationPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObservationPActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldObservationPActionPerformed
-
     private void jButton1CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1CreerActionPerformed
-        // TODO add your handling code here:
-         Observations obs ;
-        // String ipp, String nosejour, String idph, String dateObservation, String service, String nomacte, String resume) {
-        obs = new Observations(patient.getIpp(), dma.getNosejour(),dma.getIdph(),jTextFieldDateP.getText(),employe.getService(),jTextFieldNomObservationP.getText(),jTextFieldObservationP.getText());
+        // le nosejour actuel sera recupere par la fonction qui manque
+
+        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        dma = DossierMedicoAdministratifDAO.findSer(patient.getIpp(), "numero desejour actuel", employe.getService()).get(0);
+        System.out.println(DossierMedicoAdministratifDAO.findSer(patient.getIpp(), "numero desejour actuel", employe.getService()).size());
+
+        Observations obs;
+        obs = new Observations(patient.getIpp(), dma.getNosejour(), dma.getIdph(), jTextFieldDateP.getText(), employe.getService(), jTextFieldNomObservationP.getText(), jTextFieldObservationP.getText());
         DAO<Observations> ObservationsDAO = new ObservationsDAO(BDDconnection.getInstance());
-        
-        if (ObservationsDAO.create(obs)){
-                               JOptionPane.showMessageDialog(null, "La nouvelle observation a bien été créée");
-       }else {
+
+        if (ObservationsDAO.create(obs)) {
+            JOptionPane.showMessageDialog(null, "La nouvelle observation a bien été créée");
+        } else {
             JOptionPane.showMessageDialog(null, " La nouvelle observation n'a pas pu être créée. Veillez recommencer.");
-       }
+        }
     }//GEN-LAST:event_jButton1CreerActionPerformed
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
-   
+    private void jTextFieldDatePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDatePActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDatePActionPerformed
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1Creer;
     private javax.swing.JButton jButtonPrecedent;
@@ -338,8 +345,9 @@ public class NewObservations extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextFieldDateP;
     private javax.swing.JTextField jTextFieldNomObservationP;
-    private javax.swing.JTextField jTextFieldObservationP;
+    private javax.swing.JTextArea jTextFieldObservationP;
     // End of variables declaration//GEN-END:variables
 }

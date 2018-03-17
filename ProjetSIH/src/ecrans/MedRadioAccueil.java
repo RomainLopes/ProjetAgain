@@ -36,8 +36,10 @@ public class MedRadioAccueil extends javax.swing.JFrame {
     private static Patients patient;
     private ArrayList<Observations> observation;
         private ArrayList<Resultats> resultat;
+                 private ArrayList<Prescriptions> prescription;
 
-    public MedRadioAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs,ArrayList<Resultats> res ) {
+
+    public MedRadioAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs,ArrayList<Resultats> res,  ArrayList<Prescriptions> prescription ) {
         initComponents();
         employe=personnel;
         this.patient=patient;
@@ -53,6 +55,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
         
        observation=obs;
        resultat=res;
+       this.prescription= prescription;
    
     }
     
@@ -653,8 +656,9 @@ public class MedRadioAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsulterDMActionPerformed
 
     private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
-
-         NewPrescription obs = new NewPrescription(employe,patient);
+int taille = prescription.size();
+String idPrescription= prescription.get(taille).getIdprescription();
+        NewResultat obs = new NewResultat(employe,patient,idPrescription);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

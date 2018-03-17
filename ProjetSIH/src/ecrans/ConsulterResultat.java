@@ -29,7 +29,6 @@ public class ConsulterResultat extends javax.swing.JFrame {
         this.patient = patient;
         this.fenetrePrecedente= previous;
         
-        // mettre l'indice qui correspond à chaque information
         jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(employe.getService());
         jLabelResultatP.setText(resultat.getResultat());

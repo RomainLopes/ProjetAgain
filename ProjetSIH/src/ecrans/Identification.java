@@ -87,7 +87,7 @@ public class Identification extends javax.swing.JFrame {
         jPanel1.setAlignmentY(0.0F);
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 1000));
 
-        logoHopital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plainsboro blanc.PNG"))); // NOI18N
+        logoHopital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plainsboro_blanc.PNG"))); // NOI18N
 
         jLabelMdp.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabelMdp.setText("Mot de passe :");
@@ -143,7 +143,6 @@ public class Identification extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(logoHopital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelIdentifiant)
                             .addComponent(jTextFieldIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
