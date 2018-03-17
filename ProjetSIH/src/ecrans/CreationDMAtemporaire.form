@@ -108,19 +108,20 @@
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel2DateDeNaissance" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTextField4DDN1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel2DateDeNaissance" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel2Sexe" min="-2" pref="43" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jTextField4Sexe" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jComboBoxSexe" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTextField4DDN1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonAide" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel2Localisation" min="-2" pref="69" max="-2" attributes="0"/>
@@ -161,9 +162,10 @@
                           <Component id="jLabel2Nom" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="jTextField1Nom" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2Sexe" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="jTextField4Sexe" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2Adresse" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="jTextFieldadresse" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBoxSexe" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonAide" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -223,14 +225,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sexe :"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4Sexe">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField4SexeActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2DateDeNaissance">
               <Properties>
@@ -310,6 +304,29 @@
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonValiderMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonValiderActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBoxSexe">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Item 1"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonAide">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="D&#xe9;tail Sexe"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAideActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

@@ -26,7 +26,6 @@ public class ConsulterObservation extends javax.swing.JFrame {
         this.employe=employe;
         this.patient=patient;
         this.fenetrePrecedente= previous;
-        // mettre l'indice qui correspond à chaque information
         jLabel3IPP.setText(patient.getIpp()); 
         jLabelObservationP.setText(observation.getResume());
         jLabelNomObservationP.setText(observation.getNomacte()) ;

@@ -133,8 +133,8 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextFieldPrenom1" min="-2" pref="71" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldNom1" min="-2" pref="71" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldPrenom" min="-2" pref="71" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldNom" min="-2" pref="71" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -168,11 +168,11 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel2Nom1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldNom1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldNom" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextFieldPrenom1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel3Prenom1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -233,7 +233,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRechercherActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldNom1">
+            <Component class="javax.swing.JTextField" name="jTextFieldNom">
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
               <AuxValues>
@@ -242,7 +242,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JList" name="jListpatients">
+                <Component class="javax.swing.JList" name="jListPatients">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                       <StringArray count="5">
@@ -255,7 +255,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jListpatientsMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jListPatientsMouseClicked"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -263,9 +263,9 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="jTextFieldPrenom1">
+            <Component class="javax.swing.JTextField" name="jTextFieldPrenom">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPrenom1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPrenomActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton1">

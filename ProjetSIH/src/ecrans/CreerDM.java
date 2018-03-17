@@ -15,6 +15,9 @@ import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 import GestionBDD.DossierMedical;
 import GestionBDD.DossierMedicoAdministratif;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -27,6 +30,7 @@ public class CreerDM extends javax.swing.JFrame {
     private static Patients patient;
     private PersonnelHospitalier phRespo;
     private static DossierMedicoAdministratif dma;
+    String dateDuJour = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
 
     /**
      * Creates new form CreerDM
@@ -45,10 +49,6 @@ public class CreerDM extends javax.swing.JFrame {
 
         jComboBoxSexe.setModel(modele);
 
-        /* jTextField1Nom.setText(((SmAccueil) fenetrePrecedente).getP().getNom());
-        jTextField4Prenom.setText(((SmAccueil) fenetrePrecedente).getP().getPrenom());
-        jTextField4Sexe.setText(((SmAccueil) fenetrePrecedente).getP().getSexe());
-        jTextField4DDN1.setText(((SmAccueil) fenetrePrecedente).getP().getDateNaissance().toString());*/
     }
 
     /**
@@ -275,16 +275,7 @@ public class CreerDM extends javax.swing.JFrame {
         // TODO add your handling code here:
         //String ipp, String nosejour, String service, String correspondance 
         // Recuperer le no sejour 
-        DossierMedical dm = new DossierMedical(patient.getIpp(), dma.getNosejour(), jTextField1Service.getText(), "");
 
-        DAO<DossierMedical> DossierMedicalDAO = new DossierMedicalDAO(BDDconnection.getInstance());
-        if (DossierMedicalDAO.create(dm)) {
-            JOptionPane.showMessageDialog(null, "Le dossier médical a bien été créé");
-        } else {
-            JOptionPane.showMessageDialog(null, " Le dossier médical n'a pas pu être créé. Veillez recommencer.");
-        }
-
-        /*
         SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
         String s = jFormattedTextFieldDateDeNaissance.getText();
         Date d = new Date();
@@ -294,20 +285,19 @@ public class CreerDM extends javax.swing.JFrame {
             if (t.compareTo(s) != 0) {
                 JOptionPane.showMessageDialog(null, "Date non valide");
             } else {
-                //mettre le code pour rajouter à la BD
-                JOptionPane.showMessageDialog(null, "Dossier médical créé");
-                RecherchePatient rp = new RecherchePatient();
-                //rp.creerPatient(jTextFieldNom.getText(),jTextFieldPrenom.getText(), jFormattedTextFieldDateDeNaissance.getText(), "","", jFormattedTextFieldIpp.);
+                DossierMedical dm = new DossierMedical(patient.getIpp(), dma.getNosejour(), jTextField1Service.getText(), "");
 
-                RechercherPatient rechercher = new RechercherPatient(employe);
-                rechercher.setSize(this.getSize());
-                rechercher.setLocationRelativeTo(this);
-                this.dispose();
-                rechercher.setVisible(true);
+                DAO<DossierMedical> DossierMedicalDAO = new DossierMedicalDAO(BDDconnection.getInstance());
+                if (DossierMedicalDAO.create(dm)) {
+                    JOptionPane.showMessageDialog(null, "Le dossier médical a bien été créé");
+                } else {
+                    JOptionPane.showMessageDialog(null, " Le dossier médical n'a pas pu être créé. Veillez recommencer.");
+                }
+
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Exception");
-        }*/
+            //JOptionPane.showMessageDialog(null, "Exception");
+        }
 
     }//GEN-LAST:event_jButtonValiderActionPerformed
 

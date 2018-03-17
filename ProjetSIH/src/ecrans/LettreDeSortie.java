@@ -5,14 +5,8 @@
  */
 package ecrans;
 
-import GestionBDD.BDDconnection;
-import GestionBDD.DAO;
-import GestionBDD.LettreDeSortieDAO;
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
-import java.util.ArrayList;
+import GestionBDD.*;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
 
 /**
  *
@@ -21,6 +15,8 @@ import javax.swing.JScrollPane;
 public class LettreDeSortie extends javax.swing.JFrame {
       private static PersonnelHospitalier employe;
     private static Patients patient;
+        private DossierMedicoAdministratif dma;
+
 
 
     /**
@@ -220,12 +216,18 @@ public class LettreDeSortie extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // code pour l'ajouter dans la BD
+// (String ipp,String nosejour,String idph,String lettre)   
+
+ DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+      String noSejour=DossierMedicoAdministratifDAO.getDernierNumeroSejour(patient.getIpp());
+
+        dma = DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).get(0); 
          GestionBDD.LettreDeSortie lettre;
-        lettre = new GestionBDD.LettreDeSortie("180000006", "180100002","PH0001","j autorise ma patiente a sortir...");
+         
+        lettre = new GestionBDD.LettreDeSortie(patient.getIpp(), noSejour,dma.getIdph(),jTextAreaLettre.getText());
           LettreDeSortieDAO lettred = new LettreDeSortieDAO(BDDconnection.getInstance());
-        
-         if (lettred.create(lettre)){
+        boolean ok = lettred.create(lettre);
+         if (ok){
                                JOptionPane.showMessageDialog(null, "La lettre de sortie a bien été créée");
        }else {
             JOptionPane.showMessageDialog(null, " La lettre de sortie n'a pas pu être créée. Veillez recommencer.");

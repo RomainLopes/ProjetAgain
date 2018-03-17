@@ -5,9 +5,9 @@
  */
 package ecrans;
 
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 /**
  *
  * @author lisad
@@ -17,12 +17,19 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
     ArrayList<String> p = new ArrayList<String>();
       private static PersonnelHospitalier employe;
     private static Patients patient;
+           ArrayList<Patients> lipat ;
+               DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
+
+
 
     /**
      * Creates new form FusionnerDossierUrgence
      */
-    public FusionnerDossierUrgence() {
+    public FusionnerDossierUrgence(PersonnelHospitalier employe) {
         initComponents();
+        this.employe=employe;
+        lipat = new ArrayList<Patients>();
+        
     }
 
     /**
@@ -42,10 +49,10 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
         jLabel2Nom1 = new javax.swing.JLabel();
         jLabel3Prenom1 = new javax.swing.JLabel();
         jButtonRechercher = new javax.swing.JButton();
-        jTextFieldNom1 = new javax.swing.JTextField();
+        jTextFieldNom = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListpatients = new javax.swing.JList<>();
-        jTextFieldPrenom1 = new javax.swing.JTextField();
+        jListPatients = new javax.swing.JList<>();
+        jTextFieldPrenom = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -114,21 +121,21 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
             }
         });
 
-        jListpatients.setModel(new javax.swing.AbstractListModel<String>() {
+        jListPatients.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jListpatients.addMouseListener(new java.awt.event.MouseAdapter() {
+        jListPatients.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jListpatientsMouseClicked(evt);
+                jListPatientsMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jListpatients);
+        jScrollPane1.setViewportView(jListPatients);
 
-        jTextFieldPrenom1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldPrenom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPrenom1ActionPerformed(evt);
+                jTextFieldPrenomActionPerformed(evt);
             }
         });
 
@@ -250,8 +257,8 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
                                     .addComponent(jLabel3Prenom1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(47, 47, 47)
                                 .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldPrenom1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldNom1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jTextFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1RecherchePatientLayout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addComponent(jButtonRechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -275,10 +282,10 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2Nom1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldNom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldPrenom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3Prenom1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonRechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -318,112 +325,21 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonFusionnerActionPerformed
 
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
-        /*        
-// TODO add your handling code here:
-        RecherchePatient rp = new RecherchePatient();
+            lipat = PatientsDAO.findPatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
 
-        ArrayList<String> resultatRecherche = new ArrayList<String>();
-        ArrayList<String> resultatAffiche = new ArrayList<String>();
-     
-        resultatRecherche = rp.recherchePatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
-        for (int i = 0; i < resultatRecherche.size(); i += 2) {
-            resultatAffiche.add(resultatRecherche.get(i));
+        for (int i = 0; i < lipat.size(); i++) {
+            p.add(lipat.get(i).getNompatient() + "  " + lipat.get(i).getPrenompatient() + "   " + lipat.get(i).getDateDeNaissance());
         }
-      
+
         DefaultListModel modele = new DefaultListModel();
-        for (String i : resultatAffiche) {
+        for (String i : p) {
             modele.addElement(i);
         }
-        JList jListpatients= new JList();
-        jListpatients.setModel(modele);
+        jListPatients.setModel(modele);
 
-        ArrayList<String> infoPatient = new ArrayList<String>();
-        infoPatient = rp.enTetePatient(resultatRecherche.get(1));
-        p = infoPatient;
-        //this.p= new Patient(infoPatient.get(0),infoPatient.get(1),infoPatient.get(2));
-
-        for (int i = 0; i < infoPatient.size(); i++) {
-            System.out.println(infoPatient.get(i) + " \t \n");
-        }
-        //ArrayList<String> nPS = new ArrayList<String>();
-        /*nPS = rp.douille(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-        for (int i = 1; i <= nPS.size(); i++) {
-            System.out.println(nPS.get(i) + " \t \n");
-        }
-        
-        boolean x = false;
-        if (x == true/* fonction == Fonction.Secretaire_Médicale) {
-            Identification f = new Identification();
-            //this.fenetrePrecedente= new SmAccueil(f);
-
-            //SMed smed= new SMed(nPS.get(0), nPS.get(1), nPS.get(2));
-            //SMed employe= new SMed(fenetrePrecedente.getEmploye().getNom(),fenetrePrecedente.getEmploye().getPrenom(),fenetrePrecedente.getEmploye().getService())
-            //  this.employe= fenetrePrecedente.getEmploye();
-            JOptionPane.showMessageDialog(null, "Dossier médical existant");
-            ConsulterDM sadm = new ConsulterDM(employe,patient);
-            sadm.setSize(this.getSize());
-            sadm.setLocationRelativeTo(this);
-            this.dispose();
-            sadm.setVisible(true);
-
-        } else if (x == true/* fonction == Fonction.Secretaire_admin) {
-
-            ConsulterDMA sadm = new ConsulterDMA(employe,patient);
-            sadm.setSize(this.getSize());
-            sadm.setLocationRelativeTo(this);
-            this.dispose();
-            sadm.setVisible(true);
-
-        } else if (x == true/* fonction == Fonction.Interne) {
-
-            InterneAccueil inte = new InterneAccueil(employe,patient);
-            inte.setSize(this.getSize());
-            inte.setLocationRelativeTo(this);
-            this.dispose();
-            inte.setVisible(true);
-
-        } else if (x == true/* fonction == Fonction.Infirmier) {
-
-            InfirmierAccueil inte = new InfirmierAccueil(employe,patient);
-            inte.setSize(this.getSize());
-            inte.setLocationRelativeTo(this);
-            this.dispose();
-            inte.setVisible(true);
-        } else { // pH
-            if (x == true/* pH.service.getType()=="Clinique") {
-
-                MedClinAccueil inte = new MedClinAccueil(employe,patient);
-                inte.setSize(this.getSize());
-                inte.setLocationRelativeTo(this);
-                this.dispose();
-                inte.setVisible(true);
-            } else if (x == true/* pH.service.getNom()=="Radiologie") {
-
-                MedRadioAccueil inte = new MedRadioAccueil(employe,patient);
-                inte.setSize(this.getSize());
-                inte.setLocationRelativeTo(this);
-                this.dispose();
-                inte.setVisible(true);
-            } else if (x == true/* pH.service.getNom()=="Anesthésie") {
-
-                MedAnestAccueil inte = new MedAnestAccueil(employe,patient);
-                inte.setSize(this.getSize());
-                inte.setLocationRelativeTo(this);
-                this.dispose();
-                inte.setVisible(true);
-            } else if (x == true/* pH.service.getType()=="Médico-technique") {
-
-                MedTechAccueil inte = new MedTechAccueil(employe,patient);
-                inte.setSize(this.getSize());
-                inte.setLocationRelativeTo(this);
-                this.dispose();
-                inte.setVisible(true);
-            }
-        }
-        */
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 
-    private void jListpatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListpatientsMouseClicked
+    private void jListPatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListPatientsMouseClicked
         /*
 // TODO add your handling code here:
         InfirmierAccueil ia = new InfirmierAccueil(med, p);
@@ -433,50 +349,16 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
         this.dispose();
         ia.setVisible(true);
          */
-    }//GEN-LAST:event_jListpatientsMouseClicked
+    }//GEN-LAST:event_jListPatientsMouseClicked
 
-    private void jTextFieldPrenom1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrenom1ActionPerformed
+    private void jTextFieldPrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrenomActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPrenom1ActionPerformed
+    }//GEN-LAST:event_jTextFieldPrenomActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FusionnerDossierUrgence.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FusionnerDossierUrgence.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FusionnerDossierUrgence.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FusionnerDossierUrgence.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FusionnerDossierUrgence().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -493,7 +375,7 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
     private javax.swing.JList<String> jList3;
-    private javax.swing.JList<String> jListpatients;
+    private javax.swing.JList<String> jListPatients;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1RecherchePatient;
     private javax.swing.JPanel jPanel2;
@@ -502,7 +384,7 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextField jTextFieldNom1;
-    private javax.swing.JTextField jTextFieldPrenom1;
+    private javax.swing.JTextField jTextFieldNom;
+    private javax.swing.JTextField jTextFieldPrenom;
     // End of variables declaration//GEN-END:variables
 }

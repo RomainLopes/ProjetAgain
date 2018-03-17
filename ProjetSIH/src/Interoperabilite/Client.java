@@ -23,6 +23,7 @@ public class Client {
         this.p = p;
         client.connexion(adresse, portEnvoie);
         client.admit(p);
+        
     }
 
     public ClientHL7 getClient() {

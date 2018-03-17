@@ -5,24 +5,34 @@
  */
 package ecrans;
 
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author lisad
  */
-public class Tracabilite extends javax.swing.JFrame {
-     private static PersonnelHospitalier employe;
+public class Tracabilites extends javax.swing.JFrame {
+
+    private static PersonnelHospitalier employe;
     private static Patients patient;
     ArrayList<String> p;
+    DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
+    ArrayList<Patients> lipat;
 
     /**
      * Creates new form Tracabilite
      */
-    public Tracabilite() {
+    public Tracabilites(PersonnelHospitalier employe) {
         initComponents();
-        p=new ArrayList<String>();
+        this.employe = employe;
+        p = new ArrayList<String>();
+        lipat = new ArrayList<Patients>();
+
+        jLabelNom.setText(employe.getNomph());
+        jLabelPrenom.setText(employe.getPrenomph());
+        jLabelFonction.setText(employe.getFonction());
     }
 
     /**
@@ -47,7 +57,9 @@ public class Tracabilite extends javax.swing.JFrame {
         jButtonDeconnexion = new javax.swing.JButton();
         jButtonAccueil = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jListTracabilite = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jListPatients = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(200, 200));
@@ -125,7 +137,7 @@ public class Tracabilite extends javax.swing.JFrame {
                         .addComponent(jLabelFonction))
                     .addComponent(jLabelPrenom)
                     .addComponent(jLabelNom))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 453, Short.MAX_VALUE)
                 .addComponent(jButtonDeconnexion)
                 .addGap(8, 8, 8))
         );
@@ -149,12 +161,24 @@ public class Tracabilite extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jListTracabilite.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(jListTracabilite);
+
+        jListPatients.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListPatients.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListPatientsMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jListPatients);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,42 +186,50 @@ public class Tracabilite extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1RecherchePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonRechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1RecherchePatient, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(142, 142, 142)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(209, 209, 209))
+                        .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jButtonRechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
             .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1RecherchePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonRechercher)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonRechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(80, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 56, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
@@ -208,109 +240,20 @@ public class Tracabilite extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPrenomActionPerformed
 
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
-/*        
-// TODO add your handling code here:
-        RecherchePatient rp = new RecherchePatient();
 
-        ArrayList<String> resultatRecherche = new ArrayList<String>();
-        ArrayList<String> resultatAffiche = new ArrayList<String>();
-     
-        resultatRecherche = rp.recherchePatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
-        for (int i = 0; i < resultatRecherche.size(); i += 2) {
-            resultatAffiche.add(resultatRecherche.get(i));
+        lipat = PatientsDAO.findPatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
+
+        for (int i = 0; i < lipat.size(); i++) {
+            p.add(lipat.get(i).getNompatient() + "  " + lipat.get(i).getPrenompatient() + "   " + lipat.get(i).getDateDeNaissance());
         }
-      
+
         DefaultListModel modele = new DefaultListModel();
-        for (String i : resultatAffiche) {
+        for (String i : p) {
             modele.addElement(i);
         }
-        JList jListpatients= new JList();
-        jListpatients.setModel(modele);
+        jListPatients.setModel(modele);
 
-        ArrayList<String> infoPatient = new ArrayList<String>();
-        infoPatient = rp.enTetePatient(resultatRecherche.get(1));
-        p = infoPatient;
-        //this.p= new Patient(infoPatient.get(0),infoPatient.get(1),infoPatient.get(2));
 
-        for (int i = 0; i < infoPatient.size(); i++) {
-            System.out.println(infoPatient.get(i) + " \t \n");
-        }
-        //ArrayList<String> nPS = new ArrayList<String>();
-        /*nPS = rp.douille(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-        for (int i = 1; i <= nPS.size(); i++) {
-            System.out.println(nPS.get(i) + " \t \n");
-        }
-        
-        boolean x = false;
-        if (x == true/* fonction == Fonction.Secretaire_Médicale) {
-            Identification f = new Identification();
-            //this.fenetrePrecedente= new SmAccueil(f);
-
-            //SMed smed= new SMed(nPS.get(0), nPS.get(1), nPS.get(2));
-            //SMed employe= new SMed(fenetrePrecedente.getEmploye().getNom(),fenetrePrecedente.getEmploye().getPrenom(),fenetrePrecedente.getEmploye().getService())
-            //  this.employe= fenetrePrecedente.getEmploye();
-            JOptionPane.showMessageDialog(null, "Dossier médical existant");
-            ConsulterDM sadm = new ConsulterDM(employe,patient);
-            sadm.setSize(this.getSize());
-            sadm.setLocationRelativeTo(this);
-            this.dispose();
-            sadm.setVisible(true);
-
-        } else if (x == true/* fonction == Fonction.Secretaire_admin) {
-
-            ConsulterDMA sadm = new ConsulterDMA(employe,patient);
-            sadm.setSize(this.getSize());
-            sadm.setLocationRelativeTo(this);
-            this.dispose();
-            sadm.setVisible(true);
-
-        } else if (x == true/* fonction == Fonction.Interne) {
-
-            InterneAccueil inte = new InterneAccueil(employe,patient);
-            inte.setSize(this.getSize());
-            inte.setLocationRelativeTo(this);
-            this.dispose();
-            inte.setVisible(true);
-
-        } else if (x == true/* fonction == Fonction.Infirmier) {
-
-            InfirmierAccueil inte = new InfirmierAccueil(employe,patient);
-            inte.setSize(this.getSize());
-            inte.setLocationRelativeTo(this);
-            this.dispose();
-            inte.setVisible(true);
-        } else { // pH
-            if (x == true/* pH.service.getType()=="Clinique") {
-
-                MedClinAccueil inte = new MedClinAccueil(employe,patient);
-                inte.setSize(this.getSize());
-                inte.setLocationRelativeTo(this);
-                this.dispose();
-                inte.setVisible(true);
-            } else if (x == true/* pH.service.getNom()=="Radiologie") {
-
-                MedRadioAccueil inte = new MedRadioAccueil(employe,patient);
-                inte.setSize(this.getSize());
-                inte.setLocationRelativeTo(this);
-                this.dispose();
-                inte.setVisible(true);
-            } else if (x == true/* pH.service.getNom()=="Anesthésie") {
-
-                MedAnestAccueil inte = new MedAnestAccueil(employe,patient);
-                inte.setSize(this.getSize());
-                inte.setLocationRelativeTo(this);
-                this.dispose();
-                inte.setVisible(true);
-            } else if (x == true/* pH.service.getType()=="Médico-technique") {
-
-                MedTechAccueil inte = new MedTechAccueil(employe,patient);
-                inte.setSize(this.getSize());
-                inte.setLocationRelativeTo(this);
-                this.dispose();
-                inte.setVisible(true);
-            }
-        }
-        */
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
@@ -330,40 +273,28 @@ public class Tracabilite extends javax.swing.JFrame {
         id.setVisible(true);
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tracabilite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tracabilite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tracabilite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tracabilite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jListPatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListPatientsMouseClicked
+        ArrayList<String> resultatAffiche = new ArrayList<String>();
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Tracabilite().setVisible(true);
-            }
-        });
-    }
+        int index = jListPatients.getSelectedIndex();
+        String ipp = lipat.get(index).getIpp().substring(1, lipat.get(index).getIpp().length() - 1);
+
+        TracabiliteDAO dmadao = new TracabiliteDAO(BDDconnection.getInstance());
+        ArrayList<Tracabilite> dm = dmadao.findIpp(ipp);
+        if (!dm.isEmpty()) {
+            System.out.println(dm.get(0).getNompatient() + "   " + dm.get(0).getNomph() + "   " + dm.get(0).getDateconnection());
+            resultatAffiche.add(dm.get(0).getNompatient() + "   " + dm.get(0).getNomph() + "   " + dm.get(0).getDateconnection());
+
+        } else {
+            System.out.println("is empty");
+        }
+        DefaultListModel modele = new DefaultListModel();
+        for (String i : resultatAffiche) {
+            modele.addElement(i);
+        }
+        jListTracabilite.setModel(modele);
+    }//GEN-LAST:event_jListPatientsMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelEnTeteMedTech;
@@ -376,8 +307,10 @@ public class Tracabilite extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFonction;
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JLabel jLabelPrenom;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jListPatients;
+    private javax.swing.JList<String> jListTracabilite;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextFieldNom;
     private javax.swing.JTextField jTextFieldPrenom;
     // End of variables declaration//GEN-END:variables

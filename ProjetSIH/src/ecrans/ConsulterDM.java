@@ -8,7 +8,9 @@ package ecrans;
 import GestionBDD.DossierMedicoAdministratif;
 import GestionBDD.Patients;
 import GestionBDD.PersonnelHospitalier;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import javax.swing.JFrame;
 
 /**
@@ -17,55 +19,30 @@ import javax.swing.JFrame;
  */
 public class ConsulterDM extends javax.swing.JFrame {
 
-   
+    private String dateDuJour = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
 
     private static PersonnelHospitalier employe;
     private static Patients patient;
-    private  ArrayList<String> test; // ici ce sont les infos du patient
+    private ArrayList<String> test; // ici ce sont les infos du patient
     private JFrame fenetrePrecedente;
-        private static DossierMedicoAdministratif dmaCourrant;
+    private static DossierMedicoAdministratif dmaCourrant;
 
-
-
-
-    /* public ConsulterDM() {
+                                                                                                                                           
+    public ConsulterDM(PersonnelHospitalier employe, Patients patient/*   JFrame previous*/) {
         initComponents();
-        // test 
-        ArrayList<String> pat = new ArrayList();// liste des infos que je récupère qui sera
-        pat.add("Rdio du poumon gauche");
-        pat.add("Echographiede l'abdomen");
-
-        jScrollPane2ListePrescription.setBounds(0, 0, 930, 610);
-        jPanel4Prescriptions.setLayout(new GridLayout(50, 1));
-
-        for (int i = 0; i <= 10; i++) {
-            for (String j : pat) {
-                jPanel4Prescriptions.add(new JLabel(j));
-            }
-        }
-
-//jPanel4Prescriptions.setVisible(true);jScrollPane2ListePrescription
-       // DM dmPat =p.getDpi().getMyDM();
-       // dmPat.getResultats().toString();
-    }*/
-    public ConsulterDM( PersonnelHospitalier employe,Patients patient/*   JFrame previous*/) {
-        initComponents();
-         this.employe = employe/*previous.getEmploye()*/;
-      /*   if(employe.getFonction== "")
+        this.employe = employe/*previous.getEmploye()*/;
+        /*   if(employe.getFonction== "")
         RechercherPatient name = (RechercherPatient) previous;
         this.fenetrePrecedente= previous;
         ConsulterDM.dmaCourrant=  name.getDmaCourrant();
         this.patient = name.getPatient();*/
-      this.patient= patient;
-       
+        this.patient = patient;
 
         jLabel1Nomp.setText(patient.getNompatient());
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());
         jLabel5ServiceP.setText(employe.getService());
-
-      
 
     }
 
@@ -467,40 +444,6 @@ public class ConsulterDM extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-   // public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsulterDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsulterDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsulterDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsulterDM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-       /* java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ConsulterDM(employe, patient).setVisible(true);
-            }
-        });
-    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Observations;
@@ -539,7 +482,7 @@ public class ConsulterDM extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3ListeResultats;
     // End of variables declaration//GEN-END:variables
 
- /**
+    /**
      * @return the jListOperations
      */
     public javax.swing.JList<String> getjListOperations() {

@@ -5,14 +5,10 @@
  */
 package ecrans;
 
-import GestionBDD.BDDconnection;
-import GestionBDD.DAO;
-import GestionBDD.DossierMedicoAdministratif;
-import GestionBDD.DossierMedicoAdministratifDAO;
-import GestionBDD.Patients;
-import GestionBDD.PatientsDAO;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -25,12 +21,12 @@ public class CreerDMA extends javax.swing.JFrame {
     /**
      * Creates new form CreerDMA
      */
-      private static PersonnelHospitalier employe;
-    private  Patients patient;
+    private static PersonnelHospitalier employe;
+    private Patients patient;
     private static ArrayList<String> listMed;
     private String typeSejour;
     private PersonnelHospitalier phRespo; // à rechercher et renseigner en bas 
-
+    String dateDuJour = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
 
     public CreerDMA(PersonnelHospitalier employe) {
         initComponents();
@@ -39,17 +35,15 @@ public class CreerDMA extends javax.swing.JFrame {
         modele.addElement("Hospitalisation");
         modele.addElement("Consultation");
         jComboBoxTypeSejour.setModel(modele);
-        
-         DefaultComboBoxModel sexModele = new DefaultComboBoxModel();
-        modele.addElement("A");
-        modele.addElement("F");
-        modele.addElement("M");
-        modele.addElement("O");
-        modele.addElement("U");
+
+        DefaultComboBoxModel sexModele = new DefaultComboBoxModel();
+        sexModele.addElement("A");
+        sexModele.addElement("F");
+        sexModele.addElement("M");
+        sexModele.addElement("O");
+        sexModele.addElement("U");
 
         jComboBoxSexe.setModel(sexModele);
-      
-        
 
     }
 
@@ -79,6 +73,7 @@ public class CreerDMA extends javax.swing.JFrame {
         jTextFieldadresse = new javax.swing.JTextField();
         jTextField4Localisation = new javax.swing.JTextField();
         jComboBoxSexe = new javax.swing.JComboBox<>();
+        jButtonAide = new javax.swing.JButton();
         jPanel2CreationDMA = new javax.swing.JPanel();
         jLabel1NoSejour = new javax.swing.JLabel();
         jTextField1NoSejour = new javax.swing.JTextField();
@@ -152,6 +147,13 @@ public class CreerDMA extends javax.swing.JFrame {
 
         jComboBoxSexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jButtonAide.setText("Détail Sexe");
+        jButtonAide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAideActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3InfoPatientLayout = new javax.swing.GroupLayout(jPanel3InfoPatient);
         jPanel3InfoPatient.setLayout(jPanel3InfoPatientLayout);
         jPanel3InfoPatientLayout.setHorizontalGroup(
@@ -179,8 +181,10 @@ public class CreerDMA extends javax.swing.JFrame {
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBoxSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                .addComponent(jComboBoxSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                                .addComponent(jButtonAide)))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2Adresse, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -203,7 +207,8 @@ public class CreerDMA extends javax.swing.JFrame {
                     .addComponent(jTextField1Nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2Adresse, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldadresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAide))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1Prenom)
@@ -277,7 +282,7 @@ public class CreerDMA extends javax.swing.JFrame {
                     .addComponent(jButtonValider)
                     .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2CreationDMA, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -355,47 +360,48 @@ public class CreerDMA extends javax.swing.JFrame {
 
     private void jComboBoxTypeSejourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTypeSejourActionPerformed
         // TODO add your handling code here:
-        
-        
-        
+
+
     }//GEN-LAST:event_jComboBoxTypeSejourActionPerformed
 
     private void jButtonValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonValiderMouseClicked
         // TODO add your handling code here:
         DossierMedicoAdministratif dma;
-       DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
+        DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
 
         // ipp= YoYoxxxxx pour créer lenouveau et faire patient.setIpp(newIpp)
-        
-       this.patient= new Patients("1800010", jTextField1Nom.getText(), jTextField4Prenom.getText(),jTextField4DDN1.getText(), jTextField4Localisation.getText(),jTextFieldadresse.getText(),jComboBoxSexe.getSelectedItem().toString());
-       if(PatientsDAO.create(patient)){
-                       JOptionPane.showMessageDialog(null, "Le patient a bien été créé");
-
-       } else { 
-           JOptionPane.showMessageDialog(null, "Le patient n'a pas pu être créé. Veillez recommencer.");
-       }
-
-       // ici faire un rechercher ph (nom, prenom)  /*phd.find("nomph", "prenomph");*/
-        dma = new DossierMedicoAdministratif(patient.getIpp(), "180344445","03-14-2018","PH0001" ,jComboBoxTypeSejour.getSelectedItem().toString(),"Cardiologie");
-
-        //dma = new DossierMedicoAdministratif(patient.getIpp(), "YYMMxxxxx","date du jour",phRespo.getId() ,jComboBoxTypeSejour.getSelectedItem().toString(),phRespo.getService());
-        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-        if(DossierMedicoAdministratifDAO.create(dma)){
-                        JOptionPane.showMessageDialog(null, "Le DMA a bien été créé");
+        this.patient = new Patients(PatientsDAO.createIpp(), jTextField1Nom.getText(), jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
+        if (PatientsDAO.create(patient)) {
+            JOptionPane.showMessageDialog(null, "Le patient a bien été créé");
 
         } else {
-                        JOptionPane.showMessageDialog(null, "Le DMA n'a pas pu être créé. Veillez recommencer.");
+            JOptionPane.showMessageDialog(null, "Le patient n'a pas pu être créé. Veillez recommencer.");
+        }
+
+        // ici faire un rechercher ph (nom, prenom)  /*phd.find("nomph", "prenomph");*/
+        //dma = new DossierMedicoAdministratif(patient.getIpp(), "YYMMxxxxx","date du jour",phRespo.getId() ,jComboBoxTypeSejour.getSelectedItem().toString(),phRespo.getService());
+        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        dma = new DossierMedicoAdministratif(patient.getIpp(), DossierMedicoAdministratifDAO.createNumeroSejour(), dateDuJour, "PH0001", jComboBoxTypeSejour.getSelectedItem().toString(), "Cardiologie");
+
+        if (DossierMedicoAdministratifDAO.create(dma)) {
+            JOptionPane.showMessageDialog(null, "Le DMA a bien été créé");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Le DMA n'a pas pu être créé. Veillez recommencer.");
 
         }
-        
 
-        
-        
-        
+
     }//GEN-LAST:event_jButtonValiderMouseClicked
 
-    
+    private void jButtonAideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAideActionPerformed
+        JOptionPane.showMessageDialog(null, "'A': Ambigu; 'F': Féminin; 'M': Masculin; 'O': Autre; 'U': Inconnu");
+
+    }//GEN-LAST:event_jButtonAideActionPerformed
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAide;
     private javax.swing.JButton jButtonPrecedent2;
     private javax.swing.JButton jButtonValider;
     private javax.swing.JComboBox<String> jComboBoxSexe;

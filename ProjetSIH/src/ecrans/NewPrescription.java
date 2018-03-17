@@ -5,13 +5,7 @@
  */
 package ecrans;
 
-import GestionBDD.BDDconnection;
-import GestionBDD.DAO;
-import GestionBDD.DossierMedicoAdministratif;
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
-import GestionBDD.Prescriptions;
-import GestionBDD.PrescriptionsDAO;
+import GestionBDD.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -275,11 +269,19 @@ public class NewPrescription extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1CreerActionPerformed
-        // TODO add your handling code here:
-         Prescriptions presc = new Prescriptions();
+ 
+        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+      String noSejour=DossierMedicoAdministratifDAO.getDernierNumeroSejour(patient.getIpp());
+
+        dma = DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).get(0); 
+      System.out.println(DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).size());
+         
+      DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
+        String idPrescription = PrescriptionsDAO.createIdPrescription(patient.getIpp());
+        
+        Prescriptions presc ;
          //String ipp,String nosejour,String idprescription,String dateprescription,String prescription,String service
-        presc = new Prescriptions(patient.getIpp(), dma.getNosejour(),"idPrescription",jTextFieldDate.getText(),jTextFieldPrescription.getText(),employe.getService());
-        DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
+        presc = new Prescriptions(patient.getIpp(), dma.getNosejour(),idPrescription,jTextFieldDate.getText(),jTextFieldPrescription.getText(),employe.getService());
         
          if (PrescriptionsDAO.create(presc)){
                                JOptionPane.showMessageDialog(null, "La nouvelle prescription a bien été créée");

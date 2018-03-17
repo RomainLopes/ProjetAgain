@@ -20,11 +20,13 @@ public class DossierMedical extends javax.swing.JFrame {
     private static ArrayList<String> test;
     private static ArrayList<Observations> observation;
     private static ArrayList<Resultats> resultat;
+                     private ArrayList<Prescriptions> prescription;
+
 
     /**
      * Creates new form DossierMedical
      */
-    public DossierMedical(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs, ArrayList<Resultats> res) {
+    public DossierMedical(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs, ArrayList<Resultats> res, ArrayList<Prescriptions> prescription) {
         initComponents();
 
         employe = personnel;
@@ -40,17 +42,9 @@ public class DossierMedical extends javax.swing.JFrame {
         jLabel4DateP.setText(patient.getDateDeNaissance());
         observation = obs;
         resultat = res;
+        this.prescription= prescription;
 
-        test.add("Rdio du poumon gauche");
-        test.add("Echographiede l'abdomen");
-        DefaultListModel modele = new DefaultListModel();
-        for (String i : test) {
-            modele.addElement(i);
-        }
-        jListObservations.setModel(modele);
-        jListListePrescription.setModel(modele);
-        jListResultats.setModel(modele);
-        jListListeOperation.setModel(modele);
+        
 
     }
 
@@ -692,8 +686,9 @@ public class DossierMedical extends javax.swing.JFrame {
     }//GEN-LAST:event_ajouterOperationActionPerformed
 
     private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
-        // TODO add your handling code here:
-        NewResultat obs = new NewResultat(employe, patient);
+int taille = prescription.size();
+String idPrescription= prescription.get(taille).getIdprescription();
+        NewResultat obs = new NewResultat(employe,patient,idPrescription);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

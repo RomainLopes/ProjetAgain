@@ -5,14 +5,9 @@
  */
 package ecrans;
 
-import GestionBDD.BDDconnection;
-import GestionBDD.DAO;
-import GestionBDD.DossierMedicoAdministratif;
-import GestionBDD.DossierMedicoAdministratifDAO;
-import GestionBDD.Patients;
-import GestionBDD.PatientsDAO;
-import GestionBDD.PersonnelHospitalier;
-import GestionBDD.PersonnelHospitalierDAO;
+import GestionBDD.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -24,6 +19,7 @@ public class CreerNosejour extends javax.swing.JFrame {
        private static PersonnelHospitalier employe;
     private static Patients patient;
            private  PersonnelHospitalier phRespo;
+   private String dateDuJour = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
 
 
     /**
@@ -326,12 +322,12 @@ public class CreerNosejour extends javax.swing.JFrame {
         DossierMedicoAdministratif dma;
 
         // ici faire un rechercher ph (nom, prenom)  /*phd.find("nomph", "prenomph");*/
-
-        dma = new DossierMedicoAdministratif(patient.getIpp(), "180344444","03-14-2018","PH0001" ,jComboBoxTypeSejour.getSelectedItem().toString(),"Cardiologie");
-
-        //dma = new DossierMedicoAdministratif(patient.getIpp(), "YYMMxxxxx","date du jour",phRespo.getId() ,jComboBoxTypeSejour.getSelectedItem().toString(),phRespo.getService());
+//dma = new DossierMedicoAdministratif(patient.getIpp(), "YYMMxxxxx","date du jour",phRespo.getId() ,jComboBoxTypeSejour.getSelectedItem().toString(),phRespo.getService());
         DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-       if (DossierMedicoAdministratifDAO.create(dma)){
+       
+        dma = new DossierMedicoAdministratif(patient.getIpp(),DossierMedicoAdministratifDAO.createNumeroSejour() ,dateDuJour,"PH0001" ,jComboBoxTypeSejour.getSelectedItem().toString(),"Cardiologie");
+
+        if (DossierMedicoAdministratifDAO.create(dma)){
                                JOptionPane.showMessageDialog(null, "Nouveau séjour créé");
        }else {
             JOptionPane.showMessageDialog(null, " Le nouveau séjour n'a pas pu être créé. Veillez recommencer.");
@@ -341,41 +337,7 @@ public class CreerNosejour extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-  //  public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreerNosejour.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreerNosejour.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreerNosejour.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreerNosejour.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-       /* java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CreerNosejour().setVisible(true);
-            }
-        });
-    }*/
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPrecedent2;
     private javax.swing.JButton jButtonValider;
