@@ -40,12 +40,11 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
 
     }
 
-
     @Override
     public PersonnelHospitalier connex(String id, String mdp) {
         PersonnelHospitalier ph = new PersonnelHospitalier();
         String QueryId = new String();
-        QueryId = "SELECT * FROM personnelhospitalier WHERE personnelhospitalier.id = '" + id + "' and personnelhospitalier.mdp = '" + mdp + "'"; 
+        QueryId = "SELECT * FROM personnelhospitalier WHERE personnelhospitalier.id = '" + id + "' and personnelhospitalier.mdp = '" + mdp + "'";
 
         try {
 
@@ -64,12 +63,12 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
         }
         return ph;
     }
-    
+
     @Override
     public ArrayList<PersonnelHospitalier> find(String nomph, String prenomph) {
         ArrayList<PersonnelHospitalier> ph = new ArrayList<PersonnelHospitalier>();
         String QueryId = new String();
-        QueryId = "SELECT * FROM personnelhospitalier WHERE personnelhospitalier.nomph = '" + nomph + "' and personnelhospitalier.prenomph = '" + prenomph + "'"; 
+        QueryId = "SELECT * FROM personnelhospitalier WHERE personnelhospitalier.nomph = '" + nomph + "' and personnelhospitalier.prenomph = '" + prenomph + "'";
 
         try {
 
@@ -89,13 +88,11 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
         return ph;
 
     }
-    
+
     @Override
     public boolean delete(PersonnelHospitalier obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
 
     @Override
     public boolean updateIpp(String ippremplace, String ipprecherche) {
@@ -111,7 +108,5 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
     public ArrayList<PersonnelHospitalier> findSer(String ipp, String nosejour, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
 
 }

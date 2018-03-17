@@ -256,7 +256,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         } else {
             lipat = PatientsDAO.findPatientNomPrenomService(jTextFieldNom.getText(), jTextFieldPrenom.getText(), jLabelService.getText());
-       }
+        }
         for (int i = 0; i < lipat.size(); i++) {
             resultatAffiche.add(lipat.get(i).getNompatient() + "  " + lipat.get(i).getPrenompatient() + "   " + lipat.get(i).getDateDeNaissance());
         System.out.println(resultatAffiche.get(i));
