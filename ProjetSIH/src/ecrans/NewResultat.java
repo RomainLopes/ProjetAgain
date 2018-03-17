@@ -17,6 +17,7 @@ public class NewResultat extends javax.swing.JFrame {
    private static PersonnelHospitalier employe;
     private static Patients patient;
     private DossierMedicoAdministratif dma;
+    private String id;
 
 
     /**
@@ -28,6 +29,7 @@ public class NewResultat extends javax.swing.JFrame {
         employe= personnel;
         jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(personnel.getService());
+        id= idPrescription;
     }
 
     /**
@@ -286,13 +288,15 @@ public class NewResultat extends javax.swing.JFrame {
     private void jButton1Creer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1Creer1ActionPerformed
 
         DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-      dma = DossierMedicoAdministratifDAO.findSer(patient.getIpp(), "numero desejour actuel", employe.getService()).get(0); 
-      System.out.println(DossierMedicoAdministratifDAO.findSer(patient.getIpp(), "numero desejour actuel", employe.getService()).size());
+      String noSejour=DossierMedicoAdministratifDAO.getDernierNumeroSejour(patient.getIpp());
+
+        dma = DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).get(0); 
+      System.out.println(DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).size());
          
 
         Resultats result = new Resultats();
         //String ipp,String nosejour,String idPrescription,String service,String prestationmt,String dateResultat,String resultat
-        result = new Resultats(patient.getIpp(), dma.getNosejour(), "id_prescription", employe.getService(), jTextFieldNature.getText(), jTextFieldDate.getText(),jTextFieldResultat.getText());
+        result = new Resultats(patient.getIpp(), dma.getNosejour(), id, employe.getService(), jTextFieldNature.getText(), jTextFieldDate.getText(),jTextFieldResultat.getText());
         DAO<Resultats> ResultatsDAO = new ResultatsDAO(BDDconnection.getInstance());
         
          if (ResultatsDAO.create(result)){

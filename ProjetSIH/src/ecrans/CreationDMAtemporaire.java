@@ -315,7 +315,6 @@ DossierMedicoAdministratif dma;
     private javax.swing.JButton jButtonPrecedent;
     private javax.swing.JButton jButtonValider;
     private javax.swing.JComboBox<String> jComboBoxSexe;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1Prenom;
     private javax.swing.JLabel jLabel2Adresse;

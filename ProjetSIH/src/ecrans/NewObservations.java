@@ -298,11 +298,11 @@ public class NewObservations extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1CreerActionPerformed
-        // le nosejour actuel sera recupere par la fonction qui manque
+DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+String noSejour=DossierMedicoAdministratifDAO.getDernierNumeroSejour(patient.getIpp());
 
-        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-        dma = DossierMedicoAdministratifDAO.findSer(patient.getIpp(), "numero desejour actuel", employe.getService()).get(0);
-        System.out.println(DossierMedicoAdministratifDAO.findSer(patient.getIpp(), "numero desejour actuel", employe.getService()).size());
+dma = DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).get(0);
+        System.out.println(DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).size());
 
         Observations obs;
         obs = new Observations(patient.getIpp(), dma.getNosejour(), dma.getIdph(), jTextFieldDateP.getText(), employe.getService(), jTextFieldNomObservationP.getText(), jTextFieldObservationP.getText());

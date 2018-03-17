@@ -5,13 +5,7 @@
  */
 package ecrans;
 
-import GestionBDD.BDDconnection;
-import GestionBDD.DAO;
-import GestionBDD.DossierMedicoAdministratif;
-import GestionBDD.DossierMedicoAdministratifDAO;
-import GestionBDD.Patients;
-import GestionBDD.PatientsDAO;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
