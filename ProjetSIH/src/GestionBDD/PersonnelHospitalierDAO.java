@@ -66,14 +66,36 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
     }
     
     @Override
+    public ArrayList<PersonnelHospitalier> find(String nomph, String prenomph) {
+        ArrayList<PersonnelHospitalier> ph = new ArrayList<PersonnelHospitalier>();
+        String QueryId = new String();
+        QueryId = "SELECT * FROM personnelhospitalier WHERE personnelhospitalier.nomph = '" + nomph + "' and personnelhospitalier.prenomph = '" + prenomph + "'"; 
+
+        try {
+
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet result = state.executeQuery(QueryId);
+
+            while (result.next()) {
+                ph.add(new PersonnelHospitalier(result.getString("nomph"), result.getString("prenomph"), result.getString("id"), result.getString("mdp"), result.getString("service"), result.getString("fonction")));
+                result.close();
+                state.close();
+                return ph;
+            }
+
+        } catch (SQLException e) {
+        }
+        return ph;
+
+    }
+    
+    @Override
     public boolean delete(PersonnelHospitalier obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public ArrayList<PersonnelHospitalier> find(String id, String service) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     @Override
     public boolean updateIpp(String ippremplace, String ipprecherche) {
