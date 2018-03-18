@@ -657,7 +657,8 @@ public class MedRadioAccueil extends javax.swing.JFrame {
 
     private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
 int taille = prescription.size();
-String idPrescription= prescription.get(taille).getIdprescription();
+String idPrescription= prescription.get(taille-1).getIdprescription();
+
         NewResultat obs = new NewResultat(employe,patient,idPrescription,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);

@@ -7,6 +7,7 @@ package ecrans;
 
 import GestionBDD.*;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 
 
 /**
@@ -49,7 +50,15 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         observation = obs;
         resultat=res;
         this.prescription=prescription;
+        
+ DefaultComboBoxModel modele = new DefaultComboBoxModel();
+        modele.addElement("Anapathologie");
+        modele.addElement("Anesthesie");
+        modele.addElement("Hemathologie");
+        modele.addElement("Laboratoire d'analyse");
+        modele.addElement("Radiologie");
 
+        jComboBoxCorrespondance.setModel(modele);
     }
 
     /**
@@ -513,7 +522,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxCorrespondance.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxCorrespondance.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
 
         jLabelCorrespondance.setText("Correspondance : ");
 

@@ -106,11 +106,12 @@ public class Test {
         ArrayList<DossierMedical> dm = dmdao.findser("180000001", "180100001", "Cardiologie");
         System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getService());
          */
- /*
-        DossierMedicoAdministratifDAO dmadao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-        ArrayList<DossierMedicoAdministratif> dm = dmadao.findser("180000001", "180100001", "Cardiologie");
+ 
+      /*  DossierMedicoAdministratifDAO dmadao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        ArrayList<DossierMedicoAdministratif> dm = dmadao.findSer("180000001", "180100001", "Cardiologie");
         System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getService());
-         */
+        System.out.println(dm.size());
+         
  /*
         LettreDeSortieDAO dmadao = new LettreDeSortieDAO(BDDconnection.getInstance());
         ArrayList<LettreDeSortie> dm = dmadao.find("180000001","180100001");
@@ -207,17 +208,17 @@ public class Test {
         System.out.println(PatientsDAO.createIpp());
         */
  
-        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+  /*      DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(DossierMedicoAdministratifDAO.createNumeroSejour());
 
  
         DAO<DossierMedicoAdministratif> nosejour = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(nosejour.getDernierNumeroSejour("180000001"));
-
- /*
+*/
+ 
         DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
         System.out.println(PrescriptionsDAO.createIdPrescription("180000003"));
-        */
+        
         
     }
 

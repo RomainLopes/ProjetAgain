@@ -281,22 +281,31 @@ public class NewOperation extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldOperationActionPerformed
 
     private void jButton1CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1CreerActionPerformed
+          DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+                                   System.out.println("dmadao ok");
+String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+                           System.out.println(ipp + "ipp ok");
 
-        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-        String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(patient.getIpp());
+        String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp);
+                           System.out.println(noSejour + "nosejour ok");
 
-      //  System.out.println(DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).size());
-
-        DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).forEach((j) -> {
+        DossierMedicoAdministratifDAO.findSer(ipp, noSejour, employe.getService()).forEach((j) -> {
             dma =j;
         });
+
+                    System.out.println("apres creation dma");
+
         Operations ope;
-        ope = new Operations(patient.getIpp(), dma.getNosejour(), dma.getIdph(), jTextFieldDate.getText(), jTextFieldOperation.getText());
+        ope = new Operations(ipp, noSejour, dma.getIdph(), jTextFieldDate.getText(), jTextFieldOperation.getText());
+                System.out.println(ipp+" " + noSejour +" " + dma.getIdph()+" " + jTextFieldDate.getText() +" " + jTextFieldOperation.getText());
+
         DAO<Operations> OperationsDAO = new OperationsDAO(BDDconnection.getInstance());
 boolean ok= OperationsDAO.create(ope);
+            System.out.println(ok);
+
         if (ok) {
             System.out.println("dans la boucle");
-            JOptionPane.showMessageDialog(null, "La nouvelle opér&tion a bien été créée");
+            JOptionPane.showMessageDialog(null, "La nouvelle opération a bien été créée");
             fenetre.setSize(this.getSize());
             fenetre.setLocationRelativeTo(this);
             this.dispose();

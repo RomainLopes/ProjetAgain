@@ -295,26 +295,31 @@ public class NewResultat extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1Creer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1Creer1ActionPerformed
+           DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+                                   System.out.println("dmadao ok");
+String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+                           System.out.println(ipp + "ipp ok");
 
-        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-        String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(patient.getIpp());
+        String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp);
+                           System.out.println(noSejour + "nosejour ok");
 
-        dma = DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).get(0);
-        System.out.println(DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).size());
+        DossierMedicoAdministratifDAO.findSer(ipp, noSejour, employe.getService()).forEach((j) -> {
+            dma =j;
+        });
 
-        Resultats result = new Resultats();
-        //String ipp,String nosejour,String idPrescription,String service,String prestationmt,String dateResultat,String resultat
-        result = new Resultats(patient.getIpp(), dma.getNosejour(), id, employe.getService(), jTextFieldNature.getText(), jTextFieldDate.getText(), jTextFieldResultat.getText());
+                    System.out.println("apres creation dma");
+        Resultats result;
+        result = new Resultats(ipp, noSejour, id, employe.getService(), jTextFieldNature.getText(), jTextFieldDate.getText(), jTextFieldResultat.getText());
         DAO<Resultats> ResultatsDAO = new ResultatsDAO(BDDconnection.getInstance());
 boolean ok=ResultatsDAO.create(result);
         if (ok) {
-            JOptionPane.showMessageDialog(null, "La nouvelle opér&tion a bien été créée");
+            JOptionPane.showMessageDialog(null, "Les résulats ont bien été rajoutés");
              fenetre.setSize(this.getSize());
             fenetre.setLocationRelativeTo(this);
             this.dispose();
             fenetre.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, " La nouvelle opération n'a pas pu être créée. Veillez recommencer.");
+       } else {
+            JOptionPane.showMessageDialog(null, " Les résulats n'ont pas pu être rajoutés. Veillez recommencer.");
         }
     }//GEN-LAST:event_jButton1Creer1ActionPerformed
 

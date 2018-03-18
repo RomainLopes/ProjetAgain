@@ -35,6 +35,10 @@ public class ConsulterResultat extends javax.swing.JFrame {
         jLabelNaturePrestaP.setText(resultat.getPrestationmt());
          jLabelDateP.setText(resultat.getDateResultat());
        
+          jLabel1Nomp1.setText(patient.getNompatient());
+        jLabel2PrenomP1.setText(patient.getPrenompatient());
+        jLabel4DateP1.setText(patient.getDateDeNaissance());
+        jLabel3Sexep1.setText(patient.getSexe());
     }
 
     /**

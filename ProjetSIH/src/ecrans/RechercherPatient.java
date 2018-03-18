@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -257,11 +258,13 @@ public class RechercherPatient extends javax.swing.JFrame {
         } else {
             lipat = PatientsDAO.findPatientNomPrenomService(jTextFieldNom.getText(), jTextFieldPrenom.getText(), jLabelService.getText());
         }
+        if (lipat.isEmpty()){
+                        JOptionPane.showMessageDialog(null, "Aucun patient trouvé");
+
+        }else {
         for (int i = 0; i < lipat.size(); i++) {
             resultatAffiche.add(lipat.get(i).getNompatient() + "  " + lipat.get(i).getPrenompatient() + "   " + lipat.get(i).getDateDeNaissance());
-        System.out.println(resultatAffiche.get(i));
         }
-
         DefaultListModel modele = new DefaultListModel();
         resultatAffiche.stream().map((i) -> {
             modele.addElement(i);
@@ -270,7 +273,7 @@ public class RechercherPatient extends javax.swing.JFrame {
             System.out.println("ok");
         });
         jListpatients.setModel(modele);
-        
+        }
         //int ipp = Integer.parseInt(resultatRecherche.get(1).substring(1, resultatRecherche.get(1).length() - 1));
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 

@@ -15,24 +15,27 @@ import javax.swing.JOptionPane;
  * @author lisad
  */
 public class NewPrescription extends javax.swing.JFrame {
-   private static PersonnelHospitalier employe;
+
+    private static PersonnelHospitalier employe;
     private static Patients patient;
     private DossierMedicoAdministratif dma;
-private JFrame fenetre;
+    private JFrame fenetre;
+    private String idPrescription;
 
     /**
      * Creates new form NewPrescription
      */
     public NewPrescription(PersonnelHospitalier personnel, Patients patient, JFrame fenetre) {
         initComponents();
-        this.patient=patient;
-        employe= personnel;
-        this.fenetre=fenetre;
-        
+        this.patient = patient;
+        employe = personnel;
+        this.fenetre = fenetre;
+        idPrescription="";
+
         jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(personnel.getService());
-        
-                jLabel1Nomp.setText(patient.getNompatient());
+
+        jLabel1Nomp.setText(patient.getNompatient());
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel3Sexep.setText(patient.getSexe());
         jLabel4DateP.setText(patient.getDateDeNaissance());
@@ -277,38 +280,45 @@ private JFrame fenetre;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1CreerActionPerformed
- 
-        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-      String noSejour=DossierMedicoAdministratifDAO.getDernierNumeroSejour(patient.getIpp());
+         DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+                                   System.out.println("dmadao ok");
+String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+                           System.out.println(ipp + "ipp ok");
 
-        dma = DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).get(0); 
-      System.out.println(DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).size());
-         
-      DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
-        String idPrescription = PrescriptionsDAO.createIdPrescription(patient.getIpp());
-        
-        Prescriptions presc ;
-         //String ipp,String nosejour,String idprescription,String dateprescription,String prescription,String service
-        presc = new Prescriptions(patient.getIpp(), dma.getNosejour(),idPrescription,jTextFieldDate.getText(),jTextFieldPrescription.getText(),employe.getService());
-        boolean ok =PrescriptionsDAO.create(presc) ;
-         if (ok){
-                               JOptionPane.showMessageDialog(null, "La nouvelle prescription a bien été créée");
-                                fenetre.setSize(this.getSize());
+        String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp);
+                           System.out.println(noSejour + "nosejour ok");
+
+        DossierMedicoAdministratifDAO.findSer(ipp, noSejour, employe.getService()).forEach((j) -> {
+            dma =j;
+        });
+
+                    System.out.println("apres creation dma");
+
+        DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
+         idPrescription = PrescriptionsDAO.createIdPrescription(ipp);
+                           System.out.println(idPrescription + " idprescription ok");
+
+        Prescriptions presc;
+        presc = new Prescriptions(ipp, noSejour, idPrescription, jTextFieldDate.getText(), jTextFieldPrescription.getText(), employe.getService());
+        boolean ok = PrescriptionsDAO.create(presc);
+        if (ok) {
+            JOptionPane.showMessageDialog(null, "La nouvelle prescription a bien été créée");
+            fenetre.setSize(this.getSize());
             fenetre.setLocationRelativeTo(this);
             this.dispose();
             fenetre.setVisible(true);
-                               
-       }else {
+
+        } else {
             JOptionPane.showMessageDialog(null, " La nouvelle prescription n'a pas pu être créée. Veillez recommencer.");
-       }
+        }
     }//GEN-LAST:event_jButton1CreerActionPerformed
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
- fenetre.setVisible(true);
+        fenetre.setVisible(true);
         fenetre.setSize(this.getSize());
-            fenetre.setLocationRelativeTo(this);
-            this.dispose();
-           
+        fenetre.setLocationRelativeTo(this);
+        this.dispose();
+
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
 
