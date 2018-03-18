@@ -9,6 +9,7 @@ import GestionBDD.*;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+
 /**
  *
  * @author lisad
@@ -16,25 +17,24 @@ import javax.swing.JFrame;
 public class FusionnerDossierUrgence extends javax.swing.JFrame {
 
     ArrayList<String> p = new ArrayList<String>();
-      private static PersonnelHospitalier employe;
+    private static PersonnelHospitalier employe;
     private static Patients patient;
-           ArrayList<Patients> lipat ;
-               DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
-               private final JFrame fenetrePre;
-
-
+    ArrayList<Patients> lipat;
+    DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
+    private final JFrame fenetrePre;
 
     /**
      * Creates new form FusionnerDossierUrgence
+     *
      * @param employe
      * @param fenetre
      */
-    public FusionnerDossierUrgence(PersonnelHospitalier employe,JFrame fenetre) {
+    public FusionnerDossierUrgence(PersonnelHospitalier employe, JFrame fenetre) {
         initComponents();
-        this.employe=employe;
+        this.employe = employe;
         lipat = new ArrayList<Patients>();
-        fenetrePre= fenetre;
-        
+        fenetrePre = fenetre;
+
     }
 
     /**
@@ -330,7 +330,7 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonFusionnerActionPerformed
 
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
-            lipat = PatientsDAO.findPatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
+        lipat = PatientsDAO.findPatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
 
         for (int i = 0; i < lipat.size(); i++) {
             p.add(lipat.get(i).getNompatient() + "  " + lipat.get(i).getPrenompatient() + "   " + lipat.get(i).getDateDeNaissance());

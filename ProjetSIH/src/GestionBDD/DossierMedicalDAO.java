@@ -27,7 +27,7 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
 
     @Override
     public boolean create(DossierMedical obj) {
-        String Query = new String();
+        String Query;
         Query = "insert into dossiermedical (ipp,nosejour,service,correspondance) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getService() + "','" + obj.getCorrespondance()

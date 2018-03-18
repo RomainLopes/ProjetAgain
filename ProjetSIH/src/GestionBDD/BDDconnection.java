@@ -47,7 +47,6 @@ public class BDDconnection {
             try {
                 connect = DriverManager.getConnection(url, user,passwd);
             } catch (SQLException e) {
-                e.printStackTrace();
             }
 
         }

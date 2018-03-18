@@ -221,7 +221,7 @@ public class Test {
         System.out.println(prest.get(0).getIpp() + "   " + prest.get(0).getPrestation());
         presdao.updateIpp("181000003", "123456789");
          */
-<<<<<<< HEAD
+
  /*
         ResultatsDAO redao = new ResultatsDAO(BDDconnection.getInstance());
         redao.updateIpp("123456789", "180000003");
@@ -229,6 +229,7 @@ public class Test {
         System.out.println(reds.get(0).getIpp() + "   " + reds.get(0).getResultat());
         redao.updateIpp("180000003", "123456789");
          */
+        
         TracabiliteDAO tdao = new TracabiliteDAO(BDDconnection.getInstance());
         tdao.updateIpp("123456789", "180000001");
         ArrayList<Tracabilite> t = tdao.findIpp("123456789");
@@ -242,7 +243,6 @@ public class Test {
          */
  /*      
  DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-=======
  
  //Tests création d'ipp, numéro de séjour, et idprescription -------------------------------------------------
  
@@ -251,26 +251,22 @@ public class Test {
         
  
    /*     DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
->>>>>>> master
         System.out.println(DossierMedicoAdministratifDAO.createNumeroSejour());
 
  
         DAO<DossierMedicoAdministratif> nosejour = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(nosejour.getDernierNumeroSejour("180000001"));
-<<<<<<< HEAD
          */
  /*
         DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
         System.out.println(PrescriptionsDAO.createIdPrescription("180000003"));
          */
-=======
-*/
  
       /*  DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
         System.out.println(PrescriptionsDAO.createIdPrescription("180000003"));
         */
         
->>>>>>> master
+
     }
 
 }
