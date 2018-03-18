@@ -186,7 +186,7 @@ public class Identification extends javax.swing.JFrame {
         //RecherchePatient rp = new RecherchePatient();
         PersonnelHospitalierDAO phd = new PersonnelHospitalierDAO(BDDconnection.getInstance());
         ph = phd.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-        System.out.println(jTextFieldIdentifiant.getText() + jTextFieldMdp.getPassword());
+       // System.out.println(jTextFieldIdentifiant.getText() + jTextFieldMdp.getPassword());
 
         if (jTextFieldIdentifiant.getText().equals("") | jTextFieldMdp.getPassword().toString().equals("")) {
             JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe non renseigné");
