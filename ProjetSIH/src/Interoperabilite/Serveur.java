@@ -21,6 +21,10 @@ public class Serveur {
     private final String messageHL7;
     private final String messageHL7lisible;
 
+    /**
+     *
+     * @param portEcoute
+     */
     public Serveur(int portEcoute) {
         this.serveur.connection(portEcoute);
         
@@ -63,22 +67,41 @@ public class Serveur {
         System.out.println("date de naissance : " + this.ps.getBirth());
     }
 
+    /**
+     *
+     * @return
+     */
     public Patient getPs() {
         return ps;
     }
 
+    /**
+     *
+     * @return
+     */
     public ServeurHL7 getServeur() {
         return serveur;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getMessageHL7() {
         return messageHL7;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getMessageHL7lisible() {
         return messageHL7lisible;
     }
 
+    /**
+     *
+     */
     public void fermeture() {
         this.serveur.fermer();
     }

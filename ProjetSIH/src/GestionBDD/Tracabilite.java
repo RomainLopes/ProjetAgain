@@ -56,6 +56,15 @@ public class Tracabilite {
         this.dateconnection = dateconnection;
     }
     
+    /**
+     *
+     * @param nompatient
+     * @param prenompatient
+     * @param nomph
+     * @param prenomph
+     * @param fonction
+     * @param dateconnection
+     */
     public Tracabilite(String nompatient, String prenompatient, String nomph,String prenomph, String fonction, String dateconnection) {
         this.nompatient = nompatient;
         this.prenompatient = prenompatient;
@@ -65,8 +74,9 @@ public class Tracabilite {
         this.dateconnection = dateconnection;
     }
     
-    
-
+    /**
+     *
+     */
     public Tracabilite(){}
     
     /**

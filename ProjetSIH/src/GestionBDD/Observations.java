@@ -40,6 +40,16 @@ public class Observations {
      */
     private String resume = "";
 
+    /**
+     *
+     * @param ipp
+     * @param nosejour
+     * @param idph
+     * @param dateObservation
+     * @param service
+     * @param nomacte
+     * @param resume
+     */
     public Observations(String ipp, String nosejour, String idph, String dateObservation, String service, String nomacte, String resume) {
         this.ipp = ipp;
         this.nosejour = nosejour;
@@ -51,6 +61,9 @@ public class Observations {
 
     }
 
+    /**
+     *
+     */
     public Observations() {
     }
 

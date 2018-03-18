@@ -17,6 +17,10 @@ import java.util.ArrayList;
  */
 public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
 
+    /**
+     *
+     * @param conn
+     */
     public LettreDeSortieDAO(Connection conn) {
         super(conn);
     }
@@ -30,7 +34,6 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            System.out.println(Query);
             int result = state.executeUpdate(Query);
             return true;
         } catch (SQLException e) {

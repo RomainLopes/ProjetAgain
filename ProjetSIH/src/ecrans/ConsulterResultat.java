@@ -22,6 +22,10 @@ public class ConsulterResultat extends javax.swing.JFrame {
 
     /**
      * Creates new form ConsulterResultat
+     * @param employe
+     * @param patient
+     * @param previous
+     * @param resultat
      */
     public ConsulterResultat(PersonnelHospitalier employe, Patients patient, JFrame previous,Resultats resultat) {
         initComponents();

@@ -28,6 +28,10 @@ public class RechercherPatient extends javax.swing.JFrame {
     DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
     ArrayList<Patients> lipat;
 
+    /**
+     *
+     * @param ph
+     */
     public RechercherPatient(PersonnelHospitalier ph) {
         initComponents();
         phr = ph;
@@ -457,6 +461,10 @@ public class RechercherPatient extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jListpatientsMouseClicked
 
+    /**
+     *
+     * @return phr
+     */
     public static PersonnelHospitalier getEmploye() {
         return phr;
     }

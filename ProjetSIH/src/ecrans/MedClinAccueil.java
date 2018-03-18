@@ -25,6 +25,13 @@ public class MedClinAccueil extends javax.swing.JFrame {
         private ArrayList<Resultats> resultat;
         private ArrayList<String> correspondance;
     
+    /**
+     *
+     * @param personnel
+     * @param patient
+     * @param obs
+     * @param res
+     */
     public MedClinAccueil(PersonnelHospitalier personnel, Patients patient,ArrayList<Observations> obs ,ArrayList<Resultats> res) {
         initComponents();
         employe=personnel;

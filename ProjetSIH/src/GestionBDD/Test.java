@@ -100,14 +100,13 @@ public class Test {
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
         ArrayList<Patients> patients = PatientsDAO.find("180000001", "Cardiologie");
         System.out.println(patients.get(0).getNompatient() +"   " + patients.get(0).getPrenompatient());
-         */ //Test find(String ipp, string service) OK
-        /*
+         */
+ /*
         DossierMedicalDAO dmdao = new DossierMedicalDAO(BDDconnection.getInstance());
         ArrayList<DossierMedical> dm = dmdao.findser("180000001", "180100001", "Cardiologie");
         System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getService());
          */
- 
-      /*  DossierMedicoAdministratifDAO dmadao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+ /*  DossierMedicoAdministratifDAO dmadao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         ArrayList<DossierMedicoAdministratif> dm = dmadao.findSer("180000001", "180100001", "Cardiologie");
         System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getService());
         System.out.println(dm.size());
@@ -190,17 +189,60 @@ public class Test {
  /*
         DossierMedicoAdministratifDAO dmdao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         dmdao.updateIpp("123456789", "180000001");
-        ArrayList<DossierMedicoAdministratif> dm = dmdao.findSer("123456789", "180100001", "Cardiologie");// à modif
+        ArrayList<DossierMedicoAdministratif> dm = dmdao.findSer("123456789", "180100001", "Cardiologie");
         System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getService());
         dmdao.updateIpp("180000001", "123456789");
-
-        
-        LettreDeSortieDAO ldsdao = new LettreDeSortieDAO(BDDconnection.getInstance());
-        dmdao.updateIpp("123456789", "180000001");
-        ArrayList<LettreDeSortie> lds = ldsdao.find("123456789", "180100001");// a modif
-        System.out.println(lds.get(0).getIpp() + "   " + lds.get(0).getLettre());
-        dmdao.updateIpp("180000001", "123456789");
          */
+ /*
+        LettreDeSortieDAO ldsdao = new LettreDeSortieDAO(BDDconnection.getInstance());
+        ldsdao.updateIpp("123456789", "180000001");
+        ArrayList<LettreDeSortie> lds = ldsdao.find("123456789", "180100001");
+        System.out.println(lds.get(0).getIpp() + "   " + lds.get(0).getLettre());
+        ldsdao.updateIpp("180000001", "123456789");
+         */
+ /*
+        ObservationsDAO odao = new ObservationsDAO(BDDconnection.getInstance());
+        odao.updateIpp("123456789", "180000003");
+        ArrayList<Observations> obs = odao.findIpp("123456789");
+        System.out.println(obs.get(0).getIpp() + "   " + obs.get(0).getNomacte());
+        odao.updateIpp("180000003", "123456789");
+         */
+ /*
+        PrescriptionsDAO predao = new PrescriptionsDAO(BDDconnection.getInstance());
+        predao.updateIpp("123456789", "180000001");
+        ArrayList<Prescriptions> press = predao.findIpp("123456789");
+        System.out.println(press.get(0).getIpp() + "   " + press.get(0).getPrescription());
+        predao.updateIpp("180000001", "123456789");
+         */
+ /*
+        PrestationsDAO presdao = new PrestationsDAO(BDDconnection.getInstance());
+        presdao.updateIpp("123456789", "181000003");
+        ArrayList<Prestations> prest = presdao.find("123456789", "180200003");
+        System.out.println(prest.get(0).getIpp() + "   " + prest.get(0).getPrestation());
+        presdao.updateIpp("181000003", "123456789");
+         */
+
+ /*
+        ResultatsDAO redao = new ResultatsDAO(BDDconnection.getInstance());
+        redao.updateIpp("123456789", "180000003");
+        ArrayList<Resultats> reds = redao.find("123456789", "180200003");
+        System.out.println(reds.get(0).getIpp() + "   " + reds.get(0).getResultat());
+        redao.updateIpp("180000003", "123456789");
+         */
+        
+        TracabiliteDAO tdao = new TracabiliteDAO(BDDconnection.getInstance());
+        tdao.updateIpp("123456789", "180000001");
+        ArrayList<Tracabilite> t = tdao.findIpp("123456789");
+        System.out.println(t.get(0).getNomph() + "   " + t.get(0).getDateconnection());
+        tdao.updateIpp("180000001", "123456789");
+
+        //Tests création d'ipp, numéro de séjour, idprescription et getDernierNumeroSejour-------------------------------------------------
+        /*
+        DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
+        System.out.println(PatientsDAO.createIpp());
+         */
+ /*      
+ DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
  
  //Tests création d'ipp, numéro de séjour, et idprescription -------------------------------------------------
  
@@ -214,12 +256,17 @@ public class Test {
  
         DAO<DossierMedicoAdministratif> nosejour = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(nosejour.getDernierNumeroSejour("180000001"));
-*/
+         */
+ /*
+        DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
+        System.out.println(PrescriptionsDAO.createIdPrescription("180000003"));
+         */
  
       /*  DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
         System.out.println(PrescriptionsDAO.createIdPrescription("180000003"));
         */
         
+
     }
 
 }

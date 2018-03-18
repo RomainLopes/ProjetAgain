@@ -28,6 +28,13 @@ public class LettreDeSortie {
      */
     private String lettre = "";
 
+    /**
+     *
+     * @param ipp
+     * @param nosejour
+     * @param idph
+     * @param lettre
+     */
     public LettreDeSortie (String ipp,String nosejour,String idph,String lettre){
         this.ipp=ipp;
         this.nosejour=nosejour;
@@ -35,6 +42,9 @@ public class LettreDeSortie {
         this.lettre=lettre;
     }
     
+    /**
+     *
+     */
     public LettreDeSortie () {}
     
     /**

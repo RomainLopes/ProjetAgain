@@ -30,6 +30,13 @@ public class DossierMedical {
      */
     private String correspondance = "";
     
+    /**
+     *
+     * @param ipp
+     * @param nosejour
+     * @param service
+     * @param correspondance
+     */
     public DossierMedical (String ipp, String nosejour, String service, String correspondance ){
         this.ipp = ipp;
         this.nosejour = nosejour;
@@ -37,6 +44,9 @@ public class DossierMedical {
         this.correspondance = correspondance;
     }
     
+    /**
+     *
+     */
     public DossierMedical () {};
     
     /**

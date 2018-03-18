@@ -17,6 +17,10 @@ import java.util.ArrayList;
  */
 public class ResultatsDAO extends DAO<Resultats> {
 
+    /**
+     *
+     * @param conn
+     */
     public ResultatsDAO(Connection conn) {
         super(conn);
     }
@@ -50,7 +54,6 @@ public class ResultatsDAO extends DAO<Resultats> {
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            System.out.println(Query);
             int result = state.executeUpdate(Query);
 
         } catch (SQLException e) {
@@ -89,7 +92,7 @@ public class ResultatsDAO extends DAO<Resultats> {
         ArrayList<Resultats> res = new ArrayList<Resultats>();
         String Query = new String();
         Query = "select * from resultat where ipp = '{" + ipp
-                + "}' and nosejour = '{" + nosejour + "}'";
+                + "}' and nosejour = '" + nosejour + "'";
 
         try {
 

@@ -28,6 +28,11 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
     private static Patients patient;
     private final JFrame fenetrePrecedente;
     
+    /**
+     *
+     * @param employe
+     * @param previous
+     */
     public CreationDMAtemporaire(PersonnelHospitalier employe, JFrame previous) {
         initComponents();
         this.employe= employe;

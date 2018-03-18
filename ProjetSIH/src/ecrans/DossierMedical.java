@@ -25,6 +25,11 @@ public class DossierMedical extends javax.swing.JFrame {
 
     /**
      * Creates new form DossierMedical
+     * @param personnel
+     * @param res
+     * @param patient
+     * @param obs
+     * @param prescription
      */
     public DossierMedical(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs, ArrayList<Resultats> res, ArrayList<Prescriptions> prescription) {
         initComponents();

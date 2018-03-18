@@ -36,6 +36,15 @@ public class PersonnelHospitalier {
      */
     private String fonction = "";
 
+    /**
+     *
+     * @param nomph
+     * @param prenomph
+     * @param id
+     * @param mdp
+     * @param service
+     * @param fonction
+     */
     public PersonnelHospitalier(String nomph, String prenomph, String id, String mdp, String service, String fonction) {
         this.nomph = nomph;
         this.prenomph = prenomph;
@@ -45,6 +54,9 @@ public class PersonnelHospitalier {
         this.fonction = fonction;
     }
    
+    /**
+     *
+     */
     public PersonnelHospitalier() {
     }
 

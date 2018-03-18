@@ -15,43 +15,43 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
-
 /**
  *
  * @author romel
  */
 public class InfirmierAccueil extends javax.swing.JFrame {
 
-      private static PersonnelHospitalier employe;
+    private static PersonnelHospitalier employe;
     private static Patients patient;
     private ArrayList<Observations> observation;
-        private ArrayList<Operations> operation;
-
+    private ArrayList<Operations> operation;
 
     /**
      * Creates new form InfirmierAccueil
+     *
+     * @param personnel
+     * @param patient
+     * @param obs
+     * @param op
      */
-   
-    public InfirmierAccueil(PersonnelHospitalier personnel, Patients patient,ArrayList<Observations> obs, ArrayList<Operations> op) {
+    public InfirmierAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs, ArrayList<Operations> op) {
         initComponents();
         employe = personnel;
         this.patient = patient;
-        
+
         jLabelNomInf.setText(personnel.getNomph());
         jLabelPrenomInf.setText(personnel.getPrenomph());
-       // jLabelFonction.setText(personnel.getFonction());
+        // jLabelFonction.setText(personnel.getFonction());
         jLabelService.setText(personnel.getService());
 
         jLabel3NomPatient.setText(patient.getNompatient());
         jLabel4PrenomPatient.setText(patient.getPrenompatient());
         jLabel2dateDeNAissancePatient.setText(patient.getDateDeNaissance());
-        jLabelSexePatient.setText(patient.getSexe()); 
-        
-        // on garde en mémoire les operations et observations 
-        
-      observation=obs;
-      operation = op;
+        jLabelSexePatient.setText(patient.getSexe());
 
+        // on garde en mémoire les operations et observations 
+        observation = obs;
+        operation = op;
 
     }
 
@@ -472,7 +472,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
-        NewObservations obs = new NewObservations(employe,patient,this);
+        NewObservations obs = new NewObservations(employe, patient, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -480,7 +480,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_ajouterObservationActionPerformed
 
     private void ajouterOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterOperationActionPerformed
-         NewOperation ope = new NewOperation(employe,patient,this);
+        NewOperation ope = new NewOperation(employe, patient, this);
         ope.setSize(this.getSize());
         ope.setLocationRelativeTo(this);
         this.dispose();
@@ -505,7 +505,7 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
     private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
         int index = jListObservations.getSelectedIndex();
-          ConsulterObservation obs = new ConsulterObservation(employe,patient,this,observation.get(index));
+        ConsulterObservation obs = new ConsulterObservation(employe, patient, this, observation.get(index));
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -551,6 +551,10 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1ListeOperations;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @return
+     */
     public String getJLabelNomInf() {
         return jLabelNomInf.getText();
     }
@@ -582,5 +586,5 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     public javax.swing.JList<String> getjListOperations() {
         return jListOperations;
     }
-    
+
 }

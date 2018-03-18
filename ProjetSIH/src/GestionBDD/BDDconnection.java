@@ -9,6 +9,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ *
+ * @author romel
+ */
 public class BDDconnection {
 
     /**
@@ -43,7 +47,6 @@ public class BDDconnection {
             try {
                 connect = DriverManager.getConnection(url, user,passwd);
             } catch (SQLException e) {
-                e.printStackTrace();
             }
 
         }

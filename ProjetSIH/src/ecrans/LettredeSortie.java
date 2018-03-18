@@ -14,22 +14,25 @@ import javax.swing.JOptionPane;
  * @author vodou
  */
 public class LettredeSortie extends javax.swing.JFrame {
-      private static PersonnelHospitalier employe;
+
+    private static PersonnelHospitalier employe;
     private static Patients patient;
-        private DossierMedicoAdministratif dma;
-        private final JFrame fenetre;
-
-
+    private DossierMedicoAdministratif dma;
+    private final JFrame fenetre;
 
     /**
      * Creates new form exemple
+     *
+     * @param personnel
+     * @param patient
+     * @param fenetre
      */
-    public LettredeSortie(PersonnelHospitalier personnel,Patients patient, JFrame fenetre) {
+    public LettredeSortie(PersonnelHospitalier personnel, Patients patient, JFrame fenetre) {
         initComponents();
-        employe=personnel;
-        this.patient=patient;
-        this.fenetre= fenetre;
-  
+        employe = personnel;
+        this.patient = patient;
+        this.fenetre = fenetre;
+
     }
 
     /**
@@ -225,34 +228,34 @@ public class LettredeSortie extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 // (String ipp,String nosejour,String idph,String lettre)   
 
-    DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-                                   System.out.println("dmadao ok");
-String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
-                           System.out.println(ipp + "ipp ok");
+        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        System.out.println("dmadao ok");
+        String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+        System.out.println(ipp + "ipp ok");
 
         String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp);
-                           System.out.println(noSejour + "nosejour ok");
+        System.out.println(noSejour + "nosejour ok");
 
         DossierMedicoAdministratifDAO.findSer(ipp, noSejour, employe.getService()).forEach((j) -> {
-            dma =j;
+            dma = j;
         });
 
-                    System.out.println("apres creation dma");
-         LettreDeSortie lettre;
-         
-        lettre = new LettreDeSortie(ipp, noSejour,dma.getIdph(),jTextAreaLettre.getText());
-          LettreDeSortieDAO lettred = new LettreDeSortieDAO(BDDconnection.getInstance());
+        System.out.println("apres creation dma");
+        LettreDeSortie lettre;
+
+        lettre = new LettreDeSortie(ipp, noSejour, dma.getIdph(), jTextAreaLettre.getText());
+        LettreDeSortieDAO lettred = new LettreDeSortieDAO(BDDconnection.getInstance());
         boolean ok = lettred.create(lettre);
-         if (ok){
-                               JOptionPane.showMessageDialog(null, "La lettre de sortie a bien été créée");
-       }else {
+        if (ok) {
+            JOptionPane.showMessageDialog(null, "La lettre de sortie a bien été créée");
+        } else {
             JOptionPane.showMessageDialog(null, " La lettre de sortie n'a pas pu être créée. Veillez recommencer.");
-       }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
-             fenetre.setVisible(true);
- fenetre.setSize(this.getSize());
+        fenetre.setVisible(true);
+        fenetre.setSize(this.getSize());
         fenetre.setLocationRelativeTo(this);
         this.dispose();
     }//GEN-LAST:event_jButtonPrecedentActionPerformed

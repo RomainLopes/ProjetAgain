@@ -58,6 +58,6 @@ public class TestHL7Client {
 //                + "\nPatient client date de décès : " + p.getDeath()
 //                + "\nPatient client est parti le : " + p.getDateDicharge());
 //        System.out.println("---------------------------------------");
-//    }
-    
+//    } 
+   
 }

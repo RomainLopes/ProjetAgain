@@ -24,6 +24,10 @@ public class NewResultat extends javax.swing.JFrame {
 
     /**
      * Creates new form NewResultat
+     * @param personnel
+     * @param patient
+     * @param fenetre
+     * @param idPrescription
      */
     public NewResultat(PersonnelHospitalier personnel, Patients patient, String idPrescription, JFrame fenetre) {
         initComponents();

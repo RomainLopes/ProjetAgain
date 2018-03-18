@@ -15,6 +15,11 @@ public class essaiEncore extends javax.swing.JFrame {
      * Creates new form essaiEncore
      */
     private static String exp;
+
+    /**
+     *
+     * @param m
+     */
     public essaiEncore(String m) {
         initComponents();
         exp=m;

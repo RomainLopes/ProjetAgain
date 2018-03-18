@@ -17,6 +17,10 @@ import java.util.ArrayList;
  */
 public class PrestationsDAO extends DAO<Prestations> {
 
+    /**
+     *
+     * @param conn
+     */
     public PrestationsDAO(Connection conn) {
         super(conn);
     }
@@ -49,7 +53,6 @@ public class PrestationsDAO extends DAO<Prestations> {
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            System.out.println(Query);
             int result = state.executeUpdate(Query);
 
         } catch (SQLException e) {

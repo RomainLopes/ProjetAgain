@@ -30,6 +30,11 @@ public class MedAnestAccueil extends javax.swing.JFrame {
 
     /**
      * Creates new form MedAnestAccueil
+     * @param personnel
+     * @param res
+     * @param patient
+     * @param obs
+     * @param prescription
      */
     
   
@@ -674,7 +679,11 @@ String idPrescription= prescription.get(taille).getIdprescription();
         obs.setVisible(true);
     }//GEN-LAST:event_jListResultatsMouseClicked
 
-  public javax.swing.JList<String> getjListObservations() {
+    /**
+     *
+     * @return
+     */
+    public javax.swing.JList<String> getjListObservations() {
         return jListObservations;
     }
 
