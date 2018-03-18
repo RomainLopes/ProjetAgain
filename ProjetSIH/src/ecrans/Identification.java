@@ -185,10 +185,12 @@ public class Identification extends javax.swing.JFrame {
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         //RecherchePatient rp = new RecherchePatient();
         PersonnelHospitalierDAO phd = new PersonnelHospitalierDAO(BDDconnection.getInstance());
-        ph = phd.connex(jTextFieldIdentifiant.getText(), jTextFieldMdp.getText());
-       // System.out.println(jTextFieldIdentifiant.getText() + jTextFieldMdp.getPassword());
+        String pswd = new String(jTextFieldMdp.getPassword());
+                
+        ph = phd.connex(jTextFieldIdentifiant.getText(), pswd);
+        System.out.println(jTextFieldIdentifiant.getText() + pswd);
 
-        if (jTextFieldIdentifiant.getText().equals("") | jTextFieldMdp.getPassword().toString().equals("")) {
+        if (jTextFieldIdentifiant.getText().equals("") | pswd.equals("")) {
             JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe non renseigné");
 
         } else {
