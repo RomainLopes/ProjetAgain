@@ -42,7 +42,7 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
     @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
         String Query = new String();
-        Query = "UPDATE tracabilite"
+        Query = "UPDATE tracabilite "
                 + "SET ipp = '{" + ippgarde + "}'"
                 + "WHERE ipp = '{" + ippsuppr + "}' ";
 

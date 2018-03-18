@@ -108,7 +108,6 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            System.out.println(Query);
             int result = state.executeUpdate(Query);
 
         } catch (SQLException e) {

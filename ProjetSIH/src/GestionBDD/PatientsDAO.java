@@ -83,7 +83,13 @@ public class PatientsDAO extends DAO<Patients> {
     @Override
     public boolean update(Patients obj) {
         String Query;
-        Query = "UPDATE patients SET nompatient='" + obj.getNompatient() + "', prenompatient = '" + obj.getPrenompatient() + "', datedenaissance = '" + obj.getDateDeNaissance() + "', localisation ='" + obj.getLocalisation() + "', adresse ='" + obj.getAdresse() + "', sexe ='" + obj.getSexe() + "'  WHERE ipp = '{" + obj.getIpp() + "}'";
+        Query = "UPDATE patients SET nompatient='" + obj.getNompatient() 
+                + "', prenompatient = '" + obj.getPrenompatient() 
+                + "', datedenaissance = '" + obj.getDateDeNaissance() 
+                + "', localisation ='" + obj.getLocalisation() 
+                + "', adresse ='" + obj.getAdresse() + "', sexe ='" 
+                + obj.getSexe() + "'  "
+                + "WHERE ipp = '{" + obj.getIpp() + "}'";
 
         try {
             Connection conn = this.connect;
