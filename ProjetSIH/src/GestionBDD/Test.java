@@ -38,7 +38,7 @@ public class Test {
         DossierMedicoAdministratif pat = new DossierMedicoAdministratif();
         pat = new DossierMedicoAdministratif("180000006", "180100002","01-05-2018","PH0001","Consultation","Cardiologie");
         DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-        DossierMedicoAdministratifDAO.create(pat);
+        System.out.println(DossierMedicoAdministratifDAO.create(pat));
          */
  /*
         LettreDeSortie pat = new LettreDeSortie();
@@ -203,12 +203,12 @@ public class Test {
          */
  
  //Tests création d'ipp, numéro de séjour, et idprescription -------------------------------------------------
- /*
+ 
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
         System.out.println(PatientsDAO.createIpp());
-        */
+        
  
-  /*      DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+   /*     DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(DossierMedicoAdministratifDAO.createNumeroSejour());
 
  
@@ -216,9 +216,9 @@ public class Test {
         System.out.println(nosejour.getDernierNumeroSejour("180000001"));
 */
  
-        DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
+      /*  DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
         System.out.println(PrescriptionsDAO.createIdPrescription("180000003"));
-        
+        */
         
     }
 

@@ -252,7 +252,7 @@ public class RechercherPatient extends javax.swing.JFrame {
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
         ArrayList<String> resultatAffiche = new ArrayList <  >();
 
-        if ("Administration".equals(phr.getService())) {
+        if ("Administration".equals(phr.getFonction())) {
             lipat = PatientsDAO.findPatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
 
         } else {

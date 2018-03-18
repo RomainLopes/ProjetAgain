@@ -50,9 +50,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel2NomPH" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextFieldNomph" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                              <Component id="jTextFieldPrenomph" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldNomph" min="-2" pref="58" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jTextFieldPrenomph" min="-2" pref="51" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -307,7 +307,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField4Localisation">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
+        <Property name="text" type="java.lang.String" value="Ne rien inscrire ici"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1NoSejour">
@@ -320,7 +320,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField1NoSejour">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
+        <Property name="text" type="java.lang.String" value="Ne rien inscrire ici"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3Type">
@@ -380,12 +380,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNomph">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
+        <Property name="text" type="java.lang.String" value="Nom"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldPrenomph">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
+        <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
       </Properties>
     </Component>
   </SubComponents>

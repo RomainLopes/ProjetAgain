@@ -47,9 +47,9 @@ public class NoSejour extends javax.swing.JFrame {
         ArrayList<LettreDeSortie> lettres = lettred.find(ipp, sejour.getNosejour());
         jLabel1LettreSortiep.setText(lettres.get(0).getLettre());
         //phRespo
-        PersonnelHospitalierDAO ph= new PersonnelHospitalierDAO(BDDconnection.getInstance());
+     /*   PersonnelHospitalierDAO ph= new PersonnelHospitalierDAO(BDDconnection.getInstance());
         phRespo= ph.findIpp(lettres.get(0).getIdph()).get(0);
-        jLabel1NomPHrespo.setText(phRespo.getNomph()+"  " + phRespo.getPrenomph());
+        jLabel1NomPHrespo.setText(phRespo.getNomph()+"  " + phRespo.getPrenomph());*/
     }
 
     /**
