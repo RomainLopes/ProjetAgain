@@ -173,5 +173,17 @@ public abstract class DAO<T> {
       public String getDernierNumeroSejour(String ipp){
           throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
       }
+      
+      /**
+       * Méthode qui change le service de correspondance du patient identifier par 
+       * l'ipp pour le séjour identifié par le numéro de séjour "nosejour"
+       * @param ipp
+       * @param nosejour
+       * @param correspondance
+       * @return 
+       */
+       public boolean updateCorrespondance(String ipp, String nosejour, String correspondance) {
+   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      }
 
 }

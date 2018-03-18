@@ -99,8 +99,48 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
     }
 
     @Override
-    public ArrayList<DossierMedical> find(String id, String service) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean updateCorrespondance(String ipp, String nosejour, String correspondance) {
+        String Query = new String();
+        Query = "UPDATE dossiermedical "
+                + "SET correspondance ='" + correspondance + "' "
+                + "WHERE ( ipp = '{" + ipp + "}' and nosejour = '" + nosejour + "' )";
+        //UPDATE dossiermedical SET ipp = '{180000001}' WHERE ipp = '{123456789}'
+
+        try {
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            System.out.println(Query);
+            int result = state.executeUpdate(Query);
+
+        } catch (SQLException e) {
+            return false;
+        }
+        return true;
+    }
+    
+    @Override
+    public ArrayList<DossierMedical> find(String ipp, String service) {
+        ArrayList<DossierMedical> dm = new ArrayList<DossierMedical>();
+        String Query = new String();
+        Query = "select * from dossiermedical where ipp = '{" + ipp
+                + "}' and service = '"
+                + service + "'";
+
+        try {
+
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet result = state.executeQuery(Query);
+
+            while (result.next()) {
+                dm.add(new DossierMedical(result.getString("ipp"), result.getString("nosejour"), result.getString("service"), result.getString("correspondance")));
+                result.close();
+                state.close();
+                return dm;
+            }
+        } catch (SQLException e) {
+        }
+        return dm;
     }
 
     @Override
