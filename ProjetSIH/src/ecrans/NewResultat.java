@@ -296,18 +296,14 @@ public class NewResultat extends javax.swing.JFrame {
 
     private void jButton1Creer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1Creer1ActionPerformed
            DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-                                   System.out.println("dmadao ok");
 String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
-                           System.out.println(ipp + "ipp ok");
 
         String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp);
-                           System.out.println(noSejour + "nosejour ok");
 
         DossierMedicoAdministratifDAO.findSer(ipp, noSejour, employe.getService()).forEach((j) -> {
             dma =j;
         });
 
-                    System.out.println("apres creation dma");
         Resultats result;
         result = new Resultats(ipp, noSejour, id, employe.getService(), jTextFieldNature.getText(), jTextFieldDate.getText(), jTextFieldResultat.getText());
         DAO<Resultats> ResultatsDAO = new ResultatsDAO(BDDconnection.getInstance());

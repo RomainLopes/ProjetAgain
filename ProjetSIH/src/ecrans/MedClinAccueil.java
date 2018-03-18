@@ -599,7 +599,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
     private void EcrireLettreSortie1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EcrireLettreSortie1ActionPerformed
         // TODO add your handling code here:
-         LettreDeSortie obs = new LettreDeSortie(employe,patient,this);
+         LettredeSortie obs = new LettredeSortie(employe,patient,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

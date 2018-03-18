@@ -335,8 +335,6 @@ public class RechercherPatient extends javax.swing.JFrame {
         });
 
         //Instanciation des listes d'objet -----
-        allDMA = dmad.findSer(lipat.get(index).getIpp(), "nosejour", "service"); // remplacer par la fonction findlast(ipp)
-        // et on aura dmaCurrent= dmad.findlast(ipp)
 
         boolean x = true;
         System.out.println(phr.getFonction());
@@ -356,7 +354,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         } else if (x == true && "Administration".equals(phr.getFonction())) {
 
-            DossierMedicoAdministratifDAO phd = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+           DossierMedicoAdministratifDAO phd = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
             ArrayList<DossierMedicoAdministratif> resultats = new ArrayList<>();
 
             /*  resultats = phd.findser(ipp, "180100001", "Cardiologie"); // ici utiliser la bonne fonction avec uniquement ipp car la sa n'a pas de service et on veut afficher tous les séjours 

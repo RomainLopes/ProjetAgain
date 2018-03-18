@@ -281,22 +281,17 @@ public class NewPrescription extends javax.swing.JFrame {
 
     private void jButton1CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1CreerActionPerformed
          DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-                                   System.out.println("dmadao ok");
 String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
-                           System.out.println(ipp + "ipp ok");
 
         String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp);
-                           System.out.println(noSejour + "nosejour ok");
 
         DossierMedicoAdministratifDAO.findSer(ipp, noSejour, employe.getService()).forEach((j) -> {
             dma =j;
         });
 
-                    System.out.println("apres creation dma");
 
         DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
          idPrescription = PrescriptionsDAO.createIdPrescription(ipp);
-                           System.out.println(idPrescription + " idprescription ok");
 
         Prescriptions presc;
         presc = new Prescriptions(ipp, noSejour, idPrescription, jTextFieldDate.getText(), jTextFieldPrescription.getText(), employe.getService());

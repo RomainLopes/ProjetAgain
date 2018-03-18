@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author vodou
  */
-public class LettreDeSortie extends javax.swing.JFrame {
+public class LettredeSortie extends javax.swing.JFrame {
       private static PersonnelHospitalier employe;
     private static Patients patient;
         private DossierMedicoAdministratif dma;
@@ -24,7 +24,7 @@ public class LettreDeSortie extends javax.swing.JFrame {
     /**
      * Creates new form exemple
      */
-    public LettreDeSortie(PersonnelHospitalier personnel,Patients patient, JFrame fenetre) {
+    public LettredeSortie(PersonnelHospitalier personnel,Patients patient, JFrame fenetre) {
         initComponents();
         employe=personnel;
         this.patient=patient;
@@ -225,13 +225,22 @@ public class LettreDeSortie extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 // (String ipp,String nosejour,String idph,String lettre)   
 
- DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-      String noSejour=DossierMedicoAdministratifDAO.getDernierNumeroSejour(patient.getIpp());
+    DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+                                   System.out.println("dmadao ok");
+String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+                           System.out.println(ipp + "ipp ok");
 
-        dma = DossierMedicoAdministratifDAO.findSer(patient.getIpp(), noSejour, employe.getService()).get(0); 
-         GestionBDD.LettreDeSortie lettre;
+        String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp);
+                           System.out.println(noSejour + "nosejour ok");
+
+        DossierMedicoAdministratifDAO.findSer(ipp, noSejour, employe.getService()).forEach((j) -> {
+            dma =j;
+        });
+
+                    System.out.println("apres creation dma");
+         LettreDeSortie lettre;
          
-        lettre = new GestionBDD.LettreDeSortie(patient.getIpp(), noSejour,dma.getIdph(),jTextAreaLettre.getText());
+        lettre = new LettreDeSortie(ipp, noSejour,dma.getIdph(),jTextAreaLettre.getText());
           LettreDeSortieDAO lettred = new LettreDeSortieDAO(BDDconnection.getInstance());
         boolean ok = lettred.create(lettre);
          if (ok){

@@ -7,6 +7,7 @@ package ecrans;
 
 import GestionBDD.*;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 
 
 /**
@@ -17,14 +18,20 @@ public class ConsulterDMA extends javax.swing.JFrame {
 
     private static PersonnelHospitalier employe;
     private static Patients patient;
-    ArrayList<Observations> prescriptions,operations,observations,result;
+ private DossierMedicoAdministratifDAO phd;
+      private ArrayList<DossierMedicoAdministratif> resultat;
+private String ipp , noSejour;
+
+    
 
     /**
      * Creates new form DossierMedicoAdministratif
+     * @param personnel
+     * @param patient
      */
-    // si ca ouvre la ^page sans considérer les données modifier le constructeur en bas
     public ConsulterDMA(PersonnelHospitalier personnel, Patients patient) {
         initComponents();
+
         employe = personnel;
         this.patient = patient;
 
@@ -37,7 +44,38 @@ public class ConsulterDMA extends javax.swing.JFrame {
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());
+        
+        // definition du contenu des jlist
+        phd = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+ ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+          noSejour = phd.getDernierNumeroSejour(ipp);
 
+
+           resultat = phd.findSer(ipp, noSejour, personnel.getService()); // ici utiliser la bonne fonction avec uniquement ipp et service car on veut afficher tous les séjours 
+
+            DefaultListModel num = new DefaultListModel();
+            DefaultListModel type = new DefaultListModel();
+            DefaultListModel date = new DefaultListModel();
+
+            resultat.stream().map((i) -> {
+                num.addElement(i.getNosejour());
+                System.out.println("dans la boucle");
+                System.out.println(i.getNosejour());
+            return i;
+        }).map((i) -> {
+            date.addElement(i.getDateentree());
+            System.out.println(i.getDateentree());
+
+            return i;
+        }).forEachOrdered((i) -> {
+            type.addElement(i.getType());
+                        System.out.println(i.getType());
+
+        });
+            
+            this.jListDate.setModel(date);
+            this.jListNoSejour.setModel(num);
+            this.jListType.setModel(type);
     }
 
     /**
@@ -170,7 +208,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
         listech.setBounds(280, 140, 350, 41);
 
         jListNoSejour.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -200,7 +238,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
         jLabel3Date.setBounds(750, 220, 86, 27);
 
         jListType.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -215,7 +253,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
         jScrollPane2ListeType.setBounds(400, 260, 190, 90);
 
         jListDate.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -285,7 +323,6 @@ public class ConsulterDMA extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
-        // TODO add your handling code here:
         Identification id = new Identification();
         id.setSize(this.getSize());
         id.setLocationRelativeTo(this);
@@ -295,8 +332,8 @@ public class ConsulterDMA extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
     private void jListNoSejourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListNoSejourMouseClicked
-        // TODO add your handling code here:
-        NoSejour id = new NoSejour(employe, patient,this);
+          int index = jListNoSejour.getSelectedIndex();
+        NoSejour id = new NoSejour(employe, patient,this,resultat.get(index));
         id.setSize(this.getSize());
         id.setLocationRelativeTo(this);
         id.setVisible(true);
@@ -304,8 +341,8 @@ public class ConsulterDMA extends javax.swing.JFrame {
     }//GEN-LAST:event_jListNoSejourMouseClicked
 
     private void jListTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListTypeMouseClicked
-        // TODO add your handling code here:
-        NoSejour id = new NoSejour(employe, patient,this);
+      int index = jListType.getSelectedIndex();
+        NoSejour id = new NoSejour(employe, patient,this,resultat.get(index));
         id.setSize(this.getSize());
         id.setLocationRelativeTo(this);
         id.setVisible(true);
@@ -313,8 +350,8 @@ public class ConsulterDMA extends javax.swing.JFrame {
     }//GEN-LAST:event_jListTypeMouseClicked
 
     private void jListDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListDateMouseClicked
-        // TODO add your handling code here:
-        NoSejour id = new NoSejour(employe, patient,this);
+        int index = jListDate.getSelectedIndex();
+        NoSejour id = new NoSejour(employe, patient,this,resultat.get(index));
         id.setSize(this.getSize());
         id.setLocationRelativeTo(this);
         id.setVisible(true);

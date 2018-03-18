@@ -706,7 +706,7 @@ String idPrescription= prescription.get(taille).getIdprescription();
 
     private void EcrireLettreSortie1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EcrireLettreSortie1ActionPerformed
         // TODO add your handling code here:
-        LettreDeSortie lettre = new LettreDeSortie(employe, patient,this);
+        LettredeSortie lettre = new LettredeSortie(employe, patient,this);
         lettre.setSize(this.getSize());
         lettre.setLocationRelativeTo(this);
         this.dispose();
