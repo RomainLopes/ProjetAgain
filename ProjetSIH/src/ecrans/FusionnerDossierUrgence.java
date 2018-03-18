@@ -26,6 +26,8 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
 
     /**
      * Creates new form FusionnerDossierUrgence
+     * @param employe
+     * @param fenetre
      */
     public FusionnerDossierUrgence(PersonnelHospitalier employe,JFrame fenetre) {
         initComponents();

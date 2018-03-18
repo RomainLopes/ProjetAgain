@@ -38,7 +38,10 @@ public class discution extends javax.swing.JFrame {
     private final JFrame previous;
             String ja, jaN;
     
-
+    /**
+     *
+     * @param previous
+     */
     public discution(JFrame previous) {
         initComponents();
         this.previous=previous;

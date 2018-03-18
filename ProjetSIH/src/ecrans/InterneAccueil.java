@@ -23,7 +23,12 @@ public class InterneAccueil extends javax.swing.JFrame {
     private static Patients patient;
         private ArrayList<Observations> observation;
 
-
+    /**
+     *
+     * @param personnel
+     * @param patient
+     * @param obs
+     */
     public InterneAccueil(PersonnelHospitalier personnel, Patients patient,ArrayList<Observations> obs ) {
         initComponents();
         employe=personnel;
@@ -43,7 +48,10 @@ public class InterneAccueil extends javax.swing.JFrame {
         
     }
 
-    
+    /**
+     *
+     * @param a
+     */
     public void ecrirJLabel(String a){
         JLabel test= new JLabel();
         test.setText(a);

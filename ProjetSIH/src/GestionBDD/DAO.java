@@ -8,8 +8,16 @@ package GestionBDD;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author romel
+ * @param <T>
+ */
 public abstract class DAO<T> {
 
+    /**
+     *
+     */
     protected Connection connect = null;
 
     /**

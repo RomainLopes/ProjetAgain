@@ -26,6 +26,9 @@ public class CreerNosejour extends javax.swing.JFrame {
 
     /**
      * Creates new form CreerNosejour
+     * @param employe
+     * @param fenetre
+     * @param patient
      */
     public CreerNosejour(PersonnelHospitalier employe, Patients patient, JFrame fenetre) {
         initComponents();

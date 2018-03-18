@@ -20,6 +20,10 @@ public class ConsulterObservation extends javax.swing.JFrame {
 
     /**
      * Creates new form ConsulterObservation
+     * @param employe
+     * @param patient
+     * @param previous
+     * @param observation
      */
     public ConsulterObservation(PersonnelHospitalier employe , Patients patient, JFrame previous,Observations observation) {
         initComponents();

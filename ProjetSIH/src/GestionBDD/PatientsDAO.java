@@ -20,6 +20,10 @@ import java.util.GregorianCalendar;
  */
 public class PatientsDAO extends DAO<Patients> {
 
+    /**
+     *
+     * @param conn
+     */
     public PatientsDAO(Connection conn) {
         super(conn);
     }

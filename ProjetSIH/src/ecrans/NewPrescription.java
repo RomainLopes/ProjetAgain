@@ -24,6 +24,9 @@ public class NewPrescription extends javax.swing.JFrame {
 
     /**
      * Creates new form NewPrescription
+     * @param personnel
+     * @param patient
+     * @param fenetre
      */
     public NewPrescription(PersonnelHospitalier personnel, Patients patient, JFrame fenetre) {
         initComponents();

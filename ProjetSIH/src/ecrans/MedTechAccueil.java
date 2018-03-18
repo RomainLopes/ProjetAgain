@@ -23,6 +23,14 @@ public class MedTechAccueil extends javax.swing.JFrame {
     private ArrayList<Resultats> resultat;
     private ArrayList<Prescriptions> prescription;
 
+    /**
+     *
+     * @param personnel
+     * @param patient
+     * @param obs
+     * @param res
+     * @param prescription
+     */
     public MedTechAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs, ArrayList<Resultats> res, ArrayList<Prescriptions> prescription) {
         initComponents();
         employe = personnel;

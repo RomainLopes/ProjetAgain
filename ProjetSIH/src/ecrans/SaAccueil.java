@@ -20,6 +20,7 @@ public class SaAccueil extends javax.swing.JFrame {
 
     /**
      * Creates new form SaAccueil
+     * @param employe
      */
     public SaAccueil(PersonnelHospitalier employe) {
         this.employe=employe;

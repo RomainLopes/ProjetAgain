@@ -36,6 +36,15 @@ public class DossierMedicoAdministratif {
      */
     private String service = "";
 
+    /**
+     *
+     * @param ipp
+     * @param nosejour
+     * @param dateentree
+     * @param idph
+     * @param type
+     * @param service
+     */
     public DossierMedicoAdministratif (String ipp,String nosejour,String dateentree,String idph,String type,String service ){
         this.ipp=ipp;
         this.nosejour=nosejour;
@@ -45,8 +54,10 @@ public class DossierMedicoAdministratif {
         this.service=service;
     }
     
-    
-     public DossierMedicoAdministratif (){}
+    /**
+     *
+     */
+    public DossierMedicoAdministratif (){}
     
     /**
      * @return the ipp

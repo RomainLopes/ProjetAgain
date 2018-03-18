@@ -18,6 +18,12 @@ public class Client {
  
     private final Patient p;
 
+    /**
+     *
+     * @param p
+     * @param adresse
+     * @param portEnvoie
+     */
     public Client(Patient p, String adresse, int portEnvoie) {
  
         this.p = p;
@@ -26,10 +32,18 @@ public class Client {
         
     }
 
+    /**
+     *
+     * @return
+     */
     public ClientHL7 getClient() {
         return client;
     }
 
+    /**
+     *
+     * @return
+     */
     public Patient getP() {
         return p;
     }

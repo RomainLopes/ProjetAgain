@@ -20,6 +20,9 @@ public class NoSejour extends javax.swing.JFrame {
 
     /**
      * Creates new form NoSejour
+     * @param personnel
+     * @param patient
+     * @param fenetre
      */
     public NoSejour(PersonnelHospitalier personnel, Patients patient, JFrame fenetre) {
         initComponents();

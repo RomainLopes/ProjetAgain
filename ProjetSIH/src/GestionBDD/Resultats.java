@@ -40,6 +40,16 @@ public class Resultats {
      */
     private String resultat = "";
 
+    /**
+     *
+     * @param ipp
+     * @param nosejour
+     * @param idPrescription
+     * @param service
+     * @param prestationmt
+     * @param dateResultat
+     * @param resultat
+     */
     public Resultats (String ipp,String nosejour,String idPrescription,String service,String prestationmt,String dateResultat,String resultat){
         this.ipp=ipp;
         this.nosejour=nosejour;
@@ -50,6 +60,9 @@ public class Resultats {
         this.resultat=resultat;
     }
     
+    /**
+     *
+     */
     public Resultats (){}
     
     /**

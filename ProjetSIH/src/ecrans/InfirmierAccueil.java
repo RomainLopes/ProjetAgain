@@ -30,6 +30,10 @@ public class InfirmierAccueil extends javax.swing.JFrame {
 
     /**
      * Creates new form InfirmierAccueil
+     * @param personnel
+     * @param patient
+     * @param obs
+     * @param op
      */
    
     public InfirmierAccueil(PersonnelHospitalier personnel, Patients patient,ArrayList<Observations> obs, ArrayList<Operations> op) {
@@ -576,6 +580,10 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1ListeOperations;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @return
+     */
     public String getJLabelNomInf() {
         return jLabelNomInf.getText();
     }

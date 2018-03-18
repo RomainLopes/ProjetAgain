@@ -17,6 +17,10 @@ import java.util.ArrayList;
  */
 public class ObservationsDAO extends DAO<Observations> {
 
+    /**
+     *
+     * @param conn
+     */
     public ObservationsDAO(Connection conn) {
         super(conn);
     }

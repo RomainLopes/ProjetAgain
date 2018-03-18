@@ -21,7 +21,12 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
     private static Patients patient;
      private   ArrayList<Observations> observation;
 
-
+    /**
+     *
+     * @param employe
+     * @param patient
+     * @param obs
+     */
     public MedUrgenceAccueil(PersonnelHospitalier employe, Patients patient, ArrayList<Observations> obs) {
         initComponents();
         this.employe = employe;

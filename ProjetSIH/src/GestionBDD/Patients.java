@@ -59,6 +59,9 @@ public class Patients {
         this.sexe=sexe;
     }
     
+    /**
+     *
+     */
     public Patients () {}
     
     /**

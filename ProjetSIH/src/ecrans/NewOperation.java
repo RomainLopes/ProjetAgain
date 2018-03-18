@@ -23,6 +23,9 @@ public class NewOperation extends javax.swing.JFrame {
 
     /**
      * Creates new form NewOperation
+     * @param personnel
+     * @param patient
+     * @param fenetre
      */
     public NewOperation(PersonnelHospitalier personnel, Patients patient, JFrame fenetre) {
 

@@ -21,6 +21,8 @@ public class ConsulterDMA extends javax.swing.JFrame {
 
     /**
      * Creates new form DossierMedicoAdministratif
+     * @param personnel
+     * @param patient
      */
     // si ca ouvre la ^page sans considérer les données modifier le constructeur en bas
     public ConsulterDMA(PersonnelHospitalier personnel, Patients patient) {

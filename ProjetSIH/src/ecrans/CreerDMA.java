@@ -30,6 +30,11 @@ public class CreerDMA extends javax.swing.JFrame {
     String dateDuJour = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
     private JFrame fenetre;
 
+    /**
+     *
+     * @param employe
+     * @param fenetre
+     */
     public CreerDMA(PersonnelHospitalier employe, JFrame fenetre) {
         initComponents();
         this.employe = employe;

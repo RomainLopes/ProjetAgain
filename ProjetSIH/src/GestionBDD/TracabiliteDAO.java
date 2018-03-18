@@ -17,6 +17,10 @@ import java.util.ArrayList;
  */
 public class TracabiliteDAO extends DAO<Tracabilite> {
 
+    /**
+     *
+     * @param conn
+     */
     public TracabiliteDAO(Connection conn) {
         super(conn);
     }

@@ -17,6 +17,10 @@ import java.util.ArrayList;
  */
 public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
 
+    /**
+     *
+     * @param conn
+     */
     public LettreDeSortieDAO(Connection conn) {
         super(conn);
     }

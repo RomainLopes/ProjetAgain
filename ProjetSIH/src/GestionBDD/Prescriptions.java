@@ -36,6 +36,15 @@ public class Prescriptions {
      */
     private String service = "";
 
+    /**
+     *
+     * @param ipp
+     * @param nosejour
+     * @param idprescription
+     * @param dateprescription
+     * @param prescription
+     * @param service
+     */
     public Prescriptions (String ipp,String nosejour,String idprescription,String dateprescription,String prescription,String service) {
         this.ipp=ipp;
         this.nosejour=nosejour;
@@ -45,6 +54,9 @@ public class Prescriptions {
         this.service=service;
     }
     
+    /**
+     *
+     */
     public Prescriptions () {}
     
     /**

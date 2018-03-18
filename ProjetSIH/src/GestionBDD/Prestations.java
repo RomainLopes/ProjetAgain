@@ -32,6 +32,14 @@ public class Prestations {
      */
     private String prestation = "";
 
+    /**
+     *
+     * @param ipp
+     * @param nosejour
+     * @param datePrestation
+     * @param service
+     * @param prestation
+     */
     public Prestations(String ipp, String nosejour, String datePrestation, String service, String prestation) {
         this.ipp = ipp;
         this.nosejour = nosejour;
@@ -41,6 +49,9 @@ public class Prestations {
 
     }
 
+    /**
+     *
+     */
     public Prestations() {
     }
 

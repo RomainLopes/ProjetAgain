@@ -32,6 +32,9 @@ public class CreerDM extends javax.swing.JFrame {
 
     /**
      * Creates new form CreerDM
+     * @param employe
+     * @param patient
+     * @param previous
      */
     public CreerDM(PersonnelHospitalier employe, Patients patient, JFrame previous) {
         initComponents();

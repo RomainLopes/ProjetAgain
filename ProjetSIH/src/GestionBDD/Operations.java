@@ -32,6 +32,14 @@ public class Operations {
      */
     private String operation = "";
 
+    /**
+     *
+     * @param ipp
+     * @param nosejour
+     * @param idph
+     * @param dateoperation
+     * @param operation
+     */
     public Operations (String ipp,String nosejour,String idph,String dateoperation,String operation){
         this.ipp=ipp;
         this.nosejour=nosejour;
@@ -40,6 +48,9 @@ public class Operations {
         this.operation=operation;
     }
     
+    /**
+     *
+     */
     public Operations (){}
     
     /**

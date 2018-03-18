@@ -28,7 +28,12 @@ public class ConsulterDM extends javax.swing.JFrame {
     private static DossierMedicoAdministratif dmaCourrant;
     private final JFrame fenetre;
 
-                                                                                                                                           
+    /**
+     *
+     * @param employe
+     * @param patient
+     * @param previous
+     */
     public ConsulterDM(PersonnelHospitalier employe, Patients patient, JFrame previous) {
         initComponents();
         this.employe = employe/*previous.getEmploye()*/;

@@ -17,6 +17,10 @@ import java.util.ArrayList;
  */
 public class DossierMedicalDAO extends DAO<DossierMedical> {
 
+    /**
+     *
+     * @param conn
+     */
     public DossierMedicalDAO(Connection conn) {
         super(conn);
     }

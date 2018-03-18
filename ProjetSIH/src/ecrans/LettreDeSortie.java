@@ -23,6 +23,9 @@ public class LettreDeSortie extends javax.swing.JFrame {
 
     /**
      * Creates new form exemple
+     * @param personnel
+     * @param patient
+     * @param fenetre
      */
     public LettreDeSortie(PersonnelHospitalier personnel,Patients patient, JFrame fenetre) {
         initComponents();
