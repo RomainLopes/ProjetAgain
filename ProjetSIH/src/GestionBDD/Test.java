@@ -38,7 +38,7 @@ public class Test {
         DossierMedicoAdministratif pat = new DossierMedicoAdministratif();
         pat = new DossierMedicoAdministratif("180000006", "180100002","01-05-2018","PH0001","Consultation","Cardiologie");
         DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-        DossierMedicoAdministratifDAO.create(pat);
+        System.out.println(DossierMedicoAdministratifDAO.create(pat));
          */
  /*
         LettreDeSortie pat = new LettreDeSortie();
@@ -221,6 +221,7 @@ public class Test {
         System.out.println(prest.get(0).getIpp() + "   " + prest.get(0).getPrestation());
         presdao.updateIpp("181000003", "123456789");
          */
+<<<<<<< HEAD
  /*
         ResultatsDAO redao = new ResultatsDAO(BDDconnection.getInstance());
         redao.updateIpp("123456789", "180000003");
@@ -241,16 +242,35 @@ public class Test {
          */
  /*      
  DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+=======
+ 
+ //Tests création d'ipp, numéro de séjour, et idprescription -------------------------------------------------
+ 
+        DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
+        System.out.println(PatientsDAO.createIpp());
+        
+ 
+   /*     DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+>>>>>>> master
         System.out.println(DossierMedicoAdministratifDAO.createNumeroSejour());
 
  
         DAO<DossierMedicoAdministratif> nosejour = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(nosejour.getDernierNumeroSejour("180000001"));
+<<<<<<< HEAD
          */
  /*
         DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
         System.out.println(PrescriptionsDAO.createIdPrescription("180000003"));
          */
+=======
+*/
+ 
+      /*  DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
+        System.out.println(PrescriptionsDAO.createIdPrescription("180000003"));
+        */
+        
+>>>>>>> master
     }
 
 }

@@ -5,8 +5,8 @@
  */
 package ecrans;
 
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /**
@@ -14,9 +14,13 @@ import javax.swing.JFrame;
  * @author lisad
  */
 public class NoSejour extends javax.swing.JFrame {
-      private static PersonnelHospitalier employe;
+
+    private static PersonnelHospitalier employe;
     private static Patients patient;
     private JFrame fenetre;
+    private DossierMedicoAdministratif dma;
+    private String ipp, noSejour;
+    private PersonnelHospitalier phRespo;
 
     /**
      * Creates new form NoSejour
@@ -24,16 +28,31 @@ public class NoSejour extends javax.swing.JFrame {
      * @param patient
      * @param fenetre
      */
-    public NoSejour(PersonnelHospitalier personnel, Patients patient, JFrame fenetre) {
+    public NoSejour(PersonnelHospitalier personnel, Patients patient, JFrame fenetre, DossierMedicoAdministratif sejour) {
         initComponents();
-        this.patient= patient;
-        employe=personnel;
-        this.fenetre= fenetre;
-        
-          jLabel1Nomp.setText(patient.getNompatient());
+        this.patient = patient;
+        employe = personnel;
+        this.fenetre = fenetre;
+        dma = sejour;
+
+        jLabel1Nomp.setText(patient.getNompatient());
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());
+        // no type nom de ph lettre de sortie liste prescriptions 
+        ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+
+        jLabelNosejor.setText(sejour.getNosejour());
+        jLabelType.setText(sejour.getType());
+        //lettre 
+        LettreDeSortieDAO lettred;
+        lettred = new LettreDeSortieDAO(BDDconnection.getInstance());
+        ArrayList<LettreDeSortie> lettres = lettred.find(ipp, sejour.getNosejour());
+        jLabel1LettreSortiep.setText(lettres.get(0).getLettre());
+        //phRespo
+     /*   PersonnelHospitalierDAO ph= new PersonnelHospitalierDAO(BDDconnection.getInstance());
+        phRespo= ph.findIpp(lettres.get(0).getIdph()).get(0);
+        jLabel1NomPHrespo.setText(phRespo.getNomph()+"  " + phRespo.getPrenomph());*/
     }
 
     /**
@@ -58,7 +77,7 @@ public class NoSejour extends javax.swing.JFrame {
         jLabel5PrestaMT = new javax.swing.JLabel();
         jButtonPrecedent = new javax.swing.JButton();
         jLabelNosejor = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelType = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3Sexep = new javax.swing.JLabel();
         jLabel2Sexe = new javax.swing.JLabel();
@@ -116,7 +135,7 @@ public class NoSejour extends javax.swing.JFrame {
 
         jLabelNosejor.setText("jLabel1");
 
-        jLabel1.setText("jLabel1");
+        jLabelType.setText("jLabel1");
 
         jLabel3Sexep.setText("jLabel1");
 
@@ -198,6 +217,7 @@ public class NoSejour extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,18 +237,15 @@ public class NoSejour extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1ListePrestaMT, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1LettreSortiep, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(461, 461, 461)
+                                .addGap(526, 526, 526)
                                 .addComponent(jLabel1NoSejourP, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1)
+                            .addComponent(jLabelType)
                             .addComponent(jLabelNosejor)
-                            .addComponent(jLabel1NomPHrespo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel1NomPHrespo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1LettreSortiep, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButtonPrecedent))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(618, 618, 618)))
+                        .addComponent(jButtonPrecedent)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -244,20 +261,20 @@ public class NoSejour extends javax.swing.JFrame {
                     .addComponent(jLabel1NoSejour, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jLabelType)
                     .addComponent(jLabel3Type, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1NomPHrespo)
                     .addComponent(jLabel2NomPH, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1LettreSortiep, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1NoSejourP)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4LettreSortie, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4LettreSortie, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1LettreSortiep, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel5PrestaMT, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(85, 85, 85))
@@ -272,17 +289,15 @@ public class NoSejour extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
-fenetre.setVisible(true);
+        fenetre.setVisible(true);
         fenetre.setSize(this.getSize());
-            fenetre.setLocationRelativeTo(this);
-            this.dispose();
+        fenetre.setLocationRelativeTo(this);
+        this.dispose();
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPrecedent;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1LettreSortiep;
     private javax.swing.JLabel jLabel1NoSejour;
@@ -301,6 +316,7 @@ fenetre.setVisible(true);
     private javax.swing.JLabel jLabel4LettreSortie;
     private javax.swing.JLabel jLabel5PrestaMT;
     private javax.swing.JLabel jLabelNosejor;
+    private javax.swing.JLabel jLabelType;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

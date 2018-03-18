@@ -35,6 +35,12 @@ public class CreerNosejour extends javax.swing.JFrame {
          this.employe = employe;
          this.patient= patient;
          fenetrePre=fenetre;
+         
+         jLabel1Nomp.setText(patient.getNompatient());
+        jLabel2PrenomP.setText(patient.getPrenompatient());
+       jLabel3Sexep.setText(patient.getSexe());
+        jLabel4DateP.setText(patient.getDateDeNaissance());
+         
         DefaultComboBoxModel modele = new DefaultComboBoxModel();
         modele.addElement("Hospitalisation");
         modele.addElement("Consultation");
@@ -190,12 +196,12 @@ public class CreerNosejour extends javax.swing.JFrame {
         jLabel2Localisation.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2Localisation.setText("Localisation :");
 
-        jTextField4Localisation.setText("jTextField1");
+        jTextField4Localisation.setText("Ne rien inscrire ici");
 
         jLabel1NoSejour.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1NoSejour.setText("Numéro de séjour : ");
 
-        jTextField1NoSejour.setText("jTextField1");
+        jTextField1NoSejour.setText("Ne rien inscrire ici");
 
         jLabel3Type.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3Type.setText("Type :");
@@ -222,9 +228,9 @@ public class CreerNosejour extends javax.swing.JFrame {
         });
         */
 
-        jTextFieldNomph.setText("jTextField1");
+        jTextFieldNomph.setText("Nom");
 
-        jTextFieldPrenomph.setText("jTextField1");
+        jTextFieldPrenomph.setText("Prénom");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -253,9 +259,9 @@ public class CreerNosejour extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2NomPH)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextFieldNomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(42, 42, 42)
-                                .addComponent(jTextFieldPrenomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jTextFieldNomph, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextFieldPrenomph, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -309,21 +315,28 @@ public class CreerNosejour extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxTypeSejourActionPerformed
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
-        // TODO add your handling code here:
+        String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+        System.out.println(ipp);
+        System.out.println(dateDuJour);
         DossierMedicoAdministratif dma;
+        PersonnelHospitalierDAO perso= new PersonnelHospitalierDAO(BDDconnection.getInstance());
+        System.out.println(perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).size());
+       /* DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
 
-        // ici faire un rechercher ph (nom, prenom)  /*phd.find("nomph", "prenomph");*/
-//dma = new DossierMedicoAdministratif(patient.getIpp(), "YYMMxxxxx","date du jour",phRespo.getId() ,jComboBoxTypeSejour.getSelectedItem().toString(),phRespo.getService());
-        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+       System.out.println(DossierMedicoAdministratifDAO.createNumeroSejour());
+
+        phRespo = perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).get(0);
        
-        dma = new DossierMedicoAdministratif(patient.getIpp(),DossierMedicoAdministratifDAO.createNumeroSejour() ,dateDuJour,"PH0001" ,jComboBoxTypeSejour.getSelectedItem().toString(),"Cardiologie");
+        dma = new DossierMedicoAdministratif(ipp,DossierMedicoAdministratifDAO.createNumeroSejour() ,dateDuJour,phRespo.getId() ,jComboBoxTypeSejour.getSelectedItem().toString(),phRespo.getService());
 
-        if (DossierMedicoAdministratifDAO.create(dma)){
+boolean ok =DossierMedicoAdministratifDAO.create(dma);
+System.out.println(ok);
+        if (ok){
                                JOptionPane.showMessageDialog(null, "Nouveau séjour créé");
        }else {
             JOptionPane.showMessageDialog(null, " Le nouveau séjour n'a pas pu être créé. Veillez recommencer.");
        }
-        
+        */
 
         
     }//GEN-LAST:event_jButtonValiderActionPerformed

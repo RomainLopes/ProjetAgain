@@ -285,19 +285,13 @@ public class NewOperation extends javax.swing.JFrame {
 
     private void jButton1CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1CreerActionPerformed
           DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-                                   System.out.println("dmadao ok");
 String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
-                           System.out.println(ipp + "ipp ok");
 
         String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp);
-                           System.out.println(noSejour + "nosejour ok");
 
         DossierMedicoAdministratifDAO.findSer(ipp, noSejour, employe.getService()).forEach((j) -> {
             dma =j;
         });
-
-                    System.out.println("apres creation dma");
-
         Operations ope;
         ope = new Operations(ipp, noSejour, dma.getIdph(), jTextFieldDate.getText(), jTextFieldOperation.getText());
                 System.out.println(ipp+" " + noSejour +" " + dma.getIdph()+" " + jTextFieldDate.getText() +" " + jTextFieldOperation.getText());
