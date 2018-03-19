@@ -74,7 +74,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
         this.jListDate.setModel(date);
         this.jListNoSejour.setModel(num);
         this.jListType.setModel(type);
-        
+
     }
 
     /**
@@ -353,7 +353,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
         re.forEach((i) -> {
             result.addElement(i.getPrestationmt() + "    " + i.getDateResultat());
         });
-        
+
         if ("Urgence".equals(employe.getService())) {
 
             MedUrgenceAccueil inte = new MedUrgenceAccueil(employe, patient, ob);
@@ -421,7 +421,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
     private void jListNoSejourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListNoSejourMouseClicked
         int index = jListNoSejour.getSelectedIndex();
         PrestationsDAO prest = new PrestationsDAO(BDDconnection.getInstance());
-        prestations = prest.findIpp(ipp);
+        prestations = prest.find(ipp, noSejour);
         DefaultListModel presta = new DefaultListModel();
         prestations.forEach((i) -> {
             presta.addElement(i.getPrestation() + "    " + i.getDatePrestation());
@@ -437,8 +437,8 @@ public class ConsulterDMA extends javax.swing.JFrame {
 
     private void jListTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListTypeMouseClicked
         int index = jListType.getSelectedIndex();
-         PrestationsDAO prest = new PrestationsDAO(BDDconnection.getInstance());
-        prestations = prest.findIpp(ipp);
+        PrestationsDAO prest = new PrestationsDAO(BDDconnection.getInstance());
+        prestations = prest.find(ipp, noSejour);
         DefaultListModel presta = new DefaultListModel();
         prestations.forEach((i) -> {
             presta.addElement(i.getPrestation() + "    " + i.getDatePrestation());
@@ -454,8 +454,8 @@ public class ConsulterDMA extends javax.swing.JFrame {
 
     private void jListDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListDateMouseClicked
         int index = jListDate.getSelectedIndex();
- PrestationsDAO prest = new PrestationsDAO(BDDconnection.getInstance());
-        prestations = prest.findIpp(ipp);
+        PrestationsDAO prest = new PrestationsDAO(BDDconnection.getInstance());
+        prestations = prest.find(ipp, noSejour);
         DefaultListModel presta = new DefaultListModel();
         prestations.forEach((i) -> {
             presta.addElement(i.getPrestation() + "    " + i.getDatePrestation());

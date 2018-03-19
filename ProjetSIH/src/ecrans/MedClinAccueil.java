@@ -90,7 +90,6 @@ public class MedClinAccueil extends javax.swing.JFrame {
         jLabel2PrenomP = new javax.swing.JLabel();
         jLabel3Sexep = new javax.swing.JLabel();
         jLabel4DateP = new javax.swing.JLabel();
-        ConsulterDM1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jComboBoxCorrespondance = new javax.swing.JComboBox();
         jPanel1 = new javax.swing.JPanel();
@@ -243,16 +242,6 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
         jLabel4DateP.setText("jLabel1");
 
-        ConsulterDM1.setBackground(new java.awt.Color(228, 241, 254));
-        ConsulterDM1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        ConsulterDM1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
-        ConsulterDM1.setText("Consulter DM");
-        ConsulterDM1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsulterDM1ActionPerformed(evt);
-            }
-        });
-
         jLabel1.setText("Correspondance :");
 
         jComboBoxCorrespondance.setModel(new javax.swing.DefaultComboBoxModel(new String[] {  }));
@@ -291,9 +280,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
                                 .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(65, 65, 65)
                                 .addComponent(jLabel3Sexep)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ConsulterDM1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(147, 147, 147)
                         .addComponent(ConsulterDMA)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EcrireLettreSortie1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -327,7 +314,6 @@ public class MedClinAccueil extends javax.swing.JFrame {
                     .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ConsulterDM1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(EcrireLettreSortie1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBoxCorrespondance, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE))))
@@ -639,15 +625,6 @@ public class MedClinAccueil extends javax.swing.JFrame {
         dm.setVisible(true);
     }//GEN-LAST:event_ConsulterDMActionPerformed
 
-    private void ConsulterDM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDM1ActionPerformed
-        // TODO add your handling code here:
-        ConsulterDM dm = new ConsulterDM(employe,patient,this);
-        dm.setSize(this.getSize());
-        dm.setLocationRelativeTo(this);
-        this.dispose();
-        dm.setVisible(true);
-    }//GEN-LAST:event_ConsulterDM1ActionPerformed
-
     private void jComboBoxCorrespondanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCorrespondanceActionPerformed
         // TODO add your handling code here:
         
@@ -656,7 +633,6 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConsulterDM;
-    private javax.swing.JButton ConsulterDM1;
     private javax.swing.JButton ConsulterDMA;
     private javax.swing.JButton EcrireLettreSortie1;
     private javax.swing.JPanel JPanelEnTeteMedTech;

@@ -27,6 +27,8 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
     private static PersonnelHospitalier employe;
     private static Patients patient;
     private final JFrame fenetrePrecedente;
+        private PersonnelHospitalier phRespo; 
+
     
     /**
      *
@@ -288,29 +290,40 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonValiderMouseClicked
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
-DossierMedicoAdministratif dma;
-        DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
-
-        // ipp= YoYoxxxxx pour créer lenouveau et faire patient.setIpp(newIpp)
-        this.patient = new Patients(PatientsDAO.createIpp(), jTextField1Nom.getText(), jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
-        if (PatientsDAO.create(patient)) {
+  // creation du patient
+        DAO<Patients> pDAO = new PatientsDAO(BDDconnection.getInstance());
+        String ipp = pDAO.createIpp(); // (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+        System.out.println(ipp);
+        this.patient = new Patients(ipp, jTextField1Nom.getText(), jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
+        boolean ok = pDAO.create(patient);
+        System.out.println(ok);
+        if (ok) {
             JOptionPane.showMessageDialog(null, "Le patient a bien été créé");
+// Recherhe du ph responsable 
+
+            PersonnelHospitalierDAO perso = new PersonnelHospitalierDAO(BDDconnection.getInstance());
+            System.out.println("taille liste = " + perso.find(employe.getNomph(), employe.getPrenomph()).size());
+            phRespo = perso.find(employe.getNomph(), employe.getPrenomph()).get(0);           
+
+// Creation du numero de sejour 
+            DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+  String nosejour = DossierMedicoAdministratifDAO.createNumeroSejour();
+            System.out.println(nosejour);
+            DossierMedicoAdministratif dma;
+            System.out.println(dateDuJour);
+//  creation du dma
+            dma = new DossierMedicoAdministratif(ipp, nosejour, dateDuJour, phRespo.getId(), "Consultation", phRespo.getService());
+            boolean ok2 = DossierMedicoAdministratifDAO.create(dma);
+            if (ok2) {
+                JOptionPane.showMessageDialog(null, "Le DMA a bien été créé");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Le DMA n'a pas pu être créé. Veillez recommencer.");
+
+            }
 
         } else {
             JOptionPane.showMessageDialog(null, "Le patient n'a pas pu être créé. Veillez recommencer.");
-        }
-
-        // ici faire un rechercher ph (nom, prenom)  /*phd.find("nomph", "prenomph");*/
-        //dma = new DossierMedicoAdministratif(patient.getIpp(), "YYMMxxxxx","date du jour",phRespo.getId() ,jComboBoxTypeSejour.getSelectedItem().toString(),phRespo.getService());
-        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-        dma = new DossierMedicoAdministratif(patient.getIpp(), DossierMedicoAdministratifDAO.createNumeroSejour(), dateDuJour, "PH0001", "Hospitalisation", "Cardiologie");
-
-        if (DossierMedicoAdministratifDAO.create(dma)) {
-            JOptionPane.showMessageDialog(null, "Le DMA a bien été créé");
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Le DMA n'a pas pu être créé. Veillez recommencer.");
-
         }
 
         
