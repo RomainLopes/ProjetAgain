@@ -89,6 +89,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
         jLabel4DateP = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jComboBoxCorrespondance = new javax.swing.JComboBox();
+        ConsulterDM1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel1Observations = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -110,7 +111,6 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(200, 200));
-        setPreferredSize(new java.awt.Dimension(1000, 1000));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -248,6 +248,16 @@ public class MedClinAccueil extends javax.swing.JFrame {
             }
         });
 
+        ConsulterDM1.setBackground(new java.awt.Color(228, 241, 254));
+        ConsulterDM1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        ConsulterDM1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
+        ConsulterDM1.setText("Consulter DM");
+        ConsulterDM1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsulterDM1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3InfoPatientLayout = new javax.swing.GroupLayout(jPanel3InfoPatient);
         jPanel3InfoPatient.setLayout(jPanel3InfoPatientLayout);
         jPanel3InfoPatientLayout.setHorizontalGroup(
@@ -277,15 +287,17 @@ public class MedClinAccueil extends javax.swing.JFrame {
                                 .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(65, 65, 65)
                                 .addComponent(jLabel3Sexep)))
-                        .addGap(147, 147, 147)
-                        .addComponent(ConsulterDMA)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ConsulterDM1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EcrireLettreSortie1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBoxCorrespondance, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         jPanel3InfoPatientLayout.setVerticalGroup(
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,7 +325,8 @@ public class MedClinAccueil extends javax.swing.JFrame {
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(EcrireLettreSortie1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxCorrespondance, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE))))
+                            .addComponent(jComboBoxCorrespondance, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                            .addComponent(ConsulterDM1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 31, Short.MAX_VALUE))
         );
 
@@ -627,9 +640,19 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jComboBoxCorrespondanceActionPerformed
 
+    private void ConsulterDM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDM1ActionPerformed
+        // TODO add your handling code here:
+        ConsulterDM obs = new ConsulterDM(employe, patient, this);
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
+    }//GEN-LAST:event_ConsulterDM1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConsulterDM;
+    private javax.swing.JButton ConsulterDM1;
     private javax.swing.JButton ConsulterDMA;
     private javax.swing.JButton EcrireLettreSortie1;
     private javax.swing.JPanel JPanelEnTeteMedTech;
