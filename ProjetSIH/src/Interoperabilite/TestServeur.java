@@ -9,13 +9,13 @@ package Interoperabilite;
  *
  * @author romel
  */
-public class TestHL7 {
+public class TestServeur {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        interoperabilite.ServeurT s = new interoperabilite.ServeurT();
     }
     
 }

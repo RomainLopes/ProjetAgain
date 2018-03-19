@@ -143,19 +143,22 @@ public class PatientsDAO extends DAO<Patients> {
 
     }
 
-    /*
+    
     //@Override
     public ArrayList<Patients> findPatientNomPrenomServiceSM(String nom, String prenom, String service) {
         ArrayList<Patients> pat = new ArrayList<>();
         String Query;
 
+        DAO<DossierMedicoAdministratif> nosejour = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+//nosejour.getDernierNumeroSejour()
+        
         if (nom.equals("")) {
-            Query = "SELECT patients.* FROM patients INNER JOIN dma "
+            Query = "SELECT patients.* FROM patients LEFT JOIN dma "
                     + "ON patients.ipp = dma.ipp "
                     + "WHERE patients.prenompatient = '" + prenom + "' "
-                    + "AND (dossiermedical.service = '" + service + "' or dossiermedical.correspondance = '" + service + "' )";
+                    + "AND dma.service = '" + service + "' ";
         } else if (prenom.equals("")) {
-            Query = "SELECT patients.* FROM patients INNER JOIN dossiermedical "
+            Query = "SELECT patients.* FROM patients INNER JOIN dma "
                     + "ON patients.ipp = dossiermedical.ipp "
                     + "WHERE patients.nompatient = '" + nom + "' "
                     + "AND (dossiermedical.service = '" + service + "' or dossiermedical.correspondance = '" + service + "' )";
@@ -184,7 +187,7 @@ public class PatientsDAO extends DAO<Patients> {
         }
         return pat;
     }
-*/
+
     
     @Override
     public ArrayList<Patients> findPatientNomPrenomService(String nom, String prenom, String service) {
