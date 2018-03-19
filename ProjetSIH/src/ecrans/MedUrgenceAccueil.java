@@ -7,6 +7,7 @@ package ecrans;
 
 import GestionBDD.*;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 
 /**
  *
@@ -20,6 +21,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
     private static PersonnelHospitalier employe;
     private static Patients patient;
     private ArrayList<Observations> observation;
+    private JFrame fenetrePrecedente;
 
     /**
      *
@@ -27,7 +29,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
      * @param patient
      * @param obs
      */
-    public MedUrgenceAccueil(PersonnelHospitalier employe, Patients patient, ArrayList<Observations> obs) {
+    public MedUrgenceAccueil(PersonnelHospitalier employe, Patients patient, JFrame fenetrePre) {
         initComponents();
         this.employe = employe;
         this.patient = patient;
@@ -40,7 +42,7 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel2DateDeNaissance.setText(patient.getDateDeNaissance());
         jLabel2Sexe.setText(patient.getSexe());
-        observation = obs;
+        fenetrePrecedente = fenetrePre;
     }
 
     /**

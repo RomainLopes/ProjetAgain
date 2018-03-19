@@ -24,14 +24,15 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
     /**
      * Creates new form CreationDMAtemporaire
      */
-    String dateDuJour = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
+    String date = new SimpleDateFormat("MM-dd-yyyy/HH mm ss").format(Calendar.getInstance().getTime());
+String dateDuJour= (date.substring(0, 10));
+String heureDentree= (date.substring(11, 19));
 
     private static PersonnelHospitalier employe;
     private static Patients patient;
     private final JFrame fenetrePrecedente;
-        private PersonnelHospitalier phRespo; 
+    //    private PersonnelHospitalier phRespo; 
 
-    
     /**
      *
      * @param employe
@@ -102,12 +103,8 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
             jLabel2Nom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
             jLabel2Nom.setText("Nom : ");
 
-            jTextField1Nom.setText("jTextField1");
-
             jLabel1Prenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
             jLabel1Prenom.setText("Prénom : ");
-
-            jTextField4Prenom.setText("jTextField1");
 
             jLabel2Sexe.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
             jLabel2Sexe.setText("Sexe :");
@@ -179,13 +176,14 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(jTextField1Nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField1Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(69, 69, 69))
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addComponent(jLabel1Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField4Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(69, 69, 69)
+                                .addComponent(jTextField4Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)))
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2DateDeNaissance)
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
@@ -291,30 +289,43 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         // creation du patient
         DAO<Patients> pDAO = new PatientsDAO(BDDconnection.getInstance());
-        String ipp = pDAO.createIpp(); // (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+        String ipp = pDAO.createIpp();
         System.out.println(ipp);
+        if (jTextField1Nom.getText()== null){
+                    this.patient = new Patients(ipp,dateDuJour, jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
+
+        }else if(jTextField4Prenom.getText()==null){
+       this.patient = new Patients(ipp, jTextField1Nom.getText(), heureDentree, jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
+
+        }else {
+
         this.patient = new Patients(ipp, jTextField1Nom.getText(), jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
+        }
         boolean ok = pDAO.create(patient);
         System.out.println(ok);
         if (ok) {
             JOptionPane.showMessageDialog(null, "Le patient a bien été créé");
-// Recherhe du ph responsable 
+// Recherhe du ph responsable : Le ph respo c'est celui qui crée le dma temp
 
-            PersonnelHospitalierDAO perso = new PersonnelHospitalierDAO(BDDconnection.getInstance());
+            /* PersonnelHospitalierDAO perso = new PersonnelHospitalierDAO(BDDconnection.getInstance());
             System.out.println("taille liste = " + perso.find(employe.getNomph(), employe.getPrenomph()).size());
-            phRespo = perso.find(employe.getNomph(), employe.getPrenomph()).get(0);           
-
+            phRespo = perso.find(employe.getNomph(), employe.getPrenomph()).get(0);    */
 // Creation du numero de sejour 
             DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-  String nosejour = DossierMedicoAdministratifDAO.createNumeroSejour();
+            String nosejour = DossierMedicoAdministratifDAO.createNumeroSejour();
             System.out.println(nosejour);
             DossierMedicoAdministratif dma;
             System.out.println(dateDuJour);
 //  creation du dma
-            dma = new DossierMedicoAdministratif(ipp, nosejour, dateDuJour, phRespo.getId(), "Consultation", phRespo.getService());
+            dma = new DossierMedicoAdministratif(ipp, nosejour, dateDuJour, employe.getId(), "Hospitalisation", employe.getService());
             boolean ok2 = DossierMedicoAdministratifDAO.create(dma);
             if (ok2) {
                 JOptionPane.showMessageDialog(null, "Le DMA a bien été créé");
+                MedUrgenceAccueil sadm = new MedUrgenceAccueil(employe, patient, this);
+                sadm.setVisible(true);
+                sadm.setSize(this.getSize());
+                sadm.setLocationRelativeTo(this);
+                this.dispose();
 
             } else {
                 JOptionPane.showMessageDialog(null, "Le DMA n'a pas pu être créé. Veillez recommencer.");
@@ -325,8 +336,6 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Le patient n'a pas pu être créé. Veillez recommencer.");
         }
     }//GEN-LAST:event_jButtonValiderActionPerformed
- 
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

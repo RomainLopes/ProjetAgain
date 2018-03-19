@@ -299,9 +299,9 @@
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jTextField4Localisation">
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="}&#xa;catch(ParseException e){e.printStackTrace();}"/>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(tel)"/>
-                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="try{&#xa;  MaskFormatter tel = new MaskFormatter(&quot;U###&quot;);"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(tel2)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="try{&#xa;  MaskFormatter tel2 = new MaskFormatter(&quot;U###&quot;);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="}&#xa;catch(ParseException e){e.printStackTrace();}"/>
               </AuxValues>
             </Component>
           </SubComponents>

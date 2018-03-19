@@ -356,7 +356,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
 
         if ("Urgence".equals(employe.getService())) {
 
-            MedUrgenceAccueil inte = new MedUrgenceAccueil(employe, patient, ob);
+            MedUrgenceAccueil inte = new MedUrgenceAccueil(employe, patient, this);
             inte.setSize(this.getSize());
             inte.setLocationRelativeTo(this);
             this.dispose();

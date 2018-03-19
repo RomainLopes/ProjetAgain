@@ -210,7 +210,15 @@ public class Identification extends javax.swing.JFrame {
                     this.dispose();
                     sadm.setVisible(true);
 
-                } else {
+                }else if ("Urgence".equals(ph.getService())) {
+                     CreationDMAtemporaire rechercher = new CreationDMAtemporaire(ph,this);
+                    rechercher.setSize(this.getSize());
+                    rechercher.setLocationRelativeTo(this);
+                    this.dispose();
+                    rechercher.setVisible(true);
+                }
+                
+                else {
 
                     RechercherPatient rechercher = new RechercherPatient(ph);
                     rechercher.setSize(this.getSize());
