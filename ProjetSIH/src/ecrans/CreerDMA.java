@@ -377,11 +377,12 @@ public class CreerDMA extends javax.swing.JFrame {
 
     private void jButtonValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonValiderMouseClicked
         // creation du patient
-        DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
-        String ipp = PatientsDAO.createIpp(); // (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+        DAO<Patients> pDAO = new PatientsDAO(BDDconnection.getInstance());
+        String ipp = pDAO.createIpp(); // (patient.getIpp().substring(1, patient.getIpp().length() - 1));
         System.out.println(ipp);
         this.patient = new Patients(ipp, jTextField1Nom.getText(), jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
-        /*  boolean ok= PatientsDAO.create(patient);
+        pDAO.create(patient);
+        /*
         System.out.println(ok);
         if (ok) {
             JOptionPane.showMessageDialog(null, "Le patient a bien été créé");
@@ -404,7 +405,8 @@ public class CreerDMA extends javax.swing.JFrame {
         System.out.println(dateDuJour);
         
         dma = new DossierMedicoAdministratif(ipp, nosejour, dateDuJour, phRespo.getId(), jComboBoxTypeSejour.getSelectedItem().toString(), phRespo.getService());
-        /*boolean ok2= DossierMedicoAdministratifDAO.create(dma);
+        DossierMedicoAdministratifDAO.create(dma);
+        /*
         if (ok2) {
             JOptionPane.showMessageDialog(null, "Le DMA a bien été créé");
 

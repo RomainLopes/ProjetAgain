@@ -21,8 +21,8 @@ public abstract class DAO<T> {
     protected Connection connect = null;
 
     /**
-     * 
-     * @param conn 
+     *
+     * @param conn
      */
     public DAO(Connection conn) {
         this.connect = conn;
@@ -130,60 +130,77 @@ public abstract class DAO<T> {
     public PersonnelHospitalier connex(String id, String mdp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     /**
-     * Méthode de création automatique de l'ipp via requête sql qui renvoie 
-     * le plus grand ipp de l'année en cours incrémenté de 1 ou l'ipp
-     * dû à l'année en cours
-     * @return 
+     * Méthode de création automatique de l'ipp via requête sql qui renvoie le
+     * plus grand ipp de l'année en cours incrémenté de 1 ou l'ipp dû à l'année
+     * en cours
+     *
+     * @return
      */
-     public String createIpp() {
-         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     }
-     
-     /**
-     * Méthode de création automatique du numéro de séjour via requête sql 
-     * qui renvoie le plus grand numéro de séjour de l'année et du mois  
-     * en cours  pour le patient avec l'ipp entrée en paramètre incrémenté de 1 
-     * ou le numéro de séjour de l'année et du mois en cours
-     * @return 
+    public String createIpp() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * Méthode de création automatique du numéro de séjour via requête sql qui
+     * renvoie le plus grand numéro de séjour de l'année et du mois en cours
+     * pour le patient avec l'ipp entrée en paramètre incrémenté de 1 ou le
+     * numéro de séjour de l'année et du mois en cours
+     *
+     * @return
      */
-     public String createNumeroSejour() {
-          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     }
-     
-     /**
-     * Méthode de création automatique de l'id de prescription via requête sql 
-     * qui renvoie le plus grand numéro id de prescription de l'année, du mois et du jour 
-     * en cours  pour le patient avec l'ipp entrée en paramètre incrémenté de 1 
-     * ou l'id de prescription de l'année, du mois et du jour en cours
+    public String createNumeroSejour() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * Méthode de création automatique de l'id de prescription via requête sql
+     * qui renvoie le plus grand numéro id de prescription de l'année, du mois
+     * et du jour en cours pour le patient avec l'ipp entrée en paramètre
+     * incrémenté de 1 ou l'id de prescription de l'année, du mois et du jour en
+     * cours
+     *
      * @param ipp
-     * @return 
+     * @return
      */
-     public String createIdPrescription(String ipp) {
-         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-     }
-     
-     /**
-      * Méthode qui renvoit le dernier numéro de séjour du patient identifié
-      * par son ipp
-      * @param ipp
-      * @return 
-      */
-      public String getDernierNumeroSejour(String ipp){
-          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-      }
-      
-      /**
-       * Méthode qui change le service de correspondance du patient identifier par 
-       * l'ipp pour le séjour identifié par le numéro de séjour "nosejour"
-       * @param ipp
-       * @param nosejour
-       * @param correspondance
-       * @return 
-       */
-       public boolean updateCorrespondance(String ipp, String nosejour, String correspondance) {
-   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-      }
+    public String createIdPrescription(String ipp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * Méthode qui renvoit le dernier numéro de séjour du patient identifié par
+     * son ipp
+     *
+     * @param ipp
+     * @return
+     */
+    public String getDernierNumeroSejour(String ipp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * Méthode qui change le service de correspondance du patient identifier par
+     * l'ipp pour le séjour identifié par le numéro de séjour "nosejour"
+     *
+     * @param ipp
+     * @param nosejour
+     * @param correspondance
+     * @return
+     */
+    public boolean updateCorrespondance(String ipp, String nosejour, String correspondance) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * Méthode qui permet de rehcercher un dma à l'aide de l'ipp et du service
+     *
+     * @param ipp
+     * @param service
+     * @return
+     */
+    public ArrayList<DossierMedicoAdministratif> findService(String ipp, String service) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

@@ -159,6 +159,31 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
         }
         return dma;
     }
+    
+    @Override
+    public ArrayList<DossierMedicoAdministratif> findService(String ipp, String service) {
+        ArrayList<DossierMedicoAdministratif> dma = new ArrayList<DossierMedicoAdministratif>();
+        String Query = new String();
+        Query = "select * from dma where ipp = '{" + ipp
+                + "}' and service = '" + service + "'";
+
+        try {
+
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet result = state.executeQuery(Query);
+
+            while (result.next()) {
+                dma.add(new DossierMedicoAdministratif(result.getString("ipp"), result.getString("nosejour"), result.getString("dateentree"), result.getString("idph"), result.getString("type"), result.getString("service")));
+                result.close();
+                state.close();
+                return dma;
+
+            }
+        } catch (SQLException e) {
+        }
+        return dma;
+    }
 
     @Override
     public ArrayList<DossierMedicoAdministratif> findSer(String ipp, String nosejour, String service) {
