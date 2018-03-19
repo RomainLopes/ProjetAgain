@@ -136,12 +136,10 @@ System.out.println(idPrescription);
             ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
-                pre.add(new Prescriptions(result.getString("ipp"), result.getString("nosejour"), result.getString("idprescription"), result.getString("dateprescription"), result.getString("prescription"), result.getString("service")));
-                result.close();
-                state.close();
-                return pre;
+                pre.add(new Prescriptions(result.getString("ipp"), result.getString("nosejour"), result.getString("idprescription"), result.getString("dateprescription"), result.getString("prescription"), result.getString("service")));     
 
             }
+              return pre;
         } catch (SQLException e) {
         }
         return pre;
@@ -163,11 +161,9 @@ System.out.println(idPrescription);
 
             while (result.next()) {
                 pre.add(new Prescriptions(result.getString("ipp"), result.getString("nosejour"), result.getString("idprescription"), result.getString("dateprescription"), result.getString("prescription"), result.getString("service")));
-                result.close();
-                state.close();
-                return pre;
-
+               
             }
+             return pre;
         } catch (SQLException e) {
         }
         return pre;

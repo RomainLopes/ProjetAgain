@@ -67,9 +67,9 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
         ArrayList<Tracabilite> tra = new ArrayList<Tracabilite>();
         String Query = new String();
         Query = "SELECT patients.nompatient, patients.prenompatient, personnelhospitalier.nomph, personnelhospitalier.prenomph, personnelhospitalier.fonction, tracabilite.dateconnexion"
-                + " FROM tracabilite INNER JOIN personnelhospitalier "
+                + " FROM tracabilite LEFT JOIN personnelhospitalier "
                 + " ON tracabilite.idph = personnelhospitalier.id "
-                + " INNER JOIN patients "
+                + " LEFT JOIN patients "
                 + " ON tracabilite.ipp = patients.ipp "
                 + " WHERE tracabilite.ipp = '{" + ipp + "}'";
 
@@ -81,11 +81,9 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
 
             while (result.next()) {
                 tra.add(new Tracabilite(result.getString("nompatient"), result.getString("prenompatient"), result.getString("nomph"), result.getString("prenomph"), result.getString("fonction"), result.getString("dateconnexion")));
-                result.close();
-                state.close();
-                return tra;
-
+               
             }
+             return tra;
         } catch (SQLException e) {
         }
         return tra;

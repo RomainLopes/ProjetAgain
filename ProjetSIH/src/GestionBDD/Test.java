@@ -169,15 +169,16 @@ public class Test {
         System.out.println("is empty");
         }
          */
- /*
+ 
         TracabiliteDAO dmadao = new TracabiliteDAO(BDDconnection.getInstance());
-        ArrayList<Tracabilite> dm = dmadao.findser("180000001");
+        ArrayList<Tracabilite> dm = dmadao.findIpp("180000006");
         if (!dm.isEmpty()) {
-            System.out.println(dm.get(0).getNompatient() + "   " + dm.get(0).getNomph()+ "   " + dm.get(0).getDateconnection());
+            System.out.println(dm.size());
+            System.out.println(dm.get(2).getNompatient() + "   " + dm.get(2).getNomph()+ "   " + dm.get(2).getDateconnection());
         } else {
             System.out.println("is empty");
         }
-         */
+         
         //Tests unitaire d'update-------------------------------------------------
         /*
         DossierMedicalDAO dmdao = new DossierMedicalDAO(BDDconnection.getInstance());
@@ -235,7 +236,7 @@ public class Test {
         ArrayList<Tracabilite> t = tdao.findIpp("123456789");
         System.out.println(t.get(0).getNomph() + "   " + t.get(0).getDateconnection());
         tdao.updateIpp("180000001", "123456789");
-*/
+/*
         //Tests création d'ipp, numéro de séjour, idprescription et getDernierNumeroSejour-------------------------------------------------
         /*
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
@@ -245,10 +246,10 @@ public class Test {
  DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
  */
  //Tests création d'ipp, numéro de séjour, et idprescription -------------------------------------------------
- 
+ /*
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
         System.out.println(PatientsDAO.createIpp());
-        
+   */     
  /*
       DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(DossierMedicoAdministratifDAO.createNumeroSejour());

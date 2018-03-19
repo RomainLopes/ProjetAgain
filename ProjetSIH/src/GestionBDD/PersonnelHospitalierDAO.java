@@ -58,11 +58,12 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
 
             if (result.next()) {
                 ph = new PersonnelHospitalier(result.getString("nomph"), result.getString("prenomph"), result.getString("id"), result.getString("mdp"), result.getString("service"), result.getString("fonction"));
-                result.close();
-                state.close();
-                return ph;
+
+             
             }
 
+               return ph;
+            
         } catch (SQLException e) {
         }
         return ph;
@@ -82,11 +83,11 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
 
             while (result.next()) {
                 ph.add(new PersonnelHospitalier(result.getString("nomph"), result.getString("prenomph"), result.getString("id"), result.getString("mdp"), result.getString("service"), result.getString("fonction")));
-                result.close();
-                state.close();
-                return ph;
+                
             }
 
+            return ph;
+            
         } catch (SQLException e) {
         }
         return ph;
