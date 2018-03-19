@@ -61,7 +61,13 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        JPanelEnTeteMedTech = new javax.swing.JPanel();
+        jLabelFonction = new javax.swing.JLabel();
+        jLabelNomPmed = new javax.swing.JLabel();
+        jLabelPrenomPmed = new javax.swing.JLabel();
+        jButtonDeconnexion = new javax.swing.JButton();
+        jButtonAccueil = new javax.swing.JButton();
+        jLabelService = new javax.swing.JLabel();
         jPanel3InfoPatient = new javax.swing.JPanel();
         jLabel1InfoPatients = new javax.swing.JLabel();
         jLabel2Nom = new javax.swing.JLabel();
@@ -84,16 +90,87 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
             jButtonValider = new javax.swing.JButton();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-            setAlwaysOnTop(true);
             setBackground(new java.awt.Color(255, 255, 255));
             setMinimumSize(new java.awt.Dimension(200, 200));
-            setPreferredSize(new java.awt.Dimension(1000, 1000));
-            setResizable(false);
-            getContentPane().setLayout(null);
 
-            jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-            jPanel1.setMinimumSize(new java.awt.Dimension(200, 200));
-            jPanel1.setPreferredSize(new java.awt.Dimension(1000, 1000));
+            JPanelEnTeteMedTech.setBackground(new java.awt.Color(65, 131, 215));
+            JPanelEnTeteMedTech.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+            jLabelFonction.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
+            jLabelFonction.setText("Médecin Urgence");
+
+            jLabelNomPmed.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+            jLabelNomPmed.setText("Nom");
+
+            jLabelPrenomPmed.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+            jLabelPrenomPmed.setText("Prénom");
+
+            jButtonDeconnexion.setBackground(new java.awt.Color(228, 241, 254));
+            jButtonDeconnexion.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+            jButtonDeconnexion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Deconnexion 2.PNG"))); // NOI18N
+            jButtonDeconnexion.setText("Déconnexion");
+            jButtonDeconnexion.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jButtonDeconnexionActionPerformed(evt);
+                }
+            });
+
+            jButtonAccueil.setBackground(new java.awt.Color(228, 241, 254));
+            jButtonAccueil.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+            jButtonAccueil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Accueil 2.PNG"))); // NOI18N
+            jButtonAccueil.setText("Accueil");
+            jButtonAccueil.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jButtonAccueilActionPerformed(evt);
+                }
+            });
+
+            jLabelService.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+            jLabelService.setText("Service");
+
+            javax.swing.GroupLayout JPanelEnTeteMedTechLayout = new javax.swing.GroupLayout(JPanelEnTeteMedTech);
+            JPanelEnTeteMedTech.setLayout(JPanelEnTeteMedTechLayout);
+            JPanelEnTeteMedTechLayout.setHorizontalGroup(
+                JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jButtonAccueil)
+                    .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
+                            .addGap(53, 53, 53)
+                            .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
+                                    .addComponent(jLabelNomPmed)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelFonction))
+                                .addComponent(jLabelPrenomPmed))
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelEnTeteMedTechLayout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelService)))
+                    .addGap(18, 18, 18)
+                    .addComponent(jButtonDeconnexion)
+                    .addContainerGap())
+            );
+            JPanelEnTeteMedTechLayout.setVerticalGroup(
+                JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
+                    .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabelNomPmed)
+                                .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelFonction, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelService, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabelPrenomPmed, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(10, 10, 10))
+            );
 
             jPanel3InfoPatient.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -167,23 +244,20 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
         jPanel3InfoPatientLayout.setHorizontalGroup(
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addContainerGap(90, Short.MAX_VALUE)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1InfoPatients)
                     .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                        .addComponent(jLabel1InfoPatients)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                        .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(69, 69, 69))
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField1Nom))
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addComponent(jLabel1Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField4Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(53, 53, 53)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField4Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(48, 48, 48)
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2DateDeNaissance)
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
@@ -193,18 +267,16 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButtonAide, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField4DDN1))
+                            .addComponent(jTextField4DDN1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23)
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                                .addComponent(jLabel2Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField4Localisation, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE))
-                            .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                                .addComponent(jLabel2Adresse, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldadresse)))
-                        .addGap(43, 43, 43))))
+                            .addComponent(jLabel2Adresse, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2Localisation))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField4Localisation, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                    .addComponent(jTextFieldadresse))
+                .addContainerGap(90, Short.MAX_VALUE))
             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButtonPrecedent)
@@ -238,30 +310,26 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
                     .addComponent(jLabel2Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4DDN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addGap(71, 71, 71)
                 .addComponent(jButtonValider)
                 .addGap(68, 68, 68))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(94, Short.MAX_VALUE)
-                .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(342, Short.MAX_VALUE))
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 970, 790);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -342,9 +410,29 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
+    private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
+        // TODO add your handling code here:
+        Identification iden = new Identification();
+        iden.setSize(this.getSize());
+        iden.setLocationRelativeTo(this);
+        this.dispose();
+        iden.setVisible(true);
+    }//GEN-LAST:event_jButtonDeconnexionActionPerformed
+
+    private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
+        RechercherPatient rechercher = new RechercherPatient(employe);
+        rechercher.setSize(this.getSize());
+        rechercher.setLocationRelativeTo(this);
+        this.dispose();
+        rechercher.setVisible(true);
+    }//GEN-LAST:event_jButtonAccueilActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel JPanelEnTeteMedTech;
+    private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonAide;
+    private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JButton jButtonPrecedent;
     private javax.swing.JButton jButtonValider;
     private javax.swing.JComboBox<String> jComboBoxSexe;
@@ -355,7 +443,10 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2Localisation;
     private javax.swing.JLabel jLabel2Nom;
     private javax.swing.JLabel jLabel2Sexe;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabelFonction;
+    private javax.swing.JLabel jLabelNomPmed;
+    private javax.swing.JLabel jLabelPrenomPmed;
+    private javax.swing.JLabel jLabelService;
     private javax.swing.JPanel jPanel3InfoPatient;
     private javax.swing.JTextField jTextField1Nom;
     private javax.swing.JFormattedTextField jTextField4DDN1;
