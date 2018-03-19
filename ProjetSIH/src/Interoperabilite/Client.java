@@ -5,8 +5,11 @@
  */
 package interoperabilite;
 
+import java.text.SimpleDateFormat;
+import javax.swing.Action;
 import library.interfaces.ClientHL7;
 import library.interfaces.Patient;
+import library.interfaces.ServeurHL7;
 
 
 /**
@@ -14,39 +17,27 @@ import library.interfaces.Patient;
  * @author SIHop coding team
  */
 public class Client {
-    private final ClientHL7 client = new ClientHL7();
- 
-    private final Patient p;
+    private ServeurHL7 serveur;
+    private Patient patient;
+    private Action action;
+    private char sex = 'X';
+    private String card = "cardAdmettre";
+    private int nbr;
+    private final SimpleDateFormat formateur = new SimpleDateFormat("dd/MM/yyyy");
 
-    /**
-     *
-     * @param p
-     * @param adresse
-     * @param portEnvoie
-     */
-    public Client(Patient p, String adresse, int portEnvoie) {
- 
-        this.p = p;
-        client.connexion(adresse, portEnvoie);
-        client.admit(p);
+    
+    public Client( int port) {
+        this.serveur = new ServeurHL7();
+        serveur.connection(port);
+        
+        serveur.ecoute();
+        
+        String messageHL7 = serveur.protocole();
+        System.out.println(messageHL7);
         
     }
 
-    /**
-     *
-     * @return
-     */
-    public ClientHL7 getClient() {
-        return client;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Patient getP() {
-        return p;
-    }
+   
     
     
     

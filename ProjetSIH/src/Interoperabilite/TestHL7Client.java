@@ -22,7 +22,7 @@ public class TestHL7Client {
 //     * @param args the command line arguments
 //     */
 //    public static void main(String[] args) {
-//        String adresse = "192.168.43.91"; //adresse du serveur à joindre
+//        String adresse = "192.168.43.123"; //adresse du serveur à joindre
 //        int port = 6565; //port d'écoute du serveur
 //        new Thread(() -> {
 //            int i = 0;

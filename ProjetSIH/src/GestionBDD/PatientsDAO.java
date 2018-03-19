@@ -143,6 +143,49 @@ public class PatientsDAO extends DAO<Patients> {
 
     }
 
+    /*
+    //@Override
+    public ArrayList<Patients> findPatientNomPrenomServiceSM(String nom, String prenom, String service) {
+        ArrayList<Patients> pat = new ArrayList<>();
+        String Query;
+
+        if (nom.equals("")) {
+            Query = "SELECT patients.* FROM patients INNER JOIN dma "
+                    + "ON patients.ipp = dma.ipp "
+                    + "WHERE patients.prenompatient = '" + prenom + "' "
+                    + "AND (dossiermedical.service = '" + service + "' or dossiermedical.correspondance = '" + service + "' )";
+        } else if (prenom.equals("")) {
+            Query = "SELECT patients.* FROM patients INNER JOIN dossiermedical "
+                    + "ON patients.ipp = dossiermedical.ipp "
+                    + "WHERE patients.nompatient = '" + nom + "' "
+                    + "AND (dossiermedical.service = '" + service + "' or dossiermedical.correspondance = '" + service + "' )";
+        } else {
+            Query = "SELECT patients.* FROM patients INNER JOIN dossiermedical "
+                    + "ON patients.ipp = dossiermedical.ipp "
+                    + "WHERE patients.nompatient = '" + nom + "' "
+                    + "AND patients.prenompatient = '" + prenom + "' "
+                    + "AND (dossiermedical.service = '" + service + "' or dossiermedical.correspondance = '" + service + "' )";
+        }
+
+        try {
+
+            Connection conn = this.connect;
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet result = state.executeQuery(Query);
+
+            while (result.next()) {
+                pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));
+
+               
+            }
+             return pat;
+
+        } catch (SQLException e) {
+        }
+        return pat;
+    }
+*/
+    
     @Override
     public ArrayList<Patients> findPatientNomPrenomService(String nom, String prenom, String service) {
         ArrayList<Patients> pat = new ArrayList<>();
