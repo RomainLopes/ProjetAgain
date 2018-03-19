@@ -76,7 +76,6 @@ observation = obs;
         jPanel1Observations = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         ajouterObservation1 = new javax.swing.JButton();
-        consulterObservation = new javax.swing.JButton();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
         jListObservations = new javax.swing.JList<>();
         Observations = new javax.swing.JLabel();
@@ -307,16 +306,6 @@ observation = obs;
             }
         });
 
-        consulterObservation.setBackground(new java.awt.Color(228, 241, 254));
-        consulterObservation.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        consulterObservation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
-        consulterObservation.setText("Consulter Observations");
-        consulterObservation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consulterObservationActionPerformed(evt);
-            }
-        });
-
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jListObservations.setModel(new javax.swing.AbstractListModel<String>() {
@@ -338,8 +327,7 @@ observation = obs;
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(ajouterObservation1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(consulterObservation))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1ListeObservations)
@@ -348,9 +336,7 @@ observation = obs;
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(consulterObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ajouterObservation1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ajouterObservation1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1ListeObservations, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
                 .addContainerGap())
@@ -370,7 +356,7 @@ observation = obs;
             .addGroup(jPanel1ObservationsLayout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addComponent(Observations, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
         jPanel1ObservationsLayout.setVerticalGroup(
             jPanel1ObservationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -462,7 +448,7 @@ observation = obs;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1Observations, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4Prescriptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -514,10 +500,6 @@ observation = obs;
         obs.setVisible(true);
     }//GEN-LAST:event_ajouterObservation1ActionPerformed
 
-    private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
-
-    }//GEN-LAST:event_consulterObservationActionPerformed
-
     private void ajouterPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescriptionActionPerformed
         // TODO add your handling code here:
         NewPrescription obs = new NewPrescription(employe,patient,this);
@@ -556,7 +538,6 @@ observation = obs;
     private javax.swing.JLabel Prescriptio;
     private javax.swing.JButton ajouterObservation1;
     private javax.swing.JButton ajouterPrescription;
-    private javax.swing.JButton consulterObservation;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JLabel jLabel1InfoPatients;

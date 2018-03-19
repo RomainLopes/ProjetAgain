@@ -7,6 +7,7 @@ package ecrans;
 
 import GestionBDD.*;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -19,22 +20,22 @@ public class NewResultat extends javax.swing.JFrame {
     private static PersonnelHospitalier employe;
     private static Patients patient;
     private DossierMedicoAdministratif dma;
-    private String id;
     private JFrame fenetre;
+    private ArrayList<Prescriptions> prescription;
 
     /**
      * Creates new form NewResultat
      * @param personnel
      * @param patient
+     * @param prescription
      * @param fenetre
-     * @param idPrescription
      */
-    public NewResultat(PersonnelHospitalier personnel, Patients patient, String idPrescription, JFrame fenetre) {
+    public NewResultat(PersonnelHospitalier personnel, Patients patient, ArrayList<Prescriptions> prescription, JFrame fenetre) {
         initComponents();
         this.patient = patient;
         employe = personnel;
         this.fenetre = fenetre;
-        id = idPrescription;
+        this.prescription= prescription;
 
         jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(personnel.getService());
@@ -43,6 +44,12 @@ public class NewResultat extends javax.swing.JFrame {
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel3Sexep.setText(patient.getSexe());
         jLabel4DateP.setText(patient.getDateDeNaissance());
+        
+        DefaultListModel prescriptions = new DefaultListModel();
+        prescription.forEach((i) -> {
+            prescriptions.addElement(i.getPrescription() + "    " + i.getDateprescription());
+        });
+        jListPrescription.setModel(prescriptions);
     }
 
     /**
@@ -60,7 +67,6 @@ public class NewResultat extends javax.swing.JFrame {
         jLabel4Service = new javax.swing.JLabel();
         jButtonPrecedent = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jTextFieldDate = new javax.swing.JTextField();
         jLabel3Date = new javax.swing.JLabel();
         jTextFieldNature = new javax.swing.JTextField();
         jLabel3Date1 = new javax.swing.JLabel();
@@ -78,6 +84,10 @@ public class NewResultat extends javax.swing.JFrame {
         jLabel1InfoPatients = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextFieldResultat = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jListPrescription = new javax.swing.JList<>();
+        jTextFieldDate = new javax.swing.JFormattedTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -140,12 +150,8 @@ public class NewResultat extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextFieldDate.setText("jTextField3");
-
         jLabel3Date.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3Date.setText("Date :");
-
-        jTextFieldNature.setText("jTextField2");
 
         jLabel3Date1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3Date1.setText("Nature de la prestation : ");
@@ -241,55 +247,82 @@ public class NewResultat extends javax.swing.JFrame {
         jTextFieldResultat.setRows(5);
         jScrollPane1.setViewportView(jTextFieldResultat);
 
+        jListPrescription.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jListPrescription);
+
+        jLabel1.setText("Sélectionner une prescription");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(297, Short.MAX_VALUE)
+                .addGap(237, 237, 237)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel3Date1, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addComponent(jLabel3Date, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(107, 107, 107)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldDate, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldNature, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1Creer1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(373, 373, 373))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(324, 324, 324))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3Date1, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButton1Creer1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(133, 133, 133)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(103, 103, 103))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel3Date, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(107, 107, 107)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldNature, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldDate))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3Date, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldNature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3Date1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel2))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3Date, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldNature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3Date1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(69, 69, 69)
-                .addComponent(jButton1Creer1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(118, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
+                        .addContainerGap(78, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1Creer1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(131, 131, 131))))
         );
 
         getContentPane().add(jPanel2);
@@ -301,7 +334,12 @@ public class NewResultat extends javax.swing.JFrame {
     private void jButton1Creer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1Creer1ActionPerformed
            DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
 String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+int index = this.jListPrescription.getSelectedIndex();
 
+String id = prescription.get(index).getIdprescription();
+if (id==null){
+                JOptionPane.showMessageDialog(null, "Veuillez sélectionner u,e prescription");
+}else{
         String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp);
 
         DossierMedicoAdministratifDAO.findSer(ipp, noSejour, employe.getService()).forEach((j) -> {
@@ -321,6 +359,7 @@ boolean ok=ResultatsDAO.create(result);
        } else {
             JOptionPane.showMessageDialog(null, " Les résulats n'ont pas pu être rajoutés. Veillez recommencer.");
         }
+}
     }//GEN-LAST:event_jButton1Creer1ActionPerformed
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
@@ -334,6 +373,7 @@ fenetre.setVisible(true);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1Creer1;
     private javax.swing.JButton jButtonPrecedent;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1Nomp;
     private javax.swing.JLabel jLabel1Prenom;
@@ -349,11 +389,13 @@ fenetre.setVisible(true);
     private javax.swing.JLabel jLabel3Sexep;
     private javax.swing.JLabel jLabel4DateP;
     private javax.swing.JLabel jLabel4Service;
+    private javax.swing.JList<String> jListPrescription;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextFieldDate;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JFormattedTextField jTextFieldDate;
     private javax.swing.JTextField jTextFieldNature;
     private javax.swing.JTextArea jTextFieldResultat;
     // End of variables declaration//GEN-END:variables

@@ -68,7 +68,7 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
         
                 int intIdPrescription;
                 idPrescription = result.getString(1).substring(1);
-
+System.out.println(idPrescription);
                 intIdPrescription = Integer.parseInt(idPrescription); 
                 intIdPrescription++;
                 
@@ -76,11 +76,13 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
 
                 result.close();
                 state.close();
+                 System.out.println(idPrescription);
                 return idPrescription;
             }
             return idPrescription;
         } catch (SQLException e) {
             return idPrescription;
+            
         }
     }
     

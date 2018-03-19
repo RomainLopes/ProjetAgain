@@ -88,7 +88,6 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         Observations = new javax.swing.JLabel();
         ajouterObservation = new javax.swing.JButton();
-        consulterObservation = new javax.swing.JButton();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
         jListObservations = new javax.swing.JList<>();
         jPanelOperations = new javax.swing.JPanel();
@@ -309,39 +308,26 @@ public class InfirmierAccueil extends javax.swing.JFrame {
             }
         });
 
-        consulterObservation.setBackground(new java.awt.Color(228, 241, 254));
-        consulterObservation.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        consulterObservation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
-        consulterObservation.setText("Consulter Observations");
-        consulterObservation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consulterObservationActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ajouterObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(consulterObservation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(Observations)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(ajouterObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(Observations)))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(Observations, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ajouterObservation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(consulterObservation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(ajouterObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -502,15 +488,6 @@ public class InfirmierAccueil extends javax.swing.JFrame {
         ope.setVisible(true);
     }//GEN-LAST:event_ajouterOperationActionPerformed
 
-    private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
-        // TODO add your handling code here:
-
-
-        /* jPanel1Observations.setLayout(new GridLayout(50, 1));
-        jPanel1Observations.add(new JLabel("L'opération s'est bien déroulée. Cependant, le patiant présente des signes d'infection de la peau."));
-         */
-    }//GEN-LAST:event_consulterObservationActionPerformed
-
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
         // TODO add your handling code here:
         Identification iden = new Identification();
@@ -546,7 +523,6 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel Operations;
     private javax.swing.JButton ajouterObservation;
     private javax.swing.JButton ajouterOperation;
-    private javax.swing.JButton consulterObservation;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JLabel jLabel1InfoPatients;

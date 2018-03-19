@@ -94,7 +94,7 @@
                   <Component id="jPanel2CreationDMA" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="jButtonValider" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="186" max="32767" attributes="0"/>
+                  <EmptySpace pref="181" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -125,23 +125,23 @@
                                   <Component id="jLabel1Prenom" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField4Prenom" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField1Nom" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jTextField1Nom" pref="68" max="32767" attributes="0"/>
+                                  <Component id="jTextField4Prenom" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel2DateDeNaissance" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTextField4DDN1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel2Sexe" min="-2" pref="43" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jComboBoxSexe" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace pref="25" max="32767" attributes="0"/>
                                       <Component id="jButtonAide" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel2DateDeNaissance" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jTextField4DDN1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -151,10 +151,10 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldadresse" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldadresse" pref="142" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="jTextField4Localisation" min="-2" pref="109" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
+                                      <Component id="jTextField4Localisation" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -167,7 +167,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jLabel1InfoPatients" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" pref="15" max="32767" attributes="0"/>
+                      <EmptySpace pref="20" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2Nom" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="jLabel2Sexe" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
@@ -181,9 +181,9 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1Prenom" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2DateDeNaissance" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="jTextField4DDN1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextField4Prenom" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2Localisation" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="jTextField4DDN1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextField4Localisation" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -232,19 +232,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField1Nom">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4DDN1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField4Prenom">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2Adresse">
               <Properties>
@@ -263,19 +252,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldadresse">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldadresseActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4Localisation">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField4LocalisationActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxSexe">
@@ -301,6 +279,18 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAideActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JFormattedTextField" name="jTextField4DDN1">
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="jTextField4Localisation">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jFormattedTextField1"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="}&#xa;catch(ParseException e){e.printStackTrace();}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(tel)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="try{&#xa;  MaskFormatter tel = new MaskFormatter(&quot;U###&quot;);"/>
+              </AuxValues>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2CreationDMA">
@@ -314,22 +304,6 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel1NoSejour">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="12" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Num&#xe9;ro de s&#xe9;jour : "/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1NoSejour">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1NoSejourActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel3Type">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -360,14 +334,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldNomph">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldPrenomph">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>

@@ -49,6 +49,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
         resultat=res;
         
         DefaultComboBoxModel modele = new DefaultComboBoxModel();
+        modele.addElement(" ");
         modele.addElement("Anapathologie");
         modele.addElement("Anesthesie");
         modele.addElement("Hemathologie");
@@ -97,7 +98,6 @@ public class MedClinAccueil extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         Observations = new javax.swing.JLabel();
         ajouterObservation = new javax.swing.JButton();
-        consulterObservation = new javax.swing.JButton();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
         jListObservations = new javax.swing.JList<>();
         jPanel4Prescriptions = new javax.swing.JPanel();
@@ -109,7 +109,6 @@ public class MedClinAccueil extends javax.swing.JFrame {
         jPanel7Resultat = new javax.swing.JPanel();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
         jListResultats = new javax.swing.JList<>();
-        consulterResultat = new javax.swing.JButton();
         Prescriptio2 = new javax.swing.JLabel();
         ConsulterDM = new javax.swing.JButton();
 
@@ -353,16 +352,6 @@ public class MedClinAccueil extends javax.swing.JFrame {
             }
         });
 
-        consulterObservation.setBackground(new java.awt.Color(228, 241, 254));
-        consulterObservation.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        consulterObservation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
-        consulterObservation.setText("Consulter Observations");
-        consulterObservation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consulterObservationActionPerformed(evt);
-            }
-        });
-
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jListObservations.setModel(new javax.swing.AbstractListModel<String>() {
@@ -390,10 +379,9 @@ public class MedClinAccueil extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(ajouterObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(consulterObservation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 24, Short.MAX_VALUE)
                         .addComponent(jScrollPane1ListeObservations, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -402,9 +390,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(Observations, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ajouterObservation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(consulterObservation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(ajouterObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1ListeObservations, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -505,16 +491,6 @@ public class MedClinAccueil extends javax.swing.JFrame {
         });
         jScrollPane3ListeResultats.setViewportView(jListResultats);
 
-        consulterResultat.setBackground(new java.awt.Color(228, 241, 254));
-        consulterResultat.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        consulterResultat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
-        consulterResultat.setText("Consulter Résultats");
-        consulterResultat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consulterResultatActionPerformed(evt);
-            }
-        });
-
         Prescriptio2.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Prescriptio2.setText("Résultats");
 
@@ -524,9 +500,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
             jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7ResultatLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7ResultatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(consulterResultat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3ListeResultats))
+                .addComponent(jScrollPane3ListeResultats)
                 .addContainerGap())
             .addGroup(jPanel7ResultatLayout.createSequentialGroup()
                 .addGap(98, 98, 98)
@@ -538,9 +512,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
             .addGroup(jPanel7ResultatLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(Prescriptio2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(consulterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(51, 51, 51)
                 .addComponent(jScrollPane3ListeResultats, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -640,16 +612,6 @@ public class MedClinAccueil extends javax.swing.JFrame {
                     iden.setVisible(true);
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
-    private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_consulterObservationActionPerformed
-
-    private void consulterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterResultatActionPerformed
-        // TODO add your handling code here:
-      
-    }//GEN-LAST:event_consulterResultatActionPerformed
-
     private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
         int index = jListObservations.getSelectedIndex();
           ConsulterObservation obs = new ConsulterObservation(employe,patient,this,observation.get(index));
@@ -703,8 +665,6 @@ public class MedClinAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel Prescriptio2;
     private javax.swing.JButton ajouterObservation;
     private javax.swing.JButton ajouterPrescription;
-    private javax.swing.JButton consulterObservation;
-    private javax.swing.JButton consulterResultat;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JComboBox jComboBoxCorrespondance;

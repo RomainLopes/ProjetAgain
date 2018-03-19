@@ -72,7 +72,6 @@ public class MedTechAccueil extends javax.swing.JFrame {
         jPanel1Observations = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         ajouterObservation1 = new javax.swing.JButton();
-        consulterObservation = new javax.swing.JButton();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
         jListObservations = new javax.swing.JList<>();
         Observations = new javax.swing.JLabel();
@@ -80,7 +79,6 @@ public class MedTechAccueil extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         Prescriptio2 = new javax.swing.JLabel();
         ajouterResultat = new javax.swing.JButton();
-        consulterResultat = new javax.swing.JButton();
         jScrollPane3ListeResultats = new javax.swing.JScrollPane();
         jListResultats = new javax.swing.JList<>();
         jPanel3InfoPatient = new javax.swing.JPanel();
@@ -195,16 +193,6 @@ public class MedTechAccueil extends javax.swing.JFrame {
             }
         });
 
-        consulterObservation.setBackground(new java.awt.Color(228, 241, 254));
-        consulterObservation.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        consulterObservation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
-        consulterObservation.setText("Consulter Observations");
-        consulterObservation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consulterObservationActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -212,17 +200,13 @@ public class MedTechAccueil extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(ajouterObservation1)
-                .addGap(18, 18, 18)
-                .addComponent(consulterObservation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(219, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ajouterObservation1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(consulterObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(ajouterObservation1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -286,16 +270,6 @@ public class MedTechAccueil extends javax.swing.JFrame {
             }
         });
 
-        consulterResultat.setBackground(new java.awt.Color(228, 241, 254));
-        consulterResultat.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        consulterResultat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
-        consulterResultat.setText("Consulter Résultats");
-        consulterResultat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consulterResultatActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -305,9 +279,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(ajouterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                        .addComponent(consulterResultat)
-                        .addGap(19, 19, 19))
+                        .addGap(19, 222, Short.MAX_VALUE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(Prescriptio2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -318,9 +290,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(Prescriptio2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(consulterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, Short.MAX_VALUE)
-                    .addComponent(ajouterResultat, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
+                .addComponent(ajouterResultat, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
         );
 
         jListResultats.setModel(new javax.swing.AbstractListModel<String>() {
@@ -538,7 +508,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
     private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
         int taille = prescription.size();
         String idPrescription = prescription.get(taille).getIdprescription();
-        NewResultat obs = new NewResultat(employe, patient, idPrescription,this);
+        NewResultat obs = new NewResultat(employe, patient, prescription,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -554,11 +524,6 @@ public class MedTechAccueil extends javax.swing.JFrame {
         obs.setVisible(true);
     }//GEN-LAST:event_ajouterObservation1ActionPerformed
 
-    private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_consulterObservationActionPerformed
-
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
         // TODO add your handling code here:
         Identification iden = new Identification();
@@ -567,10 +532,6 @@ public class MedTechAccueil extends javax.swing.JFrame {
         this.dispose();
         iden.setVisible(true);
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
-
-    private void consulterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterResultatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_consulterResultatActionPerformed
 
     private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
         int index = jListObservations.getSelectedIndex();
@@ -603,8 +564,6 @@ public class MedTechAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel Sa;
     private javax.swing.JButton ajouterObservation1;
     private javax.swing.JButton ajouterResultat;
-    private javax.swing.JButton consulterObservation;
-    private javax.swing.JButton consulterResultat;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDeconnexion;
     private javax.swing.JButton jButtonaffichernosejours;

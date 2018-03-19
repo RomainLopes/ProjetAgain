@@ -283,11 +283,12 @@ public class Tracabilites extends javax.swing.JFrame {
         TracabiliteDAO dmadao = new TracabiliteDAO(BDDconnection.getInstance());
         ArrayList<Tracabilite> dm = dmadao.findIpp(ipp);
         if (!dm.isEmpty()) {
-            System.out.println(dm.get(0).getNompatient() + "   " + dm.get(0).getNomph() + "   " + dm.get(0).getDateconnection());
-            resultatAffiche.add(dm.get(0).getNompatient() + "   " + dm.get(0).getNomph() + "   " + dm.get(0).getDateconnection());
-
+            for (Tracabilite j: dm){
+            System.out.println(j.getNompatient() + "   " + j.getNomph() + "   " + j.getDateconnection());
+            resultatAffiche.add(j.getNompatient() + "   " + j.getNompatient() + "   "+ j.getNomph() + "   "+ j.getPrenomph() + "   " + j.getDateconnection());
+            }
         } else {
-            System.out.println("is empty");
+            System.out.println("Aucune connexion");
         }
         DefaultListModel modele = new DefaultListModel();
         for (String i : resultatAffiche) {

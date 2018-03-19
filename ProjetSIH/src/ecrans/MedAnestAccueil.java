@@ -93,7 +93,6 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         jPanel1Observations = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         Observations = new javax.swing.JLabel();
-        consulterObservation = new javax.swing.JButton();
         ajouterObservations = new javax.swing.JButton();
         jScrollPane1ListeObservations = new javax.swing.JScrollPane();
         jListObservations = new javax.swing.JList<>();
@@ -279,16 +278,6 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         Observations.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Observations.setText("Observations");
 
-        consulterObservation.setBackground(new java.awt.Color(228, 241, 254));
-        consulterObservation.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        consulterObservation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
-        consulterObservation.setText("Consulter Observations");
-        consulterObservation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consulterObservationActionPerformed(evt);
-            }
-        });
-
         ajouterObservations.setBackground(new java.awt.Color(135, 211, 124));
         ajouterObservations.setText("+");
         ajouterObservations.addActionListener(new java.awt.event.ActionListener() {
@@ -306,10 +295,8 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                 .addComponent(ajouterObservations, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Observations)
-                    .addComponent(consulterObservation))
-                .addGap(0, 57, Short.MAX_VALUE))
+                .addComponent(Observations)
+                .addGap(0, 163, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,9 +304,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                 .addComponent(Observations, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ajouterObservations, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(consulterObservation, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         jScrollPane1ListeObservations.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -624,11 +609,6 @@ public class MedAnestAccueil extends javax.swing.JFrame {
                     sadm.setVisible(true);
     }//GEN-LAST:event_ConsulterDMAActionPerformed
 
-    private void consulterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterObservationActionPerformed
-        // TODO add your handling code here:
-         
-    }//GEN-LAST:event_consulterObservationActionPerformed
-
     private void ajouterPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescriptionActionPerformed
         // TODO add your handling code here:
          NewPrescription obs = new NewPrescription(employe,patient,this);
@@ -650,7 +630,7 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
 int taille = prescription.size();
 String idPrescription= prescription.get(taille).getIdprescription();
-        NewResultat obs = new NewResultat(employe,patient,idPrescription,this);
+        NewResultat obs = new NewResultat(employe,patient,prescription,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -731,7 +711,6 @@ String idPrescription= prescription.get(taille).getIdprescription();
     private javax.swing.JButton ajouterObservations;
     private javax.swing.JButton ajouterPrescription;
     private javax.swing.JButton ajouterResultat;
-    private javax.swing.JButton consulterObservation;
     private javax.swing.JButton consulterResultat;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDeconnexion;
