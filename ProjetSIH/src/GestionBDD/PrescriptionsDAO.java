@@ -67,8 +67,8 @@ public class PrescriptionsDAO extends DAO<Prescriptions> {
             if (result.next()) {
         
                 int intIdPrescription;
-                idPrescription = result.getString(1).substring(1);
-System.out.println(idPrescription);
+                idPrescription = result.getString(0).substring(1);
+                System.out.println(idPrescription);
                 intIdPrescription = Integer.parseInt(idPrescription); 
                 intIdPrescription++;
                 

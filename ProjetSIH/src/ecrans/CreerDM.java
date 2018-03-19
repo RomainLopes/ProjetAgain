@@ -274,7 +274,10 @@ public class CreerDM extends javax.swing.JFrame {
         // TODO add your handling code here:
         //String ipp, String nosejour, String service, String correspondance 
         // Recuperer le no sejour 
-
+        
+        System.out.println("dans bouton");
+        
+        
         SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
         String s = jFormattedTextFieldDateDeNaissance.getText();
         Date d = new Date();

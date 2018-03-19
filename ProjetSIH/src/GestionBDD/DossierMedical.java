@@ -45,7 +45,7 @@ public class DossierMedical {
     }
     
     /**
-     *
+     *Constructeur par défaut
      */
     public DossierMedical () {};
     
