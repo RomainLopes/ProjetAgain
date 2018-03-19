@@ -33,7 +33,7 @@ public class NewPrescription extends javax.swing.JFrame {
         this.patient = patient;
         employe = personnel;
         this.fenetre = fenetre;
-        idPrescription="";
+        
 
         jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(personnel.getService());

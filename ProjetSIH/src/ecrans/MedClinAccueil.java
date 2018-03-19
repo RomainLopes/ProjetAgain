@@ -49,6 +49,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
         resultat=res;
         
         DefaultComboBoxModel modele = new DefaultComboBoxModel();
+        modele.addElement(" ");
         modele.addElement("Anapathologie");
         modele.addElement("Anesthesie");
         modele.addElement("Hemathologie");

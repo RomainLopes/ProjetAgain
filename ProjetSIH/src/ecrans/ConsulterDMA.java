@@ -9,7 +9,6 @@ import GestionBDD.*;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
-
 /**
  *
  * @author lisad
@@ -18,14 +17,14 @@ public class ConsulterDMA extends javax.swing.JFrame {
 
     private static PersonnelHospitalier employe;
     private static Patients patient;
- private DossierMedicoAdministratifDAO phd;
-      private ArrayList<DossierMedicoAdministratif> resultat;
-private String ipp , noSejour;
-
-    
+    private DossierMedicoAdministratifDAO phd;
+    private ArrayList<DossierMedicoAdministratif> resultat;
+    private String ipp, noSejour;
+    private ArrayList<Prestations> prestations;
 
     /**
      * Creates new form DossierMedicoAdministratif
+     *
      * @param personnel
      * @param patient
      */
@@ -44,23 +43,22 @@ private String ipp , noSejour;
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());
-        
+
         // definition du contenu des jlist
         phd = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
- ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
-          noSejour = phd.getDernierNumeroSejour(ipp);
+        ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+        noSejour = phd.getDernierNumeroSejour(ipp);
 
+        resultat = phd.findSer(ipp, noSejour, personnel.getService()); // ici utiliser la bonne fonction avec uniquement ipp et service car on veut afficher tous les séjours 
 
-           resultat = phd.findSer(ipp, noSejour, personnel.getService()); // ici utiliser la bonne fonction avec uniquement ipp et service car on veut afficher tous les séjours 
+        DefaultListModel num = new DefaultListModel();
+        DefaultListModel type = new DefaultListModel();
+        DefaultListModel date = new DefaultListModel();
 
-            DefaultListModel num = new DefaultListModel();
-            DefaultListModel type = new DefaultListModel();
-            DefaultListModel date = new DefaultListModel();
-
-            resultat.stream().map((i) -> {
-                num.addElement(i.getNosejour());
-                System.out.println("dans la boucle");
-                System.out.println(i.getNosejour());
+        resultat.stream().map((i) -> {
+            num.addElement(i.getNosejour());
+            System.out.println("dans la boucle");
+            System.out.println(i.getNosejour());
             return i;
         }).map((i) -> {
             date.addElement(i.getDateentree());
@@ -69,13 +67,14 @@ private String ipp , noSejour;
             return i;
         }).forEachOrdered((i) -> {
             type.addElement(i.getType());
-                        System.out.println(i.getType());
+            System.out.println(i.getType());
 
         });
-            
-            this.jListDate.setModel(date);
-            this.jListNoSejour.setModel(num);
-            this.jListType.setModel(type);
+
+        this.jListDate.setModel(date);
+        this.jListNoSejour.setModel(num);
+        this.jListType.setModel(type);
+        
     }
 
     /**
@@ -114,6 +113,7 @@ private String ipp , noSejour;
         jLabel2Sexe = new javax.swing.JLabel();
         jLabel3Sexep = new javax.swing.JLabel();
         jLabel1InfoPatients = new javax.swing.JLabel();
+        jButtonTrier = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(200, 200));
@@ -220,7 +220,7 @@ private String ipp , noSejour;
         jScrollPane1ListeSejour.setViewportView(jListNoSejour);
 
         DMA.add(jScrollPane1ListeSejour);
-        jScrollPane1ListeSejour.setBounds(40, 260, 190, 90);
+        jScrollPane1ListeSejour.setBounds(40, 260, 200, 270);
 
         jLabel1Nosejour.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel1Nosejour.setText("N° de séjour ");
@@ -250,7 +250,7 @@ private String ipp , noSejour;
         jScrollPane2ListeType.setViewportView(jListType);
 
         DMA.add(jScrollPane2ListeType);
-        jScrollPane2ListeType.setBounds(400, 260, 190, 90);
+        jScrollPane2ListeType.setBounds(400, 260, 180, 270);
 
         jListDate.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { };
@@ -265,7 +265,7 @@ private String ipp , noSejour;
         jScrollPane3ListeDate.setViewportView(jListDate);
 
         DMA.add(jScrollPane3ListeDate);
-        jScrollPane3ListeDate.setBounds(750, 260, 170, 92);
+        jScrollPane3ListeDate.setBounds(750, 260, 180, 270);
 
         jLabel1Prenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1Prenom.setText("Prénom : ");
@@ -308,6 +308,10 @@ private String ipp , noSejour;
         DMA.add(jLabel1InfoPatients);
         jLabel1InfoPatients.setBounds(320, 20, 180, 17);
 
+        jButtonTrier.setText("Trier par dates croissantes");
+        DMA.add(jButtonTrier);
+        jButtonTrier.setBounds(330, 580, 200, 40);
+
         getContentPane().add(DMA);
         DMA.setBounds(0, 110, 1190, 650);
 
@@ -315,11 +319,94 @@ private String ipp , noSejour;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-        SaAccueil rechercher = new SaAccueil(employe);
-        rechercher.setSize(this.getSize());
-        rechercher.setLocationRelativeTo(this);
-        this.dispose();
-        rechercher.setVisible(true);
+
+        int index = jListNoSejour.getSelectedIndex();
+
+        ObservationsDAO obs = new ObservationsDAO(BDDconnection.getInstance());
+        ArrayList<Observations> ob;
+        ob = obs.findIpp(ipp);
+        DefaultListModel observations = new DefaultListModel();
+        ob.forEach((i) -> {
+            observations.addElement(i.getNomacte() + "    " + i.getDateObservation());
+        });
+
+        PrescriptionsDAO presc = new PrescriptionsDAO(BDDconnection.getInstance());
+        ArrayList<Prescriptions> pr;
+        pr = presc.findIpp(ipp);
+        DefaultListModel prescriptions = new DefaultListModel();
+        pr.forEach((i) -> {
+            prescriptions.addElement(i.getIdprescription() + "    " + i.getDateprescription());
+        }); // 4 espaces
+
+        OperationsDAO ope = new OperationsDAO(BDDconnection.getInstance());
+        ArrayList<Operations> op;
+        op = ope.findIpp(ipp);
+        DefaultListModel operations = new DefaultListModel();
+        op.forEach((i) -> {
+            operations.addElement(i.getOperation() + "    " + i.getDateoperation());
+        });
+
+        ResultatsDAO res = new ResultatsDAO(BDDconnection.getInstance());
+        ArrayList<Resultats> re;
+        re = res.findIpp(ipp);
+        DefaultListModel result = new DefaultListModel();
+        re.forEach((i) -> {
+            result.addElement(i.getPrestationmt() + "    " + i.getDateResultat());
+        });
+        
+        if ("Urgence".equals(employe.getService())) {
+
+            MedUrgenceAccueil inte = new MedUrgenceAccueil(employe, patient, ob);
+            inte.setSize(this.getSize());
+            inte.setLocationRelativeTo(this);
+            this.dispose();
+            inte.setVisible(true);
+            inte.getjListPrescriptions().setModel(prescriptions);
+            inte.getjListObservations().setModel(observations);
+        } else if ("Radiologie".equals(employe.getService())) {
+
+            MedRadioAccueil inte = new MedRadioAccueil(employe, patient, ob, re, pr);
+            inte.setSize(this.getSize());
+            inte.setLocationRelativeTo(this);
+            this.dispose();
+            inte.setVisible(true);
+            inte.getjListObservations().setModel(observations);
+            inte.getjListResultats().setModel(result);
+
+        } else if ("Anesthesie".equals(employe.getService())) {
+
+            MedAnestAccueil inte = new MedAnestAccueil(employe, patient, ob, re, pr);
+            inte.setSize(this.getSize());
+            inte.setLocationRelativeTo(this);
+            this.dispose();
+            inte.setVisible(true);
+
+            inte.getjListPrescriptions().setModel(prescriptions);
+            inte.getjListObservations().setModel(observations);
+            inte.getjListResultats().setModel(result);
+        } else if ("Laboratoire d'analyse".equals(employe.getService()) || "Hematologie".equals(employe.getService()) || "Anapathologie".equals(employe.getService())) {
+
+            MedTechAccueil inte = new MedTechAccueil(employe, patient, ob, re, pr);
+            inte.setSize(this.getSize());
+            inte.setLocationRelativeTo(this);
+            this.dispose();
+            inte.setVisible(true);
+
+            inte.getjListPrescriptions().setModel(prescriptions);
+            inte.getjListObservations().setModel(observations);
+            inte.getjListResultats().setModel(result);
+        } else {
+            MedClinAccueil inte = new MedClinAccueil(employe, patient, ob, re);
+            inte.setSize(this.getSize());
+            inte.setLocationRelativeTo(this);
+            this.dispose();
+            inte.setVisible(true);
+            inte.getjListPrescriptions().setModel(prescriptions);
+            inte.getjListObservations().setModel(observations);
+            inte.getjListResultats().setModel(result);
+
+        }
+
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
@@ -332,8 +419,16 @@ private String ipp , noSejour;
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
     private void jListNoSejourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListNoSejourMouseClicked
-          int index = jListNoSejour.getSelectedIndex();
-        NoSejour id = new NoSejour(employe, patient,this,resultat.get(index));
+        int index = jListNoSejour.getSelectedIndex();
+        PrestationsDAO prest = new PrestationsDAO(BDDconnection.getInstance());
+        prestations = prest.findIpp(ipp);
+        DefaultListModel presta = new DefaultListModel();
+        prestations.forEach((i) -> {
+            presta.addElement(i.getPrestation() + "    " + i.getDatePrestation());
+        });
+
+        NoSejour id = new NoSejour(employe, patient, this, resultat.get(index));
+        id.getjListPrestations().setModel(presta);
         id.setSize(this.getSize());
         id.setLocationRelativeTo(this);
         id.setVisible(true);
@@ -341,8 +436,16 @@ private String ipp , noSejour;
     }//GEN-LAST:event_jListNoSejourMouseClicked
 
     private void jListTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListTypeMouseClicked
-      int index = jListType.getSelectedIndex();
-        NoSejour id = new NoSejour(employe, patient,this,resultat.get(index));
+        int index = jListType.getSelectedIndex();
+         PrestationsDAO prest = new PrestationsDAO(BDDconnection.getInstance());
+        prestations = prest.findIpp(ipp);
+        DefaultListModel presta = new DefaultListModel();
+        prestations.forEach((i) -> {
+            presta.addElement(i.getPrestation() + "    " + i.getDatePrestation());
+        });
+
+        NoSejour id = new NoSejour(employe, patient, this, resultat.get(index));
+        id.getjListPrestations().setModel(presta);
         id.setSize(this.getSize());
         id.setLocationRelativeTo(this);
         id.setVisible(true);
@@ -351,20 +454,28 @@ private String ipp , noSejour;
 
     private void jListDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListDateMouseClicked
         int index = jListDate.getSelectedIndex();
-        NoSejour id = new NoSejour(employe, patient,this,resultat.get(index));
+ PrestationsDAO prest = new PrestationsDAO(BDDconnection.getInstance());
+        prestations = prest.findIpp(ipp);
+        DefaultListModel presta = new DefaultListModel();
+        prestations.forEach((i) -> {
+            presta.addElement(i.getPrestation() + "    " + i.getDatePrestation());
+        });
+
+        NoSejour id = new NoSejour(employe, patient, this, resultat.get(index));
+        id.getjListPrestations().setModel(presta);
         id.setSize(this.getSize());
         id.setLocationRelativeTo(this);
         id.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jListDateMouseClicked
 
- 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DMA;
     private javax.swing.JPanel JPanelEnTeteMedTech;
     private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDeconnexion;
+    private javax.swing.JButton jButtonTrier;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1Nomp;
     private javax.swing.JLabel jLabel1Nosejour;

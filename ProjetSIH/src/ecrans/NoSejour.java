@@ -27,6 +27,7 @@ public class NoSejour extends javax.swing.JFrame {
      * @param personnel
      * @param patient
      * @param fenetre
+     * @param sejour
      */
     public NoSejour(PersonnelHospitalier personnel, Patients patient, JFrame fenetre, DossierMedicoAdministratif sejour) {
         initComponents();
@@ -54,6 +55,10 @@ public class NoSejour extends javax.swing.JFrame {
         phRespo= ph.findIpp(dma.getIdph()).get(0);
         System.out.println(phRespo.getNomph()+"  " + phRespo.getPrenomph());
         jLabel1NomPHrespo.setText(phRespo.getNomph()+"  " + phRespo.getPrenomph());
+        // prestations medicotechniques 
+        
+        
+        
     }
 
     /**
@@ -74,7 +79,7 @@ public class NoSejour extends javax.swing.JFrame {
         jLabel1LettreSortiep = new javax.swing.JLabel();
         jLabel4LettreSortie = new javax.swing.JLabel();
         jScrollPane1ListePrestaMT = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jListPrestations = new javax.swing.JList<>();
         jLabel5PrestaMT = new javax.swing.JLabel();
         jButtonPrecedent = new javax.swing.JButton();
         jLabelNosejor = new javax.swing.JLabel();
@@ -114,12 +119,12 @@ public class NoSejour extends javax.swing.JFrame {
         jLabel4LettreSortie.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4LettreSortie.setText("Lettre de sortie ");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jListPrestations.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1ListePrestaMT.setViewportView(jList1);
+        jScrollPane1ListePrestaMT.setViewportView(jListPrestations);
 
         jLabel5PrestaMT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel5PrestaMT.setText("Prestation(s) médico-technique(s)");
@@ -243,7 +248,7 @@ public class NoSejour extends javax.swing.JFrame {
                             .addComponent(jLabelType)
                             .addComponent(jLabelNosejor)
                             .addComponent(jLabel1NomPHrespo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1LettreSortiep, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel1LettreSortiep, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButtonPrecedent)))
@@ -268,7 +273,7 @@ public class NoSejour extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1NomPHrespo)
                     .addComponent(jLabel2NomPH, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1NoSejourP)
@@ -318,9 +323,16 @@ public class NoSejour extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5PrestaMT;
     private javax.swing.JLabel jLabelNosejor;
     private javax.swing.JLabel jLabelType;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jListPrestations;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1ListePrestaMT;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the jListPrestations
+     */
+    public javax.swing.JList<String> getjListPrestations() {
+        return jListPrestations;
+    }
 }

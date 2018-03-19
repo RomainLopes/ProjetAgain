@@ -108,7 +108,7 @@ public class ConsulterResultat extends javax.swing.JFrame {
 
         jLabelResultatP.setText("jLabel1");
         jPanel1.add(jLabelResultatP);
-        jLabelResultatP.setBounds(570, 330, 72, 44);
+        jLabelResultatP.setBounds(570, 330, 350, 260);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2.setText("Résultat : ");
@@ -321,28 +321,19 @@ public class ConsulterResultat extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPrecedent;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1InfoPatients1;
-    private javax.swing.JLabel jLabel1Nomp;
     private javax.swing.JLabel jLabel1Nomp1;
-    private javax.swing.JLabel jLabel1Prenom;
     private javax.swing.JLabel jLabel1Prenom1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel2DateDeNaissance;
     private javax.swing.JLabel jLabel2DateDeNaissance1;
-    private javax.swing.JLabel jLabel2Nom;
     private javax.swing.JLabel jLabel2Nom1;
-    private javax.swing.JLabel jLabel2PrenomP;
     private javax.swing.JLabel jLabel2PrenomP1;
-    private javax.swing.JLabel jLabel2Sexe;
     private javax.swing.JLabel jLabel2Sexe1;
     private javax.swing.JLabel jLabel3Date;
     private javax.swing.JLabel jLabel3Date1;
     private javax.swing.JLabel jLabel3Date2;
     private javax.swing.JLabel jLabel3IPP;
-    private javax.swing.JLabel jLabel3Sexep;
     private javax.swing.JLabel jLabel3Sexep1;
-    private javax.swing.JLabel jLabel4DateP;
     private javax.swing.JLabel jLabel4DateP1;
     private javax.swing.JLabel jLabel4Service;
     private javax.swing.JLabel jLabelDateP;
@@ -350,7 +341,6 @@ public class ConsulterResultat extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelResultatP;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }

@@ -693,7 +693,7 @@ public class DossierMedical extends javax.swing.JFrame {
     private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
 int taille = prescription.size();
 String idPrescription= prescription.get(taille).getIdprescription();
-        NewResultat obs = new NewResultat(employe,patient,idPrescription,this);
+        NewResultat obs = new NewResultat(employe,patient,prescription,this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
