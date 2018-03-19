@@ -6,12 +6,14 @@
 package ecrans;
 
 import GestionBDD.*;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -67,7 +69,6 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
         jTextField4Prenom = new javax.swing.JTextField();
         jLabel2Sexe = new javax.swing.JLabel();
         jLabel2DateDeNaissance = new javax.swing.JLabel();
-        jTextField4DDN1 = new javax.swing.JTextField();
         jLabel2Adresse = new javax.swing.JLabel();
         jLabel2Localisation = new javax.swing.JLabel();
         jTextFieldadresse = new javax.swing.JTextField();
@@ -76,95 +77,100 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
         jButtonValider = new javax.swing.JButton();
         jComboBoxSexe = new javax.swing.JComboBox<>();
         jButtonAide = new javax.swing.JButton();
+        try{
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
-        setBackground(new java.awt.Color(255, 255, 255));
-        setMinimumSize(new java.awt.Dimension(200, 200));
-        setPreferredSize(new java.awt.Dimension(1000, 1000));
-        setResizable(false);
-        getContentPane().setLayout(null);
+            MaskFormatter tel2 = new MaskFormatter("##-##-####");
+            jTextField4DDN1 = new javax.swing.JFormattedTextField(tel2);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setMinimumSize(new java.awt.Dimension(200, 200));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 1000));
+            setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+            setAlwaysOnTop(true);
+            setBackground(new java.awt.Color(255, 255, 255));
+            setMinimumSize(new java.awt.Dimension(200, 200));
+            setPreferredSize(new java.awt.Dimension(1000, 1000));
+            setResizable(false);
+            getContentPane().setLayout(null);
 
-        jPanel3InfoPatient.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+            jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+            jPanel1.setMinimumSize(new java.awt.Dimension(200, 200));
+            jPanel1.setPreferredSize(new java.awt.Dimension(1000, 1000));
 
-        jLabel1InfoPatients.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
-        jLabel1InfoPatients.setText("Informations générales du patient ");
+            jPanel3InfoPatient.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel2Nom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2Nom.setText("Nom : ");
+            jLabel1InfoPatients.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+            jLabel1InfoPatients.setText("Informations générales du patient ");
 
-        jTextField1Nom.setText("jTextField1");
+            jLabel2Nom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+            jLabel2Nom.setText("Nom : ");
 
-        jLabel1Prenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel1Prenom.setText("Prénom : ");
+            jTextField1Nom.setText("jTextField1");
 
-        jTextField4Prenom.setText("jTextField1");
+            jLabel1Prenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+            jLabel1Prenom.setText("Prénom : ");
 
-        jLabel2Sexe.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2Sexe.setText("Sexe :");
+            jTextField4Prenom.setText("jTextField1");
 
-        jLabel2DateDeNaissance.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2DateDeNaissance.setText("Date de Naissance : ");
+            jLabel2Sexe.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+            jLabel2Sexe.setText("Sexe :");
 
-        jTextField4DDN1.setText("jTextField1");
+            jLabel2DateDeNaissance.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+            jLabel2DateDeNaissance.setText("Date de Naissance : ");
 
-        jLabel2Adresse.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2Adresse.setText("Adresse : ");
+            jLabel2Adresse.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+            jLabel2Adresse.setText("Adresse : ");
 
-        jLabel2Localisation.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2Localisation.setText("Localisation :");
+            jLabel2Localisation.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+            jLabel2Localisation.setText("Localisation :");
 
-        jTextFieldadresse.setText("jTextField1");
-        jTextFieldadresse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldadresseActionPerformed(evt);
-            }
-        });
+            jTextFieldadresse.setText("jTextField1");
+            jTextFieldadresse.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jTextFieldadresseActionPerformed(evt);
+                }
+            });
 
-        jTextField4Localisation.setText("jTextField1");
-        jTextField4Localisation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4LocalisationActionPerformed(evt);
-            }
-        });
+            jTextField4Localisation.setText("jTextField1");
+            jTextField4Localisation.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jTextField4LocalisationActionPerformed(evt);
+                }
+            });
 
-        jButtonPrecedent.setBackground(new java.awt.Color(228, 241, 254));
-        jButtonPrecedent.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jButtonPrecedent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Bouton précedent.PNG"))); // NOI18N
-        jButtonPrecedent.setText("Précédent");
-        jButtonPrecedent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPrecedentActionPerformed(evt);
-            }
-        });
+            jButtonPrecedent.setBackground(new java.awt.Color(228, 241, 254));
+            jButtonPrecedent.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+            jButtonPrecedent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Bouton précedent.PNG"))); // NOI18N
+            jButtonPrecedent.setText("Précédent");
+            jButtonPrecedent.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jButtonPrecedentActionPerformed(evt);
+                }
+            });
 
-        jButtonValider.setBackground(new java.awt.Color(228, 241, 254));
-        jButtonValider.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
-        jButtonValider.setText("Valider");
-        jButtonValider.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonValiderMouseClicked(evt);
-            }
-        });
-        jButtonValider.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonValiderActionPerformed(evt);
-            }
-        });
+            jButtonValider.setBackground(new java.awt.Color(228, 241, 254));
+            jButtonValider.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+            jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
+            jButtonValider.setText("Valider");
+            jButtonValider.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    jButtonValiderMouseClicked(evt);
+                }
+            });
+            jButtonValider.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jButtonValiderActionPerformed(evt);
+                }
+            });
 
-        jComboBoxSexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+            jComboBoxSexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButtonAide.setText("Détail Sexe");
-        jButtonAide.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAideActionPerformed(evt);
-            }
-        });
+            jButtonAide.setText("Détail Sexe");
+            jButtonAide.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jButtonAideActionPerformed(evt);
+                }
+            });
+
+        }
+        catch(ParseException e){e.printStackTrace();}
 
         javax.swing.GroupLayout jPanel3InfoPatientLayout = new javax.swing.GroupLayout(jPanel3InfoPatient);
         jPanel3InfoPatient.setLayout(jPanel3InfoPatientLayout);
@@ -194,10 +200,10 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBoxSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4DDN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonAide))
-                        .addGap(45, 45, 45)
+                        .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonAide, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField4DDN1))
+                        .addGap(23, 23, 23)
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addComponent(jLabel2Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -238,9 +244,9 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
                     .addComponent(jLabel1Prenom)
                     .addComponent(jTextField4Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2DateDeNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4DDN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField4Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField4DDN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addComponent(jButtonValider)
                 .addGap(41, 41, 41))
@@ -251,7 +257,7 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
+                .addContainerGap(94, Short.MAX_VALUE)
                 .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
@@ -349,7 +355,7 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3InfoPatient;
     private javax.swing.JTextField jTextField1Nom;
-    private javax.swing.JTextField jTextField4DDN1;
+    private javax.swing.JFormattedTextField jTextField4DDN1;
     private javax.swing.JTextField jTextField4Localisation;
     private javax.swing.JTextField jTextField4Prenom;
     private javax.swing.JTextField jTextFieldadresse;

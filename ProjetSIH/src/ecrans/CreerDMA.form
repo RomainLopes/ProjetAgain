@@ -153,7 +153,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jTextFieldadresse" pref="142" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="jTextField4Localisation" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextField4Localisation" min="-2" pref="110" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -282,9 +282,6 @@
             <Component class="javax.swing.JFormattedTextField" name="jTextField4DDN1">
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jTextField4Localisation">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jFormattedTextField1"/>
-              </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="}&#xa;catch(ParseException e){e.printStackTrace();}"/>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(tel)"/>

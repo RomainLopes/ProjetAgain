@@ -150,8 +150,6 @@ public class CreerDMA extends javax.swing.JFrame {
                 }
             });
 
-            jTextField4Localisation.setText("jFormattedTextField1");
-
             javax.swing.GroupLayout jPanel3InfoPatientLayout = new javax.swing.GroupLayout(jPanel3InfoPatient);
             jPanel3InfoPatient.setLayout(jPanel3InfoPatientLayout);
             jPanel3InfoPatientLayout.setHorizontalGroup(
@@ -190,7 +188,7 @@ public class CreerDMA extends javax.swing.JFrame {
                             .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextFieldadresse, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
                                 .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                                    .addComponent(jTextField4Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField4Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(0, 0, Short.MAX_VALUE)))))
                     .addContainerGap())
             );
