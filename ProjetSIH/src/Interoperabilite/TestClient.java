@@ -16,6 +16,7 @@ public class TestClient {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        interoperabilite.ClientT s = new interoperabilite.ClientT();
     }
     
 }

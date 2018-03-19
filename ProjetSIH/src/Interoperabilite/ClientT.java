@@ -21,39 +21,36 @@ import library.interfaces.ServeurHL7;
  *
  * @author SIHop coding team
  */
-public class Client {
+public class ClientT {
     private ServeurHL7 serveur;
     private Patient patient;
     private Action action;
     private char sex = 'X';
     private String card = "cardAdmettre";
-    private int nbr;
+   
     private final SimpleDateFormat formateur = new SimpleDateFormat("dd/MM/yyyy");
 
     private String host = "192.168.43.123";
+    private int port = 4446;
+    private int nbr = 0;
     
-    public Client( int port, int nbr) {
-        this.serveur = new ServeurHL7();
-        serveur.connection(port);
+    public ClientT() {
         
+        this.patient = new Patient(180000001,"Bouleeetttteeeee",'E');
         
-        String messageHL7 = serveur.protocole();
-        System.out.println(messageHL7);
-        
-
         ClientHL7 c = new ClientHL7();
-        c.connexion(host, port); //host = ip machine port=port écoute
+        c.connexion(this.host, this.port); //host = ip machine ; port=port écoute
         switch (this.nbr) {
             case 0: {
-                c.admit(patient);
+                c.admit(this.patient);
                 break;
             }
             case 1: {
-                c.transPat(patient);
+                c.transPat(this.patient);
                 break;
             }
             case 2: {
-                c.endPat(patient);
+                c.endPat(this.patient);
                 break;
             }
         }
