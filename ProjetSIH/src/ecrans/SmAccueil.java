@@ -22,10 +22,11 @@ public class SmAccueil extends javax.swing.JFrame {
      *
      * @param personnel
      */
-    public SmAccueil(PersonnelHospitalier personnel) {
+    public SmAccueil(PersonnelHospitalier personnel,Patients patient) {
         // service get(2) fonction get(3)
         initComponents();
         employe = personnel;
+        this.patient=patient;
         jLabelNom.setText(personnel.getNomph());
         jLabelPrenom.setText(personnel.getPrenomph());
         // jLabelFonction.setText(personnel.getFonction());
@@ -212,8 +213,7 @@ public class SmAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void jButtonConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulterDMActionPerformed
-        // TODO add your handling code here:
-        RechercherPatient rechercher = new RechercherPatient(employe);
+        ConsulterDM rechercher = new ConsulterDM(employe, patient, this);
         rechercher.setSize(this.getSize());
         rechercher.setLocationRelativeTo(this);
         this.dispose();
@@ -221,7 +221,6 @@ public class SmAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonConsulterDMActionPerformed
 
     private void jButtonCreeDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreeDMActionPerformed
-        // TODO add your handling code here:
         CreerDM rechercher = new CreerDM(employe, patient, this);
         rechercher.setSize(this.getSize());
         rechercher.setLocationRelativeTo(this);

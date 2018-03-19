@@ -349,16 +349,15 @@ public class RechercherPatient extends javax.swing.JFrame {
         if (x == true && "Secretaire medicale".equals(phr.getFonction())) {
             //JOptionPane.showMessageDialog(null, "Dossier médical existant");
 
-            ConsulterDM sadm = new ConsulterDM(phr, lipat.get(index), this);
-            sadm.setSize(this.getSize());
-            sadm.setLocationRelativeTo(this);
-            this.dispose();
-            sadm.setVisible(true);
-
-            sadm.getjListPrescriptions().setModel(prescriptions);
+            SmAccueil rechercher = new SmAccueil(phr,lipat.get(index));
+        rechercher.setSize(this.getSize());
+        rechercher.setLocationRelativeTo(this);
+        this.dispose();
+        rechercher.setVisible(true);
+           /* sadm.getjListPrescriptions().setModel(prescriptions);
             sadm.getjListOperations().setModel(operations);
             sadm.getjListObservations().setModel(observations);
-            sadm.getjListResultats().setModel(result);
+            sadm.getjListResultats().setModel(result);*/
 
         } else if (x == true && "Administration".equals(phr.getFonction())) {
 

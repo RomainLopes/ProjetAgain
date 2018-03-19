@@ -194,15 +194,7 @@ public class Identification extends javax.swing.JFrame {
         } else {
             if (!ph.getId().isEmpty()) {
 
-                if ("Secretaire medicale".equals(ph.getFonction())) {
-
-                    SmAccueil smed = new SmAccueil(ph);
-                    smed.setSize(this.getSize());
-                    smed.setLocationRelativeTo(this);
-                    this.dispose();
-                    smed.setVisible(true);
-
-                } else if ("Administration".equals(ph.getFonction())) {
+                if ("Administration".equals(ph.getFonction())) {
 
                     SaAccueil sadm = new SaAccueil(ph);
                     sadm.setSize(this.getSize());
