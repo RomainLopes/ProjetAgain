@@ -350,7 +350,7 @@ public class CreerDMA extends javax.swing.JFrame {
         String ipp = pDAO.createIpp(); // (patient.getIpp().substring(1, patient.getIpp().length() - 1));
         System.out.println(ipp);
         this.patient = new Patients(ipp, jTextField1Nom.getText(), jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
-          boolean ok= PatientsDAO.create(patient);
+        boolean ok= pDAO.create(patient);
         System.out.println(ok);
        /* if (ok) {
             JOptionPane.showMessageDialog(null, "Le patient a bien été créé");
