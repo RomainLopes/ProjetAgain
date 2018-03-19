@@ -89,7 +89,7 @@ public class FrameServeur extends javax.swing.JFrame {
         panelPatient1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panelPatient1.setLayout(new java.awt.GridBagLayout());
 
-        jLabel12.setFont(new java.awt.Font("Lucida Sans", 1, 16));
+        jLabel12.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
         jLabel12.setText("Connexion");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -319,7 +319,7 @@ public class FrameServeur extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 4, 5, 4);
         panelConexion.add(jPanel5, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24));
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Service de chirurgie cardiaque");
         gridBagConstraints = new java.awt.GridBagConstraints();
