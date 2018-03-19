@@ -25,8 +25,8 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
      * Creates new form CreationDMAtemporaire
      */
     String date = new SimpleDateFormat("MM-dd-yyyy/HH mm ss").format(Calendar.getInstance().getTime());
-String dateDuJour= (date.substring(0, 10));
-String heureDentree= (date.substring(11, 19));
+    String dateDuJour = (date.substring(0, 10));
+    String heureDentree = (date.substring(11, 19));
 
     private static PersonnelHospitalier employe;
     private static Patients patient;
@@ -291,34 +291,39 @@ String heureDentree= (date.substring(11, 19));
         DAO<Patients> pDAO = new PatientsDAO(BDDconnection.getInstance());
         String ipp = pDAO.createIpp();
         System.out.println(ipp);
-        if (jTextField1Nom.getText()== null){
-                    this.patient = new Patients(ipp,dateDuJour, jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
+        
+        if (jTextField1Nom.getText() == null && jTextField4Prenom.getText() == null) {
+            this.patient = new Patients(ipp, dateDuJour, heureDentree, jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
 
-        }else if(jTextField4Prenom.getText()==null){
-       this.patient = new Patients(ipp, jTextField1Nom.getText(), heureDentree, jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
+        } else if (jTextField4Prenom.getText() == null) {
+            this.patient = new Patients(ipp, jTextField1Nom.getText(), heureDentree, jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
 
+        } else if (jTextField1Nom.getText() == null){
+
+            this.patient = new Patients(ipp, dateDuJour, jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
         }else {
-
-        this.patient = new Patients(ipp, jTextField1Nom.getText(), jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
+            this.patient = new Patients(ipp, jTextField1Nom.getText(), jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
+      
         }
         boolean ok = pDAO.create(patient);
         System.out.println(ok);
         if (ok) {
             JOptionPane.showMessageDialog(null, "Le patient a bien été créé");
+            
 // Recherhe du ph responsable : Le ph respo c'est celui qui crée le dma temp
 
             /* PersonnelHospitalierDAO perso = new PersonnelHospitalierDAO(BDDconnection.getInstance());
             System.out.println("taille liste = " + perso.find(employe.getNomph(), employe.getPrenomph()).size());
             phRespo = perso.find(employe.getNomph(), employe.getPrenomph()).get(0);    */
 // Creation du numero de sejour 
-            DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-            String nosejour = DossierMedicoAdministratifDAO.createNumeroSejour();
+            DAO<DossierMedicoAdministratif> dmaDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+            String nosejour = dmaDAO.createNumeroSejour();
             System.out.println(nosejour);
             DossierMedicoAdministratif dma;
             System.out.println(dateDuJour);
 //  creation du dma
             dma = new DossierMedicoAdministratif(ipp, nosejour, dateDuJour, employe.getId(), "Hospitalisation", employe.getService());
-            boolean ok2 = DossierMedicoAdministratifDAO.create(dma);
+            boolean ok2 = dmaDAO.create(dma);
             if (ok2) {
                 JOptionPane.showMessageDialog(null, "Le DMA a bien été créé");
                 MedUrgenceAccueil sadm = new MedUrgenceAccueil(employe, patient, this);

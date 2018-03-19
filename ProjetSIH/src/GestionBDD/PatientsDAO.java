@@ -143,7 +143,7 @@ public class PatientsDAO extends DAO<Patients> {
 
     }
 
-    
+    /*
     //@Override
     public ArrayList<Patients> findPatientNomPrenomServiceSM(String nom, String prenom, String service) {
         ArrayList<Patients> pat = new ArrayList<>();
@@ -187,7 +187,7 @@ public class PatientsDAO extends DAO<Patients> {
         }
         return pat;
     }
-
+*/
     
     @Override
     public ArrayList<Patients> findPatientNomPrenomService(String nom, String prenom, String service) {
