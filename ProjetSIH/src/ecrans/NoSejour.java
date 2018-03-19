@@ -7,6 +7,7 @@ package ecrans;
 
 import GestionBDD.*;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 
 /**
@@ -61,7 +62,18 @@ public class NoSejour extends javax.swing.JFrame {
         System.out.println(phRespo.getNomph() + "  " + phRespo.getPrenomph());
         jLabel1NomPHrespo.setText(phRespo.getNomph() + "  " + phRespo.getPrenomph());
         // prestations medicotechniques 
+         DossierMedicoAdministratifDAO phd = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+ ResultatsDAO pres = new ResultatsDAO(BDDconnection.getInstance());
 
+        ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+        noSejour = phd.getDernierNumeroSejour(ipp);
+        ArrayList<Resultats> ob;
+        ob = pres.find(ipp,noSejour);
+        DefaultListModel observations = new DefaultListModel();
+        ob.forEach((i) -> {
+            observations.addElement(i.getPrestationmt());
+        });
+        
     }
 
     /**

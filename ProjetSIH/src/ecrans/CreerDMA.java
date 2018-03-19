@@ -384,7 +384,7 @@ public class CreerDMA extends javax.swing.JFrame {
         DAO<Patients> pDAO = new PatientsDAO(BDDconnection.getInstance());
         String ipp = pDAO.createIpp(); // (patient.getIpp().substring(1, patient.getIpp().length() - 1));
         //System.out.println(ipp);
-        
+
         this.patient = new Patients(ipp, jTextField1Nom.getText(), jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
         boolean ok = pDAO.create(patient);
         //System.out.println(ok);
@@ -393,19 +393,16 @@ public class CreerDMA extends javax.swing.JFrame {
 // Recherhe du ph responsable 
 
             PersonnelHospitalierDAO perso = new PersonnelHospitalierDAO(BDDconnection.getInstance());
-            
+
             //System.out.println("taille liste = " + perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).size());
-            
             phRespo = perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).get(0);
-            
+
             //System.out.println(phRespo.getNomph() + "  " + phRespo.getPrenomph());
-            
 // Creation du numero de sejour 
             DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
             String nosejour = DossierMedicoAdministratifDAO.createNumeroSejour();
-            
+
             //System.out.println(nosejour);
-            
             DossierMedicoAdministratif dma;
             //System.out.println(dateDuJour);
 //  creation du dma
@@ -413,7 +410,11 @@ public class CreerDMA extends javax.swing.JFrame {
             boolean ok2 = DossierMedicoAdministratifDAO.create(dma);
             if (ok2) {
                 JOptionPane.showMessageDialog(null, "Le DMA a bien été créé");
-
+                SaAccueil sadm = new SaAccueil(employe);
+                sadm.setVisible(true);
+                sadm.setSize(this.getSize());
+                sadm.setLocationRelativeTo(this);
+                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Le DMA n'a pas pu être créé. Veuillez recommencer.");
 

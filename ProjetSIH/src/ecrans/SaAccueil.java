@@ -45,7 +45,6 @@ public class SaAccueil extends javax.swing.JFrame {
         jLabelNom = new javax.swing.JLabel();
         jLabelPrenom = new javax.swing.JLabel();
         jButtonDeconnexion = new javax.swing.JButton();
-        jButtonAccueil = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButtonConsulterDMA = new javax.swing.JButton();
         jButtonCreeDMA = new javax.swing.JButton();
@@ -76,24 +75,12 @@ public class SaAccueil extends javax.swing.JFrame {
             }
         });
 
-        jButtonAccueil.setBackground(new java.awt.Color(228, 241, 254));
-        jButtonAccueil.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jButtonAccueil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Accueil 2.PNG"))); // NOI18N
-        jButtonAccueil.setText("Accueil");
-        jButtonAccueil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAccueilActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout JPanelEnTeteSaLayout = new javax.swing.GroupLayout(JPanelEnTeteSa);
         JPanelEnTeteSa.setLayout(JPanelEnTeteSaLayout);
         JPanelEnTeteSaLayout.setHorizontalGroup(
             JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonAccueil)
-                .addGap(53, 53, 53)
+                .addGap(174, 174, 174)
                 .addGroup(JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
                         .addComponent(jLabelPrenom)
@@ -114,7 +101,6 @@ public class SaAccueil extends javax.swing.JFrame {
                         .addGap(13, 13, 13)
                         .addGroup(JPanelEnTeteSaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelNom)
-                            .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(JPanelEnTeteSaLayout.createSequentialGroup()
                         .addContainerGap()
@@ -225,14 +211,6 @@ public class SaAccueil extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonCreeDMAActionPerformed
 
-    private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-        Identification id = new Identification();
-        id.setSize(this.getSize());
-        id.setLocationRelativeTo(this);
-        this.dispose();
-        id.setVisible(true);
-    }//GEN-LAST:event_jButtonAccueilActionPerformed
-
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
         // TODO add your handling code here:
         Identification iden = new Identification();
@@ -255,7 +233,6 @@ public class SaAccueil extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelEnTeteSa;
     private javax.swing.JLabel Sa;
-    private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonConsulterDMA;
     private javax.swing.JButton jButtonCreeDMA;
     private javax.swing.JButton jButtonDeconnexion;

@@ -40,6 +40,10 @@ public class RechercherPatient extends javax.swing.JFrame {
         jLabelPrenom.setText(ph.getPrenomph());
         jLabelFonction.setText(ph.getFonction());
         jLabelService.setText(ph.getService());
+        if ("Administration".equals(phr.getFonction())) {
+        this.jButtonAccueil.setVisible(true);}
+        else{
+                    this.jButtonAccueil.setVisible(false);}
     }
 
     /**
@@ -252,11 +256,13 @@ public class RechercherPatient extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-        Identification id = new Identification();
+   if ("Administration".equals(phr.getFonction())) {
+       
+        SaAccueil id = new SaAccueil(phr);
         id.setSize(this.getSize());
         id.setLocationRelativeTo(this);
         this.dispose();
-        id.setVisible(true);
+        id.setVisible(true);}
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed

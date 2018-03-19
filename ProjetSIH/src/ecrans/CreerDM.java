@@ -42,15 +42,15 @@ public class CreerDM extends javax.swing.JFrame {
         this.patient = patient;
         this.employe = employe;
         fenetrePre = previous;
-        
-         jLabelNomp.setText(patient.getNompatient());
+
+        jLabelNomp.setText(patient.getNompatient());
         jLabelPrenomp.setText(patient.getPrenompatient());
         jLabelDDNp.setText(patient.getDateDeNaissance());
         jLabelSexep.setText(patient.getSexe());
-         jLabelLocalisationp.setText(patient.getLocalisation());
+        jLabelLocalisationp.setText(patient.getLocalisation());
         jLabelAdressep.setText(patient.getAdresse());
-        
-System.out.println("avant ok");
+
+        System.out.println("avant ok");
     }
 
     /**
@@ -333,16 +333,21 @@ System.out.println("avant ok");
             if (t.compareTo(s) != 0) {
                 JOptionPane.showMessageDialog(null, "Date non valide");
             } else {*/
-                DossierMedical dm = new DossierMedical(ipp, nosejour, jTextField1Service.getText(), "");
+        DossierMedical dm = new DossierMedical(ipp, nosejour, jTextField1Service.getText(), "");
 
-                DAO<DossierMedical> dmDAO = new DossierMedicalDAO(BDDconnection.getInstance());
-                if (dmDAO.create(dm)) {
-                    JOptionPane.showMessageDialog(null, "Le dossier médical a bien été créé");
-                } else {
-                    JOptionPane.showMessageDialog(null, " Le dossier médical n'a pas pu être créé. Veillez recommencer.");
-                }
+        DAO<DossierMedical> dmDAO = new DossierMedicalDAO(BDDconnection.getInstance());
+        if (dmDAO.create(dm)) {
+            JOptionPane.showMessageDialog(null, "Le dossier médical a bien été créé");
+            SmAccueil smed = new SmAccueil(employe, patient);
+            smed.setVisible(true);
+            smed.setSize(this.getSize());
+            smed.setLocationRelativeTo(this);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, " Le dossier médical n'a pas pu être créé. Veillez recommencer.");
+        }
 
-                /* }
+        /* }
         } catch (Exception e) {
             //JOptionPane.showMessageDialog(null, "Exception");
         }*/

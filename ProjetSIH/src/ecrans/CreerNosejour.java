@@ -81,7 +81,7 @@ public class CreerNosejour extends javax.swing.JFrame {
         try{
 
             MaskFormatter tel = new MaskFormatter("U###");
-            jFormattedTextField1 = new javax.swing.JFormattedTextField(tel);
+            jFormattedTextFieldLocalisation = new javax.swing.JFormattedTextField(tel);
             jButtonValider = new javax.swing.JButton();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -249,7 +249,7 @@ public class CreerNosejour extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jFormattedTextField1))
+                                        .addComponent(jFormattedTextFieldLocalisation))
                                     .addComponent(jLabel2NomPH))
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextFieldNomph, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,7 +273,7 @@ public class CreerNosejour extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextFieldLocalisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3Type)
@@ -304,28 +304,14 @@ public class CreerNosejour extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxTypeSejourActionPerformed
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
-         String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
-        System.out.println(ipp);
-        System.out.println(dateDuJour);
-        DossierMedicoAdministratif dma;
-        PersonnelHospitalierDAO perso = new PersonnelHospitalierDAO(BDDconnection.getInstance());
-        System.out.println(perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).size());
-        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+//if (jFormattedTextFieldLocalisation.getText().
+    
 
-        System.out.println(DossierMedicoAdministratifDAO.createNumeroSejour());
-
-        phRespo = perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).get(0);
-
-        dma = new DossierMedicoAdministratif(ipp, DossierMedicoAdministratifDAO.createNumeroSejour(), dateDuJour, phRespo.getId(), jComboBoxTypeSejour.getSelectedItem().toString(), phRespo.getService());
-
-        boolean ok = DossierMedicoAdministratifDAO.create(dma);
-        System.out.println(ok);
-        if (ok) {
-            JOptionPane.showMessageDialog(null, "Nouveau séjour créé");
-        } else {
-            JOptionPane.showMessageDialog(null, " Le nouveau séjour n'a pas pu être créé. Veillez recommencer.");
-        }
-
+        SaAccueil sadm = new SaAccueil(employe);
+        sadm.setVisible(true);
+        sadm.setSize(this.getSize());
+        sadm.setLocationRelativeTo(this);
+        this.dispose();
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
 
@@ -333,7 +319,7 @@ public class CreerNosejour extends javax.swing.JFrame {
     private javax.swing.JButton jButtonPrecedent2;
     private javax.swing.JButton jButtonValider;
     private javax.swing.JComboBox<String> jComboBoxTypeSejour;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JFormattedTextField jFormattedTextFieldLocalisation;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1Nomp;
