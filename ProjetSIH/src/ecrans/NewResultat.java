@@ -25,6 +25,7 @@ public class NewResultat extends javax.swing.JFrame {
 
     /**
      * Creates new form NewResultat
+     *
      * @param personnel
      * @param patient
      * @param prescription
@@ -35,7 +36,7 @@ public class NewResultat extends javax.swing.JFrame {
         this.patient = patient;
         employe = personnel;
         this.fenetre = fenetre;
-        this.prescription= prescription;
+        this.prescription = prescription;
 
         jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(personnel.getService());
@@ -44,7 +45,7 @@ public class NewResultat extends javax.swing.JFrame {
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel3Sexep.setText(patient.getSexe());
         jLabel4DateP.setText(patient.getDateDeNaissance());
-        
+
         DefaultListModel prescriptions = new DefaultListModel();
         prescription.forEach((i) -> {
             prescriptions.addElement(i.getPrescription() + "    " + i.getDateprescription());
@@ -332,41 +333,41 @@ public class NewResultat extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1Creer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1Creer1ActionPerformed
-           DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
-int index = this.jListPrescription.getSelectedIndex();
+        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+        int index = this.jListPrescription.getSelectedIndex();
 
-String id = prescription.get(index).getIdprescription();
-if (id==null){
-                JOptionPane.showMessageDialog(null, "Veuillez sélectionner u,e prescription");
-}else{
-        String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp);
+        String id = prescription.get(index).getIdprescription();
+        if (id == null) {
+            JOptionPane.showMessageDialog(null, "Veuillez sélectionner u,e prescription");
+        } else {
+            String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp);
 
-        DossierMedicoAdministratifDAO.findSer(ipp, noSejour, employe.getService()).forEach((j) -> {
-            dma =j;
-        });
+            DossierMedicoAdministratifDAO.findSer(ipp, noSejour, employe.getService()).forEach((j) -> {
+                dma = j;
+            });
 
-        Resultats result;
-        result = new Resultats(ipp, noSejour, id, employe.getService(), jTextFieldNature.getText(), jTextFieldDate.getText(), jTextFieldResultat.getText());
-        DAO<Resultats> ResultatsDAO = new ResultatsDAO(BDDconnection.getInstance());
-boolean ok=ResultatsDAO.create(result);
-        if (ok) {
-            JOptionPane.showMessageDialog(null, "Les résulats ont bien été rajoutés");
-             fenetre.setSize(this.getSize());
-            fenetre.setLocationRelativeTo(this);
-            this.dispose();
-            fenetre.setVisible(true);
-       } else {
-            JOptionPane.showMessageDialog(null, " Les résulats n'ont pas pu être rajoutés. Veillez recommencer.");
+            Resultats result;
+            result = new Resultats(ipp, noSejour, id, employe.getService(), jTextFieldNature.getText(), jTextFieldDate.getText(), jTextFieldResultat.getText());
+            DAO<Resultats> ResultatsDAO = new ResultatsDAO(BDDconnection.getInstance());
+            boolean ok = ResultatsDAO.create(result);
+            if (ok) {
+                JOptionPane.showMessageDialog(null, "Les résulats ont bien été rajoutés");
+                fenetre.setSize(this.getSize());
+                fenetre.setLocationRelativeTo(this);
+                this.dispose();
+                fenetre.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, " Les résulats n'ont pas pu être rajoutés. Veillez recommencer.");
+            }
         }
-}
     }//GEN-LAST:event_jButton1Creer1ActionPerformed
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
-fenetre.setVisible(true);
+        fenetre.setVisible(true);
         fenetre.setSize(this.getSize());
-            fenetre.setLocationRelativeTo(this);
-            this.dispose();
+        fenetre.setLocationRelativeTo(this);
+        this.dispose();
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
 

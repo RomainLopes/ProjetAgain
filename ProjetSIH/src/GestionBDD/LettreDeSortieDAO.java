@@ -27,7 +27,7 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
 
     @Override
     public boolean create(LettreDeSortie obj) {
-        String Query = new String();
+        String Query;
         Query = "insert into lettredesortie (ipp,nosejour,idph,lettre) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getIdph() + "','" + obj.getLettre() + "')";
@@ -44,7 +44,7 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
 
     @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
-        String Query = new String();
+        String Query;
         Query = "UPDATE lettredesortie "
                 + "SET ipp = '{" + ippgarde + "}' "
                 + "WHERE ipp = '{" + ippsuppr + "}' ";
@@ -63,8 +63,8 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
 
     @Override
     public ArrayList<LettreDeSortie> find(String ipp, String nosejour) {
-        ArrayList<LettreDeSortie> lds = new ArrayList<LettreDeSortie>();
-        String Query = new String();
+        ArrayList<LettreDeSortie> lds = new ArrayList<>();
+        String Query;
         Query = "select * from lettredesortie where ipp = '{" + ipp
                 + "}' and nosejour = '" + nosejour + "'";
 

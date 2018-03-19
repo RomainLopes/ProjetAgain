@@ -13,22 +13,22 @@ import GestionBDD.PersonnelHospitalier;
  * @author romel
  */
 public class SaAccueil extends javax.swing.JFrame {
-     private static PersonnelHospitalier employe;
-    private static Patients patient;
 
-    
+    private static PersonnelHospitalier employe;
+    private static Patients patient;
 
     /**
      * Creates new form SaAccueil
+     *
      * @param employe
      */
     public SaAccueil(PersonnelHospitalier employe) {
-        this.employe=employe;
+        this.employe = employe;
         initComponents();
         jLabelNom.setText(employe.getNomph());
         jLabelPrenom.setText(employe.getPrenomph());
         //jLabelFonction.setText(employe.getFonction());
-        
+
     }
 
     /**
@@ -210,13 +210,13 @@ public class SaAccueil extends javax.swing.JFrame {
 
     private void jButtonCreeDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreeDMAActionPerformed
         // TODO add your handling code here:
-        
-        CreerDMA dma = new CreerDMA(employe,this);
+
+        CreerDMA dma = new CreerDMA(employe, this);
         dma.setSize(this.getSize());
         dma.setLocationRelativeTo(this);
         this.dispose();
         dma.setVisible(true);
-        
+
     }//GEN-LAST:event_jButtonCreeDMAActionPerformed
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
@@ -238,13 +238,12 @@ public class SaAccueil extends javax.swing.JFrame {
 
     private void jButtonFusionnerDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFusionnerDMAActionPerformed
         // TODO add your handling code here:
-        FusionnerDossierUrgence fusion = new FusionnerDossierUrgence(employe,this);
+        FusionnerDossierUrgence fusion = new FusionnerDossierUrgence(employe, this);
         fusion.setSize(this.getSize());
         fusion.setLocationRelativeTo(this);
         this.dispose();
         fusion.setVisible(true);
     }//GEN-LAST:event_jButtonFusionnerDMAActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

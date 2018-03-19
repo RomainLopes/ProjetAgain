@@ -23,6 +23,7 @@ public class NewObservations extends javax.swing.JFrame {
 
     /**
      * Creates new form NewObservations
+     *
      * @param personnel
      * @param patient
      * @param previous
@@ -312,31 +313,31 @@ public class NewObservations extends javax.swing.JFrame {
         DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
         String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp);
-       
+
         DossierMedicoAdministratifDAO.findSer(ipp, noSejour, employe.getService()).forEach((j) -> {
-            dma =j;
+            dma = j;
         });
 
         Observations obs;
-        System.out.println(ipp+" " + noSejour +" " + dma.getIdph()+" " + jTextFieldDateP.getText() +" " + employe.getService() +" " + jTextFieldNomObservationP.getText()+" " + jTextFieldObservationP.getText());
+        System.out.println(ipp + " " + noSejour + " " + dma.getIdph() + " " + jTextFieldDateP.getText() + " " + employe.getService() + " " + jTextFieldNomObservationP.getText() + " " + jTextFieldObservationP.getText());
         obs = new Observations(ipp, noSejour, dma.getIdph(), jTextFieldDateP.getText(), employe.getService(), jTextFieldNomObservationP.getText(), jTextFieldObservationP.getText());
         DAO<Observations> ObservationsDAO = new ObservationsDAO(BDDconnection.getInstance());
         boolean ok = ObservationsDAO.create(obs);
         System.out.println(ok);
-       if (ok) {
+        if (ok) {
             JOptionPane.showMessageDialog(null, "La nouvelle observation a bien été créée");
             fenetrePre.setVisible(true);
             fenetrePre.setSize(this.getSize());
             fenetrePre.setLocationRelativeTo(this);
             this.dispose();
-       } else {
+        } else {
             JOptionPane.showMessageDialog(null, " La nouvelle observation n'a pas pu être créée. Veillez recommencer.");
         }
     }//GEN-LAST:event_jButton1CreerActionPerformed
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
-      fenetrePre.setVisible(true);
- fenetrePre.setSize(this.getSize());
+        fenetrePre.setVisible(true);
+        fenetrePre.setSize(this.getSize());
         fenetrePre.setLocationRelativeTo(this);
         this.dispose();
     }//GEN-LAST:event_jButtonPrecedentActionPerformed

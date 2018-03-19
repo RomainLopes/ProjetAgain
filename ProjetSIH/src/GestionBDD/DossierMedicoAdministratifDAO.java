@@ -31,11 +31,11 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
     @Override
     public String getDernierNumeroSejour(String ipp) {
         String nosejour = "";
-
         String Query;
         Query = "SELECT max(nosejour) FROM dma WHERE ipp ='{" + ipp + "}'";
 
         try {
+            
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet result = state.executeQuery(Query);
@@ -43,7 +43,9 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
             if (result.next()) {
                 nosejour = result.getString(1);
             }
+            
             return nosejour;
+            
         } catch (SQLException e) {
             return nosejour;
         }
@@ -73,6 +75,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
         Query = "select max(nosejour) from dma where nosejour >= '" + nosejour + "'";
 
         try {
+            
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet result = state.executeQuery(Query);
@@ -98,7 +101,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
 
     @Override
     public boolean create(DossierMedicoAdministratif obj) {
-        String Query = new String();
+        String Query;
         Query = "insert into dma (ipp,nosejour,dateentree,idph,type,service) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getDateentree() + "','" + obj.getIdph()
@@ -118,7 +121,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
 
     @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
-        String Query = new String();
+        String Query;
         Query = "UPDATE dma "
                 + "SET ipp = '{" + ippgarde + "}' "
                 + "WHERE ipp = '{" + ippsuppr + "}' ";
@@ -137,8 +140,8 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
 
     @Override
     public ArrayList<DossierMedicoAdministratif> find(String ipp, String nosejour) {
-        ArrayList<DossierMedicoAdministratif> dma = new ArrayList<DossierMedicoAdministratif>();
-        String Query = new String();
+        ArrayList<DossierMedicoAdministratif> dma = new ArrayList<>();
+        String Query;
         Query = "select * from dma where ipp = '{" + ipp
                 + "}' and nosejour = '" + nosejour + "'";
 
@@ -160,8 +163,8 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
     
     @Override
     public ArrayList<DossierMedicoAdministratif> findService(String ipp, String service) {
-        ArrayList<DossierMedicoAdministratif> dma = new ArrayList<DossierMedicoAdministratif>();
-        String Query = new String();
+        ArrayList<DossierMedicoAdministratif> dma = new ArrayList<>();
+        String Query;
         Query = "select * from dma where ipp = '{" + ipp
                 + "}' and service = '" + service + "'";
 
@@ -183,8 +186,8 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
 
     @Override
     public ArrayList<DossierMedicoAdministratif> findSer(String ipp, String nosejour, String service) {
-        ArrayList<DossierMedicoAdministratif> dma = new ArrayList<DossierMedicoAdministratif>();
-        String Query = new String();
+        ArrayList<DossierMedicoAdministratif> dma = new ArrayList<>();
+        String Query;
         Query = "select * from dma where ipp = '{" + ipp
                 + "}' and nosejour = '" + nosejour + "' and service = '"
                 + service + "'";

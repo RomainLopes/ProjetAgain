@@ -20,11 +20,11 @@ public class DossierMedical extends javax.swing.JFrame {
     private static ArrayList<String> test;
     private static ArrayList<Observations> observation;
     private static ArrayList<Resultats> resultat;
-                     private ArrayList<Prescriptions> prescription;
-
+    private ArrayList<Prescriptions> prescription;
 
     /**
      * Creates new form DossierMedical
+     *
      * @param personnel
      * @param res
      * @param patient
@@ -47,9 +47,7 @@ public class DossierMedical extends javax.swing.JFrame {
         jLabel4DateP.setText(patient.getDateDeNaissance());
         observation = obs;
         resultat = res;
-        this.prescription= prescription;
-
-        
+        this.prescription = prescription;
 
     }
 
@@ -665,7 +663,7 @@ public class DossierMedical extends javax.swing.JFrame {
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
         // TODO add your handling code here:
-        NewObservations obs = new NewObservations(employe, patient,this);
+        NewObservations obs = new NewObservations(employe, patient, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -674,7 +672,7 @@ public class DossierMedical extends javax.swing.JFrame {
 
     private void ajouterPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescriptionActionPerformed
         // TODO add your handling code here:
-        NewPrescription obs = new NewPrescription(employe, patient,this);
+        NewPrescription obs = new NewPrescription(employe, patient, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -683,7 +681,7 @@ public class DossierMedical extends javax.swing.JFrame {
 
     private void ajouterOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterOperationActionPerformed
         // TODO add your handling code here:
-        NewOperation obs = new NewOperation(employe, patient,this);
+        NewOperation obs = new NewOperation(employe, patient, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -691,9 +689,9 @@ public class DossierMedical extends javax.swing.JFrame {
     }//GEN-LAST:event_ajouterOperationActionPerformed
 
     private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
-int taille = prescription.size();
-String idPrescription= prescription.get(taille).getIdprescription();
-        NewResultat obs = new NewResultat(employe,patient,prescription,this);
+        int taille = prescription.size();
+        String idPrescription = prescription.get(taille).getIdprescription();
+        NewResultat obs = new NewResultat(employe, patient, prescription, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -711,7 +709,7 @@ String idPrescription= prescription.get(taille).getIdprescription();
 
     private void EcrireLettreSortie1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EcrireLettreSortie1ActionPerformed
         // TODO add your handling code here:
-        LettredeSortie lettre = new LettredeSortie(employe, patient,this);
+        LettredeSortie lettre = new LettredeSortie(employe, patient, this);
         lettre.setSize(this.getSize());
         lettre.setLocationRelativeTo(this);
         this.dispose();

@@ -22,24 +22,25 @@ public class ConsulterResultat extends javax.swing.JFrame {
 
     /**
      * Creates new form ConsulterResultat
+     *
      * @param employe
      * @param patient
      * @param previous
      * @param resultat
      */
-    public ConsulterResultat(PersonnelHospitalier employe, Patients patient, JFrame previous,Resultats resultat) {
+    public ConsulterResultat(PersonnelHospitalier employe, Patients patient, JFrame previous, Resultats resultat) {
         initComponents();
         this.employe = employe;
         this.patient = patient;
-        this.fenetrePrecedente= previous;
-        
+        this.fenetrePrecedente = previous;
+
         jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(employe.getService());
         jLabelResultatP.setText(resultat.getResultat());
         jLabelNaturePrestaP.setText(resultat.getPrestationmt());
-         jLabelDateP.setText(resultat.getDateResultat());
-       
-          jLabel1Nomp1.setText(patient.getNompatient());
+        jLabelDateP.setText(resultat.getDateResultat());
+
+        jLabel1Nomp1.setText(patient.getNompatient());
         jLabel2PrenomP1.setText(patient.getPrenompatient());
         jLabel4DateP1.setText(patient.getDateDeNaissance());
         jLabel3Sexep1.setText(patient.getSexe());
@@ -277,8 +278,8 @@ public class ConsulterResultat extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3IPPMouseClicked
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
-             fenetrePrecedente.setVisible(true);
- fenetrePrecedente.setSize(this.getSize());
+        fenetrePrecedente.setVisible(true);
+        fenetrePrecedente.setSize(this.getSize());
         fenetrePrecedente.setLocationRelativeTo(this);
         this.dispose();
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
@@ -286,10 +287,10 @@ public class ConsulterResultat extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-   // public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    // public static void main(String args[]) {
+    /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          
         try {
@@ -311,7 +312,7 @@ public class ConsulterResultat extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-       /* java.awt.EventQueue.invokeLater(new Runnable() {
+ /* java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ConsulterResultat(employe, patient).setVisible(true);
             }

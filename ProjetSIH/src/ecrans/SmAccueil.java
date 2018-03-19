@@ -13,27 +13,27 @@ import GestionBDD.PersonnelHospitalier;
  * @author romel
  */
 public class SmAccueil extends javax.swing.JFrame {
-     private static PersonnelHospitalier employe;
-    private static Patients patient;
 
+    private static PersonnelHospitalier employe;
+    private static Patients patient;
 
     /**
      * Creates new form SmAccueil
+     *
      * @param personnel
      */
     public SmAccueil(PersonnelHospitalier personnel) {
         // service get(2) fonction get(3)
         initComponents();
-        employe=personnel;
+        employe = personnel;
         jLabelNom.setText(personnel.getNomph());
         jLabelPrenom.setText(personnel.getPrenomph());
-       // jLabelFonction.setText(personnel.getFonction());
-        jLabelService.setText(personnel.getService()); 
-        
-      /*  jLabelNom.setText(((Identification) fenetrePrecedente).getEmploye().getNom());
+        // jLabelFonction.setText(personnel.getFonction());
+        jLabelService.setText(personnel.getService());
+
+        /*  jLabelNom.setText(((Identification) fenetrePrecedente).getEmploye().getNom());
         jLabelPrenom.setText(((Identification) fenetrePrecedente).getEmploye().getPrenom());
         jLabelService.setText(((Identification) fenetrePrecedente).getEmploye().getService().toString());*/
- 
     }
 
     SmAccueil() {
@@ -197,34 +197,34 @@ public class SmAccueil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
-     
+
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void jButtonConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsulterDMActionPerformed
         // TODO add your handling code here:
         RechercherPatient rechercher = new RechercherPatient(employe);
-                    rechercher.setSize(this.getSize());
-                    rechercher.setLocationRelativeTo(this);
-                    this.dispose();
-                    rechercher.setVisible(true);
+        rechercher.setSize(this.getSize());
+        rechercher.setLocationRelativeTo(this);
+        this.dispose();
+        rechercher.setVisible(true);
     }//GEN-LAST:event_jButtonConsulterDMActionPerformed
 
     private void jButtonCreeDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreeDMActionPerformed
         // TODO add your handling code here:
-        CreerDM rechercher = new CreerDM(employe,patient,this);
-                    rechercher.setSize(this.getSize());
-                    rechercher.setLocationRelativeTo(this);
-                    this.dispose();
-                    rechercher.setVisible(true);
+        CreerDM rechercher = new CreerDM(employe, patient, this);
+        rechercher.setSize(this.getSize());
+        rechercher.setLocationRelativeTo(this);
+        this.dispose();
+        rechercher.setVisible(true);
     }//GEN-LAST:event_jButtonCreeDMActionPerformed
 
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
         // TODO add your handling code here:
         Identification iden = new Identification();
-                    iden.setSize(this.getSize());
-                    iden.setLocationRelativeTo(this);
-                    this.dispose();
-                    iden.setVisible(true);
+        iden.setSize(this.getSize());
+        iden.setLocationRelativeTo(this);
+        this.dispose();
+        iden.setVisible(true);
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
 

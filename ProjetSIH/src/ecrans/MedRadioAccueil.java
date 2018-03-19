@@ -8,7 +8,6 @@ package ecrans;
 import GestionBDD.*;
 import java.util.ArrayList;
 
-
 /**
  *
  * @author romel
@@ -32,11 +31,11 @@ public class MedRadioAccueil extends javax.swing.JFrame {
     /**
      * Creates new form MedRadioAccueil
      */
-   private static PersonnelHospitalier employe;
+    private static PersonnelHospitalier employe;
     private static Patients patient;
     private ArrayList<Observations> observation;
-        private ArrayList<Resultats> resultat;
-                 private ArrayList<Prescriptions> prescription;
+    private ArrayList<Resultats> resultat;
+    private ArrayList<Prescriptions> prescription;
 
     /**
      *
@@ -46,26 +45,26 @@ public class MedRadioAccueil extends javax.swing.JFrame {
      * @param res
      * @param prescription
      */
-    public MedRadioAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs,ArrayList<Resultats> res,  ArrayList<Prescriptions> prescription ) {
+    public MedRadioAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs, ArrayList<Resultats> res, ArrayList<Prescriptions> prescription) {
         initComponents();
-        employe=personnel;
-        this.patient=patient;
+        employe = personnel;
+        this.patient = patient;
         jLabelNom.setText(personnel.getNomph());
         jLabelPrenom.setText(personnel.getPrenomph());
         //jLabelFonction.setText(personnel.getFonction());
-        jLabelService.setText(personnel.getService()); 
-        
+        jLabelService.setText(personnel.getService());
+
         jLabel1Nomp.setText(patient.getNompatient());
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());
-        
-       observation=obs;
-       resultat=res;
-       this.prescription= prescription;
-   
+
+        observation = obs;
+        resultat = res;
+        this.prescription = prescription;
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -608,15 +607,15 @@ public class MedRadioAccueil extends javax.swing.JFrame {
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
         RechercherPatient rechercher = new RechercherPatient(employe);
-                    rechercher.setSize(this.getSize());
-                    rechercher.setLocationRelativeTo(this);
-                    this.dispose();
-                    rechercher.setVisible(true);
+        rechercher.setSize(this.getSize());
+        rechercher.setLocationRelativeTo(this);
+        this.dispose();
+        rechercher.setVisible(true);
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void ConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMAActionPerformed
         // TODO add your handling code here:
-         ConsulterDMA obs = new ConsulterDMA(employe,patient);
+        ConsulterDMA obs = new ConsulterDMA(employe, patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -625,7 +624,7 @@ public class MedRadioAccueil extends javax.swing.JFrame {
 
     private void ConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMActionPerformed
         // TODO add your handling code here:
-         ConsulterDM obs = new ConsulterDM(employe,patient,this);
+        ConsulterDM obs = new ConsulterDM(employe, patient, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -633,10 +632,10 @@ public class MedRadioAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsulterDMActionPerformed
 
     private void ajouterResultatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterResultatActionPerformed
-int taille = prescription.size();
-String idPrescription= prescription.get(taille-1).getIdprescription();
+        int taille = prescription.size();
+        String idPrescription = prescription.get(taille - 1).getIdprescription();
 
-        NewResultat obs = new NewResultat(employe,patient,prescription,this);
+        NewResultat obs = new NewResultat(employe, patient, prescription, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -645,7 +644,7 @@ String idPrescription= prescription.get(taille-1).getIdprescription();
 
     private void ajouterObservation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservation1ActionPerformed
         // TODO add your handling code here:
-         NewObservations obs = new NewObservations(employe,patient,this);
+        NewObservations obs = new NewObservations(employe, patient, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -655,15 +654,15 @@ String idPrescription= prescription.get(taille-1).getIdprescription();
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
         // TODO add your handling code here: 
         Identification iden = new Identification();
-                    iden.setSize(this.getSize());
-                    iden.setLocationRelativeTo(this);
-                    this.dispose();
-                    iden.setVisible(true);
+        iden.setSize(this.getSize());
+        iden.setLocationRelativeTo(this);
+        this.dispose();
+        iden.setVisible(true);
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
     private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
         int index = jListObservations.getSelectedIndex();
-          ConsulterObservation obs = new ConsulterObservation(employe,patient,this,observation.get(index));
+        ConsulterObservation obs = new ConsulterObservation(employe, patient, this, observation.get(index));
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -671,8 +670,8 @@ String idPrescription= prescription.get(taille-1).getIdprescription();
     }//GEN-LAST:event_jListObservationsMouseClicked
 
     private void jListResultatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListResultatsMouseClicked
-  int index = jListResultats.getSelectedIndex();
-          ConsulterResultat obs = new ConsulterResultat(employe,patient,this,resultat.get(index));
+        int index = jListResultats.getSelectedIndex();
+        ConsulterResultat obs = new ConsulterResultat(employe, patient, this, resultat.get(index));
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -681,7 +680,7 @@ String idPrescription= prescription.get(taille-1).getIdprescription();
 
     private void ajouterPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescriptionActionPerformed
         // TODO add your handling code here:
-        NewPrescription obs = new NewPrescription(employe,patient,this);
+        NewPrescription obs = new NewPrescription(employe, patient, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

@@ -27,7 +27,7 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
 
     @Override
     public boolean create(PersonnelHospitalier obj) {
-        String Query = new String();
+        String Query;
         Query = "insert into personnelhospitalier (nomph,prenomph,id,mdp,service,fonction) "
                 + "values ('" + obj.getNomph() + "','" + obj.getPrenomph() + "','"
                 + obj.getId() + "','" + obj.getMdp() + "','" + obj.getService()
@@ -47,14 +47,14 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
     @Override
     public PersonnelHospitalier connex(String id, String mdp) {
         PersonnelHospitalier ph = new PersonnelHospitalier();
-        String QueryId = new String();
-        QueryId = "SELECT * FROM personnelhospitalier WHERE personnelhospitalier.id = '" + id + "' and personnelhospitalier.mdp = '" + mdp + "'";
+        String Query;
+        Query = "SELECT * FROM personnelhospitalier WHERE personnelhospitalier.id = '" + id + "' and personnelhospitalier.mdp = '" + mdp + "'";
 
         try {
 
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet result = state.executeQuery(QueryId);
+            ResultSet result = state.executeQuery(Query);
 
             if (result.next()) {
                 ph = new PersonnelHospitalier(result.getString("nomph"), result.getString("prenomph"), result.getString("id"), result.getString("mdp"), result.getString("service"), result.getString("fonction"));
@@ -71,15 +71,15 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
 
     @Override
     public ArrayList<PersonnelHospitalier> find(String nomph, String prenomph) {
-        ArrayList<PersonnelHospitalier> ph = new ArrayList<PersonnelHospitalier>();
-        String QueryId = new String();
-        QueryId = "SELECT * FROM personnelhospitalier WHERE personnelhospitalier.nomph = '" + nomph + "' and personnelhospitalier.prenomph = '" + prenomph + "'";
+        ArrayList<PersonnelHospitalier> ph = new ArrayList<>();
+        String Query;
+        Query = "SELECT * FROM personnelhospitalier WHERE personnelhospitalier.nomph = '" + nomph + "' and personnelhospitalier.prenomph = '" + prenomph + "'";
 
         try {
 
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet result = state.executeQuery(QueryId);
+            ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
                 ph.add(new PersonnelHospitalier(result.getString("nomph"), result.getString("prenomph"), result.getString("id"), result.getString("mdp"), result.getString("service"), result.getString("fonction")));
@@ -106,16 +106,16 @@ public class PersonnelHospitalierDAO extends DAO<PersonnelHospitalier> {
 
     @Override
     public ArrayList<PersonnelHospitalier> findIpp(String id) {
-ArrayList<PersonnelHospitalier> ph = new ArrayList<PersonnelHospitalier>();
-        String QueryId = new String();
-        QueryId = "SELECT * FROM personnelhospitalier "
+ArrayList<PersonnelHospitalier> ph = new ArrayList<>();
+        String Query;
+        Query = "SELECT * FROM personnelhospitalier "
                 + "WHERE personnelhospitalier.id = '" + id + "'";
 
         try {
 
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet result = state.executeQuery(QueryId);
+            ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
                 ph.add(new PersonnelHospitalier(result.getString("nomph"), result.getString("prenomph"), result.getString("id"), result.getString("mdp"), result.getString("service"), result.getString("fonction")));

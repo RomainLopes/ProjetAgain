@@ -14,34 +14,36 @@ import javax.swing.JFrame;
  * @author lisad
  */
 public class ConsulterObservation extends javax.swing.JFrame {
-     private static PersonnelHospitalier employe;
+
+    private static PersonnelHospitalier employe;
     private static Patients patient;
     private JFrame fenetrePrecedente;
 
     /**
      * Creates new form ConsulterObservation
+     *
      * @param employe
      * @param patient
      * @param previous
      * @param observation
      */
-    public ConsulterObservation(PersonnelHospitalier employe , Patients patient, JFrame previous,Observations observation) {
+    public ConsulterObservation(PersonnelHospitalier employe, Patients patient, JFrame previous, Observations observation) {
         initComponents();
-        this.employe=employe;
-        this.patient=patient;
-        this.fenetrePrecedente= previous;
-        
-        jLabel3IPP.setText(patient.getIpp()); 
+        this.employe = employe;
+        this.patient = patient;
+        this.fenetrePrecedente = previous;
+
+        jLabel3IPP.setText(patient.getIpp());
         jLabelObservationP.setText(observation.getResume());
-        jLabelNomObservationP.setText(observation.getNomacte()) ;
+        jLabelNomObservationP.setText(observation.getNomacte());
         jLabelDateP.setText(observation.getDateObservation());
         jLabel4Service.setText(employe.getService());
-       
-         jLabel1Nomp.setText(patient.getNompatient());
+
+        jLabel1Nomp.setText(patient.getNompatient());
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());
-        
+
     }
 
     /**
@@ -295,8 +297,8 @@ public class ConsulterObservation extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3IPPMouseClicked
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
-     fenetrePrecedente.setVisible(true);
- fenetrePrecedente.setSize(this.getSize());
+        fenetrePrecedente.setVisible(true);
+        fenetrePrecedente.setSize(this.getSize());
         fenetrePrecedente.setLocationRelativeTo(this);
         this.dispose();
     }//GEN-LAST:event_jButtonPrecedentActionPerformed

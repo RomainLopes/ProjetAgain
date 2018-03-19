@@ -19,30 +19,31 @@ import javax.swing.text.MaskFormatter;
  * @author lisad
  */
 public class CreerNosejour extends javax.swing.JFrame {
-       private static PersonnelHospitalier employe;
-    private static Patients patient;
-           private  PersonnelHospitalier phRespo;
-           private JFrame fenetrePre;
-   private String dateDuJour = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
 
+    private static PersonnelHospitalier employe;
+    private static Patients patient;
+    private PersonnelHospitalier phRespo;
+    private JFrame fenetrePre;
+    private String dateDuJour = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
 
     /**
      * Creates new form CreerNosejour
+     *
      * @param employe
      * @param fenetre
      * @param patient
      */
     public CreerNosejour(PersonnelHospitalier employe, Patients patient, JFrame fenetre) {
         initComponents();
-         this.employe = employe;
-         this.patient= patient;
-         fenetrePre=fenetre;
-         
-         jLabel1Nomp.setText(patient.getNompatient());
+        this.employe = employe;
+        this.patient = patient;
+        fenetrePre = fenetre;
+
+        jLabel1Nomp.setText(patient.getNompatient());
         jLabel2PrenomP.setText(patient.getPrenompatient());
-       jLabel3Sexep.setText(patient.getSexe());
+        jLabel3Sexep.setText(patient.getSexe());
         jLabel4DateP.setText(patient.getDateDeNaissance());
-         
+
         DefaultComboBoxModel modele = new DefaultComboBoxModel();
         modele.addElement("Hospitalisation");
         modele.addElement("Consultation");
@@ -295,8 +296,8 @@ public class CreerNosejour extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonPrecedent2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedent2ActionPerformed
-             fenetrePre.setVisible(true);
- fenetrePre.setSize(this.getSize());
+        fenetrePre.setVisible(true);
+        fenetrePre.setSize(this.getSize());
         fenetrePre.setLocationRelativeTo(this);
         this.dispose();
     }//GEN-LAST:event_jButtonPrecedent2ActionPerformed
@@ -311,29 +312,28 @@ public class CreerNosejour extends javax.swing.JFrame {
         System.out.println(ipp);
         System.out.println(dateDuJour);
         DossierMedicoAdministratif dma;
-        PersonnelHospitalierDAO perso= new PersonnelHospitalierDAO(BDDconnection.getInstance());
+        PersonnelHospitalierDAO perso = new PersonnelHospitalierDAO(BDDconnection.getInstance());
         System.out.println(perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).size());
-      DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
 
-       System.out.println(DossierMedicoAdministratifDAO.createNumeroSejour());
+        System.out.println(DossierMedicoAdministratifDAO.createNumeroSejour());
 
         phRespo = perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).get(0);
-       
-        dma = new DossierMedicoAdministratif(ipp,DossierMedicoAdministratifDAO.createNumeroSejour() ,dateDuJour,phRespo.getId() ,jComboBoxTypeSejour.getSelectedItem().toString(),phRespo.getService());
 
-boolean ok =DossierMedicoAdministratifDAO.create(dma);
-System.out.println(ok);
-        if (ok){
-                               JOptionPane.showMessageDialog(null, "Nouveau séjour créé");
-       }else {
+        dma = new DossierMedicoAdministratif(ipp, DossierMedicoAdministratifDAO.createNumeroSejour(), dateDuJour, phRespo.getId(), jComboBoxTypeSejour.getSelectedItem().toString(), phRespo.getService());
+
+        boolean ok = DossierMedicoAdministratifDAO.create(dma);
+        System.out.println(ok);
+        if (ok) {
+            JOptionPane.showMessageDialog(null, "Nouveau séjour créé");
+        } else {
             JOptionPane.showMessageDialog(null, " Le nouveau séjour n'a pas pu être créé. Veillez recommencer.");
-       }
-        
+        }
 
-        
+
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPrecedent2;
     private javax.swing.JButton jButtonValider;

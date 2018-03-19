@@ -88,7 +88,7 @@ System.out.println(idPrescription);
     
     @Override
     public boolean create(Prescriptions obj) {
-        String Query = new String();
+        String Query;
         Query = "insert into prescription (ipp,nosejour,idprescription,dateprescription,prescription,service) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getIdprescription() + "','" + obj.getDateprescription()
@@ -106,7 +106,7 @@ System.out.println(idPrescription);
 
     @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
-        String Query = new String();
+        String Query;
         Query = "UPDATE prescription "
                 + "SET ipp = '{" + ippgarde + "}' "
                 + "WHERE ipp = '{" + ippsuppr + "}' ";
@@ -124,8 +124,8 @@ System.out.println(idPrescription);
 
     @Override
     public ArrayList<Prescriptions> findIpp(String ipp) {
-        ArrayList<Prescriptions> pre = new ArrayList<Prescriptions>();
-        String Query = new String();
+        ArrayList<Prescriptions> pre = new ArrayList<>();
+        String Query;
         Query = "select * from prescription where ipp = '{" + ipp
                 + "}'";
 
@@ -147,8 +147,8 @@ System.out.println(idPrescription);
 
     @Override
     public ArrayList<Prescriptions> findSer(String ipp, String nosejour, String service) {
-        ArrayList<Prescriptions> pre = new ArrayList<Prescriptions>();
-        String Query = new String();
+        ArrayList<Prescriptions> pre = new ArrayList<>();
+        String Query;
         Query = "select * from prescription where ipp = '{" + ipp
                 + "}' and nosejour = '" + nosejour + "' and service = '"
                 + service + "'";

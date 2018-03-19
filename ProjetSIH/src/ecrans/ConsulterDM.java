@@ -37,7 +37,7 @@ public class ConsulterDM extends javax.swing.JFrame {
     public ConsulterDM(PersonnelHospitalier employe, Patients patient, JFrame previous) {
         initComponents();
         this.employe = employe/*previous.getEmploye()*/;
-        this.fenetre= previous;
+        this.fenetre = previous;
         /*   if(employe.getFonction== "")
         RechercherPatient name = (RechercherPatient) previous;
         this.fenetrePrecedente= previous;
@@ -448,10 +448,10 @@ public class ConsulterDM extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
-fenetre.setVisible(true);
+        fenetre.setVisible(true);
         fenetre.setSize(this.getSize());
         fenetre.setLocationRelativeTo(this);
-        this.dispose();        
+        this.dispose();
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
 

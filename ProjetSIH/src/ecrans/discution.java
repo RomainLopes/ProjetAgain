@@ -36,27 +36,27 @@ public class discution extends javax.swing.JFrame {
     ArrayList<String> pat = new ArrayList();
     ArrayList<String> patients = new ArrayList();
     private final JFrame previous;
-            String ja, jaN;
-    
+    String ja, jaN;
+
     /**
      *
      * @param previous
      */
     public discution(JFrame previous) {
         initComponents();
-        this.previous=previous;
-        ja= "{bonjour je m'appelle orphee}";
- jaN=ja.substring(1, ja.length()-1);
-      /* for (int i=1; i< ja.length();i++){
+        this.previous = previous;
+        ja = "{bonjour je m'appelle orphee}";
+        jaN = ja.substring(1, ja.length() - 1);
+        /* for (int i=1; i< ja.length();i++){
            jaN+= ja.charAt(i);
        }*/
         System.out.println(jaN);
-        
+
         patients.add("patient n°1");
         patients.add("patient n°2");
         patients.add("patient n°3");
-        
-        Date d= new Date();
+
+        Date d = new Date();
 
         /*JPanel panEvent = new JPanel(); //Panel où on place tous les événements
         JScrollPane scroll = new JScrollPane(panEvent, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -74,13 +74,12 @@ public class discution extends javax.swing.JFrame {
                 + "Quam ob rem vita quidem talis fuit vel fortuna vel gloria, ut nihil posset accedere, moriendi autem sensum celeritas abstulit; quo de genere mortis difficile dictu est; quid homines suspicentur, videtis; hoc vere tamen licet dicere, P. Scipioni ex multis diebus, quos in vita celeberrimos laetissimosque viderit, illum diem clarissimum fuisse, cum senatu dimisso domum reductus ad vesperum est a patribus conscriptis, populo Romano, sociis et Latinis, pridie quam excessit e vita, ut ex tam alto dignitatis gradu ad superos videatur deos potius quam ad inferos pervenisse.\n"
                 + "\n"
                 + "Equitis Romani autem esse filium criminis loco poni ab accusatoribus neque his iudicantibus oportuit neque defendentibus nobis. Nam quod de pietate dixistis, est quidem ista nostra existimatio, sed iudicium certe parentis; quid nos opinemur, audietis ex iuratis; quid parentes sentiant, lacrimae matris incredibilisque maeror, squalor patris et haec praesens maestitia, quam cernitis, luctusque declarat.");
-               DefaultListModel modele2 = new DefaultListModel();
+        DefaultListModel modele2 = new DefaultListModel();
 
         for (String j : patients) {
             modele2.addElement((j));
             //  jTextArea1.setText(j);
         }
-        
 
         DefaultListModel modele = new DefaultListModel();
         for (int j = 1; j <= 10; j++) {
@@ -90,9 +89,9 @@ public class discution extends javax.swing.JFrame {
         }
 
         jList1.setModel(modele);
-jList2.setModel(modele);
+        jList2.setModel(modele);
         // setSize(930, 610);//je redimensionne la fenetre
-       
+
     }
 
     /**
@@ -245,15 +244,16 @@ jList2.setModel(modele);
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
         //if 
-       essaiEncore ia = new essaiEncore(jList1.getSelectedValue());
+        /*
+        essaiEncore ia = new essaiEncore(jList1.getSelectedValue());
         //DossierMedical dm = new DossierMedical();
         ia.setSize(this.getSize());
         ia.setLocationRelativeTo(this);
         this.dispose();
         ia.setVisible(true);
-        
+
         System.out.println(jList1.getSelectedValue());
-        
+         */
     }//GEN-LAST:event_jList1MouseClicked
 
     private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
@@ -262,7 +262,7 @@ jList2.setModel(modele);
 
     private void jButtonOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOkActionPerformed
         // TODO add your handling code here:
-     /*   Date dates= new Date();
+        /*   Date dates= new Date();
 
        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String s = jFormattedTextField1.getText();
@@ -278,11 +278,11 @@ jList2.setModel(modele);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Exception");
         }*/
-     previous.setVisible(true);
-          previous.setSize(this.getSize());
+        previous.setVisible(true);
+        previous.setSize(this.getSize());
         previous.setLocationRelativeTo(this);
         this.dispose();
-      
+
     }//GEN-LAST:event_jButtonOkActionPerformed
 
     /**
@@ -313,8 +313,8 @@ jList2.setModel(modele);
         //</editor-fold>
 
         /* Create and display the form */
-        JFrame fenetre= new JFrame();
-        
+        JFrame fenetre = new JFrame();
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new discution(fenetre).setVisible(true);

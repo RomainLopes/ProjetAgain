@@ -23,6 +23,7 @@ public class Tracabilites extends javax.swing.JFrame {
 
     /**
      * Creates new form Tracabilite
+     *
      * @param employe
      */
     public Tracabilites(PersonnelHospitalier employe) {

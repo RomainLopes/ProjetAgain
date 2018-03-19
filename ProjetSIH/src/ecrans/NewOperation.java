@@ -23,6 +23,7 @@ public class NewOperation extends javax.swing.JFrame {
 
     /**
      * Creates new form NewOperation
+     *
      * @param personnel
      * @param patient
      * @param fenetre
@@ -284,21 +285,21 @@ public class NewOperation extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldOperationActionPerformed
 
     private void jButton1CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1CreerActionPerformed
-          DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
 
         String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp);
 
         DossierMedicoAdministratifDAO.findSer(ipp, noSejour, employe.getService()).forEach((j) -> {
-            dma =j;
+            dma = j;
         });
         Operations ope;
         ope = new Operations(ipp, noSejour, dma.getIdph(), jTextFieldDate.getText(), jTextFieldOperation.getText());
-                System.out.println(ipp+" " + noSejour +" " + dma.getIdph()+" " + jTextFieldDate.getText() +" " + jTextFieldOperation.getText());
+        System.out.println(ipp + " " + noSejour + " " + dma.getIdph() + " " + jTextFieldDate.getText() + " " + jTextFieldOperation.getText());
 
         DAO<Operations> OperationsDAO = new OperationsDAO(BDDconnection.getInstance());
-boolean ok= OperationsDAO.create(ope);
-            System.out.println(ok);
+        boolean ok = OperationsDAO.create(ope);
+        System.out.println(ok);
 
         if (ok) {
             System.out.println("dans la boucle");
@@ -313,7 +314,7 @@ boolean ok= OperationsDAO.create(ope);
     }//GEN-LAST:event_jButton1CreerActionPerformed
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
-fenetre.setVisible(true);
+        fenetre.setVisible(true);
         fenetre.setSize(this.getSize());
         fenetre.setLocationRelativeTo(this);
         this.dispose();

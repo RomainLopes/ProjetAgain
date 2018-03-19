@@ -17,9 +17,9 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
     /**
      * Creates new form Urgence
      */
-     private static PersonnelHospitalier employe;
+    private static PersonnelHospitalier employe;
     private static Patients patient;
-     private   ArrayList<Observations> observation;
+    private ArrayList<Observations> observation;
 
     /**
      *
@@ -34,13 +34,13 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
         jLabelNomPmed.setText(employe.getNomph());
         jLabelPrenomPmed.setText(employe.getPrenomph());
         //jLabelFonction.setText(employe.getFonction());
-        jLabelService.setText(employe.getService()); 
-        
+        jLabelService.setText(employe.getService());
+
         jLabel1Nomp.setText(patient.getNompatient());
         jLabel2PrenomP.setText(patient.getPrenompatient());
         jLabel2DateDeNaissance.setText(patient.getDateDeNaissance());
         jLabel2Sexe.setText(patient.getSexe());
-observation = obs;
+        observation = obs;
     }
 
     /**
@@ -476,7 +476,7 @@ observation = obs;
 
     private void ConsulterDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMActionPerformed
         // TODO add your handling code here:
-        ConsulterDM dm = new ConsulterDM(employe, patient,this);
+        ConsulterDM dm = new ConsulterDM(employe, patient, this);
         dm.setSize(this.getSize());
         dm.setLocationRelativeTo(this);
         this.dispose();
@@ -484,7 +484,7 @@ observation = obs;
     }//GEN-LAST:event_ConsulterDMActionPerformed
 
     private void CreerDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreerDMAActionPerformed
-        CreationDMAtemporaire obs = new CreationDMAtemporaire(employe,this);
+        CreationDMAtemporaire obs = new CreationDMAtemporaire(employe, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -493,7 +493,7 @@ observation = obs;
 
     private void ajouterObservation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservation1ActionPerformed
         // TODO add your handling code here:
-        NewObservations obs = new NewObservations(employe,patient,this);
+        NewObservations obs = new NewObservations(employe, patient, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -502,7 +502,7 @@ observation = obs;
 
     private void ajouterPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPrescriptionActionPerformed
         // TODO add your handling code here:
-        NewPrescription obs = new NewPrescription(employe,patient,this);
+        NewPrescription obs = new NewPrescription(employe, patient, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -511,7 +511,7 @@ observation = obs;
 
     private void ConsulterDMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDMAActionPerformed
         // TODO add your handling code here:
-        ConsulterDMA obs = new ConsulterDMA(employe,patient);
+        ConsulterDMA obs = new ConsulterDMA(employe, patient);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -519,15 +519,14 @@ observation = obs;
     }//GEN-LAST:event_ConsulterDMAActionPerformed
 
     private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
-         int index = getjListObservations().getSelectedIndex();
-          ConsulterObservation obs = new ConsulterObservation(employe,patient,this,observation.get(index));
+        int index = getjListObservations().getSelectedIndex();
+        ConsulterObservation obs = new ConsulterObservation(employe, patient, this, observation.get(index));
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
         obs.setVisible(true);
     }//GEN-LAST:event_jListObservationsMouseClicked
 
- 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConsulterDM;
