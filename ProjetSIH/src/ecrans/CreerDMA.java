@@ -415,12 +415,12 @@ public class CreerDMA extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Le DMA a bien été créé");
 
             } else {
-                JOptionPane.showMessageDialog(null, "Le DMA n'a pas pu être créé. Veillez recommencer.");
+                JOptionPane.showMessageDialog(null, "Le DMA n'a pas pu être créé. Veuillez recommencer.");
 
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Le patient n'a pas pu être créé. Veillez recommencer.");
+            JOptionPane.showMessageDialog(null, "Le patient n'a pas pu être créé. Veuillez recommencer.");
         }
 
 
