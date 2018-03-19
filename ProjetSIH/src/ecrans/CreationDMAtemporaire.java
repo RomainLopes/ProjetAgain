@@ -74,13 +74,13 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
         jTextFieldadresse = new javax.swing.JTextField();
         jTextField4Localisation = new javax.swing.JTextField();
         jButtonPrecedent = new javax.swing.JButton();
-        jButtonValider = new javax.swing.JButton();
         jComboBoxSexe = new javax.swing.JComboBox<>();
         jButtonAide = new javax.swing.JButton();
         try{
 
             MaskFormatter tel2 = new MaskFormatter("##-##-####");
             jTextField4DDN1 = new javax.swing.JFormattedTextField(tel2);
+            jButtonValider = new javax.swing.JButton();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
             setAlwaysOnTop(true);
@@ -145,21 +145,6 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
                 }
             });
 
-            jButtonValider.setBackground(new java.awt.Color(228, 241, 254));
-            jButtonValider.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-            jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
-            jButtonValider.setText("Valider");
-            jButtonValider.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    jButtonValiderMouseClicked(evt);
-                }
-            });
-            jButtonValider.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    jButtonValiderActionPerformed(evt);
-                }
-            });
-
             jComboBoxSexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
             jButtonAide.setText("Détail Sexe");
@@ -171,6 +156,14 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
 
         }
         catch(ParseException e){e.printStackTrace();}
+
+        jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
+        jButtonValider.setText("Valider");
+        jButtonValider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonValiderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3InfoPatientLayout = new javax.swing.GroupLayout(jPanel3InfoPatient);
         jPanel3InfoPatient.setLayout(jPanel3InfoPatientLayout);
@@ -221,7 +214,7 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonValider)
-                .addContainerGap())
+                .addGap(65, 65, 65))
         );
         jPanel3InfoPatientLayout.setVerticalGroup(
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,9 +240,9 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
                     .addComponent(jLabel2Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4DDN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(jButtonValider)
-                .addGap(41, 41, 41))
+                .addGap(68, 68, 68))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -266,7 +259,7 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(99, 99, 99)
                 .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(350, Short.MAX_VALUE))
+                .addContainerGap(342, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -291,12 +284,12 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
 
-    private void jButtonValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonValiderMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonValiderMouseClicked
+    private void jButtonAideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAideActionPerformed
+        JOptionPane.showMessageDialog(null, "'A': Ambigu; 'F': Féminin; 'M': Masculin; 'O': Autre; 'U': Inconnu");
+    }//GEN-LAST:event_jButtonAideActionPerformed
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
-  // creation du patient
+        // creation du patient
         DAO<Patients> pDAO = new PatientsDAO(BDDconnection.getInstance());
         String ipp = pDAO.createIpp(); // (patient.getIpp().substring(1, patient.getIpp().length() - 1));
         System.out.println(ipp);
@@ -331,13 +324,9 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Le patient n'a pas pu être créé. Veillez recommencer.");
         }
-
-
     }//GEN-LAST:event_jButtonValiderActionPerformed
+ 
 
-    private void jButtonAideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAideActionPerformed
-        JOptionPane.showMessageDialog(null, "'A': Ambigu; 'F': Féminin; 'M': Masculin; 'O': Autre; 'U': Inconnu");
-    }//GEN-LAST:event_jButtonAideActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

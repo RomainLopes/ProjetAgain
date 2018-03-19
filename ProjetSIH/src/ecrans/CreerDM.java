@@ -50,7 +50,7 @@ public class CreerDM extends javax.swing.JFrame {
         modele.addElement("U");
 
         jComboBoxSexe.setModel(modele);
-
+System.out.println("avant ok");
     }
 
     /**
@@ -78,12 +78,12 @@ public class CreerDM extends javax.swing.JFrame {
         jTextFieldPrenom = new javax.swing.JTextField();
         jLabel2Service = new javax.swing.JLabel();
         jTextField1Service = new javax.swing.JTextField();
-        jButtonValider = new javax.swing.JButton();
         jComboBoxSexe = new javax.swing.JComboBox<>();
         try{
 
             MaskFormatter tel2 = new MaskFormatter("##-##-####");
             jFormattedTextFieldDateDeNaissance = new javax.swing.JFormattedTextField();
+            jButtonValider = new javax.swing.JButton();
 
             jLabel2.setText("jLabel2");
 
@@ -160,20 +160,18 @@ public class CreerDM extends javax.swing.JFrame {
 
             jTextField1Service.setText("jTextField1");
 
-            jButtonValider.setBackground(new java.awt.Color(228, 241, 254));
-            jButtonValider.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-            jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
-            jButtonValider.setText("Valider");
-            jButtonValider.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    jButtonValiderActionPerformed(evt);
-                }
-            });
-
             jComboBoxSexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         }
         catch(ParseException e){e.printStackTrace();}
+
+        jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
+        jButtonValider.setText("Valider");
+        jButtonValider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonValiderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3InfoPatientLayout = new javax.swing.GroupLayout(jPanel3InfoPatient);
         jPanel3InfoPatient.setLayout(jPanel3InfoPatientLayout);
@@ -183,24 +181,20 @@ public class CreerDM extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
+                        .addComponent(jLabel1InfoPatients)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                                .addComponent(jLabel1Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                                .addComponent(jLabel2Service)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1Service, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                                .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                                .addGap(150, 150, 150)
-                                .addComponent(jButtonValider, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
+                                .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
+                                        .addComponent(jLabel1Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
+                                        .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                         .addGap(51, 51, 51)
@@ -211,11 +205,16 @@ public class CreerDM extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jComboBoxSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jFormattedTextFieldDateDeNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 201, Short.MAX_VALUE))
-                    .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                        .addComponent(jLabel1InfoPatients)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(jFormattedTextFieldDateDeNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
+                                .addComponent(jLabel2Service)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField1Service, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 225, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3InfoPatientLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonValider)
+                .addGap(196, 196, 196))
         );
         jPanel3InfoPatientLayout.setVerticalGroup(
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,9 +237,9 @@ public class CreerDM extends javax.swing.JFrame {
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2Service, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1Service, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonValider, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(11, 11, 11)
+                .addComponent(jButtonValider)
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -255,7 +254,7 @@ public class CreerDM extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(158, Short.MAX_VALUE)
+                .addContainerGap(150, Short.MAX_VALUE)
                 .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82))
         );
@@ -269,21 +268,31 @@ public class CreerDM extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
-        // TODO add your handling code here:
-        //String ipp, String nosejour, String service, String correspondance 
-        // Recuperer le no sejour 
+    private void jButtonPrecedent2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedent2ActionPerformed
+        fenetrePre.setVisible(true);
+        fenetrePre.setSize(this.getSize());
+        fenetrePre.setLocationRelativeTo(this);
+        this.dispose();
+    }//GEN-LAST:event_jButtonPrecedent2ActionPerformed
 
-        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
-        String s = jFormattedTextFieldDateDeNaissance.getText();
-        Date d = new Date();
+    private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
+        System.out.println("apres ok");
+       /* SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+        String s = jFormattedTextFieldDateDeNaissance.getText();*/
+        String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+                        System.out.println(ipp);
+            DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        String nosejour = (DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp).substring(1, DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp).length() - 1));
+                                System.out.println(nosejour);
+
+      /*  Date d = new Date();
         try {
             d = sdf.parse(s);
             String t = sdf.format(d);
             if (t.compareTo(s) != 0) {
                 JOptionPane.showMessageDialog(null, "Date non valide");
-            } else {
-                DossierMedical dm = new DossierMedical(patient.getIpp(), dma.getNosejour(), jTextField1Service.getText(), "");
+            } else {*/
+                DossierMedical dm = new DossierMedical(ipp, nosejour, jTextField1Service.getText(), "");
 
                 DAO<DossierMedical> dmDAO = new DossierMedicalDAO(BDDconnection.getInstance());
                 if (dmDAO.create(dm)) {
@@ -292,20 +301,12 @@ public class CreerDM extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, " Le dossier médical n'a pas pu être créé. Veillez recommencer.");
                 }
 
-            }
+           /* }
         } catch (Exception e) {
             //JOptionPane.showMessageDialog(null, "Exception");
-        }
+        }*/
 
     }//GEN-LAST:event_jButtonValiderActionPerformed
-
-    private void jButtonPrecedent2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedent2ActionPerformed
-        fenetrePre.setVisible(true);
-        fenetrePre.setSize(this.getSize());
-        fenetrePre.setLocationRelativeTo(this);
-        this.dispose();
-    }//GEN-LAST:event_jButtonPrecedent2ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPrecedent2;
