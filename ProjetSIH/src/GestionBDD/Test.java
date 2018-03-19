@@ -266,8 +266,11 @@ public class Test {
       /*  DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
         System.out.println(PrescriptionsDAO.createIdPrescription("180000003"));
         */
-        
-
+      String Lettre = "l'apostrophe";
+        System.out.println(Lettre);
+      Lettre = Lettre.replace('\'',' ');  
+        System.out.println(Lettre);
+      
     }
 
 }

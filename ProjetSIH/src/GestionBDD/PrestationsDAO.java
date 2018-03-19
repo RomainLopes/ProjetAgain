@@ -28,10 +28,12 @@ public class PrestationsDAO extends DAO<Prestations> {
     @Override
     public boolean create(Prestations obj) {
         String Query;
+        String prestation = obj.getPrestation().replace('\'',' ');
+        
         Query = "insert into prestation (ipp,nosejour,datePrestation,service,prestation) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getDatePrestation() + "','" + obj.getService()
-                + "','" + obj.getPrestation() + "')";
+                + "','" + prestation + "')";
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);

@@ -28,9 +28,12 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
     @Override
     public boolean create(LettreDeSortie obj) {
         String Query;
+        
+        String Lettre = obj.getLettre().replace('\'',' ');  
+                
         Query = "insert into lettredesortie (ipp,nosejour,idph,lettre) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
-                + obj.getIdph() + "','" + obj.getLettre() + "')";
+                + obj.getIdph() + "','" + Lettre + "')";
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);

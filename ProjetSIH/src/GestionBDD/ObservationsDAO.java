@@ -28,11 +28,14 @@ public class ObservationsDAO extends DAO<Observations> {
     @Override
     public boolean create(Observations obj) {
         String Query;
+        
+        String resume = obj.getResume().replace('\'',' ');  
+        
         Query = "insert into observation (ipp,nosejour,idph,dateObservation,service,nomacte,resume ) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getIdph() + "','" + obj.getDateObservation()
                 + "','" + obj.getService() + "','" + obj.getNomacte()
-                + "','" + obj.getResume() + "')";
+                + "','" + resume + "')";
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);

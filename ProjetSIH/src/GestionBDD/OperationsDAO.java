@@ -25,13 +25,17 @@ public class OperationsDAO extends DAO<Operations> {
         super(conn);
     }
 
+      
+    
     @Override
     public boolean create(Operations obj) {
         String Query;
+        String operation = obj.getOperation().replace('\'',' ');
+        
         Query = "insert into operation (ipp,nosejour,idph,dateoperation,operation) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getIdph() + "','" + obj.getDateoperation()
-                + "','" + obj.getOperation() + "')";
+                + "','" + operation + "')";
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
