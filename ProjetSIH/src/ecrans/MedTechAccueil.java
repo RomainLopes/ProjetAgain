@@ -7,6 +7,7 @@ package ecrans;
 
 import GestionBDD.*;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -22,6 +23,8 @@ public class MedTechAccueil extends javax.swing.JFrame {
     private ArrayList<Observations> observation;
     private ArrayList<Resultats> resultat;
     private ArrayList<Prescriptions> prescription;
+    private ArrayList<DossierMedicoAdministratif> dmas;
+    private String ipp;
 
     /**
      *
@@ -48,7 +51,10 @@ public class MedTechAccueil extends javax.swing.JFrame {
         observation = obs;
         resultat = res;
         this.prescription = prescription;
+        ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
 
+        DossierMedicoAdministratifDAO dmadao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        dmas = dmadao.findService(ipp, employe.getService());
     }
 
     /**
@@ -277,12 +283,9 @@ public class MedTechAccueil extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(ajouterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 222, Short.MAX_VALUE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(Prescriptio2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(ajouterResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Prescriptio2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,7 +330,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel7Resultat);
-        jPanel7Resultat.setBounds(703, 214, 297, 240);
+        jPanel7Resultat.setBounds(703, 214, 270, 240);
 
         jPanel3InfoPatient.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -553,7 +556,39 @@ public class MedTechAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jListResultatsMouseClicked
 
     private void jButtonaffichernosejoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonaffichernosejoursActionPerformed
-        // TODO add your handling code here:
+        ObservationsDAO obs = new ObservationsDAO(BDDconnection.getInstance());
+        ArrayList<Observations> ob;
+
+        PrescriptionsDAO presc = new PrescriptionsDAO(BDDconnection.getInstance());
+        ArrayList<Prescriptions> pr;
+
+        ResultatsDAO res = new ResultatsDAO(BDDconnection.getInstance());
+        ArrayList<Resultats> re;
+        DefaultListModel observations = new DefaultListModel();
+        DefaultListModel prescriptions = new DefaultListModel();
+        DefaultListModel result = new DefaultListModel();
+        for (DossierMedicoAdministratif d : dmas) {
+            String nosejour = d.getNosejour();
+            ob = obs.findSer(ipp, nosejour, employe.getService());
+            pr = presc.findSer(ipp, nosejour, employe.getService());
+            re = res.findSer(ipp, nosejour, employe.getService());
+
+            ob.forEach((i) -> {
+                observations.addElement(i.getNomacte() + "    " + i.getDateObservation()+ "    "+ nosejour);
+            });
+
+            pr.forEach((i) -> {
+                prescriptions.addElement(i.getIdprescription() + "    " + i.getDateprescription()+ "    "+ nosejour);
+            }); // 4 espaces
+
+            re.forEach((i) -> {
+                result.addElement(i.getPrestationmt() + "    " + i.getDateResultat()+ "    "+ nosejour);
+            });
+        }
+jListPrescriptions.setModel(prescriptions);
+jListObservations.setModel(observations);
+jListResultats.setModel(result);
+
     }//GEN-LAST:event_jButtonaffichernosejoursActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
