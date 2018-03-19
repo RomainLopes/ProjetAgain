@@ -27,7 +27,7 @@ public class ObservationsDAO extends DAO<Observations> {
 
     @Override
     public boolean create(Observations obj) {
-        String Query = new String();
+        String Query;
         Query = "insert into observation (ipp,nosejour,idph,dateObservation,service,nomacte,resume ) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getIdph() + "','" + obj.getDateObservation()
@@ -47,7 +47,7 @@ public class ObservationsDAO extends DAO<Observations> {
 
     @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
-        String Query = new String();
+        String Query;
         Query = "UPDATE observation "
                 + "SET ipp = '{" + ippgarde + "}' "
                 + "WHERE ipp = '{" + ippsuppr + "}' ";
@@ -65,8 +65,8 @@ public class ObservationsDAO extends DAO<Observations> {
 
     @Override
     public ArrayList<Observations> findSer(String ipp, String nosejour, String service) {
-        ArrayList<Observations> obs = new ArrayList<Observations>();
-        String Query = new String();
+        ArrayList<Observations> obs = new ArrayList<>();
+        String Query;
         Query = "select * from observation where ipp = '{" + ipp
                 + "}' and nosejour = '" + nosejour + "' and service = '"
                 + service + "'";
@@ -91,8 +91,8 @@ public class ObservationsDAO extends DAO<Observations> {
 
     @Override
     public ArrayList<Observations> findIpp(String ipp) {
-        ArrayList<Observations> obs = new ArrayList<Observations>();
-        String Query = new String();
+        ArrayList<Observations> obs = new ArrayList<>();
+        String Query;
         Query = "select * from observation where ipp = '{" + ipp
                 + "}'";
 

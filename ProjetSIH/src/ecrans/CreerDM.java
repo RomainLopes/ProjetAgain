@@ -32,6 +32,7 @@ public class CreerDM extends javax.swing.JFrame {
 
     /**
      * Creates new form CreerDM
+     *
      * @param employe
      * @param patient
      * @param previous
@@ -40,7 +41,7 @@ public class CreerDM extends javax.swing.JFrame {
         initComponents();
         this.patient = patient;
         this.employe = employe;
-        fenetrePre=previous;
+        fenetrePre = previous;
         DefaultComboBoxModel modele = new DefaultComboBoxModel();
         modele.addElement("A");
         modele.addElement("F");
@@ -300,8 +301,8 @@ public class CreerDM extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
     private void jButtonPrecedent2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedent2ActionPerformed
-             fenetrePre.setVisible(true);
- fenetrePre.setSize(this.getSize());
+        fenetrePre.setVisible(true);
+        fenetrePre.setSize(this.getSize());
         fenetrePre.setLocationRelativeTo(this);
         this.dispose();
     }//GEN-LAST:event_jButtonPrecedent2ActionPerformed

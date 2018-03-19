@@ -27,7 +27,7 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
 
     @Override
     public boolean create(Tracabilite obj) {
-        String Query = new String();
+        String Query;
         Query = "insert into tracabilite (ipp,idph,dateconnexion) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getIdph() + "','"
                 + obj.getDateconnection() + "')";
@@ -45,7 +45,7 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
 
     @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
-        String Query = new String();
+        String Query;
         Query = "UPDATE tracabilite "
                 + "SET ipp = '{" + ippgarde + "}'"
                 + "WHERE ipp = '{" + ippsuppr + "}' ";
@@ -64,8 +64,8 @@ public class TracabiliteDAO extends DAO<Tracabilite> {
 
     @Override
     public ArrayList<Tracabilite> findIpp(String ipp) {
-        ArrayList<Tracabilite> tra = new ArrayList<Tracabilite>();
-        String Query = new String();
+        ArrayList<Tracabilite> tra = new ArrayList<>();
+        String Query;
         Query = "SELECT patients.nompatient, patients.prenompatient, personnelhospitalier.nomph, personnelhospitalier.prenomph, personnelhospitalier.fonction, tracabilite.dateconnexion"
                 + " FROM tracabilite LEFT JOIN personnelhospitalier "
                 + " ON tracabilite.idph = personnelhospitalier.id "

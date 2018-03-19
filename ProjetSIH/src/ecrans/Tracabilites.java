@@ -23,6 +23,7 @@ public class Tracabilites extends javax.swing.JFrame {
 
     /**
      * Creates new form Tracabilite
+     *
      * @param employe
      */
     public Tracabilites(PersonnelHospitalier employe) {
@@ -283,9 +284,9 @@ public class Tracabilites extends javax.swing.JFrame {
         TracabiliteDAO dmadao = new TracabiliteDAO(BDDconnection.getInstance());
         ArrayList<Tracabilite> dm = dmadao.findIpp(ipp);
         if (!dm.isEmpty()) {
-            for (Tracabilite j: dm){
-            System.out.println(j.getNompatient() + "   " + j.getNomph() + "   " + j.getDateconnection());
-            resultatAffiche.add(j.getNompatient() + "   " + j.getNompatient() + "   "+ j.getNomph() + "   "+ j.getPrenomph() + "   " + j.getDateconnection());
+            for (Tracabilite j : dm) {
+                System.out.println(j.getNompatient() + "   " + j.getNomph() + "   " + j.getDateconnection());
+                resultatAffiche.add(j.getNompatient() + "   " + j.getNompatient() + "   " + j.getNomph() + "   " + j.getPrenomph() + "   " + j.getDateconnection());
             }
         } else {
             System.out.println("Aucune connexion");

@@ -184,7 +184,7 @@ public class Identification extends javax.swing.JFrame {
         //RecherchePatient rp = new RecherchePatient();
         PersonnelHospitalierDAO phd = new PersonnelHospitalierDAO(BDDconnection.getInstance());
         String pswd = new String(jTextFieldMdp.getPassword());
-                
+
         ph = phd.connex(jTextFieldIdentifiant.getText(), pswd);
         System.out.println(jTextFieldIdentifiant.getText() + pswd);
 
@@ -194,32 +194,31 @@ public class Identification extends javax.swing.JFrame {
         } else {
             if (!ph.getId().isEmpty()) {
 
-                if ( "Secretaire medicale".equals(ph.getFonction())) {
+                if ("Secretaire medicale".equals(ph.getFonction())) {
 
                     SmAccueil smed = new SmAccueil(ph);
                     smed.setSize(this.getSize());
                     smed.setLocationRelativeTo(this);
                     this.dispose();
                     smed.setVisible(true);
-                    
-                } else if ( "Administration".equals(ph.getFonction())) {
+
+                } else if ("Administration".equals(ph.getFonction())) {
 
                     SaAccueil sadm = new SaAccueil(ph);
                     sadm.setSize(this.getSize());
                     sadm.setLocationRelativeTo(this);
                     this.dispose();
                     sadm.setVisible(true);
-                    
-                } else if ( "Gerant".equals(ph.getFonction())) { 
+
+                } else if ("Gerant".equals(ph.getFonction())) {
 
                     Tracabilites sadm = new Tracabilites(ph);
                     sadm.setSize(this.getSize());
                     sadm.setLocationRelativeTo(this);
                     this.dispose();
                     sadm.setVisible(true);
-                    
-                }
-                else {
+
+                } else {
 
                     RechercherPatient rechercher = new RechercherPatient(ph);
                     rechercher.setSize(this.getSize());

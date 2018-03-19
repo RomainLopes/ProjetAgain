@@ -33,11 +33,13 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
                 + obj.getService() + "','" + obj.getCorrespondance()
                 + "')";
         try {
+            
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            System.out.println(Query);
+            //System.out.println(Query);
             int result = state.executeUpdate(Query);
             return true;
+            
         } catch (SQLException e) {
             return false;
         }
@@ -54,8 +56,8 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
      */
     @Override
     public ArrayList<DossierMedical> findSer(String ipp, String nosejour, String service) {
-        ArrayList<DossierMedical> dm = new ArrayList<DossierMedical>();
-        String Query = new String();
+        ArrayList<DossierMedical> dm = new ArrayList<>();
+        String Query;
         Query = "select * from dossiermedical where ipp = '{" + ipp
                 + "}' and nosejour = '" + nosejour + "' and service = '"
                 + service + "'";
@@ -67,20 +69,21 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
             ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
-                
+
                 dm.add(new DossierMedical(result.getString("ipp"), result.getString("nosejour"), result.getString("service"), result.getString("correspondance")));
 
             }
+            
             return dm;
-        } catch (SQLException e) {
-        }
+            
+        } catch (SQLException e) {}
 
         return dm;
     }
 
     @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
-        String Query = new String();
+        String Query;
         Query = "UPDATE dossiermedical "
                 + "SET ipp = '{" + ippgarde + "}' "
                 + "WHERE ipp = '{" + ippsuppr + "}' ";
@@ -88,7 +91,6 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            //System.out.println(Query);
             int result = state.executeUpdate(Query);
 
         } catch (SQLException e) {
@@ -99,16 +101,15 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
 
     @Override
     public boolean updateCorrespondance(String ipp, String nosejour, String correspondance) {
-        String Query = new String();
+        String Query;
         Query = "UPDATE dossiermedical "
                 + "SET correspondance ='" + correspondance + "' "
                 + "WHERE ( ipp = '{" + ipp + "}' and nosejour = '" + nosejour + "' )";
-        //UPDATE dossiermedical SET ipp = '{180000001}' WHERE ipp = '{123456789}'
 
         try {
+            
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            //System.out.println(Query);
             int result = state.executeUpdate(Query);
 
         } catch (SQLException e) {
@@ -119,8 +120,8 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
 
     @Override
     public ArrayList<DossierMedical> find(String ipp, String service) {
-        ArrayList<DossierMedical> dm = new ArrayList<DossierMedical>();
-        String Query = new String();
+        ArrayList<DossierMedical> dm = new ArrayList<>();
+        String Query;
         Query = "select * from dossiermedical where ipp = '{" + ipp
                 + "}' and service = '"
                 + service + "'";
@@ -132,13 +133,15 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
             ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
+
                 dm.add(new DossierMedical(result.getString("ipp"), result.getString("nosejour"), result.getString("service"), result.getString("correspondance")));
-                
-                
+
             }
+            
             return dm;
-        } catch (SQLException e) {
-        }
+            
+        } catch (SQLException e) {}
+        
         return dm;
     }
 

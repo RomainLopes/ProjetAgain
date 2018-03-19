@@ -27,7 +27,7 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
     private static PersonnelHospitalier employe;
     private static Patients patient;
     private final JFrame fenetrePrecedente;
-    
+
     /**
      *
      * @param employe
@@ -35,9 +35,9 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
      */
     public CreationDMAtemporaire(PersonnelHospitalier employe, JFrame previous) {
         initComponents();
-        this.employe= employe;
+        this.employe = employe;
         fenetrePrecedente = previous;
-          DefaultComboBoxModel sexModele = new DefaultComboBoxModel();
+        DefaultComboBoxModel sexModele = new DefaultComboBoxModel();
         sexModele.addElement("A");
         sexModele.addElement("F");
         sexModele.addElement("M");
@@ -277,8 +277,8 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
         // TODO add your handling code here:
-             fenetrePrecedente.setVisible(true);
- fenetrePrecedente.setSize(this.getSize());
+        fenetrePrecedente.setVisible(true);
+        fenetrePrecedente.setSize(this.getSize());
         fenetrePrecedente.setLocationRelativeTo(this);
         this.dispose();
     }//GEN-LAST:event_jButtonPrecedentActionPerformed
@@ -288,7 +288,7 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonValiderMouseClicked
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
-DossierMedicoAdministratif dma;
+        DossierMedicoAdministratif dma;
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
 
         // ipp= YoYoxxxxx pour créer lenouveau et faire patient.setIpp(newIpp)
@@ -313,14 +313,14 @@ DossierMedicoAdministratif dma;
 
         }
 
-        
+
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
     private void jButtonAideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAideActionPerformed
         JOptionPane.showMessageDialog(null, "'A': Ambigu; 'F': Féminin; 'M': Masculin; 'O': Autre; 'U': Inconnu");
     }//GEN-LAST:event_jButtonAideActionPerformed
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAide;
     private javax.swing.JButton jButtonPrecedent;

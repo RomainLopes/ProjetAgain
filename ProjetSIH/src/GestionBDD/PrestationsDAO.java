@@ -27,7 +27,7 @@ public class PrestationsDAO extends DAO<Prestations> {
 
     @Override
     public boolean create(Prestations obj) {
-        String Query = new String();
+        String Query;
         Query = "insert into prestation (ipp,nosejour,datePrestation,service,prestation) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getDatePrestation() + "','" + obj.getService()
@@ -45,7 +45,7 @@ public class PrestationsDAO extends DAO<Prestations> {
 
     @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
-        String Query = new String();
+        String Query;
         Query = "UPDATE prestation "
                 + "SET ipp = '{" + ippgarde + "}' "
                 + "WHERE ipp = '{" + ippsuppr + "}' ";
@@ -63,8 +63,8 @@ public class PrestationsDAO extends DAO<Prestations> {
 
     @Override
     public ArrayList<Prestations> find(String ipp, String nosejour) {
-        ArrayList<Prestations> pre = new ArrayList<Prestations>();
-        String Query = new String();
+        ArrayList<Prestations> pre = new ArrayList<>();
+        String Query;
         Query = "select * from prestation where ipp = '{" + ipp
                 + "}' and nosejour = '" + nosejour + "'";
 

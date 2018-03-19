@@ -9,7 +9,6 @@ import GestionBDD.*;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 
-
 /**
  *
  * @author romel
@@ -21,7 +20,7 @@ public class InterneAccueil extends javax.swing.JFrame {
      */
     private static PersonnelHospitalier employe;
     private static Patients patient;
-        private ArrayList<Observations> observation;
+    private ArrayList<Observations> observation;
 
     /**
      *
@@ -29,31 +28,30 @@ public class InterneAccueil extends javax.swing.JFrame {
      * @param patient
      * @param obs
      */
-    public InterneAccueil(PersonnelHospitalier personnel, Patients patient,ArrayList<Observations> obs ) {
+    public InterneAccueil(PersonnelHospitalier personnel, Patients patient, ArrayList<Observations> obs) {
         initComponents();
-        employe=personnel;
-        this.patient=patient;
-        
+        employe = personnel;
+        this.patient = patient;
+
         jLabelNomInt.setText(personnel.getNomph());
         jLabelPrenomInt.setText(personnel.getPrenomph());
         jLabelFonction.setText(personnel.getFonction());
-        jLabelService.setText(personnel.getService()); 
-        
+        jLabelService.setText(personnel.getService());
+
         jLabel1Nomp.setText(patient.getNompatient());
         jLabel2PrenomP.setText(patient.getPrenompatient());
-       jLabel3Sexep.setText(patient.getSexe());
+        jLabel3Sexep.setText(patient.getSexe());
         jLabel4DateP.setText(patient.getDateDeNaissance());
-                observation=obs;
-  
-        
+        observation = obs;
+
     }
 
     /**
      *
      * @param a
      */
-    public void ecrirJLabel(String a){
-        JLabel test= new JLabel();
+    public void ecrirJLabel(String a) {
+        JLabel test = new JLabel();
         test.setText(a);
     }
 
@@ -377,15 +375,15 @@ public class InterneAccueil extends javax.swing.JFrame {
 
     private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
         RechercherPatient rechercher = new RechercherPatient(employe);
-                    rechercher.setSize(this.getSize());
-                    rechercher.setLocationRelativeTo(this);
-                    this.dispose();
-                    rechercher.setVisible(true);
+        rechercher.setSize(this.getSize());
+        rechercher.setLocationRelativeTo(this);
+        this.dispose();
+        rechercher.setVisible(true);
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void ajouterObservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterObservationActionPerformed
         // TODO add your handling code here:
-         NewObservations obs = new NewObservations(employe,patient,this);
+        NewObservations obs = new NewObservations(employe, patient, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();
@@ -395,16 +393,16 @@ public class InterneAccueil extends javax.swing.JFrame {
     private void jButtonDeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeconnexionActionPerformed
         // TODO add your handling code here:
         Identification iden = new Identification();
-                    iden.setSize(this.getSize());
-                    iden.setLocationRelativeTo(this);
-                    this.dispose();
-                    iden.setVisible(true);
+        iden.setSize(this.getSize());
+        iden.setLocationRelativeTo(this);
+        this.dispose();
+        iden.setVisible(true);
     }//GEN-LAST:event_jButtonDeconnexionActionPerformed
 
     private void jListObservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListObservationsMouseClicked
         // TODO add your handling code here:
-       int index = jListObservations.getSelectedIndex();
-          ConsulterObservation obs = new ConsulterObservation(employe,patient,this,observation.get(index));
+        int index = jListObservations.getSelectedIndex();
+        ConsulterObservation obs = new ConsulterObservation(employe, patient, this, observation.get(index));
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
         this.dispose();

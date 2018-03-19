@@ -27,7 +27,7 @@ public class OperationsDAO extends DAO<Operations> {
 
     @Override
     public boolean create(Operations obj) {
-        String Query = new String();
+        String Query;
         Query = "insert into operation (ipp,nosejour,idph,dateoperation,operation) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getIdph() + "','" + obj.getDateoperation()
@@ -46,7 +46,7 @@ public class OperationsDAO extends DAO<Operations> {
 
     @Override
     public boolean updateIpp(String ippgarde, String ippsuppr) {
-        String Query = new String();
+        String Query;
         Query = "UPDATE operation "
                 + "SET ipp = '{" + ippgarde + "}' "
                 + "WHERE ipp = '{" + ippsuppr + "}' ";
@@ -64,8 +64,8 @@ public class OperationsDAO extends DAO<Operations> {
 
     @Override
     public ArrayList<Operations> findIpp(String ipp) {
-        ArrayList<Operations> ope = new ArrayList<Operations>();
-        String Query = new String();
+        ArrayList<Operations> ope = new ArrayList<>();
+        String Query;
         Query = "select * from operation where ipp = '{" + ipp
                 + "}'";
 
@@ -87,8 +87,8 @@ public class OperationsDAO extends DAO<Operations> {
 
     @Override
     public ArrayList<Operations> find(String ipp, String nosejour) {
-        ArrayList<Operations> ope = new ArrayList<Operations>();
-        String Query = new String();
+        ArrayList<Operations> ope = new ArrayList<>();
+        String Query;
         Query = "select * from operation where ipp = '{" + ipp
                 + "}' and nosejour = '" + nosejour + "'";
 

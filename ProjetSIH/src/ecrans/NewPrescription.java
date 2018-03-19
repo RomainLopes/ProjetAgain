@@ -24,6 +24,7 @@ public class NewPrescription extends javax.swing.JFrame {
 
     /**
      * Creates new form NewPrescription
+     *
      * @param personnel
      * @param patient
      * @param fenetre
@@ -33,7 +34,6 @@ public class NewPrescription extends javax.swing.JFrame {
         this.patient = patient;
         employe = personnel;
         this.fenetre = fenetre;
-        
 
         jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(personnel.getService());
@@ -283,18 +283,17 @@ public class NewPrescription extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1CreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1CreerActionPerformed
-         DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+        DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
 
         String noSejour = DossierMedicoAdministratifDAO.getDernierNumeroSejour(ipp);
 
         DossierMedicoAdministratifDAO.findSer(ipp, noSejour, employe.getService()).forEach((j) -> {
-            dma =j;
+            dma = j;
         });
 
-
         DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
-         idPrescription = PrescriptionsDAO.createIdPrescription(ipp);
+        idPrescription = PrescriptionsDAO.createIdPrescription(ipp);
 
         Prescriptions presc;
         presc = new Prescriptions(ipp, noSejour, idPrescription, jTextFieldDate.getText(), jTextFieldPrescription.getText(), employe.getService());
