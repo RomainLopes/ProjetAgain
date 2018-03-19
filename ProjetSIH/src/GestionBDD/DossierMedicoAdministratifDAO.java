@@ -110,7 +110,7 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            //System.out.println(Query);
+            System.out.println(Query);
             int result = state.executeUpdate(Query);
             return true;
         } catch (SQLException e) {

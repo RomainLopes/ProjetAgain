@@ -74,7 +74,8 @@ public class PatientsDAO extends DAO<Patients> {
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNompatient() + "','" + obj.getPrenompatient()
                 + "','" + obj.getDateDeNaissance() + "','" + obj.getLocalisation() + "','" + adresse
                 + "','" + obj.getSexe() + "')";
-
+        System.out.println(Query);
+        
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);

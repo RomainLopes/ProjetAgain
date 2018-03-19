@@ -342,7 +342,7 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         //Instanciation des listes d'objet -----
         boolean x = true;
-        System.out.println(phr.getFonction());
+
         if (x == true && "Secretaire medicale".equals(phr.getFonction())) {
             //JOptionPane.showMessageDialog(null, "Dossier médical existant");
 
