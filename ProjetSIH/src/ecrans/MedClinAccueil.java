@@ -22,7 +22,9 @@ public class MedClinAccueil extends javax.swing.JFrame {
     private static Patients patient;
     private ArrayList<Observations> observation;
     private ArrayList<Resultats> resultat;
-    private ArrayList<String> correspondance;
+    private ArrayList<String> correspondance; 
+   private  DossierMedicoAdministratifDAO phd;
+   private  String ipp, noSejour;
 
     /**
      *
@@ -636,7 +638,12 @@ public class MedClinAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsulterDMActionPerformed
 
     private void jComboBoxCorrespondanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCorrespondanceActionPerformed
-        // TODO add your handling code here:
+String correspondance = jComboBoxCorrespondance.getSelectedItem().toString();
+  phd = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+        noSejour = phd.getDernierNumeroSejour(ipp);
+DossierMedicalDAO dmDAO = new DossierMedicalDAO(BDDconnection.getInstance()); 
+dmDAO.updateCorrespondance(ipp, noSejour, correspondance);
 
     }//GEN-LAST:event_jComboBoxCorrespondanceActionPerformed
 

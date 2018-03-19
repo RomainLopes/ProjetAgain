@@ -5,12 +5,11 @@
  */
 package ecrans;
 
-import GestionBDD.DossierMedicoAdministratif;
-import GestionBDD.Patients;
-import GestionBDD.PersonnelHospitalier;
+import GestionBDD.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 
 /**
@@ -27,6 +26,7 @@ public class ConsulterDM extends javax.swing.JFrame {
     private JFrame fenetrePrecedente;
     private static DossierMedicoAdministratif dmaCourrant;
     private final JFrame fenetre;
+    private String ipp;
 
     /**
      *
@@ -50,6 +50,44 @@ public class ConsulterDM extends javax.swing.JFrame {
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());
         jLabel5ServiceP.setText(employe.getService());
+        
+        
+        // donnees du dm du patient 
+         ipp = patient.getIpp().substring(1, patient.getIpp().length() - 1);
+
+         ObservationsDAO obs = new ObservationsDAO(BDDconnection.getInstance());
+        ArrayList<Observations> ob;
+        ob = obs.findIpp(ipp);
+        DefaultListModel observations = new DefaultListModel();
+        ob.forEach((i) -> {
+            observations.addElement(i.getNomacte() + "    " + i.getDateObservation());
+        });
+jListObservations.setModel(observations);
+        PrescriptionsDAO presc = new PrescriptionsDAO(BDDconnection.getInstance());
+        ArrayList<Prescriptions> pr;
+        pr = presc.findIpp(ipp);
+        DefaultListModel prescriptions = new DefaultListModel();
+        pr.forEach((i) -> {
+            prescriptions.addElement(i.getIdprescription() + "    " + i.getDateprescription());
+        }); // 4 espaces
+jListPrescriptions.setModel(prescriptions);
+        OperationsDAO ope = new OperationsDAO(BDDconnection.getInstance());
+        ArrayList<Operations> op;
+        op = ope.findIpp(ipp);
+        DefaultListModel operations = new DefaultListModel();
+        op.forEach((i) -> {
+            operations.addElement(i.getOperation() + "    " + i.getDateoperation());
+        });
+jListOperations.setModel(operations);
+        ResultatsDAO res = new ResultatsDAO(BDDconnection.getInstance());
+        ArrayList<Resultats> re;
+        re = res.findIpp(ipp);
+        DefaultListModel result = new DefaultListModel();
+        re.forEach((i) -> {
+            result.addElement(i.getPrestationmt() + "    " + i.getDateResultat());
+        });
+        jListResultats.setModel(result);
+
 
     }
 
