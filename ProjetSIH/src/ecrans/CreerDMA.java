@@ -92,7 +92,7 @@ public class CreerDMA extends javax.swing.JFrame {
             jLabel2NomPH = new javax.swing.JLabel();
             jTextFieldNomph = new javax.swing.JTextField();
             jTextFieldPrenomph = new javax.swing.JTextField();
-            jButtonValider = new javax.swing.JButton();
+            jButton1 = new javax.swing.JButton();
             jPanel1 = new javax.swing.JPanel();
             jLabel1 = new javax.swing.JLabel();
             jButtonPrecedent2 = new javax.swing.JButton();
@@ -107,8 +107,6 @@ public class CreerDMA extends javax.swing.JFrame {
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
             setBackground(new java.awt.Color(65, 131, 215));
             setMinimumSize(new java.awt.Dimension(200, 200));
-            setResizable(false);
-            getContentPane().setLayout(null);
 
             jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -176,7 +174,7 @@ public class CreerDMA extends javax.swing.JFrame {
                                     .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jComboBoxSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButtonAide))
                                 .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                     .addComponent(jLabel2DateDeNaissance)
@@ -188,7 +186,7 @@ public class CreerDMA extends javax.swing.JFrame {
                                 .addComponent(jLabel2Adresse, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextFieldadresse, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                                .addComponent(jTextFieldadresse)
                                 .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                     .addComponent(jTextField4Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(0, 0, Short.MAX_VALUE)))))
@@ -224,7 +222,6 @@ public class CreerDMA extends javax.swing.JFrame {
 
         jLabel3Type.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3Type.setText("Type :");
-        jPanel2CreationDMA.add(jLabel3Type);
 
         jComboBoxTypeSejour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
         jComboBoxTypeSejour.addActionListener(new java.awt.event.ActionListener() {
@@ -232,30 +229,51 @@ public class CreerDMA extends javax.swing.JFrame {
                 jComboBoxTypeSejourActionPerformed(evt);
             }
         });
-        jPanel2CreationDMA.add(jComboBoxTypeSejour);
 
         jLabel2NomPH.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2NomPH.setText("Praticien Hospitalier responsable :");
-        jPanel2CreationDMA.add(jLabel2NomPH);
-        jPanel2CreationDMA.add(jTextFieldNomph);
-        jPanel2CreationDMA.add(jTextFieldPrenomph);
 
-        jButtonValider.setBackground(new java.awt.Color(228, 241, 254));
-        jButtonValider.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
-        jButtonValider.setText("Valider");
-        /*
-        jButtonValider.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonValiderMouseClicked(evt);
-            }
-        });
-        jButtonValider.addActionListener(new java.awt.event.ActionListener() {
+        javax.swing.GroupLayout jPanel2CreationDMALayout = new javax.swing.GroupLayout(jPanel2CreationDMA);
+        jPanel2CreationDMA.setLayout(jPanel2CreationDMALayout);
+        jPanel2CreationDMALayout.setHorizontalGroup(
+            jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(jLabel3Type)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxTypeSejour, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel2NomPH)
+                .addGap(49, 49, 49)
+                .addComponent(jTextFieldNomph, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextFieldPrenomph, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel2CreationDMALayout.setVerticalGroup(
+            jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
+                .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBoxTypeSejour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3Type)
+                            .addComponent(jLabel2NomPH)))
+                    .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldNomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldPrenomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonValiderActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        */
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -264,10 +282,13 @@ public class CreerDMA extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(131, 131, 131)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButtonValider)
                     .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2CreationDMA, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(216, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(272, 272, 272))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,14 +296,11 @@ public class CreerDMA extends javax.swing.JFrame {
                 .addGap(99, 99, 99)
                 .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(jPanel2CreationDMA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(jButtonValider)
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addComponent(jPanel2CreationDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(208, Short.MAX_VALUE))
         );
-
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 93, 1000, 550);
 
         jPanel1.setBackground(new java.awt.Color(65, 131, 215));
         jPanel1.setToolTipText("");
@@ -309,7 +327,7 @@ public class CreerDMA extends javax.swing.JFrame {
                 .addComponent(jButtonPrecedent2)
                 .addGap(107, 107, 107)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(273, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,8 +339,23 @@ public class CreerDMA extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1000, 100);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(1, 1, 1))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -344,35 +377,41 @@ public class CreerDMA extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jComboBoxTypeSejourActionPerformed
 
-    private void jButtonValiderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonValiderMouseClicked
+    private void jButtonAideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAideActionPerformed
+        JOptionPane.showMessageDialog(null, "'A': Ambigu; 'F': Féminin; 'M': Masculin; 'O': Autre; 'U': Inconnu");
+
+    }//GEN-LAST:event_jButtonAideActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
         // creation du patient
         DAO<Patients> pDAO = new PatientsDAO(BDDconnection.getInstance());
         String ipp = pDAO.createIpp(); // (patient.getIpp().substring(1, patient.getIpp().length() - 1));
-        System.out.println(ipp);
+        //System.out.println(ipp);
         
         this.patient = new Patients(ipp, jTextField1Nom.getText(), jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
         boolean ok = pDAO.create(patient);
-        System.out.println(ok);
+        //System.out.println(ok);
         if (ok) {
             JOptionPane.showMessageDialog(null, "Le patient a bien été créé");
 // Recherhe du ph responsable 
 
             PersonnelHospitalierDAO perso = new PersonnelHospitalierDAO(BDDconnection.getInstance());
             
-            System.out.println("taille liste = " + perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).size());
+            //System.out.println("taille liste = " + perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).size());
             
             phRespo = perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).get(0);
             
-            System.out.println(phRespo.getNomph() + "  " + phRespo.getPrenomph());
+            //System.out.println(phRespo.getNomph() + "  " + phRespo.getPrenomph());
             
 // Creation du numero de sejour 
             DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
             String nosejour = DossierMedicoAdministratifDAO.createNumeroSejour();
             
-            System.out.println(nosejour);
+            //System.out.println(nosejour);
             
             DossierMedicoAdministratif dma;
-            System.out.println(dateDuJour);
+            //System.out.println(dateDuJour);
 //  creation du dma
             dma = new DossierMedicoAdministratif(ipp, nosejour, dateDuJour, phRespo.getId(), jComboBoxTypeSejour.getSelectedItem().toString(), phRespo.getService());
             boolean ok2 = DossierMedicoAdministratifDAO.create(dma);
@@ -389,18 +428,13 @@ public class CreerDMA extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_jButtonValiderMouseClicked
-
-    private void jButtonAideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAideActionPerformed
-        JOptionPane.showMessageDialog(null, "'A': Ambigu; 'F': Féminin; 'M': Masculin; 'O': Autre; 'U': Inconnu");
-
-    }//GEN-LAST:event_jButtonAideActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAide;
     private javax.swing.JButton jButtonPrecedent2;
-    private javax.swing.JButton jButtonValider;
     private javax.swing.JComboBox<String> jComboBoxSexe;
     private javax.swing.JComboBox<String> jComboBoxTypeSejour;
     private javax.swing.JLabel jLabel1;
