@@ -169,7 +169,7 @@ public class Test {
         System.out.println("is empty");
         }
          */
- 
+ /*
         TracabiliteDAO dmadao = new TracabiliteDAO(BDDconnection.getInstance());
         ArrayList<Tracabilite> dm = dmadao.findIpp("180000006");
         if (!dm.isEmpty()) {
@@ -178,7 +178,7 @@ public class Test {
         } else {
             System.out.println("is empty");
         }
-         
+         */
         //Tests unitaire d'update-------------------------------------------------
         /*
         DossierMedicalDAO dmdao = new DossierMedicalDAO(BDDconnection.getInstance());
