@@ -117,9 +117,6 @@ public class ConsulterDMA extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(200, 200));
-        setPreferredSize(new java.awt.Dimension(1000, 1000));
-        setResizable(false);
-        getContentPane().setLayout(null);
 
         JPanelEnTeteMedTech.setBackground(new java.awt.Color(65, 131, 215));
         JPanelEnTeteMedTech.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -164,48 +161,52 @@ public class ConsulterDMA extends javax.swing.JFrame {
                 .addComponent(jButtonAccueil)
                 .addGap(35, 35, 35)
                 .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelPrenomPmed)
                     .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
-                        .addComponent(jLabelNomPmed)
-                        .addGap(146, 146, 146)
-                        .addComponent(jLabelFonction)))
-                .addGap(353, 353, 353)
-                .addComponent(jLabelService)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(229, 229, 229))
+                        .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
+                                .addComponent(jLabelNomPmed)
+                                .addGap(146, 146, 146)
+                                .addComponent(jLabelFonction)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelEnTeteMedTechLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabelService)
+                                .addGap(38, 38, 38)))
+                        .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
+                        .addComponent(jLabelPrenomPmed)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         JPanelEnTeteMedTechLayout.setVerticalGroup(
             JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
-                        .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelFonction, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelNomPmed))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelPrenomPmed, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
+                        .addGap(19, 19, 19)
                         .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelService))))
+                            .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
+                                .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabelFonction, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelNomPmed))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabelPrenomPmed, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelService)
+                            .addComponent(jButtonDeconnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        getContentPane().add(JPanelEnTeteMedTech);
-        JPanelEnTeteMedTech.setBounds(0, 0, 1190, 113);
-
         DMA.setBackground(new java.awt.Color(255, 255, 255));
         DMA.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        DMA.setLayout(null);
 
         listech.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         listech.setText("Listes des consultations et des hospitalisations ");
-        DMA.add(listech);
-        listech.setBounds(280, 140, 350, 41);
 
         jListNoSejour.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { };
@@ -219,23 +220,14 @@ public class ConsulterDMA extends javax.swing.JFrame {
         });
         jScrollPane1ListeSejour.setViewportView(jListNoSejour);
 
-        DMA.add(jScrollPane1ListeSejour);
-        jScrollPane1ListeSejour.setBounds(40, 260, 200, 270);
-
         jLabel1Nosejour.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel1Nosejour.setText("N° de séjour ");
-        DMA.add(jLabel1Nosejour);
-        jLabel1Nosejour.setBounds(40, 220, 86, 27);
 
         jLabel2Type.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel2Type.setText("Type");
-        DMA.add(jLabel2Type);
-        jLabel2Type.setBounds(400, 220, 86, 27);
 
         jLabel3Date.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel3Date.setText("Date");
-        DMA.add(jLabel3Date);
-        jLabel3Date.setBounds(750, 220, 86, 27);
 
         jListType.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { };
@@ -249,9 +241,6 @@ public class ConsulterDMA extends javax.swing.JFrame {
         });
         jScrollPane2ListeType.setViewportView(jListType);
 
-        DMA.add(jScrollPane2ListeType);
-        jScrollPane2ListeType.setBounds(400, 260, 180, 270);
-
         jListDate.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { };
             public int getSize() { return strings.length; }
@@ -264,56 +253,151 @@ public class ConsulterDMA extends javax.swing.JFrame {
         });
         jScrollPane3ListeDate.setViewportView(jListDate);
 
-        DMA.add(jScrollPane3ListeDate);
-        jScrollPane3ListeDate.setBounds(750, 260, 180, 270);
-
         jLabel1Prenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1Prenom.setText("Prénom : ");
-        DMA.add(jLabel1Prenom);
-        jLabel1Prenom.setBounds(80, 90, 55, 14);
 
         jLabel2DateDeNaissance.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2DateDeNaissance.setText("Date de Naissance : ");
-        DMA.add(jLabel2DateDeNaissance);
-        jLabel2DateDeNaissance.setBounds(550, 80, 106, 24);
 
         jLabel2PrenomP.setText("jLabel1");
-        DMA.add(jLabel2PrenomP);
-        jLabel2PrenomP.setBounds(250, 90, 77, 14);
 
         jLabel4DateP.setText("jLabel1");
-        DMA.add(jLabel4DateP);
-        jLabel4DateP.setBounds(720, 80, 77, 14);
 
         jLabel2Nom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2Nom.setText("Nom : ");
-        DMA.add(jLabel2Nom);
-        jLabel2Nom.setBounds(80, 60, 55, 24);
 
         jLabel1Nomp.setText("jLabel1");
-        DMA.add(jLabel1Nomp);
-        jLabel1Nomp.setBounds(250, 60, 77, 14);
 
         jLabel2Sexe.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2Sexe.setText("Sexe :");
-        DMA.add(jLabel2Sexe);
-        jLabel2Sexe.setBounds(550, 50, 43, 24);
 
         jLabel3Sexep.setText("jLabel1");
-        DMA.add(jLabel3Sexep);
-        jLabel3Sexep.setBounds(720, 50, 77, 14);
 
         jLabel1InfoPatients.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
         jLabel1InfoPatients.setText("Informations du patient ");
-        DMA.add(jLabel1InfoPatients);
-        jLabel1InfoPatients.setBounds(320, 20, 180, 17);
 
         jButtonTrier.setText("Trier par dates croissantes");
-        DMA.add(jButtonTrier);
-        jButtonTrier.setBounds(940, 130, 200, 40);
 
-        getContentPane().add(DMA);
-        DMA.setBounds(0, 110, 1190, 650);
+        javax.swing.GroupLayout DMALayout = new javax.swing.GroupLayout(DMA);
+        DMA.setLayout(DMALayout);
+        DMALayout.setHorizontalGroup(
+            DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DMALayout.createSequentialGroup()
+                .addGroup(DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(DMALayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonTrier, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(DMALayout.createSequentialGroup()
+                                .addComponent(listech, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(141, 141, 141))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, DMALayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jScrollPane1ListeSejour, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(59, 59, 59)
+                        .addComponent(jScrollPane2ListeType, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(61, 61, 61)
+                        .addComponent(jScrollPane3ListeDate, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(DMALayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1Nosejour, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2Type, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3Date, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(20, 20, 20))
+            .addGroup(DMALayout.createSequentialGroup()
+                .addGroup(DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DMALayout.createSequentialGroup()
+                        .addGap(343, 343, 343)
+                        .addComponent(jLabel1InfoPatients, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DMALayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3Sexep, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4DateP, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(DMALayout.createSequentialGroup()
+                                .addGroup(DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(115, 115, 115)
+                                .addGroup(DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1Nomp, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2PrenomP, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(223, 223, 223)
+                                .addGroup(DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2DateDeNaissance))
+                                .addGap(92, 92, 92)))))
+                .addContainerGap(87, Short.MAX_VALUE))
+        );
+        DMALayout.setVerticalGroup(
+            DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DMALayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1InfoPatients)
+                .addGap(18, 18, 18)
+                .addGroup(DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DMALayout.createSequentialGroup()
+                        .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel2DateDeNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DMALayout.createSequentialGroup()
+                        .addComponent(jLabel3Sexep)
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel4DateP))
+                    .addGroup(DMALayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(DMALayout.createSequentialGroup()
+                                .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel1Prenom))
+                            .addGroup(DMALayout.createSequentialGroup()
+                                .addComponent(jLabel1Nomp)
+                                .addGap(16, 16, 16)
+                                .addComponent(jLabel2PrenomP)))))
+                .addGap(18, 18, 18)
+                .addComponent(listech, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jButtonTrier, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
+                .addGroup(DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DMALayout.createSequentialGroup()
+                        .addGroup(DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2Type, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3Date, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(DMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2ListeType)
+                            .addComponent(jScrollPane3ListeDate)))
+                    .addGroup(DMALayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel1Nosejour, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1ListeSejour, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)))
+                .addGap(30, 30, 30))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(DMA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(DMA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
