@@ -55,7 +55,7 @@ public class PersonnelHospitalier {
     }
    
     /**
-     *
+     * Constructeur par défaut
      */
     public PersonnelHospitalier() {
     }

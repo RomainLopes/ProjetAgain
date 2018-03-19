@@ -75,7 +75,7 @@ public class Tracabilite {
     }
     
     /**
-     *
+     * Constructeur par défaut
      */
     public Tracabilite(){}
     

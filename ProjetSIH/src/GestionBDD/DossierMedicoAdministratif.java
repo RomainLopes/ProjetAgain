@@ -55,7 +55,7 @@ public class DossierMedicoAdministratif {
     }
     
     /**
-     *
+     * Constructeur par défaut
      */
     public DossierMedicoAdministratif (){}
     

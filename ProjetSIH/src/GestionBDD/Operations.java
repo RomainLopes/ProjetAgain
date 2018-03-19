@@ -49,7 +49,7 @@ public class Operations {
     }
     
     /**
-     *
+     * Constructeur par défaut
      */
     public Operations (){}
     

@@ -61,7 +61,7 @@ public class Resultats {
     }
     
     /**
-     *
+     * Constructeur par défaut
      */
     public Resultats (){}
     

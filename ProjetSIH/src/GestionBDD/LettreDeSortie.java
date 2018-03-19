@@ -43,7 +43,7 @@ public class LettreDeSortie {
     }
     
     /**
-     *
+     * Constructeur par défaut
      */
     public LettreDeSortie () {}
     

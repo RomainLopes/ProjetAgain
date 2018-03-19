@@ -55,7 +55,7 @@ public class Prescriptions {
     }
     
     /**
-     *
+     * Constructeur par défaut
      */
     public Prescriptions () {}
     

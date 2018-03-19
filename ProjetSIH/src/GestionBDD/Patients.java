@@ -60,7 +60,7 @@ public class Patients {
     }
     
     /**
-     *
+     * Constructeur par défaut
      */
     public Patients () {}
     

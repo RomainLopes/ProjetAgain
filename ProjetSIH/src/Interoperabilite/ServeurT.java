@@ -62,6 +62,8 @@ public class ServeurT {
         System.out.println(patient.getID());
         String sexe = String.valueOf(patient.getCharSex());
         System.out.println(sexe);
-        System.out.println(patient.getBirth());   
+        System.out.println(patient.getBirth());  
+        
+        System.out.println(message.getType());
     }
 }

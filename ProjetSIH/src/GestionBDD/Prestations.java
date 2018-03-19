@@ -50,7 +50,7 @@ public class Prestations {
     }
 
     /**
-     *
+     * Constructeur par défaut
      */
     public Prestations() {
     }

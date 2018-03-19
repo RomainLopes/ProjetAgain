@@ -62,7 +62,7 @@ public class Observations {
     }
 
     /**
-     *
+     * Constructeur par défaut
      */
     public Observations() {
     }
