@@ -87,9 +87,9 @@ public class MedClinAccueil extends javax.swing.JFrame {
         jLabel2PrenomP = new javax.swing.JLabel();
         jLabel3Sexep = new javax.swing.JLabel();
         jLabel4DateP = new javax.swing.JLabel();
-        ConsulterDM1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jComboBoxCorrespondance = new javax.swing.JComboBox();
+        ConsulterDM1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel1Observations = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -111,7 +111,6 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(200, 200));
-        setPreferredSize(new java.awt.Dimension(1000, 1000));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -240,6 +239,15 @@ public class MedClinAccueil extends javax.swing.JFrame {
 
         jLabel4DateP.setText("jLabel1");
 
+        jLabel1.setText("Correspondance :");
+
+        jComboBoxCorrespondance.setModel(new javax.swing.DefaultComboBoxModel(new String[] {  }));
+        jComboBoxCorrespondance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCorrespondanceActionPerformed(evt);
+            }
+        });
+
         ConsulterDM1.setBackground(new java.awt.Color(228, 241, 254));
         ConsulterDM1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         ConsulterDM1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Consulter 2.PNG"))); // NOI18N
@@ -247,15 +255,6 @@ public class MedClinAccueil extends javax.swing.JFrame {
         ConsulterDM1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsulterDM1ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Correspondance :");
-
-        jComboBoxCorrespondance.setModel(new javax.swing.DefaultComboBoxModel(new String[] {  }));
-        jComboBoxCorrespondance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxCorrespondanceActionPerformed(evt);
             }
         });
 
@@ -289,16 +288,16 @@ public class MedClinAccueil extends javax.swing.JFrame {
                                 .addGap(65, 65, 65)
                                 .addComponent(jLabel3Sexep)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ConsulterDM1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ConsulterDMA)
+                        .addComponent(ConsulterDM1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EcrireLettreSortie1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBoxCorrespondance, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         jPanel3InfoPatientLayout.setVerticalGroup(
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,10 +323,10 @@ public class MedClinAccueil extends javax.swing.JFrame {
                     .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ConsulterDM1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ConsulterDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(EcrireLettreSortie1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxCorrespondance, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE))))
+                            .addComponent(jComboBoxCorrespondance, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                            .addComponent(ConsulterDM1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 31, Short.MAX_VALUE))
         );
 
@@ -636,19 +635,19 @@ public class MedClinAccueil extends javax.swing.JFrame {
         dm.setVisible(true);
     }//GEN-LAST:event_ConsulterDMActionPerformed
 
-    private void ConsulterDM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDM1ActionPerformed
-        // TODO add your handling code here:
-        ConsulterDM dm = new ConsulterDM(employe, patient, this);
-        dm.setSize(this.getSize());
-        dm.setLocationRelativeTo(this);
-        this.dispose();
-        dm.setVisible(true);
-    }//GEN-LAST:event_ConsulterDM1ActionPerformed
-
     private void jComboBoxCorrespondanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCorrespondanceActionPerformed
         // TODO add your handling code here:
 
     }//GEN-LAST:event_jComboBoxCorrespondanceActionPerformed
+
+    private void ConsulterDM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDM1ActionPerformed
+        // TODO add your handling code here:
+        ConsulterDM obs = new ConsulterDM(employe, patient, this);
+        obs.setSize(this.getSize());
+        obs.setLocationRelativeTo(this);
+        this.dispose();
+        obs.setVisible(true);
+    }//GEN-LAST:event_ConsulterDM1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

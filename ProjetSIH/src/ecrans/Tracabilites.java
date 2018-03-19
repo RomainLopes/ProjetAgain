@@ -276,20 +276,17 @@ public class Tracabilites extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAccueilActionPerformed
 
     private void jListPatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListPatientsMouseClicked
-        ArrayList<String> resultatAffiche = new ArrayList<String>();
-
+        ArrayList<String> resultatAffiche = new ArrayList<>();
         int index = jListPatients.getSelectedIndex();
         String ipp = lipat.get(index).getIpp().substring(1, lipat.get(index).getIpp().length() - 1);
-
         TracabiliteDAO dmadao = new TracabiliteDAO(BDDconnection.getInstance());
         ArrayList<Tracabilite> dm = dmadao.findIpp(ipp);
         if (!dm.isEmpty()) {
-            for (Tracabilite j : dm) {
-                System.out.println(j.getNompatient() + "   " + j.getNomph() + "   " + j.getDateconnection());
-                resultatAffiche.add(j.getNompatient() + "   " + j.getNompatient() + "   " + j.getNomph() + "   " + j.getPrenomph() + "   " + j.getDateconnection());
+            for (Tracabilite j: dm){
+            resultatAffiche.add(j.getNompatient() + "   " + j.getPrenompatient() + "   "+ j.getNomph() + "   "+ j.getPrenomph() + "   " + j.getDateconnection());
             }
         } else {
-            System.out.println("Aucune connexion");
+            resultatAffiche.add("Aucune connexion");
         }
         DefaultListModel modele = new DefaultListModel();
         for (String i : resultatAffiche) {
