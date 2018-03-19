@@ -102,12 +102,8 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
             jLabel2Nom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
             jLabel2Nom.setText("Nom : ");
 
-            jTextField1Nom.setText("jTextField1");
-
             jLabel1Prenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
             jLabel1Prenom.setText("Prénom : ");
-
-            jTextField4Prenom.setText("jTextField1");
 
             jLabel2Sexe.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
             jLabel2Sexe.setText("Sexe :");
@@ -179,13 +175,14 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addComponent(jLabel2Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(jTextField1Nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField1Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(69, 69, 69))
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addComponent(jLabel1Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField4Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(69, 69, 69)
+                                .addComponent(jTextField4Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)))
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2DateDeNaissance)
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
@@ -315,6 +312,11 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
             boolean ok2 = DossierMedicoAdministratifDAO.create(dma);
             if (ok2) {
                 JOptionPane.showMessageDialog(null, "Le DMA a bien été créé");
+                MedUrgenceAccueil sadm = new MedUrgenceAccueil(employe, patient, this);
+                sadm.setVisible(true);
+                sadm.setSize(this.getSize());
+                sadm.setLocationRelativeTo(this);
+                this.dispose();
 
             } else {
                 JOptionPane.showMessageDialog(null, "Le DMA n'a pas pu être créé. Veillez recommencer.");

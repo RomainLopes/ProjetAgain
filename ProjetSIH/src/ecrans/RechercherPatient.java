@@ -398,7 +398,7 @@ public class RechercherPatient extends javax.swing.JFrame {
             inte.getjListObservations().setModel(observations);
 
         } else {
-            if (x == true && "Urgence".equals(phr.getService())) {
+           /* if (x == true && "Urgence".equals(phr.getService())) {
 
                 MedUrgenceAccueil inte = new MedUrgenceAccueil(phr, lipat.get(index), ob);
                 inte.setSize(this.getSize());
@@ -407,7 +407,7 @@ public class RechercherPatient extends javax.swing.JFrame {
                 inte.setVisible(true);
                 inte.getjListPrescriptions().setModel(prescriptions);
                 inte.getjListObservations().setModel(observations);
-            } else if (x == true && "Radiologie".equals(phr.getService())) {
+            } else*/ if (x == true && "Radiologie".equals(phr.getService())) {
 
                 MedRadioAccueil inte = new MedRadioAccueil(phr, lipat.get(index), ob, re, pr);
                 inte.setSize(this.getSize());
