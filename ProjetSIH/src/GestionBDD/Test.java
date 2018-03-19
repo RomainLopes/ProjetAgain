@@ -30,16 +30,16 @@ public class Test {
         // Creation 
         /*
         DossierMedical pat = new DossierMedical();
-        pat = new DossierMedical("180000544", "180100002","Urologie","");
+        pat = new DossierMedical("180005444", "180100002","Urologie","");
         DAO<DossierMedical> DossierMedicalDAO = new DossierMedicalDAO(BDDconnection.getInstance());
         DossierMedicalDAO.create(pat);
          */
- 
+ /*
         DossierMedicoAdministratif pat = new DossierMedicoAdministratif();
-        pat = new DossierMedicoAdministratif("180000544", "180100002","01-05-2018","PH0001","Consultation","Cardiologie");
+        pat = new DossierMedicoAdministratif("180005444", "180100002","01-05-2018","PH0001","Consultation","Cardiologie");
         DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(DossierMedicoAdministratifDAO.create(pat));
-         
+         */
  /*
         LettreDeSortie pat = new LettreDeSortie();
         pat = new LettreDeSortie("180000006", "180100002","PH0001","j autorise ma patiente a sortir...");
@@ -241,19 +241,19 @@ public class Test {
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
         System.out.println(PatientsDAO.createIpp());
          */
- /*      
+ /*     
  DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
- 
+ */
  //Tests création d'ipp, numéro de séjour, et idprescription -------------------------------------------------
  
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
         System.out.println(PatientsDAO.createIpp());
         
- 
-   /*     DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+ /*
+      DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(DossierMedicoAdministratifDAO.createNumeroSejour());
-
- 
+*/
+ /*
         DAO<DossierMedicoAdministratif> nosejour = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(nosejour.getDernierNumeroSejour("180000001"));
          */
