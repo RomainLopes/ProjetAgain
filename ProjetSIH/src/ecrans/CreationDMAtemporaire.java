@@ -90,7 +90,6 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
             jButtonValider = new javax.swing.JButton();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-            setAlwaysOnTop(true);
             setBackground(new java.awt.Color(255, 255, 255));
             setMinimumSize(new java.awt.Dimension(200, 200));
 
@@ -145,11 +144,11 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabelFonction))
                                 .addComponent(jLabelPrenomPmed))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(0, 0, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelEnTeteMedTechLayout.createSequentialGroup()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelService)
-                            .addGap(18, 18, 18)))
+                            .addComponent(jLabelService)))
+                    .addGap(18, 18, 18)
                     .addComponent(jButtonDeconnexion)
                     .addContainerGap())
             );
