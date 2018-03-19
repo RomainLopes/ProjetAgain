@@ -641,7 +641,7 @@ public class MedClinAccueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxCorrespondanceActionPerformed
 
     private void ConsulterDM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsulterDM1ActionPerformed
-        // TODO add your handling code here:
+        // il voit les anciens sejours dans son service
         ConsulterDM obs = new ConsulterDM(employe, patient, this);
         obs.setSize(this.getSize());
         obs.setLocationRelativeTo(this);
