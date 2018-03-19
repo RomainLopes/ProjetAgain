@@ -76,11 +76,9 @@ public class LettreDeSortieDAO extends DAO<LettreDeSortie> {
 
             while (result.next()) {
                 lds.add(new LettreDeSortie(result.getString("ipp"), result.getString("nosejour"), result.getString("idph"), result.getString("lettre")));
-                result.close();
-                state.close();
-                return lds;
 
             }
+              return lds;
         } catch (SQLException e) {
         }
         return lds;

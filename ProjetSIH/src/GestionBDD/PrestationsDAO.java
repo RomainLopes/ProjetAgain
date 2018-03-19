@@ -76,11 +76,9 @@ public class PrestationsDAO extends DAO<Prestations> {
 
             while (result.next()) {
                 pre.add(new Prestations(result.getString("ipp"), result.getString("nosejour"), result.getString("datePrestation"), result.getString("service"), result.getString("prestation")));
-                result.close();
-                state.close();
-                return pre;
 
             }
+            return pre;
         } catch (SQLException e) {
         }
         return pre;

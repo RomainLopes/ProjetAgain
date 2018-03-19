@@ -77,11 +77,10 @@ public class ResultatsDAO extends DAO<Resultats> {
 
             while (result.next()) {
                 res.add(new Resultats(result.getString("ipp"), result.getString("nosejour"), result.getString("idPrescription"), result.getString("service"), result.getString("prestationmt"), result.getString("dateResultat"), result.getString("resultat")));
-                result.close();
-                state.close();
-                return res;
+             
 
             }
+               return res;
         } catch (SQLException e) {
         }
         return res;
@@ -102,11 +101,11 @@ public class ResultatsDAO extends DAO<Resultats> {
 
             while (result.next()) {
                 res.add(new Resultats(result.getString("ipp"), result.getString("nosejour"), result.getString("idPrescription"), result.getString("service"), result.getString("prestationmt"), result.getString("dateResultat"), result.getString("resultat")));
-                result.close();
-                state.close();
-                return res;
+
+            
 
             }
+                return res;
         } catch (SQLException e) {
         }
         return res;

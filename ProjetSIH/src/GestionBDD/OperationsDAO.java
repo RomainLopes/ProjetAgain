@@ -77,11 +77,9 @@ public class OperationsDAO extends DAO<Operations> {
 
             while (result.next()) {
                 ope.add(new Operations(result.getString("ipp"), result.getString("nosejour"), result.getString("idph"), result.getString("dateoperation"), result.getString("operation")));
-                result.close();
-                state.close();
-                return ope;
 
             }
+            return ope;
         } catch (SQLException e) {
         }
         return ope;
@@ -102,11 +100,9 @@ public class OperationsDAO extends DAO<Operations> {
 
             while (result.next()) {
                 ope.add(new Operations(result.getString("ipp"), result.getString("nosejour"), result.getString("idph"), result.getString("dateoperation"), result.getString("operation")));
-                result.close();
-                state.close();
-                return ope;
 
             }
+            return ope;
         } catch (SQLException e) {
         }
         return ope;

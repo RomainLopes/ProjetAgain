@@ -127,15 +127,15 @@ public class PatientsDAO extends DAO<Patients> {
             ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
-                pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));
-                result.close();
-                state.close();
-                return pat;
+                pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));  
             }
+            return pat;
+            
 
         } catch (SQLException e) {
         }
         return pat;
+
     }
 
     @Override
@@ -169,10 +169,10 @@ public class PatientsDAO extends DAO<Patients> {
 
             while (result.next()) {
                 pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));
-                result.close();
-                state.close();
-                return pat;
+
+               
             }
+             return pat;
 
         } catch (SQLException e) {
         }
@@ -193,11 +193,9 @@ public class PatientsDAO extends DAO<Patients> {
 
             while (result.next()) {
                 pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));
-                result.close();
-                state.close();
-                return pat;
 
             }
+                return pat;
         } catch (SQLException e) {
         }
         return pat;
@@ -219,11 +217,9 @@ public class PatientsDAO extends DAO<Patients> {
 
             while (result.next()) {
                 pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));
-                result.close();
-                state.close();
-                return pat;
 
             }
+               return pat;
         } catch (SQLException e) {
         }
         return pat;

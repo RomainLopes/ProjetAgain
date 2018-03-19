@@ -67,11 +67,11 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
             ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
+                
                 dm.add(new DossierMedical(result.getString("ipp"), result.getString("nosejour"), result.getString("service"), result.getString("correspondance")));
-                result.close();
-                state.close();
-                return dm;
+
             }
+            return dm;
         } catch (SQLException e) {
         }
 
@@ -84,7 +84,6 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
         Query = "UPDATE dossiermedical "
                 + "SET ipp = '{" + ippgarde + "}' "
                 + "WHERE ipp = '{" + ippsuppr + "}' ";
-        //UPDATE dossiermedical SET ipp = '{180000001}' WHERE ipp = '{123456789}'
 
         try {
             Connection conn = this.connect;
@@ -117,7 +116,7 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
         }
         return true;
     }
-    
+
     @Override
     public ArrayList<DossierMedical> find(String ipp, String service) {
         ArrayList<DossierMedical> dm = new ArrayList<DossierMedical>();
@@ -134,10 +133,10 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
 
             while (result.next()) {
                 dm.add(new DossierMedical(result.getString("ipp"), result.getString("nosejour"), result.getString("service"), result.getString("correspondance")));
-                result.close();
-                state.close();
-                return dm;
+                
+                
             }
+            return dm;
         } catch (SQLException e) {
         }
         return dm;

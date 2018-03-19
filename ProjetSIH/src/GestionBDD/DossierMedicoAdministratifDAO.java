@@ -150,11 +150,9 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
 
             while (result.next()) {
                 dma.add(new DossierMedicoAdministratif(result.getString("ipp"), result.getString("nosejour"), result.getString("dateentree"), result.getString("idph"), result.getString("type"), result.getString("service")));
-                result.close();
-                state.close();
-                return dma;
 
             }
+            return dma;
         } catch (SQLException e) {
         }
         return dma;
@@ -175,11 +173,9 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
 
             while (result.next()) {
                 dma.add(new DossierMedicoAdministratif(result.getString("ipp"), result.getString("nosejour"), result.getString("dateentree"), result.getString("idph"), result.getString("type"), result.getString("service")));
-                result.close();
-                state.close();
-                return dma;
 
             }
+             return dma;
         } catch (SQLException e) {
         }
         return dma;
@@ -201,11 +197,9 @@ public class DossierMedicoAdministratifDAO extends DAO<DossierMedicoAdministrati
 
             while (result.next()) {
                 dma.add(new DossierMedicoAdministratif(result.getString("ipp"), result.getString("nosejour"), result.getString("dateentree"), result.getString("idph"), result.getString("type"), result.getString("service")));
-                result.close();
-                state.close();
-                return dma;
 
             }
+              return dma;
         } catch (SQLException e) {
         }
         return dma;

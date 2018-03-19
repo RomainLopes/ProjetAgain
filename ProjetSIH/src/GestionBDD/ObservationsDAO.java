@@ -79,11 +79,11 @@ public class ObservationsDAO extends DAO<Observations> {
 
             while (result.next()) {
                 obs.add(new Observations(result.getString("ipp"), result.getString("nosejour"), result.getString("idph"), result.getString("dateObservation"), result.getString("service"), result.getString("nomacte"), result.getString("resume")));
-                result.close();
-                state.close();
-                return obs;
+
+        
 
             }
+                    return obs;
         } catch (SQLException e) {
         }
         return obs;
@@ -104,11 +104,11 @@ public class ObservationsDAO extends DAO<Observations> {
 
             while (result.next()) {
                 obs.add(new Observations(result.getString("ipp"), result.getString("nosejour"), result.getString("idph"), result.getString("dateObservation"), result.getString("service"), result.getString("nomacte"), result.getString("resume")));
-                result.close();
-                state.close();
-                return obs;
+
+             
 
             }
+               return obs;
         } catch (SQLException e) {
         }
         return obs;
