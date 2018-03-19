@@ -280,7 +280,6 @@ public class RechercherPatient extends javax.swing.JFrame {
                 modele.addElement(i);
                 return i;
             }).forEachOrdered((_item) -> {
-                System.out.println("ok");
             });
             jListpatients.setModel(modele);
         }

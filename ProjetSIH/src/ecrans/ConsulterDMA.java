@@ -310,7 +310,7 @@ public class ConsulterDMA extends javax.swing.JFrame {
 
         jButtonTrier.setText("Trier par dates croissantes");
         DMA.add(jButtonTrier);
-        jButtonTrier.setBounds(330, 580, 200, 40);
+        jButtonTrier.setBounds(940, 130, 200, 40);
 
         getContentPane().add(DMA);
         DMA.setBounds(0, 110, 1190, 650);
@@ -423,8 +423,9 @@ public class ConsulterDMA extends javax.swing.JFrame {
         PrestationsDAO prest = new PrestationsDAO(BDDconnection.getInstance());
         prestations = prest.find(ipp, noSejour);
         DefaultListModel presta = new DefaultListModel();
-        prestations.forEach((i) -> {
+        prestations.forEach((Prestations i) -> {
             presta.addElement(i.getPrestation() + "    " + i.getDatePrestation());
+            System.out.println(i.getPrestation() + "    " + i.getDatePrestation());
         });
 
         NoSejour id = new NoSejour(employe, patient, this, resultat.get(index));

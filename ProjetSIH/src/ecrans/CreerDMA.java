@@ -92,7 +92,7 @@ public class CreerDMA extends javax.swing.JFrame {
             jLabel2NomPH = new javax.swing.JLabel();
             jTextFieldNomph = new javax.swing.JTextField();
             jTextFieldPrenomph = new javax.swing.JTextField();
-            jButton1 = new javax.swing.JButton();
+            jButtonValider = new javax.swing.JButton();
             jPanel1 = new javax.swing.JPanel();
             jLabel1 = new javax.swing.JLabel();
             jButtonPrecedent2 = new javax.swing.JButton();
@@ -148,8 +148,6 @@ public class CreerDMA extends javax.swing.JFrame {
                 }
             });
 
-            jTextField4Localisation.setText("jFormattedTextField1");
-
             javax.swing.GroupLayout jPanel3InfoPatientLayout = new javax.swing.GroupLayout(jPanel3InfoPatient);
             jPanel3InfoPatient.setLayout(jPanel3InfoPatientLayout);
             jPanel3InfoPatientLayout.setHorizontalGroup(
@@ -188,7 +186,7 @@ public class CreerDMA extends javax.swing.JFrame {
                             .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextFieldadresse)
                                 .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                                    .addComponent(jTextField4Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField4Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(0, 0, Short.MAX_VALUE)))))
                     .addContainerGap())
             );
@@ -253,25 +251,23 @@ public class CreerDMA extends javax.swing.JFrame {
         jPanel2CreationDMALayout.setVerticalGroup(
             jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
+                .addGap(5, 5, 5)
                 .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBoxTypeSejour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3Type)
-                            .addComponent(jLabel2NomPH)))
-                    .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldNomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldPrenomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBoxTypeSejour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3Type)
+                        .addComponent(jLabel2NomPH))
+                    .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldNomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldPrenomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
+        jButtonValider.setText("Valider");
+        jButtonValider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonValiderActionPerformed(evt);
             }
         });
 
@@ -287,8 +283,8 @@ public class CreerDMA extends javax.swing.JFrame {
                 .addContainerGap(216, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(272, 272, 272))
+                .addComponent(jButtonValider)
+                .addGap(275, 275, 275))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,9 +293,9 @@ public class CreerDMA extends javax.swing.JFrame {
                 .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addComponent(jPanel2CreationDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addComponent(jButtonValider)
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(65, 131, 215));
@@ -382,7 +378,7 @@ public class CreerDMA extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonAideActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         // TODO add your handling code here:
         // creation du patient
         DAO<Patients> pDAO = new PatientsDAO(BDDconnection.getInstance());
@@ -428,13 +424,13 @@ public class CreerDMA extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonValiderActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAide;
     private javax.swing.JButton jButtonPrecedent2;
+    private javax.swing.JButton jButtonValider;
     private javax.swing.JComboBox<String> jComboBoxSexe;
     private javax.swing.JComboBox<String> jComboBoxTypeSejour;
     private javax.swing.JLabel jLabel1;

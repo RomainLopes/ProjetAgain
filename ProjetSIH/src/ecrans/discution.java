@@ -278,6 +278,12 @@ public class discution extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Exception");
         }*/
+       /* try{
+
+  MaskFormatter tel2 = new MaskFormatter("##-##-####");
+jFormattedTextField1 = new javax.swing.JFormattedTextField(tel2);
+}
+catch(ParseException e){e.printStackTrace();}*/
         previous.setVisible(true);
         previous.setSize(this.getSize());
         previous.setLocationRelativeTo(this);

@@ -32,7 +32,10 @@ public class LettredeSortie extends javax.swing.JFrame {
         employe = personnel;
         this.patient = patient;
         this.fenetre = fenetre;
-
+jLabel1Nomp4.setText(patient.getNompatient());
+        jLabel2PrenomP4.setText(patient.getPrenompatient());
+        jLabel3Sexep4.setText(patient.getSexe());
+        jLabel4DateP4.setText(patient.getDateDeNaissance());
     }
 
     /**
@@ -248,6 +251,10 @@ public class LettredeSortie extends javax.swing.JFrame {
         boolean ok = lettred.create(lettre);
         if (ok) {
             JOptionPane.showMessageDialog(null, "La lettre de sortie a bien été créée");
+             fenetre.setVisible(true);
+        fenetre.setSize(this.getSize());
+        fenetre.setLocationRelativeTo(this);
+        this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, " La lettre de sortie n'a pas pu être créée. Veillez recommencer.");
         }

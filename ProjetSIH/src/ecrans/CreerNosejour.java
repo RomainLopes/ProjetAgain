@@ -76,13 +76,13 @@ public class CreerNosejour extends javax.swing.JFrame {
         jLabel3Type = new javax.swing.JLabel();
         jComboBoxTypeSejour = new javax.swing.JComboBox<>();
         jLabel2NomPH = new javax.swing.JLabel();
-        jButtonValider = new javax.swing.JButton();
         jTextFieldNomph = new javax.swing.JTextField();
         jTextFieldPrenomph = new javax.swing.JTextField();
         try{
 
             MaskFormatter tel = new MaskFormatter("U###");
             jFormattedTextField1 = new javax.swing.JFormattedTextField(tel);
+            jButtonValider = new javax.swing.JButton();
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -213,24 +213,20 @@ public class CreerNosejour extends javax.swing.JFrame {
             jLabel2NomPH.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
             jLabel2NomPH.setText("Praticien Hospitalier responsable :");
 
-            jButtonValider.setBackground(new java.awt.Color(228, 241, 254));
-            jButtonValider.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-            jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
-            jButtonValider.setText("Valider");
-            /*
-            jButtonValider.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    jButtonValiderActionPerformed(evt);
-                }
-            });
-            */
-
             jTextFieldNomph.setText("Nom");
 
             jTextFieldPrenomph.setText("Prénom");
 
         }
         catch(ParseException e){e.printStackTrace();}
+
+        jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
+        jButtonValider.setText("Valider");
+        jButtonValider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonValiderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -266,7 +262,7 @@ public class CreerNosejour extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButtonValider)
-                        .addGap(174, 174, 174))))
+                        .addGap(131, 131, 131))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,9 +283,9 @@ public class CreerNosejour extends javax.swing.JFrame {
                     .addComponent(jLabel2NomPH)
                     .addComponent(jTextFieldNomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldPrenomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonValider)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
@@ -308,7 +304,7 @@ public class CreerNosejour extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxTypeSejourActionPerformed
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
-        String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+         String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
         System.out.println(ipp);
         System.out.println(dateDuJour);
         DossierMedicoAdministratif dma;
@@ -329,7 +325,6 @@ public class CreerNosejour extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, " Le nouveau séjour n'a pas pu être créé. Veillez recommencer.");
         }
-
 
     }//GEN-LAST:event_jButtonValiderActionPerformed
 
