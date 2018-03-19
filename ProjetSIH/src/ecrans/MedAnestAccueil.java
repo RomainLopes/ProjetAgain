@@ -23,6 +23,8 @@ public class MedAnestAccueil extends javax.swing.JFrame {
     private ArrayList<Observations> observation;
     private ArrayList<Resultats> resultat;
     private ArrayList<Prescriptions> prescription;
+    private DossierMedicoAdministratifDAO phd;
+    private String ipp, noSejour;
 
     /**
      * Creates new form MedAnestAccueil
@@ -508,6 +510,11 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         });
 
         jComboBoxCorrespondance.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        jComboBoxCorrespondance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCorrespondanceActionPerformed(evt);
+            }
+        });
 
         jLabelCorrespondance.setText("Correspondance : ");
 
@@ -673,6 +680,16 @@ public class MedAnestAccueil extends javax.swing.JFrame {
         this.dispose();
         obs.setVisible(true);
     }//GEN-LAST:event_jListResultatsMouseClicked
+
+    private void jComboBoxCorrespondanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCorrespondanceActionPerformed
+        String correspondance = jComboBoxCorrespondance.getSelectedItem().toString();
+        phd = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+        noSejour = phd.getDernierNumeroSejour(ipp);
+        DossierMedicalDAO dmDAO = new DossierMedicalDAO(BDDconnection.getInstance());
+        dmDAO.updateCorrespondance(ipp, noSejour, correspondance);
+
+    }//GEN-LAST:event_jComboBoxCorrespondanceActionPerformed
 
     /**
      *

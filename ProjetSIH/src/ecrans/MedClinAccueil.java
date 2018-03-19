@@ -23,8 +23,8 @@ public class MedClinAccueil extends javax.swing.JFrame {
     private ArrayList<Observations> observation;
     private ArrayList<Resultats> resultat;
     private ArrayList<String> correspondance; 
-   private  DossierMedicoAdministratifDAO phd;
-   private  String ipp, noSejour;
+    private DossierMedicoAdministratifDAO phd;
+    private String ipp, noSejour;
 
     /**
      *
