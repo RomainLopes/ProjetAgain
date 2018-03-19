@@ -71,8 +71,6 @@ public class CreerNosejour extends javax.swing.JFrame {
         jLabel1InfoPatients = new javax.swing.JLabel();
         jLabel2Localisation = new javax.swing.JLabel();
         jTextField4Localisation = new javax.swing.JTextField();
-        jLabel1NoSejour = new javax.swing.JLabel();
-        jTextField1NoSejour = new javax.swing.JTextField();
         jLabel3Type = new javax.swing.JLabel();
         jComboBoxTypeSejour = new javax.swing.JComboBox<>();
         jLabel2NomPH = new javax.swing.JLabel();
@@ -198,11 +196,6 @@ public class CreerNosejour extends javax.swing.JFrame {
 
         jTextField4Localisation.setText("Ne rien inscrire ici");
 
-        jLabel1NoSejour.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel1NoSejour.setText("Numéro de séjour : ");
-
-        jTextField1NoSejour.setText("Ne rien inscrire ici");
-
         jLabel3Type.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3Type.setText("Type :");
 
@@ -245,10 +238,6 @@ public class CreerNosejour extends javax.swing.JFrame {
                         .addGap(112, 112, 112)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1NoSejour)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField1NoSejour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextField4Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -281,11 +270,7 @@ public class CreerNosejour extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1NoSejour)
-                    .addComponent(jTextField1NoSejour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3Type)
                     .addComponent(jComboBoxTypeSejour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -296,7 +281,7 @@ public class CreerNosejour extends javax.swing.JFrame {
                     .addComponent(jTextFieldPrenomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonValider)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
@@ -348,7 +333,6 @@ System.out.println(ok);
     private javax.swing.JComboBox<String> jComboBoxTypeSejour;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1InfoPatients;
-    private javax.swing.JLabel jLabel1NoSejour;
     private javax.swing.JLabel jLabel1Nomp;
     private javax.swing.JLabel jLabel1Prenom;
     private javax.swing.JLabel jLabel2DateDeNaissance;
@@ -362,7 +346,6 @@ System.out.println(ok);
     private javax.swing.JLabel jLabel4DateP;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1NoSejour;
     private javax.swing.JTextField jTextField4Localisation;
     private javax.swing.JTextField jTextFieldNomph;
     private javax.swing.JTextField jTextFieldPrenomph;
