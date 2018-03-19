@@ -43,6 +43,7 @@ public class ConsulterDM extends javax.swing.JFrame {
         this.fenetrePrecedente= previous;
         ConsulterDM.dmaCourrant=  name.getDmaCourrant();
         this.patient = name.getPatient();*/
+        
         this.patient = patient;
 
         jLabel1Nomp.setText(patient.getNompatient());
@@ -50,14 +51,19 @@ public class ConsulterDM extends javax.swing.JFrame {
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());
         jLabel5ServiceP.setText(employe.getService());
+        DossierMedicoAdministratifDAO dma= new DossierMedicoAdministratifDAO (BDDconnection.getInstance());
         
         
         // donnees du dm du patient 
          ipp = patient.getIpp().substring(1, patient.getIpp().length() - 1);
-
+            String noSejour= dma.getDernierNumeroSejour(ipp);
          ObservationsDAO obs = new ObservationsDAO(BDDconnection.getInstance());
         ArrayList<Observations> ob;
-        ob = obs.findIpp(ipp);
+     if("Anesthesie".equals(employe.getService()) || "Radio".equals(employe.getService())||"Urgence".equals(employe.getService())){
+        ob = obs.findIpp(ipp);}
+     else{
+        ob= obs. findSer( ipp,noSejour, employe.getService());
+     }
         DefaultListModel observations = new DefaultListModel();
         ob.forEach((i) -> {
             observations.addElement(i.getNomacte() + "    " + i.getDateObservation());
@@ -65,7 +71,12 @@ public class ConsulterDM extends javax.swing.JFrame {
 jListObservations.setModel(observations);
         PrescriptionsDAO presc = new PrescriptionsDAO(BDDconnection.getInstance());
         ArrayList<Prescriptions> pr;
-        pr = presc.findIpp(ipp);
+         if("Anesthesie".equals(employe.getService()) || "Radio".equals(employe.getService())||"Urgence".equals(employe.getService())){
+        pr = presc.findIpp(ipp);}
+     else{
+        pr= presc. findSer( ipp,noSejour, employe.getService());
+     }
+        
         DefaultListModel prescriptions = new DefaultListModel();
         pr.forEach((i) -> {
             prescriptions.addElement(i.getIdprescription() + "    " + i.getDateprescription());
@@ -73,7 +84,12 @@ jListObservations.setModel(observations);
 jListPrescriptions.setModel(prescriptions);
         OperationsDAO ope = new OperationsDAO(BDDconnection.getInstance());
         ArrayList<Operations> op;
-        op = ope.findIpp(ipp);
+           if("Anesthesie".equals(employe.getService()) || "Radio".equals(employe.getService())||"Urgence".equals(employe.getService())){
+         op = ope.findIpp(ipp);}
+     else{
+        op= ope. findSer( ipp,noSejour, employe.getService());
+     }
+       
         DefaultListModel operations = new DefaultListModel();
         op.forEach((i) -> {
             operations.addElement(i.getOperation() + "    " + i.getDateoperation());
@@ -81,7 +97,12 @@ jListPrescriptions.setModel(prescriptions);
 jListOperations.setModel(operations);
         ResultatsDAO res = new ResultatsDAO(BDDconnection.getInstance());
         ArrayList<Resultats> re;
-        re = res.findIpp(ipp);
+           if("Anesthesie".equals(employe.getService()) || "Radio".equals(employe.getService())||"Urgence".equals(employe.getService())){
+        re = res.findIpp(ipp);}
+     else{
+        re= res. findSer( ipp,noSejour, employe.getService());
+     }
+        
         DefaultListModel result = new DefaultListModel();
         re.forEach((i) -> {
             result.addElement(i.getPrestationmt() + "    " + i.getDateResultat());
