@@ -57,7 +57,7 @@ public class DossierMedicalDAO extends DAO<DossierMedical> {
         ArrayList<DossierMedical> dm = new ArrayList<DossierMedical>();
         String Query = new String();
         Query = "select * from dossiermedical where ipp = '{" + ipp
-                + "}' and nosejour = '{" + nosejour + "}' and service = '"
+                + "}' and nosejour = '" + nosejour + "' and service = '"
                 + service + "'";
 
         try {

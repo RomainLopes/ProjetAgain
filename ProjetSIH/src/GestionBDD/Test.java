@@ -26,20 +26,20 @@ public class Test {
         // TODO code application logic here
 
         //Tests unitaire de création--------------------------------------------------
-        /*
-        // Creation 
         
+        // Creation 
+        /*
         DossierMedical pat = new DossierMedical();
-        pat = new DossierMedical("180000006", "180100002","Urologie ","");
+        pat = new DossierMedical("180000544", "180100002","Urologie","");
         DAO<DossierMedical> DossierMedicalDAO = new DossierMedicalDAO(BDDconnection.getInstance());
         DossierMedicalDAO.create(pat);
          */
- /*
+ 
         DossierMedicoAdministratif pat = new DossierMedicoAdministratif();
-        pat = new DossierMedicoAdministratif("180000006", "180100002","01-05-2018","PH0001","Consultation","Cardiologie");
+        pat = new DossierMedicoAdministratif("180000544", "180100002","01-05-2018","PH0001","Consultation","Cardiologie");
         DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(DossierMedicoAdministratifDAO.create(pat));
-         */
+         
  /*
         LettreDeSortie pat = new LettreDeSortie();
         pat = new LettreDeSortie("180000006", "180100002","PH0001","j autorise ma patiente a sortir...");
@@ -229,13 +229,13 @@ public class Test {
         System.out.println(reds.get(0).getIpp() + "   " + reds.get(0).getResultat());
         redao.updateIpp("180000003", "123456789");
          */
-        
-        TracabiliteDAO tdao = new TracabiliteDAO(BDDconnection.getInstance());
+        /*
+        TracabiliteDAO tdao = new TracabiliteDAO(BDDconnection.getInstance()); // à tester ---------------
         tdao.updateIpp("123456789", "180000001");
         ArrayList<Tracabilite> t = tdao.findIpp("123456789");
         System.out.println(t.get(0).getNomph() + "   " + t.get(0).getDateconnection());
         tdao.updateIpp("180000001", "123456789");
-
+*/
         //Tests création d'ipp, numéro de séjour, idprescription et getDernierNumeroSejour-------------------------------------------------
         /*
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());

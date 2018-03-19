@@ -285,8 +285,8 @@ public class CreerDM extends javax.swing.JFrame {
             } else {
                 DossierMedical dm = new DossierMedical(patient.getIpp(), dma.getNosejour(), jTextField1Service.getText(), "");
 
-                DAO<DossierMedical> DossierMedicalDAO = new DossierMedicalDAO(BDDconnection.getInstance());
-                if (DossierMedicalDAO.create(dm)) {
+                DAO<DossierMedical> dmDAO = new DossierMedicalDAO(BDDconnection.getInstance());
+                if (dmDAO.create(dm)) {
                     JOptionPane.showMessageDialog(null, "Le dossier médical a bien été créé");
                 } else {
                     JOptionPane.showMessageDialog(null, " Le dossier médical n'a pas pu être créé. Veillez recommencer.");
