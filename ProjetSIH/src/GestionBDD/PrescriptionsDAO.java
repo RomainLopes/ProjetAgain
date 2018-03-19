@@ -89,10 +89,12 @@ System.out.println(idPrescription);
     @Override
     public boolean create(Prescriptions obj) {
         String Query;
+        String Prescription = obj.getPrescription().replace('\'',' ');
+        
         Query = "insert into prescription (ipp,nosejour,idprescription,dateprescription,prescription,service) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNosejour() + "','"
                 + obj.getIdprescription() + "','" + obj.getDateprescription()
-                + "','" + obj.getPrescription() + "','" + obj.getService() + "')";
+                + "','" + Prescription + "','" + obj.getService() + "')";
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);

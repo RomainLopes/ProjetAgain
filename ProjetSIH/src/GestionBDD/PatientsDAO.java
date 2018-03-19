@@ -68,9 +68,11 @@ public class PatientsDAO extends DAO<Patients> {
     @Override
     public boolean create(Patients obj) {
         String Query;
+        String adresse = obj.getAdresse().replace('\'',' ');
+        
         Query = "insert into patients (ipp,nompatient,prenompatient,datedenaissance,localisation,adresse,sexe) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNompatient() + "','" + obj.getPrenompatient()
-                + "','" + obj.getDateDeNaissance() + "','" + obj.getLocalisation() + "','" + obj.getAdresse()
+                + "','" + obj.getDateDeNaissance() + "','" + obj.getLocalisation() + "','" + adresse
                 + "','" + obj.getSexe() + "')";
 
         try {
@@ -87,11 +89,13 @@ public class PatientsDAO extends DAO<Patients> {
     @Override
     public boolean update(Patients obj) {
         String Query;
+        String adresse = obj.getAdresse().replace('\'',' ');
+        
         Query = "UPDATE patients SET nompatient='" + obj.getNompatient() 
                 + "', prenompatient = '" + obj.getPrenompatient() 
                 + "', datedenaissance = '" + obj.getDateDeNaissance() 
                 + "', localisation ='" + obj.getLocalisation() 
-                + "', adresse ='" + obj.getAdresse() + "', sexe ='" 
+                + "', adresse ='" + adresse + "', sexe ='" 
                 + obj.getSexe() + "'  "
                 + "WHERE ipp = '{" + obj.getIpp() + "}'";
 
