@@ -1085,7 +1085,6 @@ public class FrameClient extends javax.swing.JFrame {
         if (this.champsPatOk()) {
 
             this.creePatient();
-
             this.setValPatient();
 
             //changer de panel

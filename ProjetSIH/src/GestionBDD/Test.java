@@ -26,7 +26,6 @@ public class Test {
         // TODO code application logic here
 
         //Tests unitaire de création--------------------------------------------------
-        
         // Creation 
         /*
         DossierMedical pat = new DossierMedical();
@@ -230,7 +229,7 @@ public class Test {
         System.out.println(reds.get(0).getIpp() + "   " + reds.get(0).getResultat());
         redao.updateIpp("180000003", "123456789");
          */
-        /*
+ /*
         TracabiliteDAO tdao = new TracabiliteDAO(BDDconnection.getInstance()); // à tester ---------------
         tdao.updateIpp("123456789", "180000001");
         ArrayList<Tracabilite> t = tdao.findIpp("123456789");
@@ -244,16 +243,16 @@ public class Test {
          */
  /*     
  DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
- */
- //Tests création d'ipp, numéro de séjour, et idprescription -------------------------------------------------
- /*
+         */
+        //Tests création d'ipp, numéro de séjour, et idprescription -------------------------------------------------
+        /*
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
         System.out.println(PatientsDAO.createIpp());
-   */     
+         */
  /*
       DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(DossierMedicoAdministratifDAO.createNumeroSejour());
-*/
+         */
  /*
         DAO<DossierMedicoAdministratif> nosejour = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(nosejour.getDernierNumeroSejour("180000001"));
@@ -262,15 +261,10 @@ public class Test {
         DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
         System.out.println(PrescriptionsDAO.createIdPrescription("180000003"));
          */
- 
-      /*  DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
+ /*  
+        DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
         System.out.println(PrescriptionsDAO.createIdPrescription("180000003"));
-        */
-      String Lettre = "l'apostrophe";
-        System.out.println(Lettre);
-      Lettre = Lettre.replace('\'',' ');  
-        System.out.println(Lettre);
-      
+         */
     }
 
 }
