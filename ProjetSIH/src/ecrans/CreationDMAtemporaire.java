@@ -378,11 +378,6 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
         if (ok) {
             JOptionPane.showMessageDialog(null, "Le patient a bien été créé");
             
-// Recherhe du ph responsable : Le ph respo c'est celui qui crée le dma temp
-
-            /* PersonnelHospitalierDAO perso = new PersonnelHospitalierDAO(BDDconnection.getInstance());
-            System.out.println("taille liste = " + perso.find(employe.getNomph(), employe.getPrenomph()).size());
-            phRespo = perso.find(employe.getNomph(), employe.getPrenomph()).get(0);    */
 // Creation du numero de sejour 
             DAO<DossierMedicoAdministratif> dmaDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
             String nosejour = dmaDAO.createNumeroSejour();

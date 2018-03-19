@@ -319,7 +319,7 @@ public class NewObservations extends javax.swing.JFrame {
         });
 
         Observations obs;
-        System.out.println(ipp + " " + noSejour + " " + dma.getIdph() + " " + jTextFieldDateP.getText() + " " + employe.getService() + " " + jTextFieldNomObservationP.getText() + " " + jTextFieldObservationP.getText());
+      //  System.out.println(ipp + " " + noSejour + " " + dma.getIdph() + " " + jTextFieldDateP.getText() + " " + employe.getService() + " " + jTextFieldNomObservationP.getText() + " " + jTextFieldObservationP.getText());
         obs = new Observations(ipp, noSejour, dma.getIdph(), jTextFieldDateP.getText(), employe.getService(), jTextFieldNomObservationP.getText(), jTextFieldObservationP.getText());
         DAO<Observations> ObservationsDAO = new ObservationsDAO(BDDconnection.getInstance());
         boolean ok = ObservationsDAO.create(obs);

@@ -16,12 +16,15 @@ import javax.swing.JFrame;
  */
 public class FusionnerDossierUrgence extends javax.swing.JFrame {
 
-    ArrayList<String> p = new ArrayList<String>();
+    private ArrayList<String> p, infoGarde, infoFusion;
     private static PersonnelHospitalier employe;
     private static Patients patient;
-    ArrayList<Patients> lipat;
-    DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
+    private ArrayList<Patients> lipat;
+    private DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
     private final JFrame fenetrePre;
+    private int index;
+    private String ipp;
+    private String lastSejour;
 
     /**
      * Creates new form FusionnerDossierUrgence
@@ -31,8 +34,8 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
      */
     public FusionnerDossierUrgence(PersonnelHospitalier employe, JFrame fenetre) {
         initComponents();
-        this.employe = employe;
-        lipat = new ArrayList<Patients>();
+        FusionnerDossierUrgence.employe = employe;
+        lipat = new ArrayList<>();
         fenetrePre = fenetre;
 
     }
@@ -58,16 +61,16 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jListPatients = new javax.swing.JList<>();
         jTextFieldPrenom = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonDossierGarde = new javax.swing.JButton();
+        jButtonDossierUrgence = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jButtonFusionner = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jListGarde = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        jListFusion = new javax.swing.JList<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -142,20 +145,25 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(228, 241, 254));
-        jButton1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Ajout.PNG"))); // NOI18N
-        jButton1.setText("ajouter dossier à garder");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonDossierGarde.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonDossierGarde.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonDossierGarde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Ajout.PNG"))); // NOI18N
+        jButtonDossierGarde.setText("ajouter dossier à garder");
+        jButtonDossierGarde.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonDossierGardeActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(228, 241, 254));
-        jButton2.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Ajout.PNG"))); // NOI18N
-        jButton2.setText("ajouter dossier à fusionner");
+        jButtonDossierUrgence.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonDossierUrgence.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonDossierUrgence.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Ajout.PNG"))); // NOI18N
+        jButtonDossierUrgence.setText("ajouter dossier à fusionner");
+        jButtonDossierUrgence.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDossierUrgenceActionPerformed(evt);
+            }
+        });
 
         jButtonFusionner.setBackground(new java.awt.Color(228, 241, 254));
         jButtonFusionner.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
@@ -167,23 +175,23 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
             }
         });
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jListGarde.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList1);
+        jScrollPane2.setViewportView(jListGarde);
 
         jLabel2.setText("Informations patients conservées ");
 
         jLabel3.setText("Informations patients urgences");
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        jListFusion.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3.setViewportView(jList2);
+        jScrollPane3.setViewportView(jListFusion);
 
         jLabel5.setText("rattache toutes les informations du patients des urgences");
 
@@ -247,7 +255,7 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
                     .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1RecherchePatientLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
+                            .addComponent(jButtonDossierUrgence, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1RecherchePatientLayout.createSequentialGroup()
                             .addContainerGap()
                             .addGroup(jPanel1RecherchePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,7 +276,7 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
                             .addComponent(jScrollPane1)))
                     .addGroup(jPanel1RecherchePatientLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonDossierGarde, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(47, 47, 47)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(309, Short.MAX_VALUE))
@@ -293,9 +301,9 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addComponent(jButton1)
+                        .addComponent(jButtonDossierGarde)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                        .addComponent(jButton2))
+                        .addComponent(jButtonDossierUrgence))
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(81, 81, 81))
         );
@@ -323,15 +331,29 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
 
     private void jButtonFusionnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFusionnerActionPerformed
         // TODO add your handling code here:
+        DossierMedicoAdministratifDAO dmdao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        dmdao.updateIpp(ipp, "180000001"); //(gardé, suppr)
+         ObservationsDAO odao = new ObservationsDAO(BDDconnection.getInstance());
+        odao.updateIpp("123456789", "180000003");
+        PrescriptionsDAO predao = new PrescriptionsDAO(BDDconnection.getInstance());
+        predao.updateIpp("123456789", "180000001");
+
     }//GEN-LAST:event_jButtonFusionnerActionPerformed
 
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
         lipat = PatientsDAO.findPatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
-
+        DossierMedicoAdministratifDAO dmadao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        ArrayList<DossierMedicoAdministratif> dmas = dmadao.findPatientNomPrenomService(jTextFieldNom.getText(), jTextFieldPrenom.getText(), "Urgence");
         for (int i = 0; i < lipat.size(); i++) {
-            p.add(lipat.get(i).getNompatient() + "  " + lipat.get(i).getPrenompatient() + "   " + lipat.get(i).getDateDeNaissance());
-        }
+            for (int j = 0; j < dmas.size(); j++) {
+                if (lipat.get(i).getIpp() == dmas.get(j).getIpp()) {
+                    p.add(lipat.get(i).getNompatient() + "  " + lipat.get(i).getPrenompatient() + "   " + lipat.get(i).getDateDeNaissance() + "   " + dmas.get(j).getService());
 
+                } else {
+                    p.add(lipat.get(i).getNompatient() + "  " + lipat.get(i).getPrenompatient() + "   " + lipat.get(i).getDateDeNaissance());
+                }
+            }
+        }
         DefaultListModel modele = new DefaultListModel();
         for (String i : p) {
             modele.addElement(i);
@@ -341,29 +363,55 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 
     private void jListPatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListPatientsMouseClicked
-        /*
-// TODO add your handling code here:
-        InfirmierAccueil ia = new InfirmierAccueil(med, p);
-        //DossierMedical dm = new DossierMedical();
-        ia.setSize(this.getSize());
-        ia.setLocationRelativeTo(this);
-        this.dispose();
-        ia.setVisible(true);
-         */
+        index = this.jListPatients.getSelectedIndex();
+        patient = lipat.get(index);
+        ipp = patient.getIpp().substring(1, 1 - patient.getIpp().length());
+
     }//GEN-LAST:event_jListPatientsMouseClicked
 
     private void jTextFieldPrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrenomActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPrenomActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButtonDossierGardeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDossierGardeActionPerformed
+        DossierMedicoAdministratifDAO dmadao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        lastSejour = dmadao.getDernierNumeroSejour(ipp);
+        infoGarde.add("Nom: " + patient.getNompatient());
+        infoGarde.add("Prénom: " + patient.getPrenompatient());
+        infoGarde.add("Dare de naissance: " + patient.getDateDeNaissance());
+        ArrayList<DossierMedicoAdministratif> exist = dmadao.find(ipp, lastSejour);
+        infoGarde.add("Dernière admission: " + exist.get(0).getService());
+        DefaultListModel modele = new DefaultListModel();
+        for (String i : infoGarde) {
+            modele.addElement(i);
+        }
+        jListGarde.setModel(modele);
+
+
+    }//GEN-LAST:event_jButtonDossierGardeActionPerformed
+
+    private void jButtonDossierUrgenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDossierUrgenceActionPerformed
+      //ici c'est à modifier
+        DossierMedicoAdministratifDAO dmadao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        lastSejour = dmadao.getDernierNumeroSejour(ipp);
+        infoGarde.add("Nom: " + patient.getNompatient());
+        infoGarde.add("Prénom: " + patient.getPrenompatient());
+        infoGarde.add("Dare de naissance: " + patient.getDateDeNaissance());
+        ArrayList<DossierMedicoAdministratif> exist = dmadao.find(ipp, lastSejour);
+        infoGarde.add("Dernière admission: " + exist.get(0).getService());
+        DefaultListModel modele = new DefaultListModel();
+        for (String i : infoGarde) {
+            modele.addElement(i);
+        }
+        jListFusion.setModel(modele);
+
+
+    }//GEN-LAST:event_jButtonDossierUrgenceActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonDossierGarde;
+    private javax.swing.JButton jButtonDossierUrgence;
     private javax.swing.JButton jButtonFusionner;
     private javax.swing.JButton jButtonRechercher;
     private javax.swing.JLabel jLabel1;
@@ -374,8 +422,8 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3Prenom1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
+    private javax.swing.JList<String> jListFusion;
+    private javax.swing.JList<String> jListGarde;
     private javax.swing.JList<String> jListPatients;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1RecherchePatient;
