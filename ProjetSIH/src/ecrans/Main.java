@@ -23,8 +23,10 @@ public class Main {
         // TODO code application logic here
         Date c= new Date();
       // System.out.println(c.getMonth() +"-"+c.getDate()+"-"+c.getYear()); 
-       String dateDuJour = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
-System.out.println(dateDuJour);
+    String date = new SimpleDateFormat("MM-dd-yyyy/HH mm ss").format(Calendar.getInstance().getTime());
+    String dateDuJour= (date.substring(0, 10));
+String heureDentree= (date.substring(11, 19));
+System.out.println(dateDuJour +" "+heureDentree );
         
       /* SwingUtilities.invokeLater(new Runnable() {
             @Override
