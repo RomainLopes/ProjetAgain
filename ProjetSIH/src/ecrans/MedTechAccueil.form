@@ -24,12 +24,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="1" pref="1021" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
               <Component id="JPanelEnTeteMedTech" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="142" pref="169" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
-          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -67,7 +67,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabelPrenom" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="80" max="32767" attributes="0"/>
                           <Component id="Sa" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
                       </Group>
@@ -79,7 +79,7 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonDeconnexion" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="62" max="32767" attributes="0"/>
+                  <EmptySpace pref="136" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

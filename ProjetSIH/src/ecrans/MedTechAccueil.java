@@ -153,7 +153,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
                 .addGroup(JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
                         .addComponent(jLabelPrenom)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                         .addComponent(Sa)
                         .addGap(215, 215, 215))
                     .addGroup(JPanelEnTeteMedTechLayout.createSequentialGroup()
@@ -162,7 +162,7 @@ public class MedTechAccueil extends javax.swing.JFrame {
                         .addComponent(jLabelService)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonDeconnexion)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         JPanelEnTeteMedTechLayout.setVerticalGroup(
             JPanelEnTeteMedTechLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -481,11 +481,11 @@ public class MedTechAccueil extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(2, 2, 2)
                 .addComponent(JPanelEnTeteMedTech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(142, 169, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
