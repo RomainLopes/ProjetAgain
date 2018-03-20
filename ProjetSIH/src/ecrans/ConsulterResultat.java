@@ -76,7 +76,6 @@ public class ConsulterResultat extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButtonPrecedent = new javax.swing.JButton();
         jLabel4Service = new javax.swing.JLabel();
-        jLabel3IPP = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         jLabel3Date.setText("Date :");
@@ -208,14 +207,6 @@ public class ConsulterResultat extends javax.swing.JFrame {
         jLabel4Service.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4Service.setText("Service");
 
-        jLabel3IPP.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel3IPP.setText("IPP du patient ");
-        jLabel3IPP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3IPPMouseClicked(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
         jLabel1.setText("Résultat");
 
@@ -225,17 +216,12 @@ public class ConsulterResultat extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButtonPrecedent)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 646, Short.MAX_VALUE)
-                        .addComponent(jLabel3IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel4Service, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addComponent(jButtonPrecedent)
+                .addGap(289, 289, 289)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
+                .addComponent(jLabel4Service, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,15 +229,13 @@ public class ConsulterResultat extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonPrecedent)
-                            .addComponent(jLabel3IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonPrecedent))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4Service, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4Service, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2);
@@ -272,10 +256,6 @@ public class ConsulterResultat extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel3IPPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3IPPMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel3IPPMouseClicked
 
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
         fenetrePrecedente.setVisible(true);
@@ -333,7 +313,6 @@ public class ConsulterResultat extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3Date;
     private javax.swing.JLabel jLabel3Date1;
     private javax.swing.JLabel jLabel3Date2;
-    private javax.swing.JLabel jLabel3IPP;
     private javax.swing.JLabel jLabel3Sexep1;
     private javax.swing.JLabel jLabel4DateP1;
     private javax.swing.JLabel jLabel4Service;

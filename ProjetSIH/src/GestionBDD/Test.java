@@ -97,14 +97,26 @@ public class Test {
         //Tests unitaire de recherche-------------------------------------------------
         /*
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
-        ArrayList<Patients> patients = PatientsDAO.find("180000001", "Cardiologie");
-        System.out.println(patients.get(0).getNompatient() +"   " + patients.get(0).getPrenompatient());
-         */
- /*
+        ArrayList<Patients> pat1 = PatientsDAO.findIpp("180000001");
+        System.out.println(pat1.get(0).getNompatient() +"   " + pat1.get(0).getPrenompatient());
+        ArrayList<Patients> pat2 = PatientsDAO.find("180000001", "Cardiologie");
+        System.out.println(pat2.get(0).getNompatient() +"   " + pat2.get(0).getPrenompatient());
+        ArrayList<Patients> pat3 = PatientsDAO.findPatientNomPrenom("Lopes", "Marc");
+        System.out.println(pat3.size() + "  " +pat3.get(0).getNompatient() +"   " + pat3.get(0).getPrenompatient());
+        ArrayList<Patients> pat4 = PatientsDAO.findPatientNomPrenomService("Djeco", "", "Pneumologie");
+        System.out.println(pat4.size() + "  " +pat4.get(0).getNompatient() +"   " + pat4.get(0).getPrenompatient());
+        */
+       
+ 
         DossierMedicalDAO dmdao = new DossierMedicalDAO(BDDconnection.getInstance());
-        ArrayList<DossierMedical> dm = dmdao.findser("180000001", "180100001", "Cardiologie");
-        System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getService());
-         */
+        ArrayList<DossierMedical> dm1 = dmdao.findSer("180000001", "180100001", "Cardiologie");
+        System.out.println(dm1.get(0).getIpp() + "   " + dm1.get(0).getService());
+        ArrayList<DossierMedical> dm2 = dmdao.find("180000001", "Cardiologie");
+        System.out.println(dm2.get(0).getIpp() + "   " + dm2.get(0).getService());
+         
+        
+        
+        
  /*  DossierMedicoAdministratifDAO dmadao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         ArrayList<DossierMedicoAdministratif> dm = dmadao.findSer("180000001", "180100001", "Cardiologie");
         System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getService());

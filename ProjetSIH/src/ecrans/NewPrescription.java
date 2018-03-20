@@ -56,7 +56,6 @@ public class NewPrescription extends javax.swing.JFrame {
         jLabel3Date = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1Titre = new javax.swing.JLabel();
-        jLabel3IPP = new javax.swing.JLabel();
         jLabel4Service = new javax.swing.JLabel();
         jButtonPrecedent = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -88,9 +87,6 @@ public class NewPrescription extends javax.swing.JFrame {
         jLabel1Titre.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
         jLabel1Titre.setText("Création Prescription");
 
-        jLabel3IPP.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel3IPP.setText("IPP du patient ");
-
         jLabel4Service.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4Service.setText("Service");
 
@@ -114,22 +110,15 @@ public class NewPrescription extends javax.swing.JFrame {
                 .addGap(132, 132, 132)
                 .addComponent(jLabel1Titre, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(113, 113, 113)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4Service, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                .addComponent(jLabel4Service, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(42, 42, 42)
                         .addComponent(jLabel4Service, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -333,7 +322,6 @@ public class NewPrescription extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2Prescription;
     private javax.swing.JLabel jLabel2Sexe;
     private javax.swing.JLabel jLabel3Date;
-    private javax.swing.JLabel jLabel3IPP;
     private javax.swing.JLabel jLabel3Sexep;
     private javax.swing.JLabel jLabel4DateP;
     private javax.swing.JLabel jLabel4Service;

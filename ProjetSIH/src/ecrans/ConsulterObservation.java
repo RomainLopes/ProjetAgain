@@ -63,7 +63,6 @@ public class ConsulterObservation extends javax.swing.JFrame {
         jLabelDate = new javax.swing.JLabel();
         jLabelObservation = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3IPP = new javax.swing.JLabel();
         jLabel4Service = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButtonPrecedent = new javax.swing.JButton();
@@ -101,14 +100,6 @@ public class ConsulterObservation extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(65, 131, 215));
 
-        jLabel3IPP.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel3IPP.setText("IPP du patient ");
-        jLabel3IPP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3IPPMouseClicked(evt);
-            }
-        });
-
         jLabel4Service.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4Service.setText("Service");
 
@@ -134,27 +125,23 @@ public class ConsulterObservation extends javax.swing.JFrame {
                 .addComponent(jButtonPrecedent)
                 .addGap(278, 278, 278)
                 .addComponent(jLabel1)
-                .addGap(155, 155, 155)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4Service, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addGap(205, 205, 205)
+                .addComponent(jLabel4Service, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(212, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4Service, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(jButtonPrecedent))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                            .addComponent(jButtonPrecedent)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel4Service, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         jLabel3Sexep.setText("jLabel1");
@@ -292,10 +279,6 @@ public class ConsulterObservation extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel3IPPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3IPPMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel3IPPMouseClicked
-
     private void jButtonPrecedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrecedentActionPerformed
         fenetrePrecedente.setVisible(true);
         fenetrePrecedente.setSize(this.getSize());
@@ -313,7 +296,6 @@ public class ConsulterObservation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2Nom;
     private javax.swing.JLabel jLabel2PrenomP;
     private javax.swing.JLabel jLabel2Sexe;
-    private javax.swing.JLabel jLabel3IPP;
     private javax.swing.JLabel jLabel3Sexep;
     private javax.swing.JLabel jLabel4DateP;
     private javax.swing.JLabel jLabel4Service;

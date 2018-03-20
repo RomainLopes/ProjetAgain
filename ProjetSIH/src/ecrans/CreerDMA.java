@@ -92,6 +92,8 @@ public class CreerDMA extends javax.swing.JFrame {
             jLabel2NomPH = new javax.swing.JLabel();
             jTextFieldNomph = new javax.swing.JTextField();
             jTextFieldPrenomph = new javax.swing.JTextField();
+            jLabel2 = new javax.swing.JLabel();
+            jLabel3 = new javax.swing.JLabel();
             jButtonValider = new javax.swing.JButton();
             jPanel1 = new javax.swing.JPanel();
             jLabel1 = new javax.swing.JLabel();
@@ -231,27 +233,42 @@ public class CreerDMA extends javax.swing.JFrame {
         jLabel2NomPH.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2NomPH.setText("Praticien Hospitalier responsable :");
 
+        jLabel2.setText("Nom");
+
+        jLabel3.setText("Prénom");
+
         javax.swing.GroupLayout jPanel2CreationDMALayout = new javax.swing.GroupLayout(jPanel2CreationDMA);
         jPanel2CreationDMA.setLayout(jPanel2CreationDMALayout);
         jPanel2CreationDMALayout.setHorizontalGroup(
             jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
-                .addGap(76, 76, 76)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2CreationDMALayout.createSequentialGroup()
+                .addContainerGap(61, Short.MAX_VALUE)
                 .addComponent(jLabel3Type)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxTypeSejour, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addComponent(jLabel2NomPH)
                 .addGap(49, 49, 49)
-                .addComponent(jTextFieldNomph, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextFieldPrenomph, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
+                        .addComponent(jTextFieldNomph, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldPrenomph, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2CreationDMALayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel3)
+                        .addGap(57, 57, 57))))
         );
         jPanel2CreationDMALayout.setVerticalGroup(
             jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2CreationDMALayout.createSequentialGroup()
-                .addGap(5, 5, 5)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2CreationDMALayout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jComboBoxTypeSejour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,7 +277,7 @@ public class CreerDMA extends javax.swing.JFrame {
                     .addGroup(jPanel2CreationDMALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextFieldNomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextFieldPrenomph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
@@ -291,11 +308,11 @@ public class CreerDMA extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(99, 99, 99)
                 .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(jPanel2CreationDMA, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jPanel2CreationDMA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jButtonValider)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(65, 131, 215));
@@ -437,12 +454,14 @@ public class CreerDMA extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1InfoPatients;
     private javax.swing.JLabel jLabel1Prenom;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel2Adresse;
     private javax.swing.JLabel jLabel2DateDeNaissance;
     private javax.swing.JLabel jLabel2Localisation;
     private javax.swing.JLabel jLabel2Nom;
     private javax.swing.JLabel jLabel2NomPH;
     private javax.swing.JLabel jLabel2Sexe;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel3Type;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;

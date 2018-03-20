@@ -54,7 +54,6 @@ public class NewOperation extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1Titre = new javax.swing.JLabel();
-        jLabel3IPP = new javax.swing.JLabel();
         jLabel4Service = new javax.swing.JLabel();
         jButtonPrecedent = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -84,9 +83,6 @@ public class NewOperation extends javax.swing.JFrame {
         jLabel1Titre.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
         jLabel1Titre.setText("Création Opération");
 
-        jLabel3IPP.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel3IPP.setText("IPP du patient ");
-
         jLabel4Service.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4Service.setText("Service");
 
@@ -110,12 +106,8 @@ public class NewOperation extends javax.swing.JFrame {
                 .addGap(178, 178, 178)
                 .addComponent(jLabel1Titre, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(230, 230, 230)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3IPP, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4Service, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(jLabel4Service, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(266, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,8 +116,7 @@ public class NewOperation extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonPrecedent)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3IPP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(36, 36, 36)
                         .addComponent(jLabel4Service, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1Titre, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(31, Short.MAX_VALUE))
@@ -333,7 +324,6 @@ public class NewOperation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2Sexe;
     private javax.swing.JLabel jLabel3Date;
     private javax.swing.JLabel jLabel3Date1;
-    private javax.swing.JLabel jLabel3IPP;
     private javax.swing.JLabel jLabel3Sexep;
     private javax.swing.JLabel jLabel4DateP;
     private javax.swing.JLabel jLabel4Service;
