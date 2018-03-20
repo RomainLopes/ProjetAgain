@@ -352,6 +352,9 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
         ObservationsDAO odao = new ObservationsDAO(BDDconnection.getInstance());
         odao.updateIpp(ippgarde, ippfusion);
         
+        OperationsDAO opdao = new OperationsDAO(BDDconnection.getInstance());
+        opdao.updateIpp(ippgarde, ippfusion);
+        
         PrescriptionsDAO predao = new PrescriptionsDAO(BDDconnection.getInstance());
         predao.updateIpp(ippgarde, ippfusion);
  
