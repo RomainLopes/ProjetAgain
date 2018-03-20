@@ -16,11 +16,11 @@ import javax.swing.JFrame;
  */
 public class ConsulterDM extends javax.swing.JFrame {
 
-
     private static PersonnelHospitalier employe;
     private static Patients patient;
     private final JFrame fenetre;
     private final String ipp;
+    PersonnelHospitalierDAO phd = new PersonnelHospitalierDAO(BDDconnection.getInstance());
 
     /**
      *
@@ -39,64 +39,88 @@ public class ConsulterDM extends javax.swing.JFrame {
         jLabel4DateP.setText(patient.getDateDeNaissance());
         jLabel3Sexep.setText(patient.getSexe());
         jLabel5ServiceP.setText(employe.getService());
-        DossierMedicoAdministratifDAO dma= new DossierMedicoAdministratifDAO (BDDconnection.getInstance());
-        
-        
+        DossierMedicoAdministratifDAO dma = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        String id;
+
         // donnees du dm du patient 
-         ipp = patient.getIpp().substring(1, patient.getIpp().length() - 1);
-            String noSejour= dma.getDernierNumeroSejour(ipp);
-         ObservationsDAO obs = new ObservationsDAO(BDDconnection.getInstance());
+        ipp = patient.getIpp().substring(1, patient.getIpp().length() - 1);
+        String noSejour = dma.getDernierNumeroSejour(ipp);
+
+        ObservationsDAO obs = new ObservationsDAO(BDDconnection.getInstance());
         ArrayList<Observations> ob;
-     if("Anesthesie".equals(employe.getService()) || "Radio".equals(employe.getService())||"Urgence".equals(employe.getService())){
-        ob = obs.findIpp(ipp);}
-     else{
-        ob= obs. findSer( ipp,noSejour, employe.getService());
-     }
+        /*if ("Anesthesie".equals(employe.getService()) || "Radio".equals(employe.getService()) || "Urgence".equals(employe.getService())) {
+          */  ob = obs.findIpp(ipp);
+        /*} else {
+            ob = obs.findIpp(ipp);
+            for (Observations o : ob) {
+                if (o.getService() != employe.getService()) {
+                    ob.remove(o);
+                }
+            }
+        }*/
+
         DefaultListModel observations = new DefaultListModel();
         ob.forEach((i) -> {
             observations.addElement(i.getNomacte() + "    " + i.getDateObservation());
         });
-jListObservations.setModel(observations);
+        jListObservations.setModel(observations);
         PrescriptionsDAO presc = new PrescriptionsDAO(BDDconnection.getInstance());
         ArrayList<Prescriptions> pr;
-         if("Anesthesie".equals(employe.getService()) || "Radio".equals(employe.getService())||"Urgence".equals(employe.getService())){
-        pr = presc.findIpp(ipp);}
-     else{
-        pr= presc. findSer( ipp,noSejour, employe.getService());
-     }
-        
+        //if ("Anesthesie".equals(employe.getService()) || "Radio".equals(employe.getService()) || "Urgence".equals(employe.getService())) {
+            pr = presc.findIpp(ipp);
+       /* } else {
+            pr = presc.findIpp(ipp);
+            for (Prescriptions o : pr) {
+                if ((o.getService()) != employe.getService()) {
+                    pr.remove(o);
+                }
+            }
+        }*/
+
         DefaultListModel prescriptions = new DefaultListModel();
         pr.forEach((i) -> {
             prescriptions.addElement(i.getIdprescription() + "    " + i.getDateprescription());
-        }); 
-jListPrescriptions.setModel(prescriptions);
+        });
+        jListPrescriptions.setModel(prescriptions);
         OperationsDAO ope = new OperationsDAO(BDDconnection.getInstance());
         ArrayList<Operations> op;
-           if("Anesthesie".equals(employe.getService()) || "Radio".equals(employe.getService())||"Urgence".equals(employe.getService())){
-         op = ope.findIpp(ipp);}
-     else{
-        op= ope. findSer( ipp,noSejour, employe.getService());
-     }
-       
+       // if ("Anesthesie".equals(employe.getService()) || "Radio".equals(employe.getService()) || "Urgence".equals(employe.getService())) {
+            op = ope.findIpp(ipp);
+          /*  for (Operations o : op) {
+                System.out.println(o.getOperation() + "\n");
+            }
+        } else {
+            op = ope.findIpp(ipp);
+            for (Operations o : op) {
+                if (phd.findIpp(o.getIdph()).get(0).getService() != employe.getService()) {
+                    op.remove(o);
+                }
+            }
+        }
+*/
         DefaultListModel operations = new DefaultListModel();
         op.forEach((i) -> {
             operations.addElement(i.getOperation() + "    " + i.getDateoperation());
         });
-jListOperations.setModel(operations);
+        jListOperations.setModel(operations);
         ResultatsDAO res = new ResultatsDAO(BDDconnection.getInstance());
         ArrayList<Resultats> re;
-           if("Anesthesie".equals(employe.getService()) || "Radio".equals(employe.getService())||"Urgence".equals(employe.getService())){
-        re = res.findIpp(ipp);}
-     else{
-        re= res. findSer( ipp,noSejour, employe.getService());
-     }
-        
+       // if ("Anesthesie".equals(employe.getService()) || "Radio".equals(employe.getService()) || "Urgence".equals(employe.getService())) {
+            re = res.findIpp(ipp);
+      /*  } else {
+            re = res.findIpp(ipp);
+            for (Resultats o : re) {
+                if (o.getService() != employe.getService()) {
+                    re.remove(o);
+                }
+            }
+        }
+*/
         DefaultListModel result = new DefaultListModel();
         re.forEach((i) -> {
             result.addElement(i.getPrestationmt() + "    " + i.getDateResultat());
         });
         jListResultats.setModel(result);
-
 
     }
 
