@@ -32,7 +32,7 @@ public abstract class DAO<T> {
      * Méthode de création de l'objet
      *
      * @param obj
-     * @return
+     * renvoi un booléen pour indiquer si la requête a renvoyé ou non une exception @return
      */
     public abstract boolean create(T obj);
 
@@ -98,6 +98,7 @@ public abstract class DAO<T> {
 
     /**
      * Méthode de recherche de patient(s) contraint sur le nom et le prénom
+     * et le service du dm
      * ATTENTION vérifier si la liste n'est pas nulle
      *
      * @param nom
@@ -202,5 +203,16 @@ public abstract class DAO<T> {
     public ArrayList<DossierMedicoAdministratif> findService(String ipp, String service) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    /**
+     * Renvoie une liste de patients ayant le nom ou le prenom indiqué dont
+     * le dma stipule le service entré en paramètre
+     * @param nom
+     * @param prenom
+     * @param service
+     * @return 
+     */
+    public ArrayList<Patients> findPatientNomPrenomServiceSM(String nom, String prenom, String service) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

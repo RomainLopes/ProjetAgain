@@ -270,7 +270,6 @@ public class RechercherPatient extends javax.swing.JFrame {
 
         if ("Administration".equals(phr.getFonction())) {
             lipat = PatientsDAO.findPatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
-
         } else {
             lipat = PatientsDAO.findPatientNomPrenomService(jTextFieldNom.getText(), jTextFieldPrenom.getText(), jLabelService.getText());
         }

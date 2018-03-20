@@ -21,6 +21,7 @@ public class SmAccueil extends javax.swing.JFrame {
      * Creates new form SmAccueil
      *
      * @param personnel
+     * @param patient
      */
     public SmAccueil(PersonnelHospitalier personnel,Patients patient) {
         // service get(2) fonction get(3)

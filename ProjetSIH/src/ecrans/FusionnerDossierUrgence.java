@@ -9,6 +9,7 @@ import GestionBDD.*;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,14 +17,18 @@ import javax.swing.JFrame;
  */
 public class FusionnerDossierUrgence extends javax.swing.JFrame {
 
+    private int index;
+    private String ippgarde;
+    private String ippfusion;
+    private String ipp;
+
     private ArrayList<String> p, infoGarde, infoFusion;
     private static PersonnelHospitalier employe;
-    private static Patients patient;
+    private Patients patient;
     private ArrayList<Patients> lipat;
     private DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
     private final JFrame fenetrePre;
-    private int index;
-    private String ipp;
+
     private String lastSejour;
 
     /**
@@ -51,6 +56,7 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButtonAccueil = new javax.swing.JButton();
         jPanel1RecherchePatient = new javax.swing.JPanel();
         jLabel1RecherchePatient1 = new javax.swing.JLabel();
         jLabel2Nom1 = new javax.swing.JLabel();
@@ -81,20 +87,34 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
         jLabel1.setText("Fusion Urgence/Service");
 
+        jButtonAccueil.setBackground(new java.awt.Color(228, 241, 254));
+        jButtonAccueil.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButtonAccueil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Accueil 2.PNG"))); // NOI18N
+        jButtonAccueil.setText("Accueil");
+        jButtonAccueil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAccueilActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jButtonAccueil)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
 
@@ -316,43 +336,60 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonFusionnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFusionnerActionPerformed
-        // TODO add your handling code here:
-        DossierMedicoAdministratifDAO dmdao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-        dmdao.updateIpp(ipp, "180000001"); //(gardé, suppr)
-         ObservationsDAO odao = new ObservationsDAO(BDDconnection.getInstance());
-        odao.updateIpp("123456789", "180000003");
+        if (ippgarde.isEmpty() | ippfusion.isEmpty()){
+            JOptionPane.showMessageDialog(null, "veulliez sélectionner un patient à conserver et un patient à fusionner");
+        }
+        
+        DossierMedicalDAO dmdao = new DossierMedicalDAO(BDDconnection.getInstance());
+        dmdao.updateIpp(ippgarde, ippfusion); //(gardé, suppr)
+        
+        DossierMedicoAdministratifDAO dmadao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        dmadao.updateIpp(ippgarde, ippfusion);
+        
+        LettreDeSortieDAO ldsdao = new LettreDeSortieDAO(BDDconnection.getInstance());
+        ldsdao.updateIpp(ippgarde, ippfusion);
+        
+        ObservationsDAO odao = new ObservationsDAO(BDDconnection.getInstance());
+        odao.updateIpp(ippgarde, ippfusion);
+        
         PrescriptionsDAO predao = new PrescriptionsDAO(BDDconnection.getInstance());
-        predao.updateIpp("123456789", "180000001");
-
+        predao.updateIpp(ippgarde, ippfusion);
+ 
+        PrestationsDAO presdao = new PrestationsDAO(BDDconnection.getInstance());
+        presdao.updateIpp(ippgarde, ippfusion);
+             
+        ResultatsDAO redao = new ResultatsDAO(BDDconnection.getInstance());
+        redao.updateIpp(ippgarde, ippfusion);
+              
+        TracabiliteDAO tdao = new TracabiliteDAO(BDDconnection.getInstance());
+        tdao.updateIpp(ippgarde, ippfusion);
+        
     }//GEN-LAST:event_jButtonFusionnerActionPerformed
 
     private void jButtonRechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRechercherActionPerformed
         lipat = PatientsDAO.findPatientNomPrenom(jTextFieldNom.getText(), jTextFieldPrenom.getText());
-        DossierMedicoAdministratifDAO dmadao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-        ArrayList<DossierMedicoAdministratif> dmas = dmadao.findPatientNomPrenomService(jTextFieldNom.getText(), jTextFieldPrenom.getText(), "Urgence");
+        ArrayList<String> resultatAffiche = new ArrayList<>();
+        
         for (int i = 0; i < lipat.size(); i++) {
-            for (int j = 0; j < dmas.size(); j++) {
-                if (lipat.get(i).getIpp() == dmas.get(j).getIpp()) {
-                    p.add(lipat.get(i).getNompatient() + "  " + lipat.get(i).getPrenompatient() + "   " + lipat.get(i).getDateDeNaissance() + "   " + dmas.get(j).getService());
-
-                } else {
-                    p.add(lipat.get(i).getNompatient() + "  " + lipat.get(i).getPrenompatient() + "   " + lipat.get(i).getDateDeNaissance());
-                }
+                resultatAffiche.add(lipat.get(i).getNompatient() + "  " + lipat.get(i).getPrenompatient() + "   " + lipat.get(i).getDateDeNaissance());
             }
-        }
-        DefaultListModel modele = new DefaultListModel();
-        for (String i : p) {
-            modele.addElement(i);
-        }
-        jListPatients.setModel(modele);
+            DefaultListModel modele = new DefaultListModel();
+            resultatAffiche.stream().map((i) -> {
+                modele.addElement(i);
+                return i;
+            }).forEachOrdered((_item) -> {
+            });
+            jListPatients.setModel(modele);
+        
 
     }//GEN-LAST:event_jButtonRechercherActionPerformed
 
     private void jListPatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListPatientsMouseClicked
+        /*
         index = this.jListPatients.getSelectedIndex();
         patient = lipat.get(index);
-        ipp = patient.getIpp().substring(1, 1 - patient.getIpp().length());
-
+        ipp = patient.getIpp().substring(1,patient.getIpp().length()-1);
+*/
     }//GEN-LAST:event_jListPatientsMouseClicked
 
     private void jTextFieldPrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrenomActionPerformed
@@ -360,13 +397,25 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPrenomActionPerformed
 
     private void jButtonDossierGardeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDossierGardeActionPerformed
+        index = this.jListPatients.getSelectedIndex();
+        System.out.println(index);
+        System.out.println(lipat.get(0).getNompatient());
+        System.out.println(lipat.get(index).getNompatient());
+        
+        ipp = lipat.get(index).getIpp().substring(1,lipat.get(index).getIpp().length()-1);
+        
         DossierMedicoAdministratifDAO dmadao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         lastSejour = dmadao.getDernierNumeroSejour(ipp);
-        infoGarde.add("Nom: " + patient.getNompatient());
-        infoGarde.add("Prénom: " + patient.getPrenompatient());
-        infoGarde.add("Dare de naissance: " + patient.getDateDeNaissance());
         ArrayList<DossierMedicoAdministratif> exist = dmadao.find(ipp, lastSejour);
-        infoGarde.add("Dernière admission: " + exist.get(0).getService());
+
+        infoGarde = new ArrayList<>();
+        infoGarde.add("Nom: " + lipat.get(index).getNompatient());
+        infoGarde.add("Prénom: " + lipat.get(index).getPrenompatient());
+        infoGarde.add("Dare de naissance: " + lipat.get(index).getDateDeNaissance());
+        infoGarde.add("Arrivée dernier séjour : " + exist.get(0).getDateentree());
+        infoGarde.add("Service dernier séjour : " + exist.get(0).getService());
+        ippgarde = lipat.get(index).getIpp().substring(1,lipat.get(index).getIpp().length() -1);
+        
         DefaultListModel modele = new DefaultListModel();
         for (String i : infoGarde) {
             modele.addElement(i);
@@ -377,25 +426,44 @@ public class FusionnerDossierUrgence extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonDossierGardeActionPerformed
 
     private void jButtonDossierUrgenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDossierUrgenceActionPerformed
-      //ici c'est à modifier
+        index = this.jListPatients.getSelectedIndex();
+        System.out.println(index);
+        System.out.println(lipat.get(0).getNompatient());
+        System.out.println(lipat.get(index).getNompatient());
+        
+        ipp = lipat.get(index).getIpp().substring(1,lipat.get(index).getIpp().length()-1);
+        
         DossierMedicoAdministratifDAO dmadao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         lastSejour = dmadao.getDernierNumeroSejour(ipp);
-        infoGarde.add("Nom: " + patient.getNompatient());
-        infoGarde.add("Prénom: " + patient.getPrenompatient());
-        infoGarde.add("Dare de naissance: " + patient.getDateDeNaissance());
         ArrayList<DossierMedicoAdministratif> exist = dmadao.find(ipp, lastSejour);
-        infoGarde.add("Dernière admission: " + exist.get(0).getService());
+
+        infoFusion = new ArrayList<>();
+        infoFusion.add("Nom: " + lipat.get(index).getNompatient());
+        infoFusion.add("Prénom: " + lipat.get(index).getPrenompatient());
+        infoFusion.add("Dare de naissance: " + lipat.get(index).getDateDeNaissance());
+        infoFusion.add("Arrivée dernier séjour : " + exist.get(0).getDateentree());
+        infoFusion.add("Service dernier séjour " + exist.get(0).getService());
+        ippfusion = lipat.get(index).getIpp().substring(1,lipat.get(index).getIpp().length() -1);
+        
         DefaultListModel modele = new DefaultListModel();
-        for (String i : infoGarde) {
+        for (String i : infoFusion) {
             modele.addElement(i);
         }
         jListFusion.setModel(modele);
 
-
     }//GEN-LAST:event_jButtonDossierUrgenceActionPerformed
+
+    private void jButtonAccueilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccueilActionPerformed
+        RechercherPatient rechercher = new RechercherPatient(employe);
+        rechercher.setSize(this.getSize());
+        rechercher.setLocationRelativeTo(this);
+        this.dispose();
+        rechercher.setVisible(true);
+    }//GEN-LAST:event_jButtonAccueilActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAccueil;
     private javax.swing.JButton jButtonDossierGarde;
     private javax.swing.JButton jButtonDossierUrgence;
     private javax.swing.JButton jButtonFusionner;

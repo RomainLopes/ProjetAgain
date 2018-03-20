@@ -186,7 +186,6 @@ public class Identification extends javax.swing.JFrame {
         String pswd = new String(jTextFieldMdp.getPassword());
 
         ph = phd.connex(jTextFieldIdentifiant.getText(), pswd);
-        System.out.println(jTextFieldIdentifiant.getText() + pswd);
 
         if (jTextFieldIdentifiant.getText().equals("") | pswd.equals("")) {
             JOptionPane.showMessageDialog(null, "Identifiant et/ou mot de passe non renseigné");

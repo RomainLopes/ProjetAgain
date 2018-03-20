@@ -34,6 +34,9 @@ public class ClientT {
     private int port = 4446;
     private int nbr = 0;
 
+    /**
+     *
+     */
     public ClientT() {
         Patient pat;
         pat = new Patient(180000001, "Bouleeetttteeeee", 'E');

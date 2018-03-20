@@ -43,7 +43,9 @@ public class ServeurT {
         System.out.println(patient.getBirth());   
     }
     
-    
+    /**
+     *
+     */
     public ServeurT() {
         this.patient = null;
         this.message = null;

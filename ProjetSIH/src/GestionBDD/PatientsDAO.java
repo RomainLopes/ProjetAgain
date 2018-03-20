@@ -68,14 +68,14 @@ public class PatientsDAO extends DAO<Patients> {
     @Override
     public boolean create(Patients obj) {
         String Query;
-        String adresse = obj.getAdresse().replace('\'',' ');
-        
+        String adresse = obj.getAdresse().replace('\'', ' ');
+
         Query = "insert into patients (ipp,nompatient,prenompatient,datedenaissance,localisation,adresse,sexe) "
                 + "values ('{" + obj.getIpp() + "}','" + obj.getNompatient() + "','" + obj.getPrenompatient()
                 + "','" + obj.getDateDeNaissance() + "','" + obj.getLocalisation() + "','" + adresse
                 + "','" + obj.getSexe() + "')";
         System.out.println(Query);
-        
+
         try {
             Connection conn = this.connect;
             Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -90,13 +90,13 @@ public class PatientsDAO extends DAO<Patients> {
     @Override
     public boolean update(Patients obj) {
         String Query;
-        String adresse = obj.getAdresse().replace('\'',' ');
-        
-        Query = "UPDATE patients SET nompatient='" + obj.getNompatient() 
-                + "', prenompatient = '" + obj.getPrenompatient() 
-                + "', datedenaissance = '" + obj.getDateDeNaissance() 
-                + "', localisation ='" + obj.getLocalisation() 
-                + "', adresse ='" + adresse + "', sexe ='" 
+        String adresse = obj.getAdresse().replace('\'', ' ');
+
+        Query = "UPDATE patients SET nompatient='" + obj.getNompatient()
+                + "', prenompatient = '" + obj.getPrenompatient()
+                + "', datedenaissance = '" + obj.getDateDeNaissance()
+                + "', localisation ='" + obj.getLocalisation()
+                + "', adresse ='" + adresse + "', sexe ='"
                 + obj.getSexe() + "'  "
                 + "WHERE ipp = '{" + obj.getIpp() + "}'";
 
@@ -132,42 +132,38 @@ public class PatientsDAO extends DAO<Patients> {
             ResultSet result = state.executeQuery(Query);
 
             while (result.next()) {
-                pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));  
+                pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));
             }
             return pat;
-            
-
         } catch (SQLException e) {
         }
         return pat;
 
     }
 
-    /*
-    //@Override
+    @Override
     public ArrayList<Patients> findPatientNomPrenomServiceSM(String nom, String prenom, String service) {
         ArrayList<Patients> pat = new ArrayList<>();
         String Query;
 
-        DAO<DossierMedicoAdministratif> nosejour = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-//nosejour.getDernierNumeroSejour()
-        
+        //DAO<DossierMedicoAdministratif> nosejour = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+        //nosejour.getDernierNumeroSejour().
         if (nom.equals("")) {
-            Query = "SELECT patients.* FROM patients LEFT JOIN dma "
+            Query = "SELECT patients.* FROM patients RIGHT JOIN dma "
                     + "ON patients.ipp = dma.ipp "
                     + "WHERE patients.prenompatient = '" + prenom + "' "
                     + "AND dma.service = '" + service + "' ";
         } else if (prenom.equals("")) {
-            Query = "SELECT patients.* FROM patients INNER JOIN dma "
-                    + "ON patients.ipp = dossiermedical.ipp "
+            Query = "SELECT patients.* FROM patients RIGHT JOIN dma "
+                    + "ON patients.ipp = dma.ipp "
                     + "WHERE patients.nompatient = '" + nom + "' "
-                    + "AND (dossiermedical.service = '" + service + "' or dossiermedical.correspondance = '" + service + "' )";
+                    + "AND dma.service = '" + service + "' ";
         } else {
-            Query = "SELECT patients.* FROM patients INNER JOIN dossiermedical "
+            Query = "SELECT patients.* FROM patients RIGHT JOIN dma "
                     + "ON patients.ipp = dossiermedical.ipp "
                     + "WHERE patients.nompatient = '" + nom + "' "
                     + "AND patients.prenompatient = '" + prenom + "' "
-                    + "AND (dossiermedical.service = '" + service + "' or dossiermedical.correspondance = '" + service + "' )";
+                    + "AND dma.service = '" + service + "' ";
         }
 
         try {
@@ -178,17 +174,14 @@ public class PatientsDAO extends DAO<Patients> {
 
             while (result.next()) {
                 pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));
-
-               
             }
-             return pat;
+            return pat;
 
         } catch (SQLException e) {
         }
         return pat;
     }
-*/
-    
+
     @Override
     public ArrayList<Patients> findPatientNomPrenomService(String nom, String prenom, String service) {
         ArrayList<Patients> pat = new ArrayList<>();
@@ -220,10 +213,8 @@ public class PatientsDAO extends DAO<Patients> {
 
             while (result.next()) {
                 pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));
-
-               
             }
-             return pat;
+            return pat;
 
         } catch (SQLException e) {
         }
@@ -246,7 +237,7 @@ public class PatientsDAO extends DAO<Patients> {
                 pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));
 
             }
-                return pat;
+            return pat;
         } catch (SQLException e) {
         }
         return pat;
@@ -270,7 +261,7 @@ public class PatientsDAO extends DAO<Patients> {
                 pat.add(new Patients(result.getString("ipp"), result.getString("nompatient"), result.getString("prenompatient"), result.getString("datedenaissance"), result.getString("localisation"), result.getString("adresse"), result.getString("sexe")));
 
             }
-               return pat;
+            return pat;
         } catch (SQLException e) {
         }
         return pat;
