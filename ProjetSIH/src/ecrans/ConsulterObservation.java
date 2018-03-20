@@ -33,7 +33,6 @@ public class ConsulterObservation extends javax.swing.JFrame {
         this.patient = patient;
         this.fenetrePrecedente = previous;
 
-        jLabel3IPP.setText(patient.getIpp());
         jLabelObservationP.setText(observation.getResume());
         jLabelNomObservationP.setText(observation.getNomacte());
         jLabelDateP.setText(observation.getDateObservation());

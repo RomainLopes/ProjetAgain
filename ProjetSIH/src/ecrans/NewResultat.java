@@ -38,7 +38,6 @@ public class NewResultat extends javax.swing.JFrame {
         this.fenetre = fenetre;
         this.prescription = prescription;
 
-        jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(personnel.getService());
 
         jLabel1Nomp.setText(patient.getNompatient());

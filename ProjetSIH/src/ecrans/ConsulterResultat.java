@@ -34,7 +34,6 @@ public class ConsulterResultat extends javax.swing.JFrame {
         this.patient = patient;
         this.fenetrePrecedente = previous;
 
-        jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(employe.getService());
         jLabelResultatP.setText(resultat.getResultat());
         jLabelNaturePrestaP.setText(resultat.getPrestationmt());

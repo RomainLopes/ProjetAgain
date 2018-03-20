@@ -35,7 +35,6 @@ public class NewPrescription extends javax.swing.JFrame {
         employe = personnel;
         this.fenetre = fenetre;
 
-        jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(personnel.getService());
 
         jLabel1Nomp.setText(patient.getNompatient());

@@ -33,7 +33,6 @@ public class NewObservations extends javax.swing.JFrame {
         NewObservations.patient = patient;
         fenetrePre = previous;
         employe = personnel;
-        jLabel3IPP.setText(patient.getIpp());
         jLabel4Service.setText(personnel.getService());
 
         jLabel1Nomp.setText(patient.getNompatient());
