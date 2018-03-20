@@ -23,6 +23,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jButtonValider" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -38,33 +48,21 @@
                               <Component id="jComboBoxTypeSejour" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel2Localisation" min="-2" pref="79" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jFormattedTextFieldLocalisation" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabel2NomPH" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel2NomPH" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jTextFieldNomph" min="-2" pref="58" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jTextFieldPrenomph" min="-2" pref="51" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel2Localisation" min="-2" pref="79" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jFormattedTextFieldLocalisation" min="-2" pref="113" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButtonValider" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -74,12 +72,12 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2Localisation" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                   <Component id="jFormattedTextFieldLocalisation" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3Type" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBoxTypeSejour" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -92,7 +90,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButtonValider" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="46" max="32767" attributes="0"/>
+              <EmptySpace pref="52" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -341,13 +339,6 @@
         <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldLocalisation">
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(tel)"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="try{&#xa;&#xa;  MaskFormatter tel = new MaskFormatter(&quot;U###&quot;);"/>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="}&#xa;catch(ParseException e){e.printStackTrace();}"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JButton" name="jButtonValider">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -358,6 +349,16 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonValiderActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldLocalisation">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldLocalisationActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(tel2)"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="try{&#xa;&#xa;  MaskFormatter tel2 = new MaskFormatter(&quot;U###&quot;);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="}&#xa;catch(ParseException e){e.printStackTrace();}"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

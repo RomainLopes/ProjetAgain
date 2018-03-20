@@ -44,6 +44,10 @@ public class discution extends javax.swing.JFrame {
      */
     public discution(JFrame previous) {
         initComponents();
+myJLabel.setText("L’objectif est de mettre en œuvre un dossier patient pour partager les données entre professionnels de santé de l’établissement et les partenaires extérieurs aux fins de prise en charge du patient.\n" +
+"Ce dossier est à la croisée des données produites par les différents modules du système d’information. Il doit intégrer ses différentes composantes fonctionnelles (CR imagerie, prescription, résultats, …). Il doit permettre de prendre en charge le patient quel que soit le lieu où il est consulté en offrant toutes les conditions de sécurité.\n" +
+"Le dossier médical informatisé existant est une composante forte de l’existant dont il conviendra d’étudier la migration, la reprise de l’antériorité par le candidat (courriers notamment) est une des conditions incontournables de mise en œuvre du dossier informatisé. \n" +
+"Les informations collectées doivent contribuer au pilotage de l’établissement (production des GHS, exploitation souple et fine des bases de données).")     ;   
         this.previous = previous;
         ja = "{bonjour je m'appelle orphee}";
         jaN = ja.substring(1, ja.length() - 1);
@@ -106,7 +110,6 @@ public class discution extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        list1 = new java.awt.List();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jPanel2Test = new javax.swing.JPanel();
@@ -120,6 +123,8 @@ public class discution extends javax.swing.JFrame {
             jTextArea2 = new javax.swing.JTextArea();
             jButtonOk = new javax.swing.JButton();
             jTextField1 = new javax.swing.JTextField();
+            jScrollPaneTest = new javax.swing.JScrollPane(myJLabel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+            myJLabel = new javax.swing.JLabel();
 
             jMenuItem1.setText("jMenuItem1");
 
@@ -186,13 +191,16 @@ public class discution extends javax.swing.JFrame {
 
         jTextField1.setText("jTextField1");
 
+        myJLabel.setText("jLabel1");
+        jScrollPaneTest.setViewportView(myJLabel);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(jPanel2Test, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -206,25 +214,25 @@ public class discution extends javax.swing.JFrame {
                                     .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(20, 20, 20)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(65, 65, 65)
+                        .addComponent(jScrollPaneTest)))
                 .addGap(39, 39, 39))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonOk))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPaneTest, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonOk)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel2Test, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -258,6 +266,7 @@ public class discution extends javax.swing.JFrame {
 
     private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
         // TODO add your handling code here:
+       
     }//GEN-LAST:event_jFormattedTextField1ActionPerformed
 
     private void jButtonOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOkActionPerformed
@@ -284,11 +293,20 @@ public class discution extends javax.swing.JFrame {
 jFormattedTextField1 = new javax.swing.JFormattedTextField(tel2);
 }
 catch(ParseException e){e.printStackTrace();}*/
-        previous.setVisible(true);
+     /*   previous.setVisible(true);
         previous.setSize(this.getSize());
         previous.setLocationRelativeTo(this);
-        this.dispose();
-
+        this.dispose();*/
+SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+dateFormat.setLenient(false);
+Date date = null;
+try {
+    date = dateFormat.parse(jFormattedTextField1.getText());
+    System.out.println("Date parsée : "+date);
+}
+catch (Exception e) {
+    JOptionPane.showMessageDialog(null, "Veuillez renseigner une date valide au format : MM-dd-yyyy");
+}
     }//GEN-LAST:event_jButtonOkActionPerformed
 
     /**
@@ -340,8 +358,9 @@ catch(ParseException e){e.printStackTrace();}*/
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPaneTest;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
-    private java.awt.List list1;
+    private javax.swing.JLabel myJLabel;
     // End of variables declaration//GEN-END:variables
 }
