@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 package interoperabilite;
+
+import GestionBDD.BDDconnection;
+import GestionBDD.DAO;
+import GestionBDD.Patients;
+import GestionBDD.PatientsDAO;
+import java.util.Calendar;
 import library.interfaces.Patient;
 import library.interfaces.ServeurHL7;
 import library.structure.groupe.messages.Message;
@@ -16,40 +22,19 @@ public class ServeurT {
 
     private Patient patient;
     private Message message;
-    private ServeurHL7 c;
-    private int port = 4445;
+    private final ServeurHL7 c;
+    private final int port;
 
     /**
-     *
-     * @param portEcoute
+     * serveur écoutant sur le port entré en paramètre et recevant les messages
+     * d'admission de patient et les ajoutes à la base de donnée
+     * @param port
      */
-    public ServeurT(int portEcoute) {
+    public ServeurT(int port) {
         this.patient = null;
         this.message = null;
-
-        c = new ServeurHL7();
-        c.connection(port);
-        c.ecoute();
-        String messageHL7 = c.protocole();
-
-        System.out.println("Reçu :" + messageHL7);
-        this.patient = c.getPatient();
-        this.message = c.getMessage();
+        this.port = port;
         
-        System.out.println(patient.getFamillyName());
-        System.out.println(patient.getFirstName());
-        System.out.println(patient.getID());
-        System.out.println(patient.getCharSex());
-        System.out.println(patient.getBirth());   
-    }
-    
-    /**
-     *
-     */
-    public ServeurT() {
-        this.patient = null;
-        this.message = null;
-
         c = new ServeurHL7();
         c.connection(this.port);
         c.ecoute();
@@ -58,14 +43,41 @@ public class ServeurT {
         System.out.println("Reçu :" + messageHL7);
         this.patient = c.getPatient();
         this.message = c.getMessage();
-        
+
         System.out.println(patient.getFamillyName());
         System.out.println(patient.getFirstName());
         System.out.println(patient.getID());
         String sexe = String.valueOf(patient.getCharSex());
         System.out.println(sexe);
-        System.out.println(patient.getBirth());  
-        
+        System.out.println(patient.getBirth());
         System.out.println(message.getType());
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(patient.getBirth());
+
+        int annee = cal.get(Calendar.YEAR);
+        String anneestr = String.valueOf(annee).substring(2, 4);
+
+        int mois = cal.get(Calendar.MONTH);
+        String moisstr;
+        if (String.valueOf(mois).length() == 1) {
+            moisstr = "0" + String.valueOf(mois);
+        } else {
+            moisstr = String.valueOf(mois);
+        }
+
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        String daystr;
+        if (String.valueOf(day).length() == 1) {
+            daystr = "0" + String.valueOf(day);
+        } else {
+            daystr = String.valueOf(day);
+        }
+
+        String dateNaissance = moisstr + "-" + daystr + "-" + anneestr;
+
+        DAO<Patients> pDAO = new PatientsDAO(BDDconnection.getInstance());
+        Patients pat = new Patients(patient.getID().toString(), patient.getFamillyName(), patient.getFirstName(), dateNaissance, "", "", sexe);
+        pDAO.create(pat);
     }
 }

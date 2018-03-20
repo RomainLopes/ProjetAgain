@@ -5,6 +5,12 @@
  */
 package Interoperabilite;
 
+import GestionBDD.BDDconnection;
+import GestionBDD.DAO;
+import GestionBDD.Patients;
+import GestionBDD.PatientsDAO;
+import java.util.ArrayList;
+
 /**
  *
  * @author romel
@@ -16,7 +22,13 @@ public class TestClient {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        interoperabilite.ClientT s = new interoperabilite.ClientT();
+        DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
+        ArrayList<Patients> pat = PatientsDAO.findPatientNomPrenom("Lopes", "Marc");
+        
+        int port = 4446;
+        String host = "localhost";
+        
+        interoperabilite.ClientT s = new interoperabilite.ClientT(pat.get(0),port,host);
     }
     
 }
