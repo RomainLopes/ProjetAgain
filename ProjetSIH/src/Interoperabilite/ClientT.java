@@ -8,8 +8,6 @@ package interoperabilite;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Action;
 import library.interfaces.ClientHL7;
 import library.interfaces.MessageInterface;
@@ -40,11 +38,9 @@ public class ClientT {
     public ClientT() {
         Patient pat;
         pat = new Patient(180000001, "Bouleeetttteeeee", 'E');
-       // pat.setSex('F');
-        pat.setFirstName("DePapier");
-        //pat.setDeath(false);
+        pat.setSex('F');
+        pat.setFirstName("DePapier");  
         
-        /*
         Date dateBirth = null;
         String s = "01/01/1990";
         try {
@@ -55,11 +51,8 @@ public class ClientT {
         } catch (ParseException ex) {
             //Logger.getLogger(FrameClient.class.getName()).log(Level.SEVERE, null, ex);
         }
-        */
         
-        
-        
-        
+
         ClientHL7 c = new ClientHL7();
         c.connexion(this.host, this.port); //host = ip machine ; port=port écoute
 
@@ -72,11 +65,26 @@ public class ClientT {
 
     }
 
-    private void creePatient(String nomPat, int ipp, char classePat) { //changer textfield en paramètres
+    /**
+     * crée un patient à l'aide des paramètres renseignés
+     * ATTENTION ajouter le sexe pour le test de réception avec le serveur de 
+     * test de l'API
+     * @param nomPat
+     * @param ipp
+     * @param classePat 
+     */
+    private void creePatient(String nomPat, int ipp, char classePat) {
         this.patient = new Patient(ipp, nomPat, classePat);
 
     }
 
+    /**
+     * Renseigne les valeurs en paramètre pour le patient 
+     * @param prenomPat
+     * @param dateNaissance
+     * @param sexe
+     * @param dateAdmission 
+     */
     private void setValPatient(String prenomPat, String dateNaissance, char sexe, String dateAdmission) {
         //Prénom patient
         this.patient.setFirstName(prenomPat);
