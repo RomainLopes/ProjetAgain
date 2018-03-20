@@ -276,6 +276,13 @@ public class RechercherPatient extends javax.swing.JFrame {
         }
         if (lipat.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Aucun patient trouvé");
+            if ("Urgence".equals(phr.getService())){
+                  CreationDMAtemporaire rechercher = new CreationDMAtemporaire(phr,this);
+                    rechercher.setSize(this.getSize());
+                    rechercher.setLocationRelativeTo(this);
+                    this.dispose();
+                    rechercher.setVisible(true);
+            }
 
         } else {
             for (int i = 0; i < lipat.size(); i++) {
@@ -398,16 +405,16 @@ public class RechercherPatient extends javax.swing.JFrame {
             inte.getjListObservations().setModel(observations);
 
         } else {
-           /* if (x == true && "Urgence".equals(phr.getService())) {
+            if (x == true && "Urgence".equals(phr.getService())) {
 
-                MedUrgenceAccueil inte = new MedUrgenceAccueil(phr, lipat.get(index), ob);
+                MedUrgenceAccueil inte = new MedUrgenceAccueil(phr, lipat.get(index),this);
                 inte.setSize(this.getSize());
                 inte.setLocationRelativeTo(this);
                 this.dispose();
                 inte.setVisible(true);
                 inte.getjListPrescriptions().setModel(prescriptions);
                 inte.getjListObservations().setModel(observations);
-            } else*/ if (x == true && "Radiologie".equals(phr.getService())) {
+            } else if (x == true && "Radiologie".equals(phr.getService())) {
 
                 MedRadioAccueil inte = new MedRadioAccueil(phr, lipat.get(index), ob, re, pr);
                 inte.setSize(this.getSize());

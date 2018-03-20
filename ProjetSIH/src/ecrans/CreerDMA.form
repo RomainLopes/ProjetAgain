@@ -157,7 +157,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel2DateDeNaissance" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jTextField4DDN1" max="32767" attributes="0"/>
+                                      <Component id="jTextField4DDN1" min="-2" pref="86" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -167,9 +167,9 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldadresse" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldadresse" pref="110" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="jTextField4Localisation" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="jTextField4Localisation" min="-2" pref="97" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -199,8 +199,8 @@
                           <Component id="jLabel2DateDeNaissance" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="jTextField4Prenom" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2Localisation" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="jTextField4DDN1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextField4Localisation" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField4DDN1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -295,12 +295,20 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAideActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jTextField4DDN1">
-            </Component>
             <Component class="javax.swing.JFormattedTextField" name="jTextField4Localisation">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField4LocalisationActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(tel2)"/>
-                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="try{&#xa;  MaskFormatter tel2 = new MaskFormatter(&quot;U###&quot;);"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="try{&#xa;&#xa;  MaskFormatter tel2 = new MaskFormatter(&quot;U###&quot;);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="}&#xa;catch(ParseException e){e.printStackTrace();}"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="jTextField4DDN1">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(tel)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="try{&#xa;&#xa;  MaskFormatter tel = new MaskFormatter(&quot;##-##-####&quot;);"/>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="}&#xa;catch(ParseException e){e.printStackTrace();}"/>
               </AuxValues>
             </Component>
@@ -443,7 +451,7 @@
                   <Component id="jButtonPrecedent2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="483" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="262" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

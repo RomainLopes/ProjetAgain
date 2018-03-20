@@ -78,13 +78,11 @@ public class CreerNosejour extends javax.swing.JFrame {
         jLabel2NomPH = new javax.swing.JLabel();
         jTextFieldNomph = new javax.swing.JTextField();
         jTextFieldPrenomph = new javax.swing.JTextField();
+        jButtonValider = new javax.swing.JButton();
         try{
 
-            MaskFormatter tel = new MaskFormatter("U###");
-            jFormattedTextFieldLocalisation = new javax.swing.JFormattedTextField(tel);
-            jButtonValider = new javax.swing.JButton();
-            jLabel2 = new javax.swing.JLabel();
-            jLabel3 = new javax.swing.JLabel();
+            MaskFormatter tel2 = new MaskFormatter("U###");
+            jFormattedTextFieldLocalisation = new javax.swing.JFormattedTextField(tel2);
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -219,14 +217,19 @@ public class CreerNosejour extends javax.swing.JFrame {
 
             jTextFieldPrenomph.setText("Prénom");
 
+            jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
+            jButtonValider.setText("Valider");
+            jButtonValider.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jButtonValiderActionPerformed(evt);
+                }
+            });
+
         }
         catch(ParseException e){e.printStackTrace();}
-
-        jButtonValider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Valider2.PNG"))); // NOI18N
-        jButtonValider.setText("Valider");
-        jButtonValider.addActionListener(new java.awt.event.ActionListener() {
+        jFormattedTextFieldLocalisation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonValiderActionPerformed(evt);
+                jFormattedTextFieldLocalisationActionPerformed(evt);
             }
         });
 
@@ -238,6 +241,13 @@ public class CreerNosejour extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonValider)
+                        .addGap(131, 131, 131))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -284,7 +294,7 @@ public class CreerNosejour extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormattedTextFieldLocalisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -301,7 +311,7 @@ public class CreerNosejour extends javax.swing.JFrame {
                     .addComponent(jComboBoxTypeSejour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addComponent(jButtonValider)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
@@ -320,15 +330,42 @@ public class CreerNosejour extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxTypeSejourActionPerformed
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
-//if (jFormattedTextFieldLocalisation.getText().
-    
+        String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+        if (!"F".equals(jFormattedTextFieldLocalisation.getText().charAt(0)) || !"P".equals(jFormattedTextFieldLocalisation.getText().charAt(0))) {
+            JOptionPane.showMessageDialog(null, "La localisation doit commencer par F ou P puis 3 chiffres");
+        } else {
+// Creation du numero de sejour 
+            DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+            String nosejour = DossierMedicoAdministratifDAO.createNumeroSejour();
+            DossierMedicoAdministratif dma;
+// Recherhe du ph responsable 
+            PersonnelHospitalierDAO perso = new PersonnelHospitalierDAO(BDDconnection.getInstance());
+            phRespo = perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).get(0);
+//  creation du dma
+            dma = new DossierMedicoAdministratif(ipp, nosejour, dateDuJour, phRespo.getId(), jComboBoxTypeSejour.getSelectedItem().toString(), phRespo.getService());
+            boolean ok2 = DossierMedicoAdministratifDAO.create(dma);
+            if (ok2) {
+                JOptionPane.showMessageDialog(null, "Le DMA a bien été créé");
+                SaAccueil sadm = new SaAccueil(employe);
+                sadm.setVisible(true);
+                sadm.setSize(this.getSize());
+                sadm.setLocationRelativeTo(this);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Le DMA n'a pas pu être créé. Veuillez recommencer.");
 
-        SaAccueil sadm = new SaAccueil(employe);
-        sadm.setVisible(true);
-        sadm.setSize(this.getSize());
-        sadm.setLocationRelativeTo(this);
-        this.dispose();
+            }
+            SaAccueil sadm = new SaAccueil(employe);
+            sadm.setVisible(true);
+            sadm.setSize(this.getSize());
+            sadm.setLocationRelativeTo(this);
+            this.dispose();
+        }
     }//GEN-LAST:event_jButtonValiderActionPerformed
+
+    private void jFormattedTextFieldLocalisationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldLocalisationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldLocalisationActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

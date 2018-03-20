@@ -82,71 +82,81 @@ public class CreerDMA extends javax.swing.JFrame {
         jTextFieldadresse = new javax.swing.JTextField();
         jComboBoxSexe = new javax.swing.JComboBox<>();
         jButtonAide = new javax.swing.JButton();
-        jTextField4DDN1 = new javax.swing.JFormattedTextField();
         try{
+
             MaskFormatter tel2 = new MaskFormatter("U###");
             jTextField4Localisation = new javax.swing.JFormattedTextField(tel2);
-            jPanel2CreationDMA = new javax.swing.JPanel();
-            jLabel3Type = new javax.swing.JLabel();
-            jComboBoxTypeSejour = new javax.swing.JComboBox<>();
-            jLabel2NomPH = new javax.swing.JLabel();
-            jTextFieldNomph = new javax.swing.JTextField();
-            jTextFieldPrenomph = new javax.swing.JTextField();
-            jLabel2 = new javax.swing.JLabel();
-            jLabel3 = new javax.swing.JLabel();
-            jButtonValider = new javax.swing.JButton();
-            jPanel1 = new javax.swing.JPanel();
-            jLabel1 = new javax.swing.JLabel();
-            jButtonPrecedent2 = new javax.swing.JButton();
+            try{
 
-            jList1.setModel(new javax.swing.AbstractListModel<String>() {
-                String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-                public int getSize() { return strings.length; }
-                public String getElementAt(int i) { return strings[i]; }
-            });
-            jScrollPane1ListePrestaMT.setViewportView(jList1);
+                MaskFormatter tel = new MaskFormatter("##-##-####");
+                jTextField4DDN1 = new javax.swing.JFormattedTextField(tel);
+                jPanel2CreationDMA = new javax.swing.JPanel();
+                jLabel3Type = new javax.swing.JLabel();
+                jComboBoxTypeSejour = new javax.swing.JComboBox<>();
+                jLabel2NomPH = new javax.swing.JLabel();
+                jTextFieldNomph = new javax.swing.JTextField();
+                jTextFieldPrenomph = new javax.swing.JTextField();
+                jButtonValider = new javax.swing.JButton();
+                jPanel1 = new javax.swing.JPanel();
+                jLabel1 = new javax.swing.JLabel();
+                jButtonPrecedent2 = new javax.swing.JButton();
 
-            setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-            setBackground(new java.awt.Color(65, 131, 215));
-            setMinimumSize(new java.awt.Dimension(200, 200));
+                jList1.setModel(new javax.swing.AbstractListModel<String>() {
+                    String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+                    public int getSize() { return strings.length; }
+                    public String getElementAt(int i) { return strings[i]; }
+                });
+                jScrollPane1ListePrestaMT.setViewportView(jList1);
 
-            jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+                setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                setBackground(new java.awt.Color(65, 131, 215));
+                setMinimumSize(new java.awt.Dimension(200, 200));
 
-            jPanel3InfoPatient.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+                jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-            jLabel1Prenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-            jLabel1Prenom.setText("Prénom : ");
+                jPanel3InfoPatient.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-            jLabel2Nom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-            jLabel2Nom.setText("Nom : ");
+                jLabel1Prenom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+                jLabel1Prenom.setText("Prénom : ");
 
-            jLabel2Sexe.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-            jLabel2Sexe.setText("Sexe :");
+                jLabel2Nom.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+                jLabel2Nom.setText("Nom : ");
 
-            jLabel2DateDeNaissance.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-            jLabel2DateDeNaissance.setText("Date de Naissance : ");
+                jLabel2Sexe.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+                jLabel2Sexe.setText("Sexe :");
 
-            jLabel1InfoPatients.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
-            jLabel1InfoPatients.setText("Informations générales du patient ");
+                jLabel2DateDeNaissance.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+                jLabel2DateDeNaissance.setText("Date de Naissance : ");
 
-            jLabel2Adresse.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-            jLabel2Adresse.setText("Adresse : ");
+                jLabel1InfoPatients.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+                jLabel1InfoPatients.setText("Informations générales du patient ");
 
-            jLabel2Localisation.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-            jLabel2Localisation.setText("Localisation :");
+                jLabel2Adresse.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+                jLabel2Adresse.setText("Adresse : ");
 
-            jTextFieldadresse.addActionListener(new java.awt.event.ActionListener() {
+                jLabel2Localisation.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+                jLabel2Localisation.setText("Localisation :");
+
+                jTextFieldadresse.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        jTextFieldadresseActionPerformed(evt);
+                    }
+                });
+
+                jComboBoxSexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+                jButtonAide.setText("Détail Sexe");
+                jButtonAide.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        jButtonAideActionPerformed(evt);
+                    }
+                });
+
+            }
+            catch(ParseException e){e.printStackTrace();}
+            jTextField4Localisation.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    jTextFieldadresseActionPerformed(evt);
-                }
-            });
-
-            jComboBoxSexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-            jButtonAide.setText("Détail Sexe");
-            jButtonAide.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    jButtonAideActionPerformed(evt);
+                    jTextField4LocalisationActionPerformed(evt);
                 }
             });
 
@@ -182,16 +192,16 @@ public class CreerDMA extends javax.swing.JFrame {
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                                 .addComponent(jLabel2DateDeNaissance)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField4DDN1)))
+                                .addComponent(jTextField4DDN1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2Adresse, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldadresse)
+                            .addComponent(jTextFieldadresse, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                             .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
-                                .addComponent(jTextField4Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField4Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -214,8 +224,8 @@ public class CreerDMA extends javax.swing.JFrame {
                     .addComponent(jLabel2DateDeNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4Prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4DDN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jTextField4Localisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField4DDN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanel2CreationDMA.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -340,7 +350,7 @@ public class CreerDMA extends javax.swing.JFrame {
                 .addComponent(jButtonPrecedent2)
                 .addGap(107, 107, 107)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(262, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -396,10 +406,12 @@ public class CreerDMA extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAideActionPerformed
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
-        // TODO add your handling code here:
+        if (!"F".equals(jTextField4Localisation.getText().charAt(0)) || !"P".equals(jTextField4Localisation.getText().charAt(0))) {
+            JOptionPane.showMessageDialog(null, "La localisation doit commencer par F ou P puis 3 chiffres");
+        } else{
         // creation du patient
         DAO<Patients> pDAO = new PatientsDAO(BDDconnection.getInstance());
-        String ipp = pDAO.createIpp(); 
+        String ipp = pDAO.createIpp();
         //System.out.println(ipp);
 
         this.patient = new Patients(ipp, jTextField1Nom.getText(), jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
@@ -410,11 +422,8 @@ public class CreerDMA extends javax.swing.JFrame {
 // Recherhe du ph responsable 
 
             PersonnelHospitalierDAO perso = new PersonnelHospitalierDAO(BDDconnection.getInstance());
-
-            //System.out.println("taille liste = " + perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).size());
             phRespo = perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).get(0);
 
-            //System.out.println(phRespo.getNomph() + "  " + phRespo.getPrenomph());
 // Creation du numero de sejour 
             DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
             String nosejour = DossierMedicoAdministratifDAO.createNumeroSejour();
@@ -440,9 +449,13 @@ public class CreerDMA extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Le patient n'a pas pu être créé. Veuillez recommencer.");
         }
-
+        }
 
     }//GEN-LAST:event_jButtonValiderActionPerformed
+
+    private void jTextField4LocalisationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4LocalisationActionPerformed
+        //if (jTextField4Localisation.getText().charAt(0))
+    }//GEN-LAST:event_jTextField4LocalisationActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
