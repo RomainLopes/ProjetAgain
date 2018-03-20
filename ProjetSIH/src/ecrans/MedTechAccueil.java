@@ -430,9 +430,9 @@ public class MedTechAccueil extends javax.swing.JFrame {
                 .addGroup(jPanel4Prescriptions3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2ListePrescription3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Prescriptions3Layout.createSequentialGroup()
-                        .addGap(0, 38, Short.MAX_VALUE)
+                        .addGap(0, 47, Short.MAX_VALUE)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 53, Short.MAX_VALUE)))
+                        .addGap(0, 47, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Prescriptions3Layout.setVerticalGroup(
