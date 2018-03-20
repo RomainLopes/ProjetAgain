@@ -349,13 +349,13 @@ public class CreationDMAtemporaire extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAideActionPerformed
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
 dateFormat.setLenient(false);
-Date date = null;
+Date date2 = null;
 try {
-    date = dateFormat.parse(jTextField4Localisation.getText());
+    date2 = dateFormat.parse(jTextField4Localisation.getText());
 }
-catch (Exception e) {
+catch (ParseException e) {
     JOptionPane.showMessageDialog(null, "Veuillez renseigner une date valide au format : MM-dd-yyyy");
 }
         if (!"F".equals(jTextField4Localisation.getText().charAt(0)) || !"P".equals(jTextField4Localisation.getText().charAt(0))) {

@@ -6,9 +6,7 @@
 package ecrans;
 
 import GestionBDD.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 
@@ -18,15 +16,11 @@ import javax.swing.JFrame;
  */
 public class ConsulterDM extends javax.swing.JFrame {
 
-    private String dateDuJour = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
 
     private static PersonnelHospitalier employe;
     private static Patients patient;
-    private ArrayList<String> test; // ici ce sont les infos du patient
-    private JFrame fenetrePrecedente;
-    private static DossierMedicoAdministratif dmaCourrant;
     private final JFrame fenetre;
-    private String ipp;
+    private final String ipp;
 
     /**
      *
@@ -36,15 +30,9 @@ public class ConsulterDM extends javax.swing.JFrame {
      */
     public ConsulterDM(PersonnelHospitalier employe, Patients patient, JFrame previous) {
         initComponents();
-        this.employe = employe/*previous.getEmploye()*/;
+        ConsulterDM.employe = employe;
         this.fenetre = previous;
-        /*   if(employe.getFonction== "")
-        RechercherPatient name = (RechercherPatient) previous;
-        this.fenetrePrecedente= previous;
-        ConsulterDM.dmaCourrant=  name.getDmaCourrant();
-        this.patient = name.getPatient();*/
-        
-        this.patient = patient;
+        ConsulterDM.patient = patient;
 
         jLabel1Nomp.setText(patient.getNompatient());
         jLabel2PrenomP.setText(patient.getPrenompatient());
@@ -80,7 +68,7 @@ jListObservations.setModel(observations);
         DefaultListModel prescriptions = new DefaultListModel();
         pr.forEach((i) -> {
             prescriptions.addElement(i.getIdprescription() + "    " + i.getDateprescription());
-        }); // 4 espaces
+        }); 
 jListPrescriptions.setModel(prescriptions);
         OperationsDAO ope = new OperationsDAO(BDDconnection.getInstance());
         ArrayList<Operations> op;
@@ -235,9 +223,9 @@ jListOperations.setModel(operations);
                     .addGroup(jPanel3InfoPatientLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButtonPrecedent)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE)
                         .addComponent(jLabel1InfoPatients)))
-                .addContainerGap(379, Short.MAX_VALUE))
+                .addContainerGap(453, Short.MAX_VALUE))
         );
         jPanel3InfoPatientLayout.setVerticalGroup(
             jPanel3InfoPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -472,13 +460,13 @@ jListOperations.setModel(operations);
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jPanel4Prescriptions, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                .addComponent(jPanel4Prescriptions, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1Observations, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                .addComponent(jPanel1Observations, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelOperations, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                .addComponent(jPanelOperations, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel7Resultat, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                .addComponent(jPanel7Resultat, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
         jPanel1Layout.setVerticalGroup(
@@ -498,7 +486,7 @@ jListOperations.setModel(operations);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1003, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

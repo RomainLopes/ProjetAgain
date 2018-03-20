@@ -10,6 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -406,6 +407,15 @@ public class CreerDMA extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAideActionPerformed
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
+      SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+dateFormat.setLenient(false);
+Date date = null;
+try {
+    date = dateFormat.parse(jTextField4Localisation.getText());
+}
+catch (ParseException e) {
+    JOptionPane.showMessageDialog(null, "Veuillez renseigner une date valide au format : MM-dd-yyyy");
+}
         if (!"F".equals(jTextField4Localisation.getText().charAt(0)) || !"P".equals(jTextField4Localisation.getText().charAt(0))) {
             JOptionPane.showMessageDialog(null, "La localisation doit commencer par F ou P puis 3 chiffres");
         } else{

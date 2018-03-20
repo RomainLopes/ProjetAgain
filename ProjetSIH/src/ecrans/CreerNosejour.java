@@ -9,6 +9,7 @@ import GestionBDD.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -331,6 +332,15 @@ public class CreerNosejour extends javax.swing.JFrame {
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
         String ipp = (patient.getIpp().substring(1, patient.getIpp().length() - 1));
+       SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+dateFormat.setLenient(false);
+Date date2 = null;
+try {
+    date2 = dateFormat.parse(jFormattedTextFieldLocalisation.getText());
+}
+catch (Exception e) {
+    JOptionPane.showMessageDialog(null, "Veuillez renseigner une date valide au format : MM-dd-yyyy");
+}
         if (!"F".equals(jFormattedTextFieldLocalisation.getText().charAt(0)) || !"P".equals(jFormattedTextFieldLocalisation.getText().charAt(0))) {
             JOptionPane.showMessageDialog(null, "La localisation doit commencer par F ou P puis 3 chiffres");
         } else {
