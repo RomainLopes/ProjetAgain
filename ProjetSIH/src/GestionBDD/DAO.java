@@ -33,6 +33,7 @@ public abstract class DAO<T> {
      *
      * @param obj
      * renvoi un booléen pour indiquer si la requête a renvoyé ou non une exception @return
+     * @return 
      */
     public abstract boolean create(T obj);
 
