@@ -208,10 +208,10 @@ public class NoSejour extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4DateP)
+                        .addComponent(jLabel2DateDeNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3Sexep)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4DateP)
-                            .addComponent(jLabel2DateDeNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jLabel2Sexe, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1Nomp)
@@ -224,7 +224,7 @@ public class NoSejour extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(65, 131, 215));
 
         jLabel1Titre.setFont(new java.awt.Font("Wiggle", 0, 24)); // NOI18N
-        jLabel1Titre.setText("Création Résultat");
+        jLabel1Titre.setText("Détails du séjour");
 
         jLabel4Service.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4Service.setText("Service");
