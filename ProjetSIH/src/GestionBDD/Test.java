@@ -105,40 +105,48 @@ public class Test {
         System.out.println(pat3.size() + "  " +pat3.get(0).getNompatient() +"   " + pat3.get(0).getPrenompatient());
         ArrayList<Patients> pat4 = PatientsDAO.findPatientNomPrenomService("Djeco", "", "Pneumologie");
         System.out.println(pat4.size() + "  " +pat4.get(0).getNompatient() +"   " + pat4.get(0).getPrenompatient());
-        */
-       
- 
-        DossierMedicalDAO dmdao = new DossierMedicalDAO(BDDconnection.getInstance());
+         */
+ /*DossierMedicalDAO dmdao = new DossierMedicalDAO(BDDconnection.getInstance());
         ArrayList<DossierMedical> dm1 = dmdao.findSer("180000001", "180100001", "Cardiologie");
         System.out.println(dm1.get(0).getIpp() + "   " + dm1.get(0).getService());
         ArrayList<DossierMedical> dm2 = dmdao.find("180000001", "Cardiologie");
         System.out.println(dm2.get(0).getIpp() + "   " + dm2.get(0).getService());
-         
-        
-        
-        
- /*  DossierMedicoAdministratifDAO dmadao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+         */
+ /* DossierMedicoAdministratifDAO dmadao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         ArrayList<DossierMedicoAdministratif> dm = dmadao.findSer("180000001", "180100001", "Cardiologie");
         System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getService());
         System.out.println(dm.size());
          
- /*
-        LettreDeSortieDAO dmadao = new LettreDeSortieDAO(BDDconnection.getInstance());
-        ArrayList<LettreDeSortie> dm = dmadao.find("180000001","180100001");
-        if (!dm.isEmpty()){
+        ArrayList<DossierMedicoAdministratif> dm2 = dmadao.findService("180000001", "Cardiologie");
+        System.out.println(dm2.get(0).getIpp() + "   " + dm.get(0).getService());
+        System.out.println(dm2.size());
+        
+        ArrayList<DossierMedicoAdministratif> dm3 = dmadao.find("180000001", "180100001");
+        System.out.println(dm3.get(0).getIpp() + "   " + dm.get(0).getService());
+        System.out.println(dm3.size()); */
+      /*  LettreDeSortieDAO dmadao = new LettreDeSortieDAO(BDDconnection.getInstance());
+        ArrayList<LettreDeSortie> dm = dmadao.find("180000001", "180100001");
+        if (!dm.isEmpty()) {
             System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getLettre());
-        }else{
-        System.out.println("is empty");
-         */
- /*
+        } else {
+            System.out.println("is empty");}*/
+
+          
         ObservationsDAO dmadao = new ObservationsDAO(BDDconnection.getInstance());
-        ArrayList<Observations> dm = dmadao.findser("180000003","180200003","Urologie");
+        ArrayList<Observations> dm = dmadao.findSer("180000003","180200003","Urologie");
         if (!dm.isEmpty()){
             System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getResume());
         } else{
         System.out.println("is empty");
         } 
-         */
+        ArrayList<Observations> dm2 = dmadao.findIpp("180000003");
+        if (!dm2.isEmpty()){
+            for(Observations i:dm2){
+            System.out.println(i.getIpp() + "   " + i.getResume());
+        } }else{
+        System.out.println("is empty");
+        } 
+             
  /*
         OperationsDAO dmadao = new OperationsDAO(BDDconnection.getInstance());
         ArrayList<Operations> dm = dmadao.find("180000003","180200002");
@@ -147,12 +155,12 @@ public class Test {
         } else{
         System.out.println("is empty");
         }
-         */
+             */
  /*
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
         ArrayList<Patients> patients = PatientsDAO.find("180000006", "Cardiologie");
         System.out.println(patients.get(0).getIpp() + patients.get(0).getPrenompatient());
-         */
+             */
  /*
         PrescriptionsDAO dmadao = new PrescriptionsDAO(BDDconnection.getInstance());
         ArrayList<Prescriptions> dm = dmadao.findser("180000005","180200005","Urologie");
@@ -161,7 +169,7 @@ public class Test {
         } else{
         System.out.println("is empty");
         }
-         */
+             */
  /*
         PrestationsDAO dmadao = new PrestationsDAO(BDDconnection.getInstance());
         ArrayList<Prestations> dm = dmadao.find("180000001","180100001");
@@ -170,7 +178,7 @@ public class Test {
         } else{
         System.out.println("is empty");
         }
-         */
+             */
  /*
         ResultatsDAO dmadao = new ResultatsDAO(BDDconnection.getInstance());
         ArrayList<Resultats> dm = dmadao.find("180000003","180200003");
@@ -179,7 +187,7 @@ public class Test {
         } else{
         System.out.println("is empty");
         }
-         */
+             */
  /*
         TracabiliteDAO dmadao = new TracabiliteDAO(BDDconnection.getInstance());
         ArrayList<Tracabilite> dm = dmadao.findIpp("180000006");
@@ -189,50 +197,50 @@ public class Test {
         } else {
             System.out.println("is empty");
         }
-         */
-        //Tests unitaire d'update-------------------------------------------------
-        /*
+             */
+            //Tests unitaire d'update-------------------------------------------------
+            /*
         DossierMedicalDAO dmdao = new DossierMedicalDAO(BDDconnection.getInstance());
         dmdao.updateIpp("123456789", "180000001");
         ArrayList<DossierMedical> dm = dmdao.findser("123456789", "180100001", "Cardiologie");
         System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getService());
         dmdao.updateIpp("180000001", "123456789");
-         */
+             */
  /*
         DossierMedicoAdministratifDAO dmdao = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         dmdao.updateIpp("123456789", "180000001");
         ArrayList<DossierMedicoAdministratif> dm = dmdao.findSer("123456789", "180100001", "Cardiologie");
         System.out.println(dm.get(0).getIpp() + "   " + dm.get(0).getService());
         dmdao.updateIpp("180000001", "123456789");
-         */
+             */
  /*
         LettreDeSortieDAO ldsdao = new LettreDeSortieDAO(BDDconnection.getInstance());
         ldsdao.updateIpp("123456789", "180000001");
         ArrayList<LettreDeSortie> lds = ldsdao.find("123456789", "180100001");
         System.out.println(lds.get(0).getIpp() + "   " + lds.get(0).getLettre());
         ldsdao.updateIpp("180000001", "123456789");
-         */
+             */
  /*
         ObservationsDAO odao = new ObservationsDAO(BDDconnection.getInstance());
         odao.updateIpp("123456789", "180000003");
         ArrayList<Observations> obs = odao.findIpp("123456789");
         System.out.println(obs.get(0).getIpp() + "   " + obs.get(0).getNomacte());
         odao.updateIpp("180000003", "123456789");
-         */
+             */
  /*
         PrescriptionsDAO predao = new PrescriptionsDAO(BDDconnection.getInstance());
         predao.updateIpp("123456789", "180000001");
         ArrayList<Prescriptions> press = predao.findIpp("123456789");
         System.out.println(press.get(0).getIpp() + "   " + press.get(0).getPrescription());
         predao.updateIpp("180000001", "123456789");
-         */
+             */
  /*
         PrestationsDAO presdao = new PrestationsDAO(BDDconnection.getInstance());
         presdao.updateIpp("123456789", "181000003");
         ArrayList<Prestations> prest = presdao.find("123456789", "180200003");
         System.out.println(prest.get(0).getIpp() + "   " + prest.get(0).getPrestation());
         presdao.updateIpp("181000003", "123456789");
-         */
+             */
 
  /*
         ResultatsDAO redao = new ResultatsDAO(BDDconnection.getInstance());
@@ -240,7 +248,7 @@ public class Test {
         ArrayList<Resultats> reds = redao.find("123456789", "180200003");
         System.out.println(reds.get(0).getIpp() + "   " + reds.get(0).getResultat());
         redao.updateIpp("180000003", "123456789");
-         */
+             */
  /*
         TracabiliteDAO tdao = new TracabiliteDAO(BDDconnection.getInstance()); // à tester ---------------
         tdao.updateIpp("123456789", "180000001");
@@ -252,31 +260,31 @@ public class Test {
         /*
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
         System.out.println(PatientsDAO.createIpp());
-         */
+             */
  /*     
  DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-         */
-        //Tests création d'ipp, numéro de séjour, et idprescription -------------------------------------------------
-        /*
+             */
+            //Tests création d'ipp, numéro de séjour, et idprescription -------------------------------------------------
+            /*
         DAO<Patients> PatientsDAO = new PatientsDAO(BDDconnection.getInstance());
         System.out.println(PatientsDAO.createIpp());
-         */
+             */
  /*
       DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(DossierMedicoAdministratifDAO.createNumeroSejour());
-         */
+             */
  /*
         DAO<DossierMedicoAdministratif> nosejour = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
         System.out.println(nosejour.getDernierNumeroSejour("180000001"));
-         */
+             */
  /*
         DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
         System.out.println(PrescriptionsDAO.createIdPrescription("180000003"));
-         */
+             */
  /*  
         DAO<Prescriptions> PrescriptionsDAO = new PrescriptionsDAO(BDDconnection.getInstance());
         System.out.println(PrescriptionsDAO.createIdPrescription("180000003"));
-         */
-    }
+             */
+        }
 
-}
+    }
