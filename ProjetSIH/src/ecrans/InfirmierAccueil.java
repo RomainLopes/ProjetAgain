@@ -586,5 +586,4 @@ public class InfirmierAccueil extends javax.swing.JFrame {
     public javax.swing.JList<String> getjListOperations() {
         return jListOperations;
     }
-
 }
