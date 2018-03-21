@@ -20,21 +20,14 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Date c= new Date();
-      // System.out.println(c.getMonth() +"-"+c.getDate()+"-"+c.getYear()); 
-    String date = new SimpleDateFormat("MM-dd-yyyy/HH mm ss").format(Calendar.getInstance().getTime());
-    String dateDuJour= (date.substring(0, 10));
-String heureDentree= (date.substring(11, 19));
-System.out.println(dateDuJour +" "+heureDentree );
         
-      /* SwingUtilities.invokeLater(new Runnable() {
+       SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 Identification pageDeCo = new Identification();
 
             }
-        });*/
+        });
     }
     
 }

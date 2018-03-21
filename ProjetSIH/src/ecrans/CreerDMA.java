@@ -157,11 +157,6 @@ public class CreerDMA extends javax.swing.JFrame {
 
             }
             catch(ParseException e){e.printStackTrace();}
-            jTextField4Localisation.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    jTextField4LocalisationActionPerformed(evt);
-                }
-            });
 
         }
         catch(ParseException e){e.printStackTrace();}
@@ -307,13 +302,11 @@ public class CreerDMA extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2CreationDMA, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonValider)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPanel3InfoPatient, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2CreationDMA, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonValider))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -410,65 +403,64 @@ public class CreerDMA extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAideActionPerformed
 
     private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValiderActionPerformed
-      SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
-dateFormat.setLenient(false);
-Date date = null;
-try {
-    date = dateFormat.parse(jTextField4Localisation.getText());
-}
-catch (ParseException e) {
-    JOptionPane.showMessageDialog(null, "Veuillez renseigner une date valide au format : MM-dd-yyyy");
-}
-        if (!"F".equals(jTextField4Localisation.getText().charAt(0)) || !"P".equals(jTextField4Localisation.getText().charAt(0))) {
-            JOptionPane.showMessageDialog(null, "La localisation doit commencer par F ou P puis 3 chiffres");
-        } else{
-        // creation du patient
-        DAO<Patients> pDAO = new PatientsDAO(BDDconnection.getInstance());
-        String ipp = pDAO.createIpp();
-        //System.out.println(ipp);
 
-        this.patient = new Patients(ipp, jTextField1Nom.getText(), jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
-        boolean ok = pDAO.create(patient);
-        //System.out.println(ok);
-        if (ok) {
-            JOptionPane.showMessageDialog(null, "Le patient a bien été créé");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        dateFormat.setLenient(false);
+        Date date2 = null;
+
+        try {
+            date2 = dateFormat.parse(jTextField4DDN1.getText());
+            System.out.println(date2);
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(null, "Veuillez renseigner une date valide au format : MM-dd-yyyy");
+        }
+        if ("F".equals(jTextField4Localisation.getText().charAt(0)) || "P".equals(jTextField4Localisation.getText().charAt(0))) {
+            JOptionPane.showMessageDialog(null, "La localisation doit commencer par F ou P puis 3 chiffres");
+        } else {
+        
+            // creation du patient
+            DAO<Patients> pDAO = new PatientsDAO(BDDconnection.getInstance());
+            String ipp = pDAO.createIpp();
+            //System.out.println(ipp);
+
+            this.patient = new Patients(ipp, jTextField1Nom.getText(), jTextField4Prenom.getText(), jTextField4DDN1.getText(), jTextField4Localisation.getText(), jTextFieldadresse.getText(), jComboBoxSexe.getSelectedItem().toString());
+            boolean ok = pDAO.create(patient);
+            //System.out.println(ok);
+            if (ok) {
+                JOptionPane.showMessageDialog(null, "Le patient a bien été créé");
 // Recherhe du ph responsable 
 
-            PersonnelHospitalierDAO perso = new PersonnelHospitalierDAO(BDDconnection.getInstance());
-            phRespo = perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).get(0);
+                PersonnelHospitalierDAO perso = new PersonnelHospitalierDAO(BDDconnection.getInstance());
+                phRespo = perso.find(jTextFieldNomph.getText(), jTextFieldPrenomph.getText()).get(0);
 
 // Creation du numero de sejour 
-            DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
-            String nosejour = DossierMedicoAdministratifDAO.createNumeroSejour();
+                DAO<DossierMedicoAdministratif> DossierMedicoAdministratifDAO = new DossierMedicoAdministratifDAO(BDDconnection.getInstance());
+                String nosejour = DossierMedicoAdministratifDAO.createNumeroSejour();
 
-            //System.out.println(nosejour);
-            DossierMedicoAdministratif dma;
-            //System.out.println(dateDuJour);
+                //System.out.println(nosejour);
+                DossierMedicoAdministratif dma;
+                //System.out.println(dateDuJour);
 //  creation du dma
-            dma = new DossierMedicoAdministratif(ipp, nosejour, dateDuJour, phRespo.getId(), jComboBoxTypeSejour.getSelectedItem().toString(), phRespo.getService());
-            boolean ok2 = DossierMedicoAdministratifDAO.create(dma);
-            if (ok2) {
-                JOptionPane.showMessageDialog(null, "Le DMA a bien été créé");
-                SaAccueil sadm = new SaAccueil(employe);
-                sadm.setVisible(true);
-                sadm.setSize(this.getSize());
-                sadm.setLocationRelativeTo(this);
-                this.dispose();
+                dma = new DossierMedicoAdministratif(ipp, nosejour, dateDuJour, phRespo.getId(), jComboBoxTypeSejour.getSelectedItem().toString(), phRespo.getService());
+                boolean ok2 = DossierMedicoAdministratifDAO.create(dma);
+                if (ok2) {
+                    JOptionPane.showMessageDialog(null, "Le DMA a bien été créé");
+                    SaAccueil sadm = new SaAccueil(employe);
+                    sadm.setVisible(true);
+                    sadm.setSize(this.getSize());
+                    sadm.setLocationRelativeTo(this);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Le DMA n'a pas pu être créé. Veuillez recommencer.");
+
+                }
+
             } else {
-                JOptionPane.showMessageDialog(null, "Le DMA n'a pas pu être créé. Veuillez recommencer.");
-
+                JOptionPane.showMessageDialog(null, "Le patient n'a pas pu être créé. Veuillez recommencer.");
             }
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Le patient n'a pas pu être créé. Veuillez recommencer.");
-        }
         }
 
     }//GEN-LAST:event_jButtonValiderActionPerformed
-
-    private void jTextField4LocalisationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4LocalisationActionPerformed
-        //if (jTextField4Localisation.getText().charAt(0))
-    }//GEN-LAST:event_jTextField4LocalisationActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
