@@ -5,6 +5,7 @@
  */
 package interoperabilite;
 
+import GestionBDD.Patients;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,38 +21,42 @@ import library.interfaces.ServeurHL7;
  */
 public class ClientT {
 
-    private ServeurHL7 serveur;
     private Patient patient;
-    private Action action;
-    private char sex = 'X';
-    private String card = "cardAdmettre";
 
     private final SimpleDateFormat formateur = new SimpleDateFormat("dd/MM/yyyy");
-
-    private String host = "192.168.43.123";
-    private int port = 4446;
+    private String host;
+    private int port;
     private int nbr = 0;
 
     /**
-     *
+     * Client envoyant un message d'amission du patient entré en paramètre au 
+     * port et à l'hote passé en paramètre
+     * @param patientbdd
+     * @param port
+     * @param host
      */
-    public ClientT() {
-        Patient pat;
-        pat = new Patient(180000001, "Bouleeetttteeeee", 'E');
-        pat.setSex('F');
-        pat.setFirstName("DePapier");  
+    public ClientT(Patients patientbdd, int port, String host) {
+        this.port = port;
+        this.host = host;
         
-        Date dateBirth = null;
-        String s = "01/01/1990";
+        int ipp = Integer.parseInt(patientbdd.getIpp().substring(1, patientbdd.getIpp().length() - 1));
+
+        Patient pat;
+        pat = new Patient(ipp, patientbdd.getNompatient(), 'I');
+        pat.setSex(patientbdd.getSexe().charAt(0));
+        pat.setFirstName(patientbdd.getPrenompatient());
+
+        Date dateBirth;
+        dateBirth = null;
+        String s = patientbdd.getDateDeNaissance();
         try {
-            if (!s.equals("  /  /    ")) {
+            if (!s.equals("")) {
                 dateBirth = formateur.parse(s);
                 pat.setBirth(dateBirth);
             }
         } catch (ParseException ex) {
             //Logger.getLogger(FrameClient.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
 
         ClientHL7 c = new ClientHL7();
         c.connexion(this.host, this.port); //host = ip machine ; port=port écoute
@@ -66,12 +71,12 @@ public class ClientT {
     }
 
     /**
-     * crée un patient à l'aide des paramètres renseignés
-     * ATTENTION ajouter le sexe pour le test de réception avec le serveur de 
-     * test de l'API
+     * crée un patient à l'aide des paramètres renseignés ATTENTION ajouter le
+     * sexe pour le test de réception avec le serveur de test de l'API
+     *
      * @param nomPat
      * @param ipp
-     * @param classePat 
+     * @param classePat
      */
     private void creePatient(String nomPat, int ipp, char classePat) {
         this.patient = new Patient(ipp, nomPat, classePat);
@@ -79,11 +84,12 @@ public class ClientT {
     }
 
     /**
-     * Renseigne les valeurs en paramètre pour le patient 
+     * Renseigne les valeurs en paramètre pour le patient
+     *
      * @param prenomPat
      * @param dateNaissance
      * @param sexe
-     * @param dateAdmission 
+     * @param dateAdmission
      */
     private void setValPatient(String prenomPat, String dateNaissance, char sexe, String dateAdmission) {
         //Prénom patient
@@ -111,7 +117,7 @@ public class ClientT {
         String d = dateAdmission;
         try {
             if (!d.equals("  /  /    ")) {
-                dateBirth = formateur.parse(d);
+                dateAdmit = formateur.parse(d);
                 this.patient.setBirth(dateAdmit);
             }
         } catch (ParseException ex) {

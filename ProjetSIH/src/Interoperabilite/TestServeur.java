@@ -15,7 +15,8 @@ public class TestServeur {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        interoperabilite.ServeurT s = new interoperabilite.ServeurT();
+        int port = 4445;
+        interoperabilite.ServeurT s = new interoperabilite.ServeurT(port);
     }
     
 }
