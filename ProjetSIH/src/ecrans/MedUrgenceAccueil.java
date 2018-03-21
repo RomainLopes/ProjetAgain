@@ -40,8 +40,8 @@ public class MedUrgenceAccueil extends javax.swing.JFrame {
 
         jLabel1Nomp.setText(patient.getNompatient());
         jLabel2PrenomP.setText(patient.getPrenompatient());
-        jLabel2DateDeNaissance.setText(patient.getDateDeNaissance());
-        jLabel2Sexe.setText(patient.getSexe());
+        jLabel4DateP.setText(patient.getDateDeNaissance());
+        jLabel3Sexep.setText(patient.getSexe());
         fenetrePrecedente = fenetrePre;
     }
 
